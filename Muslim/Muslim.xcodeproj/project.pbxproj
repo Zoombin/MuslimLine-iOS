@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
 		1887FD051BD7387400CB83D5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD041BD7387400CB83D5 /* MainViewController.swift */; };
-		1887FD081BD7387400CB83D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD061BD7387400CB83D5 /* Main.storyboard */; };
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
-		1887FD0D1BD7387400CB83D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD0B1BD7387400CB83D5 /* LaunchScreen.storyboard */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
 		1887FD231BD7387500CB83D5 /* MuslimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD221BD7387500CB83D5 /* MuslimUITests.swift */; };
 /* End PBXBuildFile section */
@@ -36,10 +34,8 @@
 /* Begin PBXFileReference section */
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD021BD7387400CB83D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1887FD041BD7387400CB83D5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1887FD071BD7387400CB83D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1887FD041BD7387400CB83D5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		1887FD091BD7387400CB83D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1887FD0C1BD7387400CB83D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1887FD0E1BD7387400CB83D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1887FD131BD7387400CB83D5 /* MuslimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD171BD7387400CB83D5 /* MuslimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimTests.swift; sourceTree = "<group>"; };
@@ -74,6 +70,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		186B5EF11BE1B1E600212049 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		186B5EF21BE1B1E600212049 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1887FD041BD7387400CB83D5 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		186B5EF31BE1B1E600212049 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		186B5EF41BE1B1E600212049 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		186B5EF51BE1B1E600212049 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1887FCF61BD7387400CB83D5 = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +129,13 @@
 		1887FD011BD7387400CB83D5 /* Muslim */ = {
 			isa = PBXGroup;
 			children = (
+				186B5EF11BE1B1E600212049 /* Categories */,
+				186B5EF21BE1B1E600212049 /* Controllers */,
+				186B5EF31BE1B1E600212049 /* Models */,
+				186B5EF41BE1B1E600212049 /* Utils */,
+				186B5EF51BE1B1E600212049 /* Views */,
 				1887FD021BD7387400CB83D5 /* AppDelegate.swift */,
-				1887FD041BD7387400CB83D5 /* MainViewController.swift */,
-				1887FD061BD7387400CB83D5 /* Main.storyboard */,
 				1887FD091BD7387400CB83D5 /* Assets.xcassets */,
-				1887FD0B1BD7387400CB83D5 /* LaunchScreen.storyboard */,
 				1887FD0E1BD7387400CB83D5 /* Info.plist */,
 			);
 			path = Muslim;
@@ -228,9 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1887FD0D1BD7387400CB83D5 /* LaunchScreen.storyboard in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
-				1887FD081BD7387400CB83D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,25 +322,6 @@
 			targetProxy = 1887FD1F1BD7387500CB83D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1887FD061BD7387400CB83D5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1887FD071BD7387400CB83D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1887FD0B1BD7387400CB83D5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1887FD0C1BD7387400CB83D5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1887FD251BD7387500CB83D5 /* Debug */ = {
@@ -483,6 +496,7 @@
 				1887FD291BD7387500CB83D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1887FD2A1BD7387500CB83D5 /* Build configuration list for PBXNativeTarget "MuslimTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +505,7 @@
 				1887FD2C1BD7387500CB83D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1887FD2D1BD7387500CB83D5 /* Build configuration list for PBXNativeTarget "MuslimUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +514,7 @@
 				1887FD2F1BD7387500CB83D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
