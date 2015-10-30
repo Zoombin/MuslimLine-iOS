@@ -31,18 +31,17 @@ class AboutViewController: UIViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         //顶部背景图片
-        let bgHight :CGFloat = (screenHeight/2)-30
+        let bgHight :CGFloat = ((screenHeight-64)/2)-50
         let topImg :UIImageView = UIImageView(frame: CGRectMake(0, 64, screenWidth, bgHight))
-        let imageResouce = UIImage(named:"topimgbg")
-        topImg.image = imageResouce
+        topImg.image = UIImage(named:"topimgbg")
         self.view.addSubview(topImg)
         
-        let textWidth:CGFloat = 100
-        let textHight :CGFloat = 15
+        let txtWidth:CGFloat = 100
+        let txtHight :CGFloat = 15
         let logoWidth : CGFloat = 65
         let logoHight : CGFloat = 65
-        let indexX : CGFloat = (screenWidth-(logoWidth+20+textWidth))/2
-        let indexY :CGFloat = (bgHight-logoHight)/2
+        let indexX : CGFloat = (screenWidth-(logoWidth+20+txtWidth))/2
+        let indexY :CGFloat = (bgHight-logoHight)/2+64
         
         //图标
         let logo :UIImageView = UIImageView(frame: CGRectMake(indexX, indexY, logoWidth, logoHight))
@@ -51,19 +50,19 @@ class AboutViewController: UIViewController {
         
         
         let textMslX :CGFloat=indexX+logoWidth+20
-        let textMslY :CGFloat = indexY+((logoHight - (textHight+textHight+10))/2)
+        let textMslY :CGFloat = indexY+((logoHight - (txtHight+txtHight+10))/2)
         //文字
-        let textMsl :UILabel = UILabel(frame: CGRectMake(textMslX, textMslY, textWidth, textHight))
-        textMsl.text="Muslim Line"
+        let textMsl :UILabel = UILabel(frame: CGRectMake(textMslX, textMslY, txtWidth, txtHight))
+        textMsl.text=NSLocalizedString("app_name", comment: "")
         textMsl.textColor = UIColor.whiteColor()
-        textMsl.font = UIFont.systemFontOfSize(16)
+        textMsl.font = UIFont.systemFontOfSize(18)
         self.view.addSubview(textMsl)
         
         //版本
-        let textVer : UILabel = UILabel(frame: CGRectMake(textMslX, CGRectGetMaxY(textMsl.frame)+10, textWidth, textHight))
+        let textVer : UILabel = UILabel(frame: CGRectMake(textMslX, CGRectGetMaxY(textMsl.frame)+10, txtWidth, txtHight))
         textVer.text = PhoneUtils.getAppVer();
         textVer.textColor = UIColor.whiteColor()
-        textVer.font = UIFont.systemFontOfSize(16)
+        textVer.font = UIFont.systemFontOfSize(18)
         self.view.addSubview(textVer)
         
         //版权
@@ -75,7 +74,7 @@ class AboutViewController: UIViewController {
         copyRitht.textAlignment = NSTextAlignment.Center
         copyRitht.lineBreakMode = NSLineBreakMode.ByWordWrapping
         copyRitht.textColor = UIColor.lightGrayColor()
-        copyRitht.font = UIFont.systemFontOfSize(16)
+        copyRitht.font = UIFont.systemFontOfSize(14)
         self.view.addSubview(copyRitht)
         
     }
