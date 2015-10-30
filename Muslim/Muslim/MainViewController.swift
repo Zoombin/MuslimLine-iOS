@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //注: 设置title
-        title = "Muslim Line";
+        title = NSLocalizedString("app_name", comment:"");
         //设置标题栏颜色
         self.navigationController?.navigationBar.barTintColor = Constants.greenColor
         //设置标题的字的颜色
@@ -45,7 +45,13 @@ class MainViewController: UIViewController {
         var position : CGFloat = 0
         
         //定义数组 [String] 代表数组里面的String的
-        let titles : [String] = ["古兰经", "天房方向", "礼拜时间", "附近位置", "日历", "真主尊名"]
+        let label1 :String = NSLocalizedString("main_quran_label", comment:"");
+        let label2 :String = NSLocalizedString("main_qibla_label", comment:"");
+        let label3 :String = NSLocalizedString("main_pray_label", comment:"");
+        let label4 :String = NSLocalizedString("main_nearby_label", comment:"");
+        let label5 :String = NSLocalizedString("main_holiday_label", comment:"");
+        let label6 :String = NSLocalizedString("main_names_label", comment:"");
+        let titles : [String] = [label1, label2, label3, label4, label5, label6]
         let actions : [String] = ["clickGuLj", "clickTianFFX", "clickLiBSJ", "clickFuJWZ", "clickRiL", "clickZunZXM"]
         let imageNames : [String] = ["quran", "qibla", "prayer", "nearby", "calenlar", "names"]
         
