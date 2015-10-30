@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
-		1887FD051BD7387400CB83D5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD041BD7387400CB83D5 /* MainViewController.swift */; };
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
 		1887FD231BD7387500CB83D5 /* MuslimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD221BD7387500CB83D5 /* MuslimUITests.swift */; };
+		45F7E1261BE2F97F00FE79AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E1251BE2F97F00FE79AB /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD021BD7387400CB83D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1887FD041BD7387400CB83D5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		1887FD091BD7387400CB83D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1887FD0E1BD7387400CB83D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1887FD131BD7387400CB83D5 /* MuslimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +42,7 @@
 		1887FD1E1BD7387500CB83D5 /* MuslimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD221BD7387500CB83D5 /* MuslimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimUITests.swift; sourceTree = "<group>"; };
 		1887FD241BD7387500CB83D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45F7E1251BE2F97F00FE79AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Muslim/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		186B5EF21BE1B1E600212049 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1887FD041BD7387400CB83D5 /* MainViewController.swift */,
+				45F7E1251BE2F97F00FE79AB /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,8 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1887FD051BD7387400CB83D5 /* MainViewController.swift in Sources */,
 				1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */,
+				45F7E1261BE2F97F00FE79AB /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
