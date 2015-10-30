@@ -9,7 +9,7 @@
 import UIKit
 
 class AboutViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //国际化
@@ -31,24 +31,27 @@ class AboutViewController: UIViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         //顶部背景图片
-        let topImg :UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, (screenHeight/2)-30))
+        let bgHight :CGFloat = (screenHeight/2)-30
+        let topImg :UIImageView = UIImageView(frame: CGRectMake(0, 64, screenWidth, bgHight))
         let imageResouce = UIImage(named:"topimgbg")
         topImg.image = imageResouce
         self.view.addSubview(topImg)
         
-        let logoSize : CGFloat = 65
-        let indexX : CGFloat = (screenWidth-(logoSize+50+100))/2
-        let indexY :CGFloat = 180
-        
-        let textWidth:CGFloat = 90
+        let textWidth:CGFloat = 100
         let textHight :CGFloat = 15
-        let textMslX :CGFloat=indexX+logoSize+20
-        let textMslY :CGFloat = indexY+((logoSize - (textHight+textHight+10))/2)
+        let logoWidth : CGFloat = 65
+        let logoHight : CGFloat = 65
+        let indexX : CGFloat = (screenWidth-(logoWidth+20+textWidth))/2
+        let indexY :CGFloat = (bgHight-logoHight)/2
+        
         //图标
-        let logo :UIImageView = UIImageView(frame: CGRectMake(indexX, indexY, logoSize, logoSize))
+        let logo :UIImageView = UIImageView(frame: CGRectMake(indexX, indexY, logoWidth, logoHight))
         logo.image = UIImage(named:"templelogo")
         self.view.addSubview(logo)
         
+        
+        let textMslX :CGFloat=indexX+logoWidth+20
+        let textMslY :CGFloat = indexY+((logoHight - (textHight+textHight+10))/2)
         //文字
         let textMsl :UILabel = UILabel(frame: CGRectMake(textMslX, textMslY, textWidth, textHight))
         textMsl.text="Muslim Line"
@@ -67,7 +70,7 @@ class AboutViewController: UIViewController {
         let txtCopyRightW :CGFloat = 230
         let txtCopyRightH :CGFloat = 50
         let copyRitht : UILabel = UILabel(frame: CGRectMake((screenWidth-txtCopyRightW)/2, screenHeight-60, txtCopyRightW, txtCopyRightH))
-        copyRitht.text = "Copyright 2015 Muslim Line\nAll rights reseved"
+        copyRitht.text = NSLocalizedString("about_copyright_text", comment:"")
         copyRitht.numberOfLines = 0
         copyRitht.textAlignment = NSTextAlignment.Center
         copyRitht.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -76,21 +79,21 @@ class AboutViewController: UIViewController {
         self.view.addSubview(copyRitht)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
