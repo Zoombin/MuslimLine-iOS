@@ -14,7 +14,6 @@ class GuLJCell: UITableViewCell {
     @IBOutlet internal weak var titleLabel: UILabel!
     @IBOutlet internal weak var subTitleLabel: UILabel!
     @IBOutlet internal weak var describeLabel: UILabel!
-    @IBOutlet internal weak var label: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
