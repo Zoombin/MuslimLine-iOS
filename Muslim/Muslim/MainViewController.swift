@@ -27,7 +27,9 @@ class MainViewController: UIViewController {
     }
     
     func menuButtonClicked() {
-        
+        //临时跳转-到关于页面
+        let aboutviewController = AboutViewController()
+        self.navigationController?.pushViewController(aboutviewController, animated: true)
     }
     
     func initBottomView() {
