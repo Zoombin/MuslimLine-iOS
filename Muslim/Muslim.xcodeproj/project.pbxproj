@@ -11,6 +11,12 @@
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
 		1887FD231BD7387500CB83D5 /* MuslimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD221BD7387500CB83D5 /* MuslimUITests.swift */; };
+		18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */; };
+		18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */; };
+		18ADB8D61BE34F6300FA387E /* GuLJCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D41BE34F6300FA387E /* GuLJCell.swift */; };
+		18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8D51BE34F6300FA387E /* GuLJCell.xib */; };
+		18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */; };
+		18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8DA1BE3651A00FA387E /* Constants.swift */; };
 		45F7E1261BE2F97F00FE79AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E1251BE2F97F00FE79AB /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +48,12 @@
 		1887FD1E1BD7387500CB83D5 /* MuslimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD221BD7387500CB83D5 /* MuslimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimUITests.swift; sourceTree = "<group>"; };
 		1887FD241BD7387500CB83D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJViewController.swift; sourceTree = "<group>"; };
+		18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJViewController.xib; sourceTree = "<group>"; };
+		18ADB8D41BE34F6300FA387E /* GuLJCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJCell.swift; sourceTree = "<group>"; };
+		18ADB8D51BE34F6300FA387E /* GuLJCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJCell.xib; sourceTree = "<group>"; };
+		18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlUtil.swift; sourceTree = "<group>"; };
+		18ADB8DA1BE3651A00FA387E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45F7E1251BE2F97F00FE79AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Muslim/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -81,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				45F7E1251BE2F97F00FE79AB /* MainViewController.swift */,
+				18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */,
+				18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -95,6 +109,8 @@
 		186B5EF41BE1B1E600212049 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */,
+				18ADB8DA1BE3651A00FA387E /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -102,6 +118,8 @@
 		186B5EF51BE1B1E600212049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18ADB8D41BE34F6300FA387E /* GuLJCell.swift */,
+				18ADB8D51BE34F6300FA387E /* GuLJCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,7 +280,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
+				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +308,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */,
+				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
 				45F7E1261BE2F97F00FE79AB /* MainViewController.swift in Sources */,
+				18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */,
+				18ADB8D61BE34F6300FA387E /* GuLJCell.swift in Sources */,
+				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

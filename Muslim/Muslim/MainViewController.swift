@@ -14,14 +14,12 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         //注: 设置title
         title = "Muslim Line";
-        let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
-        
         //设置标题栏颜色
-        self.navigationController?.navigationBar.barTintColor = greenColor
+        self.navigationController?.navigationBar.barTintColor = Constants.greenColor
         //设置标题的字的颜色
         self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
         
-        self.view.backgroundColor = greenColor
+        self.view.backgroundColor = Constants.greenColor
         
         let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
@@ -78,6 +76,8 @@ class MainViewController: UIViewController {
     //古兰经
     func clickGuLj() {
         print("古兰经")
+        let guLJViewController = GuLJViewController()
+        self.navigationController?.pushViewController(guLJViewController, animated: true)
     }
     
     //天房方向
