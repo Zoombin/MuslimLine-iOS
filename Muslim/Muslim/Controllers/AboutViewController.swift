@@ -13,7 +13,7 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //国际化
-        title = NSLocalizedString("About", comment:"")
+        title = NSLocalizedString("about", comment:"")
         
         let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
         //设置标题栏颜色
