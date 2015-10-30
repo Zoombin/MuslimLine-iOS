@@ -17,6 +17,7 @@
 		18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8D51BE34F6300FA387E /* GuLJCell.xib */; };
 		18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */; };
 		18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8DA1BE3651A00FA387E /* Constants.swift */; };
+		18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8E01BE374C200FA387E /* Localizable.strings */; };
 		45F7E1261BE2F97F00FE79AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E1251BE2F97F00FE79AB /* MainViewController.swift */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
@@ -56,6 +57,8 @@
 		18ADB8D51BE34F6300FA387E /* GuLJCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJCell.xib; sourceTree = "<group>"; };
 		18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlUtil.swift; sourceTree = "<group>"; };
 		18ADB8DA1BE3651A00FA387E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18ADB8DF1BE374C200FA387E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18ADB8E11BE374CD00FA387E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45F7E1251BE2F97F00FE79AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Muslim/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 				1887FD021BD7387400CB83D5 /* AppDelegate.swift */,
 				1887FD091BD7387400CB83D5 /* Assets.xcassets */,
 				1887FD0E1BD7387400CB83D5 /* Info.plist */,
+				18ADB8E01BE374C200FA387E /* Localizable.strings */,
 			);
 			path = Muslim;
 			sourceTree = "<group>";
@@ -268,6 +272,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 1887FCF61BD7387400CB83D5;
 			productRefGroup = 1887FD001BD7387400CB83D5 /* Products */;
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
+				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,
 			);
@@ -354,6 +360,18 @@
 			targetProxy = 1887FD1F1BD7387500CB83D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18ADB8E01BE374C200FA387E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18ADB8DF1BE374C200FA387E /* en */,
+				18ADB8E11BE374CD00FA387E /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1887FD251BD7387500CB83D5 /* Debug */ = {
