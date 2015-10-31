@@ -12,8 +12,7 @@ class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = NSLocalizedString("main_quran_label", comment:"")
     }
 
     override func didReceiveMemoryWarning() {

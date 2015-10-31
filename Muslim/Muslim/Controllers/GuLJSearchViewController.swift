@@ -1,44 +1,41 @@
 //
-//  GuLJViewController.swift
+//  GuLJSearchViewController.swift
 //  Muslim
 //
-//  Created by 颜超 on 15/10/30.
+//  Created by 颜超 on 15/10/31.
 //  Copyright © 2015年 ZoomBin. All rights reserved.
 //
 
 import UIKit
 
-class GuLJViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var listView: UITableView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     let dataArray : NSMutableArray = NSMutableArray()
     let cellIdentifier = "myCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("main_quran_label", comment:"")
-        self.view.backgroundColor = Constants.greenColor
-        let rightImage : UIImage =  UIImage(named: "search")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
+        title = NSLocalizedString("main_quran_search_label", comment:"")
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        let searBar = UISearchBar()
+        
+        let width : CGFloat = UIScreen.mainScreen().bounds.width
+        let height : CGFloat = UIScreen.mainScreen().bounds.height
+        searBar.frame = CGRectMake(0, 64, width, 40)
+        searBar.placeholder = NSLocalizedString("keywords", comment:"")
+        self.view.addSubview(searBar)
+        
+        let listView : UITableView = UITableView()
+        listView.frame = CGRectMake(0, CGRectGetMaxY(searBar.frame), width, height - CGRectGetMaxY(searBar.frame))
+        listView.delegate = self
+        listView.dataSource = self
+        self.view.addSubview(listView)
         
         //注册ListView的adapter
-        listView!.registerNib(UINib(nibName: "GuLJCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
-        
-        //这个方法是用来监听segmentedControl的值是否有变化，也就是说，有没有切换过所以用了 UIControlEvents.ValueChanged
-        segmentedControl.addTarget(self, action: Selector.init("segmentedControlSelect"), forControlEvents: UIControlEvents.ValueChanged)
-        SegmentedControlUtil.changeSegmentedControlColor(segmentedControl)
+        listView.registerNib(UINib(nibName: "GuLJCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
     }
     
-    func segmentedControlSelect() {
-        if (segmentedControl.selectedSegmentIndex == 0) {
-            print("章节")
-        } else {
-            print("书签")
-        }
-    }
-
     //设置cell的高度
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
@@ -46,8 +43,8 @@ class GuLJViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //设置行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return dataArray.count
-        return 100
+        //        return dataArray.count
+        return 10
     }
     
     //类似android的getView方法，进行生成界面和赋值
@@ -66,21 +63,21 @@ class GuLJViewController: UIViewController, UITableViewDelegate, UITableViewData
         let guljSearchViewController = GuLJSearchViewController()
         self.navigationController?.pushViewController(guljSearchViewController, animated: true)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+
     /*
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
     */
-    
+
 }
