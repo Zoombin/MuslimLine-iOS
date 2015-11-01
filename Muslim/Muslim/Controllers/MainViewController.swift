@@ -9,6 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    var menuView : UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +24,48 @@ class MainViewController: UIViewController {
         
         let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
+        initMenuView()
         initBottomView()
     }
     
     func menuButtonClicked() {
         //临时跳转-到关于页面
-        let aboutviewController = FeedbackViewController()
-        self.navigationController?.pushViewController(aboutviewController, animated: true)
+        //let aboutviewController = FeedbackViewController()
+        //self.navigationController?.pushViewController(aboutviewController, animated: true)
+        if(menuView.hidden == true){
+            menuView.hidden = false;
+        }else{
+            menuView.hidden = true
+        }
+    }
+    
+    //菜单界面
+    func initMenuView(){
+        let itemHight:CGFloat = 40;
+        let menuWidth:CGFloat = 150
+        let menuHight:CGFloat = itemHight*5
+        let menuX :CGFloat = PhoneUtils.screenWidth-menuWidth;
+        let menuY :CGFloat = 64;
+        menuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
+        menuView.backgroundColor = UIColor.whiteColor()
+        menuView.hidden = true;
+        
+        var item :CGFloat = 0
+        for index in 0...4 {
+            let button : UIButton = UIButton()
+            let itemY :CGFloat = (item * itemHight)+menuY
+            button.frame = CGRectMake(menuX, itemY, menuWidth, itemHight)
+            button.backgroundColor = UIColor.whiteColor()
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.layer.borderWidth = 0.5 //设置边框的宽度
+            button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
+            button.tag = index
+            button.setTitle("设置", forState:UIControlState.Normal)
+            menuView.addSubview(button)
+            item++
+        }
+        self.view.addSubview(menuView)
+        
     }
     
     func initBottomView() {
