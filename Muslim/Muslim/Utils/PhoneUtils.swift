@@ -9,6 +9,8 @@
 import UIKit
 
 class PhoneUtils: NSObject {
+    static let screenWidth = UIScreen.mainScreen().bounds.size.width//屏幕宽度
+    static let screenHeight = UIScreen.mainScreen().bounds.size.height//屏幕高度
     
     //获取系统版本
     static func getAppVer() ->String{
@@ -17,4 +19,6 @@ class PhoneUtils: NSObject {
         let appversion = majorVersion as! String
         return appversion
     }
+    
+    
 }

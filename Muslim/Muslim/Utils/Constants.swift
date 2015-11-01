@@ -9,6 +9,5 @@
 import UIKit
 
 class Constants: NSObject {
-    //绿色
-    static let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
+   
 }

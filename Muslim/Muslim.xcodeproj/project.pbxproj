@@ -21,6 +21,7 @@
 		18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */; };
 		45184AF61BE3B20D007D3088 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AF51BE3B20D007D3088 /* FeedbackViewController.swift */; };
 		45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AF71BE3B2FA007D3088 /* GuLJCell.swift */; };
+		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchViewController.swift; sourceTree = "<group>"; };
 		45184AF51BE3B20D007D3088 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		45184AF71BE3B2FA007D3088 /* GuLJCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJCell.swift; sourceTree = "<group>"; };
+		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */,
 				18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */,
 				18ADB8DA1BE3651A00FA387E /* Constants.swift */,
+				45C7D0781BE5A9870086D39E /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */,
+				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
 				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
 				45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */,
 				45184AF61BE3B20D007D3088 /* FeedbackViewController.swift in Sources */,

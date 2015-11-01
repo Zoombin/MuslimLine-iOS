@@ -15,11 +15,11 @@ class MainViewController: UIViewController {
         //注: 设置title
         title = NSLocalizedString("app_name", comment:"");
         //设置标题栏颜色
-        self.navigationController?.navigationBar.barTintColor = Constants.greenColor
+        self.navigationController?.navigationBar.barTintColor = Colors.greenColor
         //设置标题的字的颜色
         self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
         
-        self.view.backgroundColor = Constants.greenColor
+        self.view.backgroundColor = Colors.greenColor
         
         let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     
     func menuButtonClicked() {
         //临时跳转-到关于页面
-        let aboutviewController = AboutViewController()
+        let aboutviewController = FeedbackViewController()
         self.navigationController?.pushViewController(aboutviewController, animated: true)
     }
     

@@ -19,7 +19,7 @@ class GuLJViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("main_quran_label", comment:"")
-        self.view.backgroundColor = Constants.greenColor
+        self.view.backgroundColor = Colors.greenColor
         let rightImage : UIImage =  UIImage(named: "search")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
         

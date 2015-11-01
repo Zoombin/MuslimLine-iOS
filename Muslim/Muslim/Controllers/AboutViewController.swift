@@ -23,11 +23,11 @@ class AboutViewController: UIViewController {
         //设置背景颜色
         self.view.backgroundColor = UIColor.whiteColor()
         
-        initView()
+        setupView()
     }
     
     
-    func initView(){
+    func setupView(){
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         //顶部背景图片
