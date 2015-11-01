@@ -32,19 +32,21 @@ class MainViewController: UIViewController {
         //临时跳转-到关于页面
         //let aboutviewController = FeedbackViewController()
         //self.navigationController?.pushViewController(aboutviewController, animated: true)
-        if(menuView.hidden == true){
-            menuView.hidden = false;
-        }else{
-            menuView.hidden = true
-        }
+//        if(menuView.hidden == true){
+//            menuView.hidden = false;
+//        }else{
+//            menuView.hidden = true
+//        }
+        //这样写就行
+        menuView.hidden = !menuView.hidden
     }
     
     //菜单界面
     func initMenuView(){
-        let itemHight:CGFloat = 40;
+        let itemHight:CGFloat = 40
         let menuWidth:CGFloat = 150
-        let menuHight:CGFloat = itemHight*5
-        let menuX :CGFloat = PhoneUtils.screenWidth-menuWidth;
+        let menuHight:CGFloat = itemHight * 5
+        let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
         let menuY :CGFloat = 64;
         menuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
         menuView.backgroundColor = UIColor.whiteColor()
@@ -53,8 +55,8 @@ class MainViewController: UIViewController {
         var item :CGFloat = 0
         for index in 0...4 {
             let button : UIButton = UIButton()
-            let itemY :CGFloat = (item * itemHight)+menuY
-            button.frame = CGRectMake(menuX, itemY, menuWidth, itemHight)
+            let itemY :CGFloat = (item * itemHight)
+            button.frame = CGRectMake(0, itemY, menuWidth, itemHight)
             button.backgroundColor = UIColor.whiteColor()
             button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
             button.layer.borderWidth = 0.5 //设置边框的宽度
