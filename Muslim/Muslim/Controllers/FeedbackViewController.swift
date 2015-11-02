@@ -59,7 +59,7 @@ class FeedbackViewController: UIViewController,UITextViewDelegate{
         let btText = NSLocalizedString("feedback_submit", comment: "")
         button.setTitle(btText, forState:UIControlState.Normal)
         button.setBackgroundImage(UIImage(named:"sendback"),forState: UIControlState.Normal)
-        button.addTarget(self, action: "sendFeedback", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: Selector.init("sendFeedback"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
     }
     

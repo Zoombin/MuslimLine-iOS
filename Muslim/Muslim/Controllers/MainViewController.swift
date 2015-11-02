@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     var menuView : UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //注: 设置title
@@ -29,14 +29,6 @@ class MainViewController: UIViewController {
     }
     
     func menuButtonClicked() {
-        //临时跳转-到关于页面
-        //let aboutviewController = FeedbackViewController()
-        //self.navigationController?.pushViewController(aboutviewController, animated: true)
-//        if(menuView.hidden == true){
-//            menuView.hidden = false;
-//        }else{
-//            menuView.hidden = true
-//        }
         //这样写就行
         menuView.hidden = !menuView.hidden
     }
@@ -52,22 +44,53 @@ class MainViewController: UIViewController {
         menuView.backgroundColor = UIColor.whiteColor()
         menuView.hidden = true;
         
+        let titles : [String] = [NSLocalizedString("upgrade_dialog_title", comment:""), NSLocalizedString("share", comment:""),
+            NSLocalizedString("settings_title", comment:""), NSLocalizedString("about", comment:""),
+            NSLocalizedString("feedback", comment:"")]
+        
         var item :CGFloat = 0
         for index in 0...4 {
             let button : UIButton = UIButton()
             let itemY :CGFloat = (item * itemHight)
             button.frame = CGRectMake(0, itemY, menuWidth, itemHight)
             button.backgroundColor = UIColor.whiteColor()
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center//居中
             button.layer.borderWidth = 0.5 //设置边框的宽度
             button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
+            button.addTarget(self, action: Selector.init("menuClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             button.tag = index
-            button.setTitle("设置", forState:UIControlState.Normal)
+            button.setTitle(titles[index], forState:UIControlState.Normal)
             menuView.addSubview(button)
             item++
         }
         self.view.addSubview(menuView)
         
+    }
+    
+    //菜单点击事件
+    func menuClick(item : UIButton){
+        menuView.hidden = true;
+        let tag : NSInteger = item.tag
+        if (tag == 0) {
+            //升级
+        }
+        else if (tag == 1) {
+            //分享
+        }
+        else if (tag == 2) {
+            //设置
+        }
+        else if (tag == 3) {
+            //关于
+            let aboutviewController = AboutViewController()
+            self.navigationController?.pushViewController(aboutviewController, animated: true)
+        }
+        else if (tag == 4) {
+            //反馈
+            let feedbackviewController = FeedbackViewController()
+            self.navigationController?.pushViewController(feedbackviewController, animated: true)
+        }
     }
     
     func initBottomView() {
@@ -118,7 +141,7 @@ class MainViewController: UIViewController {
             position++
         }
     }
- 
+    
     //古兰经
     func clickGuLj() {
         print("古兰经")
@@ -155,7 +178,7 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
