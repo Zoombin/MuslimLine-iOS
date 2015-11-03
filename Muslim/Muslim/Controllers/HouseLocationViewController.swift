@@ -8,12 +8,11 @@
 
 import UIKit
 
-class HouseLocationViewController: UIViewController, AMapLocationManagerDelegate {
+class HouseLocationViewController: BaseViewController, AMapLocationManagerDelegate {
     let locationManager : AMapLocationManager = AMapLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("main_qibla_label", comment:"")
-        self.view.backgroundColor = UIColor.whiteColor()
         
         locationManager.delegate = self
         configLocationManager()

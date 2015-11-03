@@ -8,21 +8,12 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //国际化
         title = NSLocalizedString("about_us", comment:"")
-        
-        let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
-        //设置标题栏颜色
-        self.navigationController?.navigationBar.barTintColor = greenColor
-        //设置标题的字的颜色
-        self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
-        //设置背景颜色
-        self.view.backgroundColor = UIColor.whiteColor()
-        
         setupView()
     }
     

@@ -8,20 +8,14 @@
 
 import UIKit
 
-class FeedbackViewController: UIViewController,UITextViewDelegate{
+class FeedbackViewController: BaseViewController,UITextViewDelegate{
     var textHint :UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("feedback", comment:"")
-        
-        //设置标题栏颜色
-        self.navigationController?.navigationBar.barTintColor = Colors.greenColor
-        //设置标题的字的颜色
-        self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
         //设置背景颜色
         self.view.backgroundColor = Colors.lightGray
-        
         setupView()
     }
     
