@@ -1,18 +1,24 @@
 //
-//  HouseLocationViewController.swift
+//  BaseViewController.swift
 //  Muslim
 //
-//  Created by 颜超 on 15/11/2.
+//  Created by LSD on 15/11/3.
 //  Copyright © 2015年 ZoomBin. All rights reserved.
 //
 
 import UIKit
 
-class HouseLocationViewController: BaseViewController {
+class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("main_qibla_label", comment:"")
+        let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
+        //设置标题栏颜色
+        self.navigationController?.navigationBar.barTintColor = greenColor
+        //设置标题的字的颜色
+        self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
+        //设置背景颜色
+        self.view.backgroundColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

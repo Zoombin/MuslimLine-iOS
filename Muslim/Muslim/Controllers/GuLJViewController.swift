@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuLJViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var listView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
