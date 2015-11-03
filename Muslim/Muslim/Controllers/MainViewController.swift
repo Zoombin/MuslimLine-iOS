@@ -152,6 +152,8 @@ class MainViewController: UIViewController {
     //天房方向
     func clickTianFFX() {
         print("天房方向")
+        let houseLocationViewController = HouseLocationViewController()
+        self.navigationController?.pushViewController(houseLocationViewController, animated: true)
     }
     
     //礼拜时间

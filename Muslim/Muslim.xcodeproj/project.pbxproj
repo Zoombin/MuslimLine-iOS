@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD021BD7387400CB83D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1887FD091BD7387400CB83D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */,
 				45184AF51BE3B20D007D3088 /* FeedbackViewController.swift */,
 				18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */,
+				182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */,
 				1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */,
 				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
 				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
@@ -474,7 +478,7 @@
 				INFOPLIST_FILE = Muslim/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zoombin.muslim;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sfd.muslimline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -486,7 +490,7 @@
 				INFOPLIST_FILE = Muslim/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zoombin.muslim;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sfd.muslimline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
