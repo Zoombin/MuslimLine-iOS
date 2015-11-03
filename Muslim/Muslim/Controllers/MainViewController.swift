@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     var menuView : UIView!
+    @IBOutlet weak var locationSettingsBkgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,18 @@ class MainViewController: UIViewController {
         
         let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
+        
         initMenuView()
         initBottomView()
+        initTopView()
+        
+        let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.addTarget(self, action: Selector.init("settingsBkgClicked"))
+        locationSettingsBkgView.addGestureRecognizer(tapGesture)
+    }
+    
+    func settingsBkgClicked() {
+        locationSettingsBkgView.hidden = !locationSettingsBkgView.hidden
     }
     
     func menuButtonClicked() {
@@ -93,11 +104,20 @@ class MainViewController: UIViewController {
         }
     }
     
+    func initTopView() {
+        let bkgButton : UIButton = UIButton()
+        bkgButton.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight)
+        bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(bkgButton)
+        
+        self.view.bringSubviewToFront(locationSettingsBkgView)
+    }
+    
     func initBottomView() {
         //注: var 和 let的区别， var是变量 let是常量
         //let Object : 类型 比如CGFloat NSInterger等等
-        let width : CGFloat = UIScreen.mainScreen().bounds.size.width
-        let height : CGFloat = UIScreen.mainScreen().bounds.size.height
+        let width : CGFloat = Constants.screenWidth
+        let height : CGFloat = Constants.screenHeight
         let buttonWidth = width / 3
         let buttonHeight = height / 4;
         //第几行

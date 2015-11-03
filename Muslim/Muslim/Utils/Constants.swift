@@ -9,5 +9,6 @@
 import UIKit
 
 class Constants: NSObject {
-   
+    static let screenWidth : CGFloat = UIScreen.mainScreen().bounds.size.width
+    static let screenHeight : CGFloat = UIScreen.mainScreen().bounds.size.height
 }
