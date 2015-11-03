@@ -28,6 +28,7 @@
 		45184AF61BE3B20D007D3088 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AF51BE3B20D007D3088 /* FeedbackViewController.swift */; };
 		45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AF71BE3B2FA007D3088 /* GuLJCell.swift */; };
 		4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD881BE883B90075A1FB /* BaseViewController.swift */; };
+		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
@@ -80,6 +81,7 @@
 		45184AF51BE3B20D007D3088 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		45184AF71BE3B2FA007D3088 /* GuLJCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJCell.swift; sourceTree = "<group>"; };
 		4521DD881BE883B90075A1FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */,
 				18ADB8DA1BE3651A00FA387E /* Constants.swift */,
 				45C7D0781BE5A9870086D39E /* Colors.swift */,
+				4521DD8A1BE885F00075A1FB /* Dimens.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */,
 				45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
+				4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
