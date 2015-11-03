@@ -7,3 +7,4 @@
 */
 
 "About" = "About";
+"NSLocationAlwaysUsageDescription" = "Muslim Line will use your location";

@@ -6,8 +6,10 @@
   Copyright © 2015年 ZoomBin. All rights reserved.
 */
 
+
 "app_name" = "Muslim Line";
 "app_string" = "Muslim Line";
+"NSLocationAlwaysUsageDescription" = "Muslim Line 需要使用您的地理位置";
 "SETTINGS_ASR_JURISTIC_HANAFI" = "哈纳菲";
 "SETTINGS_ASR_JURISTIC_STANDARD" = "标准";
 "SETTINGS_CALCULATION_CUSTOM" = "定制设定";
