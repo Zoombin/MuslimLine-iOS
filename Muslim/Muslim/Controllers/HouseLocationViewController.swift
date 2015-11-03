@@ -16,9 +16,12 @@ class HouseLocationViewController: BaseViewController, AMapLocationManagerDelega
         
         locationManager.delegate = self
         configLocationManager()
-        
         locationManager.startUpdatingLocation()
-//        locationManager.requestLocationWithReGeocode(true, completionBlock: nil)
+//        locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
+//            if (code != nil) {
+//                print(code.formattedAddress)
+//            }
+//        }
     }
     
     func configLocationManager() {
