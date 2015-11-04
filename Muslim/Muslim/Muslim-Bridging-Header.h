@@ -1,5 +1,5 @@
 //
-//   AMapDemoSwift-Bridging-Header.h
+//   Muslim-Bridging-Header.h
 //  Muslim
 //
 //  Created by 颜超 on 15/11/3.
@@ -8,3 +8,4 @@
 
 //#import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import "AFNetworking.h"

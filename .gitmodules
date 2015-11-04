@@ -1,0 +1,3 @@
+[submodule "Muslim/Muslim/Submodules/AFNetworking"]
+	path = Muslim/Muslim/Submodules/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking

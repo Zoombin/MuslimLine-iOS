@@ -12,16 +12,12 @@ class MSLHttpClient: NSObject {
 
     static func getTimezoneAndCountryName(lat : Double, lng : Double) {
         let urlString : String = String(format:"http://api.geonames.org/timezoneJSON?lat=%f&lng=%f&username=daiye", lat, lng)
-        let url: NSURL = NSURL(string: urlString)!
-        let request: NSURLRequest = NSURLRequest(URL: url)
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{
-            (response, data, error) -> Void in
-            if (error == nil) {
-                print("成功")
-            } else {
-                print("失败")
-            }
-        })
+        let manager = AFHTTPRequestOperationManager()
+        manager.GET(urlString, parameters: nil, success:
+            { (operation, responseObject) -> Void in
+             print("成功 %@", responseObject)
+            }) { (operation, error) -> Void in
+             print("失败")
+        }
     }
 }
