@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController, AMapLocationManagerDelegate {
     var menuView : UIView!
     let locationManager : AMapLocationManager = AMapLocationManager()
+    let topSearchView : UIView = UIView()
     
     @IBOutlet weak var locationSettingsBkgView: UIView!
     
@@ -50,7 +51,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
             if (code != nil) {
                 print(code.formattedAddress)
-//                MSLHttpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude)
+                MSLHttpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude)
             }
         }
     }
@@ -130,10 +131,24 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
     }
     
     func initTopView() {
+        topSearchView.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight / 2 - 64)
+        self.view.addSubview(topSearchView)
+        
         let bkgButton : UIButton = UIButton()
-        bkgButton.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight / 2)
+        bkgButton.frame = CGRectMake(0, 0, topSearchView.frame.size.width, topSearchView.frame.size.height)
         bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(bkgButton)
+        bkgButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, topSearchView.frame.size.height / 4, 0)
+        bkgButton.setImage(UIImage(named: "earth"), forState: UIControlState.Normal)
+        topSearchView.addSubview(bkgButton)
+        
+        let settingsButton : UIButton = UIButton()
+        settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
+        settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
+        settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
+        settingsButton.backgroundColor = UIColor.clearColor()
+        settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
+        settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
+        topSearchView.addSubview(settingsButton) 
     }
     
     func initBottomView() {
