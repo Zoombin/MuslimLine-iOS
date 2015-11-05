@@ -28,10 +28,11 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
         
-        initMenuView()
-        initBottomView()
         initTopView()
-        
+        initBottomView()
+        initMenuView()
+        self.view.bringSubviewToFront(locationSettingsBkgView)
+
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: Selector.init("settingsBkgClicked"))
         locationSettingsBkgView.addGestureRecognizer(tapGesture)
@@ -131,8 +132,6 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         bkgButton.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight / 2)
         bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(bkgButton)
-        
-        self.view.bringSubviewToFront(locationSettingsBkgView)
     }
     
     func initBottomView() {
