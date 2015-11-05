@@ -14,7 +14,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     let cellIdentifier = "settigCellIdentifier"
     let headCellIdentifier = "HeadCellIdentifier"
     
-    let settingData = []
+    var settingData : AnyObject? //设置的数据
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,13 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         listview!.registerNib(UINib(nibName: "SettingCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         
         listview!.registerNib(UINib(nibName: "SettingHead", bundle:nil), forCellReuseIdentifier: headCellIdentifier)
+    }
+    
+    func loadData(){
+        let data :NSData  = NSData(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("settings", ofType: "json")!))
+        print(data)
+            
+        settingData = NSJSONSerialization.JSONObjectWithData(data), options: NSJSONReadingOptions.allZeros, error: nil)
     }
     
     
@@ -51,24 +58,28 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         return headerCell
     }
     
-    //设置每一个分组的行数
-    func numberOfRowsInSection(section: Int) -> Int{
-        var num :Int = 0;
-        if(section == 0){
-            num =  10
-        }
-        if(section == 1){
-             num =  3
-        }
-        if(section == 2){
-            num =  1
-        }
-        return num
+    //设置每个item的高度
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 58
     }
     
     //设置行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        var num :Int = 0;
+        switch (section) {
+        case 0:
+            num =  10
+            break
+        case 1:
+            num =  3
+            break
+        case 2:
+            num =  1
+            break
+        default:
+            break
+        }
+        return num
     }
     
     //类似android的getView方法，进行生成界面和赋值

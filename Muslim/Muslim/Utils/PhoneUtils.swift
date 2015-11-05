@@ -18,7 +18,5 @@ class PhoneUtils: NSObject {
         let majorVersion : AnyObject? = infoDictionary! ["CFBundleShortVersionString"]
         let appversion = majorVersion as! String
         return appversion
-    }
-    
-    
+    } 
 }

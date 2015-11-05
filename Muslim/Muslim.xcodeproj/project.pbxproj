@@ -55,6 +55,8 @@
 		45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B351BEB24F2005B91BA /* SettingHead.xib */; };
 		45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */; };
 		45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */; };
+		45AB3B421BEB3247005B91BA /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B411BEB3247005B91BA /* settings.json */; };
+		45AB3B441BEB327F005B91BA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B431BEB327F005B91BA /* Setting.swift */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
@@ -154,6 +156,8 @@
 		45AB3B351BEB24F2005B91BA /* SettingHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingHead.xib; sourceTree = "<group>"; };
 		45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		45AB3B411BEB3247005B91BA /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
+		45AB3B431BEB327F005B91BA /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				18522CFC1BEAEEDE00524539 /* CountryInfo.swift */,
+				45AB3B431BEB327F005B91BA /* Setting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 		1887FD011BD7387400CB83D5 /* Muslim */ = {
 			isa = PBXGroup;
 			children = (
+				45AB3B401BEB3226005B91BA /* config */,
 				1843569B1BE9E51F00194744 /* Submodules */,
 				18BED73A1BE84F2600418054 /* Framework */,
 				18BED7361BE84A2800418054 /* Library */,
@@ -399,6 +405,14 @@
 				18BED7571BE855E300418054 /* CoreTelephony.framework */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		45AB3B401BEB3226005B91BA /* config */ = {
+			isa = PBXGroup;
+			children = (
+				45AB3B411BEB3247005B91BA /* settings.json */,
+			);
+			name = config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,6 +519,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45AB3B421BEB3247005B91BA /* settings.json in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
@@ -570,6 +585,7 @@
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */,
+				45AB3B441BEB327F005B91BA /* Setting.swift in Sources */,
 				184357AB1BE9E88D00194744 /* UIImageView+AFNetworking.m in Sources */,
 				184357541BE9E88D00194744 /* AFURLResponseSerialization.m in Sources */,
 				45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */,
