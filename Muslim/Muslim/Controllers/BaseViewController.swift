@@ -12,8 +12,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
-        //设置标题栏颜色
+        let greenColor : UIColor = Colors.greenColor        //设置标题栏颜色
         self.navigationController?.navigationBar.barTintColor = greenColor
         //设置标题的字的颜色
         self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]

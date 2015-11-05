@@ -114,6 +114,8 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         }
         else if (tag == 2) {
             //设置
+            let settingsViewController = SettingsViewController()
+            self.navigationController?.pushViewController(settingsViewController, animated: true)
         }
         else if (tag == 3) {
             //关于
