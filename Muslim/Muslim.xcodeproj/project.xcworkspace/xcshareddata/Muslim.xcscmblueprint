@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2454A7C0A4BC2A09472718EB55354F320600B245" : 0,
     "3CECB6C6913FF4475240D796DD36D77C87AF69FC" : 0,
     "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "61B4953A-2A64-4B7A-B4A5-E181DDCF6601",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2454A7C0A4BC2A09472718EB55354F320600B245" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/JSONModel\/",
     "3CECB6C6913FF4475240D796DD36D77C87AF69FC" : "MuslimLine-iOS\/",
     "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/AFNetworking\/"
   },
@@ -16,6 +18,11 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Muslim\/Muslim.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/icanzilb\/JSONModel.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2454A7C0A4BC2A09472718EB55354F320600B245"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zoombin\/MuslimLine-iOS.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

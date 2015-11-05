@@ -44,15 +44,20 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         locationManager.allowsBackgroundLocationUpdates = false
     }
     
+    //获取用户位置
+    func getUserLocation() {
+        locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
+            if (code != nil) {
+                print(code.formattedAddress)
+//                MSLHttpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude)
+            }
+        }
+    }
+    
     func settingsBkgClicked() {
         locationSettingsBkgView.hidden = !locationSettingsBkgView.hidden
         if (!locationSettingsBkgView.hidden) {
-            locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
-                if (code != nil) {
-                    print(code.formattedAddress)
-                    MSLHttpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude)
-                }
-            }
+            getUserLocation()
         }
     }
     

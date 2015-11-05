@@ -15,7 +15,10 @@ class MSLHttpClient: NSObject {
         let manager = AFHTTPRequestOperationManager()
         manager.GET(urlString, parameters: nil, success:
             { (operation, responseObject) -> Void in
-             print("成功 %@", responseObject)
+                print("成功 %@", responseObject)
+//                let countryInfo : CountryInfo = CountryInfo()
+//                countryInfo.initValues(responseObject as! NSDictionary)
+//                print(countryInfo.description)
             }) { (operation, error) -> Void in
              print("失败")
         }
