@@ -123,7 +123,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
     
     func initTopView() {
         let bkgButton : UIButton = UIButton()
-        bkgButton.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight)
+        bkgButton.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight / 2)
         bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(bkgButton)
         

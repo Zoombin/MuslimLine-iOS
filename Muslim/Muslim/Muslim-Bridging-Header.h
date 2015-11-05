@@ -6,6 +6,5 @@
 //  Copyright © 2015年 ZoomBin. All rights reserved.
 //
 
-//#import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "AFNetworking.h"
