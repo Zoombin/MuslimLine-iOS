@@ -23,13 +23,22 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         listview!.registerNib(UINib(nibName: "SettingCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         
         listview!.registerNib(UINib(nibName: "SettingHead", bundle:nil), forCellReuseIdentifier: headCellIdentifier)
+        
+        loadData()
     }
     
     func loadData(){
-        let data :NSData  = NSData(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("settings", ofType: "json")!))
-        print(data)
-            
-        settingData = NSJSONSerialization.JSONObjectWithData(data), options: NSJSONReadingOptions.allZeros, error: nil)
+        let filePath = NSBundle.mainBundle().pathForResource("settings", ofType: "json")
+        let txtString = try? NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
+        let data = txtString?.dataUsingEncoding(NSUTF8StringEncoding)
+        let array : NSArray = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+        
+        
+        print(array)
+//        let data :NSData  = NSData(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("settings", ofType: "json")!))
+//        print(data)
+//            
+//        settingData = NSJSONSerialization.JSONObjectWithData(data), options: NSJSONReadingOptions.allZeros, error: nil)
     }
     
     

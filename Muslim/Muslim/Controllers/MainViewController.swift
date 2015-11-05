@@ -13,6 +13,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
     let locationManager : AMapLocationManager = AMapLocationManager()
     let topSearchView : UIView = UIView()
     
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var locationSettingsBkgView: UIView!
     
     override func viewDidLoad() {
@@ -148,7 +149,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         settingsButton.backgroundColor = UIColor.clearColor()
         settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
         settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
-        topSearchView.addSubview(settingsButton) 
+        topSearchView.addSubview(settingsButton)
     }
     
     func initBottomView() {
