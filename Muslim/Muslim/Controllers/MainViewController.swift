@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, AMapLocationManagerDelegate {
+class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearchBarDelegate {
     var menuView : UIView!
     let locationManager : AMapLocationManager = AMapLocationManager()
     let topSearchView : UIView = UIView()
@@ -164,8 +164,15 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         autoButton.addTarget(self, action: Selector.init("rightButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         
         locationSearchBar.placeholder = NSLocalizedString("dlg_prayer_search_edit_text_hint", comment: "")
+        locationSearchBar.delegate = self
+        
         manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
         autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        MSLHttpClient.searchLocationByName(searchBar.text!)
     }
     
     func leftButtonClicked() {
