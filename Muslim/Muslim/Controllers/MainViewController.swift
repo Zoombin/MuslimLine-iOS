@@ -16,6 +16,15 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var locationSettingsBkgView: UIView!
     
+    @IBOutlet weak var autoButton: UIButton!
+    @IBOutlet weak var manButton: UIButton!
+
+    @IBOutlet weak var leftLineLabel: UILabel!
+    @IBOutlet weak var rightLineLabel: UILabel!
+    @IBOutlet weak var leftView: UIView!
+    @IBOutlet weak var rightView: UIView!
+    @IBOutlet weak var locationSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //注: 设置title
@@ -150,6 +159,35 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate {
         settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
         settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
         topSearchView.addSubview(settingsButton)
+        
+        manButton.addTarget(self, action: Selector.init("leftButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        autoButton.addTarget(self, action: Selector.init("rightButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        locationSearchBar.placeholder = NSLocalizedString("dlg_prayer_search_edit_text_hint", comment: "")
+        manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
+        autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
+    }
+    
+    func leftButtonClicked() {
+        manButton.backgroundColor = UIColor.whiteColor()
+        leftLineLabel.backgroundColor = Colors.greenColor
+        
+        autoButton.backgroundColor = Colors.searchGray
+        rightLineLabel.backgroundColor = Colors.searchGray
+        
+        leftView.hidden = false
+        rightView.hidden = true
+    }
+    
+    func rightButtonClicked() {
+        manButton.backgroundColor = Colors.searchGray
+        leftLineLabel.backgroundColor = Colors.searchGray
+        
+        autoButton.backgroundColor = UIColor.whiteColor()
+        rightLineLabel.backgroundColor = Colors.greenColor
+        
+        leftView.hidden = true
+        rightView.hidden = false
     }
     
     func initBottomView() {

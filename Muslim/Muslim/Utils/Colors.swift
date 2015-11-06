@@ -16,4 +16,7 @@ class Colors: NSObject {
     
     //淡蓝色
      static let lightBlue : UIColor = UIColor(colorLiteralRed: 237/255.0, green: 253/255.0, blue: 250/255.0, alpha: 1.0)
+    
+    //搜索地址淡灰色
+    static let searchGray : UIColor = UIColor(colorLiteralRed: 215/255.0, green: 215/255.0, blue: 215/255.0, alpha: 1.0)
 }

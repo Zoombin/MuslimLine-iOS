@@ -7,7 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Muslim" customModuleProvider="target">
             <connections>
+                <outlet property="autoButton" destination="EO7-fy-8JA" id="NcE-cC-YgI"/>
+                <outlet property="leftLineLabel" destination="RSz-qQ-7bd" id="PyJ-gz-mu2"/>
+                <outlet property="leftView" destination="cuO-ub-Yqg" id="H60-6v-JHL"/>
+                <outlet property="locationSearchBar" destination="ZcH-Ub-F09" id="EXs-qH-sKO"/>
                 <outlet property="locationSettingsBkgView" destination="qhc-0W-l2Z" id="EBT-mX-bal"/>
+                <outlet property="manButton" destination="dSN-xN-STW" id="VD6-VQ-M2n"/>
+                <outlet property="rightLineLabel" destination="bjx-Vo-p0T" id="d37-Fk-uIb"/>
+                <outlet property="rightView" destination="l6i-iw-RrO" id="lon-dJ-1xr"/>
                 <outlet property="searchView" destination="two-k8-1fs" id="MLG-De-LAH"/>
                 <outlet property="view" destination="iN0-l3-epB" id="EoN-5C-V4d"/>
             </connections>
@@ -17,13 +24,84 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" id="qhc-0W-l2Z">
+                <view contentMode="scaleToFill" id="qhc-0W-l2Z">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="two-k8-1fs">
                             <rect key="frame" x="40" y="164" width="240" height="240"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="l6i-iw-RrO">
+                                    <rect key="frame" x="0.0" y="37" width="240" height="203"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dlg_location_city_bg" id="qLC-on-SpZ">
+                                            <rect key="frame" x="0.0" y="141" width="240" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view hidden="YES" contentMode="scaleToFill" id="cuO-ub-Yqg">
+                                    <rect key="frame" x="0.0" y="37" width="240" height="203"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" id="ZcH-Ub-F09">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c2Y-He-C4z">
+                                            <rect key="frame" x="0.0" y="44" width="240" height="159"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dSN-xN-STW">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal">
+                                        <color key="titleColor" red="0.0" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EO7-fy-8JA">
+                                    <rect key="frame" x="120" y="0.0" width="120" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal">
+                                        <color key="titleColor" red="0.0" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bjx-Vo-p0T">
+                                    <rect key="frame" x="120" y="35" width="120" height="2"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RSz-qQ-7bd">
+                                    <rect key="frame" x="0.0" y="35" width="120" height="2"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -37,4 +115,7 @@
             <point key="canvasLocation" x="-62" y="347"/>
         </view>
     </objects>
+    <resources>
+        <image name="dlg_location_city_bg" width="299" height="77"/>
+    </resources>
 </document>

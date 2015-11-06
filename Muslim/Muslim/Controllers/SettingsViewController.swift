@@ -86,6 +86,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let section = indexPath.section
         let row = indexPath.row
         
+        
         let mDict : NSDictionary  =  settingData.objectAtIndex(section) as! NSDictionary
         let setArr :NSArray = mDict.objectForKey("set") as! NSArray
         let set : NSDictionary = setArr.objectAtIndex(row) as! NSDictionary
