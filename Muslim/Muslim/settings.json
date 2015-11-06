@@ -1,94 +1,122 @@
-[
-    {
-        "name": "礼拜时间",
-        "set": [
-            {
-                "title": "穆斯林派别",
-                "right_type": "1",
-                "subset": [
-                    "什叶派",
-                    "逊尼派"
-                ]
-            },
-            {
-                "title": "手动更正",
-                "right_type": "2",
-                "subset": []
-            },
-            {
-                "title": "自动设置",
-                "subtitle": "不可用于当前城市",
-                "right_type": "3",
-                "subset": []
-            },
-            {
-                "title": "午后祈祷（Asr）计算-法学方法",
-                "right_type": "1",
-                "subset": [
-                    "标准",
-                    "哈纳菲"
-                ]
-            },
-            {
-                "title": "礼拜时间约定",
-                "right_type": "1",
-                "subset": [
-                    "十二",
-                    "---"
-                ]
-            },
-            {
-                "title": "高维度调整",
-                "right_type": "1",
-                "subset": [
-                    "无",
-                    "---"
-                ]
-            },
-            {
-                "title": "夏令日",
-                "right_type": "1",
-                "subset": [
-                    "无",
-                    "---"
-                ]
-            },
-            {
-                "title": "时间格式",
-                "right_type": "4",
-                "right_txt": "24小时制",
-                "subset": [
-                    "标准",
-                    "哈纳菲"
-                ]
-            }
-        ]
-    },
-    {
-        "name": "古兰经",
-        "set": [
-            {
-                "title": "文本&译文",
-                "right_type": "2"
-            },
-            {
-                "title": "音频朗诵",
-                "right_type": "2"
-            }
-        ]
-    },
-    {
-        "name": "日历",
-        "set": [
-            {
-                "title": "日历选择",
-                "right_type": "4",
-                "right_txt": "伊斯兰日历",
-                "subset": [
-                    "标准",
-                    "哈纳菲"
-                ]
-            }
-        ]
-    }
-]
+ [
+  {
+  "name": "礼拜时间",
+  "set": [
+          {
+          "title": "穆斯林派别",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "什叶派",
+                     "逊尼派"
+                     ]
+          },
+          {
+          "title": "手动更正",
+          "subtitle": "",
+          "right_type": "2",
+          "right_txt": "",
+          "subset": []
+          },
+          {
+          "title": "自动设置",
+          "subtitle": "不可用于当前城市",
+          "right_type": "3",
+          "right_txt": "",
+          "subset": []
+          },
+          {
+          "title": "午后祈祷（Asr）计算-法学方法",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "标准",
+                     "哈纳菲"
+                     ]
+          },
+          {
+          "title": "礼拜时间约定",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "十二",
+                     "---"
+                     ]
+          },
+          {
+          "title": "高维度调整",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "无",
+                     "---"
+                     ]
+          },
+          {
+          "title": "夏令日",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "无",
+                     "---"
+                     ]
+          },
+          {
+          "title": "时间格式",
+          "subtitle": "",
+          "right_type": "4",
+          "right_txt": "24小时制",
+          "subset": [
+                     "标准",
+                     "哈纳菲"
+                     ]
+          },
+          {
+          "title": "默认模式下播放礼拜提示音",
+          "subtitle": "",
+          "right_type": "3",
+          "right_txt": "",
+          "subset": []
+          }
+          ]
+  },
+  {
+  "name": "古兰经",
+  "set": [
+          {
+          "title": "文本&译文",
+          "subtitle": "",
+          "right_type": "2",
+          "right_txt": "",
+          "subset": []
+          },
+          {
+          "title": "音频朗诵",
+          "subtitle": "",
+          "right_type": "2",
+          "right_txt": "",
+          "subset": []
+          }
+          ]
+  },
+  {
+  "name": "日历",
+  "set": [
+          {
+          "title": "日历选择",
+          "subtitle": "",
+          "right_type": "4",
+          "right_txt": "伊斯兰日历",
+          "subset": [
+                     "标准",
+                     "哈纳菲"
+                     ]
+          }
+          ]
+  }
+  ]

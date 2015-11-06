@@ -11,6 +11,7 @@ import UIKit
 class SettingCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var title2: UILabel!
     @IBOutlet weak var sub_title: UILabel!
     @IBOutlet weak var right_txt: UILabel!
     @IBOutlet weak var my_switch: UISwitch!
