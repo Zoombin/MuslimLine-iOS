@@ -15,7 +15,6 @@ class SettingCell: UITableViewCell {
     @IBOutlet weak var sub_title: UILabel!
     @IBOutlet weak var right_txt: UILabel!
     @IBOutlet weak var my_switch: UISwitch!
-    @IBOutlet weak var right_img: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

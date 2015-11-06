@@ -54,11 +54,6 @@
                             <action selector="switchChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="bpz-Yt-so4"/>
                         </connections>
                     </switch>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Z27-2v-L6G">
-                        <rect key="frame" x="291" y="21" width="15" height="15"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                        <animations/>
-                    </imageView>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -67,7 +62,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="my_switch" destination="McK-HB-iNq" id="XyE-Pp-qyo"/>
-                <outlet property="right_img" destination="Z27-2v-L6G" id="HYo-Q4-FjK"/>
                 <outlet property="right_txt" destination="5SK-Re-78o" id="dkH-pG-Q27"/>
                 <outlet property="sub_title" destination="A2U-VS-T7u" id="mZW-Mi-W2t"/>
                 <outlet property="title" destination="18f-pd-Hoi" id="9C7-Li-jr9"/>
