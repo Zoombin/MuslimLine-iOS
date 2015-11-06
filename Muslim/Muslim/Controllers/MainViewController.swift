@@ -70,6 +70,8 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
         locationSettingsBkgView.hidden = !locationSettingsBkgView.hidden
         if (!locationSettingsBkgView.hidden) {
             getUserLocation()
+        } else {
+            locationSearchBar.resignFirstResponder()
         }
     }
     
