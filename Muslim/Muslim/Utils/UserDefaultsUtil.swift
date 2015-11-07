@@ -19,8 +19,12 @@ class UserDefaultsUtil: NSObject {
     
     /**获取保存的String数据*/
     static func getString(key :NSString) -> String{
-        let value : String = userDefault.objectForKey(key as String) as! String
-        return value
+        if(userDefault.objectForKey(key as String) == nil) {
+            let value : String = userDefault.objectForKey(key as String) as! String
+            return value
+        }else{
+            return "";
+        }
     }
     
     /**保存Int数据*/
@@ -31,8 +35,12 @@ class UserDefaultsUtil: NSObject {
     
     /**获取保存的Int数据*/
     static func getInt(key :NSString) -> Int{
-        let value : Int = userDefault.objectForKey(key as String) as! Int
-        return value
+        if(userDefault.objectForKey(key as String) == nil) {
+            let value : Int = userDefault.objectForKey(key as String) as! Int
+            return value
+        }else{
+            return 0;
+        }
     }
     
 }
