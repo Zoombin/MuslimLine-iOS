@@ -54,7 +54,7 @@ class Config: NSObject {
         faction = pos
     }
     static func getFaction() ->Int{
-        faction = UserDefaultsUtil.getInt("CalculationjuristicMethod")
+        faction = UserDefaultsUtil.getInt("faction")
         return faction
     }
     
