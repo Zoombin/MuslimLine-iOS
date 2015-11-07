@@ -49,6 +49,7 @@
 		45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AF71BE3B2FA007D3088 /* GuLJCell.swift */; };
 		451BD58C1BECA157008D98C2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BD58B1BECA157008D98C2 /* Config.swift */; };
 		451BD58E1BECA428008D98C2 /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */; };
+		451BD58F1BECB229008D98C2 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 451BD5911BECB229008D98C2 /* settings.json */; };
 		4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD881BE883B90075A1FB /* BaseViewController.swift */; };
 		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
 		45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B321BEB24F2005B91BA /* SettingCell.swift */; };
@@ -57,7 +58,6 @@
 		45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B351BEB24F2005B91BA /* SettingHead.xib */; };
 		45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */; };
 		45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */; };
-		45AB3B421BEB3247005B91BA /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B411BEB3247005B91BA /* settings.json */; };
 		45AB3B441BEB327F005B91BA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B431BEB327F005B91BA /* Setting.swift */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
@@ -152,6 +152,8 @@
 		45184AF71BE3B2FA007D3088 /* GuLJCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJCell.swift; sourceTree = "<group>"; };
 		451BD58B1BECA157008D98C2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
+		451BD5921BECB23E008D98C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/settings.json; sourceTree = "<group>"; };
+		451BD5931BECB243008D98C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "zh-Hans"; path = "zh-Hans.lproj/settings.json"; sourceTree = "<group>"; };
 		4521DD881BE883B90075A1FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		45AB3B321BEB24F2005B91BA /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -160,7 +162,6 @@
 		45AB3B351BEB24F2005B91BA /* SettingHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingHead.xib; sourceTree = "<group>"; };
 		45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		45AB3B411BEB3247005B91BA /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 		45AB3B431BEB327F005B91BA /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -415,7 +416,7 @@
 		45AB3B401BEB3226005B91BA /* config */ = {
 			isa = PBXGroup;
 			children = (
-				45AB3B411BEB3247005B91BA /* settings.json */,
+				451BD5911BECB229008D98C2 /* settings.json */,
 				451BD58B1BECA157008D98C2 /* Config.swift */,
 			);
 			name = config;
@@ -525,7 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45AB3B421BEB3247005B91BA /* settings.json in Resources */,
+				451BD58F1BECB229008D98C2 /* settings.json in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
@@ -639,6 +640,15 @@
 				18ADB8E11BE374CD00FA387E /* zh-Hans */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		451BD5911BECB229008D98C2 /* settings.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				451BD5921BECB23E008D98C2 /* en */,
+				451BD5931BECB243008D98C2 /* zh-Hans */,
+			);
+			name = settings.json;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

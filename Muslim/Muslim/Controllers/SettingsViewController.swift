@@ -14,6 +14,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     let cellIdentifier = "settigCellIdentifier"
     let headCellIdentifier = "HeadCellIdentifier"
     
+    var listSection:Int = 0 //全局存储选择状态
+    var listRow :Int = 0
+    
     var settingData : NSArray! //设置的数据
     
     override func viewDidLoad() {
@@ -24,9 +27,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         
         listview!.registerNib(UINib(nibName: "SettingHead", bundle:nil), forCellReuseIdentifier: headCellIdentifier)
         
-        initAlertView()
         loadData()
-        
     }
     
     /**获取设置的json数据*/
@@ -36,14 +37,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let data = txtString?.dataUsingEncoding(NSUTF8StringEncoding)
         settingData = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
     }
-    
-    
-    /**初始化弹窗界面*/
-   
-    func initAlertView(){
-        
-    }
-    
     
     //设置list的分组
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -153,92 +146,199 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if(section == 0 && row == 0){
-            showAlertView(title, subset: subset, cancel: false)
-        }else{
-            showAlertView(title, subset: subset, cancel: true)
+        listSection = section;
+        listRow = row;
+        
+        if(subset.count > 0 ){
+            //需要弹窗
+            var cancel :Bool = true
+            if(section == 0 && row == 0){
+                cancel = false
+            }
+            let select = getItemSelect(section, row: row)
+            showAlertView(title, subset: subset,select:select,cancel: cancel)
         }
     }
     
     
     /**选择弹窗*/
     var bkgView :UIView!
-    func showAlertView(title :NSString, subset:NSArray!, cancel:Bool){
-        if(subset.count > 0){
-            let viewHight:CGFloat = PhoneUtils.screenHeight
-            let viewWidth :CGFloat = PhoneUtils.screenWidth
+    func showAlertView(title :NSString, subset:NSArray!, select :Int ,cancel:Bool){
+        let viewHight:CGFloat = PhoneUtils.screenHeight
+        let viewWidth :CGFloat = PhoneUtils.screenWidth
+        
+        bkgView = UIView()
+        bkgView.frame = CGRectMake(0, 0, viewWidth, viewHight)
+        bkgView.backgroundColor = Colors.trans
+        self.view.addSubview(bkgView)
+        
+        let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
+        if(cancel){
+            bkgView.addGestureRecognizer(tagGesture)
+        }
+        
+        
+        let itemHight :CGFloat = 50
+        let contentViewWidth :CGFloat = viewWidth-(30*2)
+        var num = subset.count + 1 //加一个标题
+        if(cancel){
+            num = num + 1 // 加一尾部
+        }
+        let count : CGFloat = CGFloat(num)
+        let contentViewHight :CGFloat = itemHight * count
+        
+        //内容显示界面
+        let contentView :UIView = UIView(frame: CGRectMake(30,(viewHight-contentViewHight)/2,contentViewWidth,contentViewHight))
+        contentView.backgroundColor = Colors.lightGray
+        bkgView.addSubview(contentView)
+        
+        //标题
+        let titleLable :UILabel = UILabel(frame: CGRectMake(0,0,contentViewWidth,itemHight))
+        titleLable.text = "  "+(title as String)
+        titleLable.backgroundColor = UIColor.whiteColor()
+        titleLable.textColor = Colors.greenColor
+        titleLable.font = UIFont.systemFontOfSize(Dimens.text_size_larger)
+        contentView.addSubview(titleLable)
+        
+        //item
+        let itemCount = subset.count
+        for index in 0...(itemCount - 1) {
+            let item :UILabel = UILabel(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,itemHight))
             
-            bkgView = UIView()
-            bkgView.frame = CGRectMake(0, 0, viewWidth, viewHight)
-            bkgView.backgroundColor = Colors.trans
-            self.view.addSubview(bkgView)
+            let text : NSString = subset.objectAtIndex(index) as! NSString
+            item.text = "  "+(text as String)
+            contentView.addSubview(item)
             
-            let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
-            if(cancel){
-                bkgView.addGestureRecognizer(tagGesture)
+            let line :UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,1))
+            line.backgroundColor = UIColor.lightGrayColor()
+            contentView.addSubview(line)
+            
+            let button:UIButton = UIButton(frame: CGRectMake(contentViewWidth - 50, itemHight * CGFloat(index+1) , 50, 50))
+            button.setImage(UIImage(named: "Selected"), forState: UIControlState.Selected)
+            button.setImage(UIImage(named: "noSelected"), forState: UIControlState.Normal)
+            button.tag = index
+            if(index == select){
+                button.selected = true
             }
-            
-            
-            let itemHight :CGFloat = 50
-            let contentViewWidth :CGFloat = viewWidth-(30*2)
-            var num = subset.count + 1 //加一个标题
-            if(cancel){
-                num = num + 1 // 加一尾部
-            }
-            let count : CGFloat = CGFloat(num)
-            let contentViewHight :CGFloat = itemHight * count
-            
-            //内容显示界面
-            let contentView :UIView = UIView(frame: CGRectMake(30,(viewHight-contentViewHight)/2,contentViewWidth,contentViewHight))
-            contentView.backgroundColor = Colors.lightGray
-            bkgView.addSubview(contentView)
-            
-            //标题
-            let titleLable :UILabel = UILabel(frame: CGRectMake(0,0,contentViewWidth,itemHight))
-            titleLable.text = "  "+(title as String)
-            titleLable.backgroundColor = UIColor.whiteColor()
-            titleLable.textColor = Colors.greenColor
-            titleLable.font = UIFont.systemFontOfSize(Dimens.text_size_larger)
-            contentView.addSubview(titleLable)
-            
-            //item
-            let itemCount = subset.count
-            for index in 0...(itemCount - 1) {
-                let item :UILabel = UILabel(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,itemHight))
-                
-                let text : NSString = subset.objectAtIndex(index) as! NSString
-                item.text = "  "+(text as String)
-                contentView.addSubview(item)
-                
-                let line :UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,1))
-                line.backgroundColor = UIColor.lightGrayColor()
-                contentView.addSubview(line)
-                
-                let button:UIButton = UIButton(frame: CGRectMake(contentViewWidth - 50, itemHight * CGFloat(index+1) , 50, 50))
-                button.setImage(UIImage(named: "Selected"), forState: UIControlState.Selected)
-                button.setImage(UIImage(named: "noSelected"), forState: UIControlState.Normal)
-                button.addTarget(self, action: Selector.init("buttonClick:"), forControlEvents: UIControlEvents.TouchUpInside)
-                contentView.addSubview(button)
-            }
-            
-            //尾部取消界面
-            if(cancel){
-                let foot:UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(itemCount+1),contentViewWidth,itemHight))
-                foot.backgroundColor = UIColor.whiteColor()
-                contentView.addSubview(foot)
-                let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-50,itemHight * CGFloat(itemCount+1),50,itemHight))
-                cancelLable.text = NSLocalizedString("cancel", comment:"")
-                cancelLable.textColor = UIColor.lightGrayColor()
-                contentView.addSubview(cancelLable)
-            }
+            button.addTarget(self, action: Selector.init("buttonClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            contentView.addSubview(button)
+        }
+        
+        //尾部取消界面
+        if(cancel){
+            let foot:UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(itemCount+1),contentViewWidth,itemHight))
+            foot.backgroundColor = UIColor.whiteColor()
+            contentView.addSubview(foot)
+            let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-50,itemHight * CGFloat(itemCount+1),50,itemHight))
+            cancelLable.text = NSLocalizedString("cancel", comment:"")
+            cancelLable.textColor = UIColor.lightGrayColor()
+            contentView.addSubview(cancelLable)
         }
     }
     
+    /**选中按钮点击事件**/
     func buttonClick(sender : UIButton) {
         sender.selected = !sender.selected
         removeAlertView()
+        
+        let btSelect : NSInteger = sender.tag
+        
+        //处理切换事件
+        switch(listSection){
+        case 0:
+            //第一组
+            switch(listRow){
+            case 0:
+                //穆斯林派别
+                Config.saveFaction(btSelect)
+                break
+            case 3:
+                //祈祷算法
+                Config.saveAsrCalculationjuristicMethod(btSelect)
+                break
+            case 4:
+                //礼拜时间约定
+                Config.savePrayerName(btSelect)
+                break
+            case 5:
+                //高纬度调整
+                Config.saveHighLatitudeAdjustment(btSelect)
+                break
+            case 6:
+                //夏令日
+                Config.saveDaylightSavingTime(btSelect)
+                break
+            case 7:
+                //小时制
+                Config.saveTimeFormat(btSelect)
+                break
+            default:
+                break
+            }
+            break
+        case 1:
+            //第二组
+            break
+        case 2:
+            //第三组
+            switch(listRow){
+            case 0:
+                //日历选择
+                Config.saveCalenderSelection(btSelect)
+                break
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
     
+    /**获取item选中状态*/
+    func getItemSelect(section :Int,row : Int)->Int{
+        var select :Int = 0;
+        switch(section){
+        case 0:
+            switch(row){
+            case 0:
+                select = Config.faction
+                break
+            case 3:
+                select = Config.CalculationMethods
+                break
+            case 4:
+                select = Config.PrayerName
+                break
+            case 5:
+                select = Config.HighLatitude
+                break
+            case 6:
+                select = Config.Daylight
+                break
+            case 7:
+                select = Config.TimeFormat
+                break
+            default:
+                break
+            }
+            break
+        case 2:
+            switch(row){
+            case 0:
+                select = Config.IsIslamicCalendar
+                break
+            default:
+                break
+            }
+        default:
+            break
+        }
+        return select
+    }
+    
+    
+    
+    /**移除弹弹窗**/
     func removeAlertView() {
         bkgView.removeFromSuperview()
     }

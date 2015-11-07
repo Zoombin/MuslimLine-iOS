@@ -24,7 +24,7 @@ class UserDefaultsUtil: NSObject {
     }
     
     /**保存Int数据*/
-    static func saveInt(key :NSString,value :NSInteger){
+    static func saveInt(key :NSString,value :Int){
         userDefault.setObject(value, forKey: key as String)
         userDefault.synchronize()
     }

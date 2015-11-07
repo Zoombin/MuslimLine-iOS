@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        Config.initData()  //获取设置的数据
+        
         AMapLocationServices.sharedServices().apiKey = APIKey
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
