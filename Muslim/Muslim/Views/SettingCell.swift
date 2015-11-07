@@ -19,11 +19,6 @@ class SettingCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    /**开关状态变化*/
-    @IBAction func switchChanged(sender: AnyObject) {
-    }
-   
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

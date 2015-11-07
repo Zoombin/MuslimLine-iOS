@@ -50,9 +50,6 @@
                         <rect key="frame" x="257" y="13" width="51" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                         <animations/>
-                        <connections>
-                            <action selector="switchChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="bpz-Yt-so4"/>
-                        </connections>
                     </switch>
                 </subviews>
                 <animations/>

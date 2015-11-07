@@ -42,6 +42,8 @@ class Config: NSObject {
         getDaylightSavingTime()
         getTimeFormat()
         getCalenderSelection()
+        getAutoSwitch()
+        getSlientMode()
     }
     /**清除配置数据*/
     static func cleanData(){
@@ -116,6 +118,26 @@ class Config: NSObject {
     static func getCalenderSelection()->Int {
         IsIslamicCalendar  = UserDefaultsUtil.getInt("Calender")
         return IsIslamicCalendar
+    }
+    
+    /**自动设置*/
+    static func saveAutoSwitch(pos :Int) {
+        UserDefaultsUtil.saveInt("AutoSwitch", value: pos)
+        AutoSwitch = pos
+    }
+    static func getAutoSwitch() ->Int{
+        AutoSwitch  = UserDefaultsUtil.getInt("AutoSwitch")
+        return AutoSwitch
+    }
+    
+    /**默认播放*/
+    static func saveSlientMode(pos :Int) {
+        UserDefaultsUtil.saveInt("SlientMode", value: pos)
+        SlinetMode = pos
+    }
+    static func getSlientMode() ->Int{
+        SlinetMode  = UserDefaultsUtil.getInt("SlientMode")
+        return SlinetMode
     }
    
     

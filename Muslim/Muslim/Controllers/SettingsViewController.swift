@@ -95,13 +95,19 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         
         let title :NSString = set.objectForKey("title") as! NSString
         let subtitle :NSString = set.objectForKey("subtitle") as! NSString
+        settingCell.sub_title.text = subtitle as String //副标题
+        settingCell.title.text = title as String //标题
+        settingCell.title2.text = title as String //标题
         if(subtitle.length != 0){
-            settingCell.sub_title.text = subtitle as String //副标题
-            settingCell.title.text = title as String //标题
+            settingCell.sub_title.hidden = false
+            settingCell.title.hidden = false
+            settingCell.title2.hidden = true
         }else{
-            settingCell.title2.text = title as String //标题
+            settingCell.sub_title.hidden = true
+            settingCell.title.hidden = true
+            settingCell.title2.hidden = false
         }
-        let right_txt :NSString = set.objectForKey("right_txt") as! NSString
+        
         let right_type :NSString = set.objectForKey("right_type") as! NSString
         if(right_type.isEqualToString("1")){
             //需要设置子选项 但不需要显示在右边
@@ -119,13 +125,45 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             //显示开关按钮
             settingCell.right_txt.hidden = true;
             settingCell.my_switch.hidden = false;
+            settingCell.my_switch.tag = row //区分是哪个开关
+            
+            //开关改变事件
+            settingCell.my_switch.addTarget(self, action: Selector("stateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+            
+            settingCell.my_switch.enabled = true
+            
+            settingCell.sub_title.hidden = true
+            settingCell.title.hidden = true
+            settingCell.title2.hidden = true
+            let select = getItemSelect(section, row: row)
+            if(2 == select){
+                //不可用
+                settingCell.my_switch.enabled = false
+                settingCell.my_switch.setOn(false, animated: true)
+                
+                settingCell.sub_title.hidden = false
+                settingCell.title.hidden = false
+            }else{
+                settingCell.title2.hidden = false
+                if(0 == select){
+                    //关
+                    settingCell.my_switch.setOn(false, animated: true)
+                }
+                if(1 == select){
+                    // 开
+                    settingCell.my_switch.setOn(true, animated: true)
+                }
+            }
         }
         if(right_type.isEqualToString("4")){
             //需要设置子选项，子选项点击后要显示在
             settingCell.right_txt.hidden = false;
             settingCell.my_switch.hidden = true;
             
-            settingCell.right_txt.text = right_txt as String;
+            let select = getItemSelect(section, row: row)
+            let subset :NSArray = set.objectForKey("subset") as! NSArray
+            let right_txt : NSString = subset.objectAtIndex(select) as! NSString
+            settingCell.right_txt.text = right_txt as String
         }
         return settingCell
     }
@@ -157,6 +195,30 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             }
             let select = getItemSelect(section, row: row)
             showAlertView(title, subset: subset,select:select,cancel: cancel)
+            return
+        }
+        let right_type :NSString = set.objectForKey("right_type") as! NSString
+        if(right_type.isEqualToString("2")){
+            //有更多选项需要跳转到其他界面
+            if(section == 0 && row == 1){
+                //手动更正
+                let settingAdjustViewController = SettingAdjustViewController()
+                self.navigationController?.pushViewController(settingAdjustViewController, animated: true)
+            }
+            if(section == 1){
+                if(0 == row){
+                    //文本&译文
+                    let quranTextViewController = QuranTextViewController()
+                    self.navigationController?.pushViewController(quranTextViewController, animated: true)
+                }
+                if(row == 1){
+                    //朗诵
+                    let quranAudioViewController = QuranAudioViewController()
+                    self.navigationController?.pushViewController(quranAudioViewController, animated: true)
+
+                }
+            }
+            
         }
     }
     
@@ -236,6 +298,27 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         }
     }
     
+    /**开关改变事件*/
+    func stateChanged (sender :UISwitch){
+        let tag : NSInteger = sender.tag
+        if(2 == tag){
+            //自动设置
+            if(sender.on){
+                Config.saveAutoSwitch(2)
+            }else{
+                Config.saveAutoSwitch(1)
+            }
+        }
+        if(8 == tag){
+            //默认播放
+            if(sender.on){
+                Config.saveSlientMode(2)
+            }else{
+                Config.saveSlientMode(1)
+            }
+        }
+    }
+    
     /**选中按钮点击事件**/
     func buttonClick(sender : UIButton) {
         sender.selected = !sender.selected
@@ -271,6 +354,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             case 7:
                 //小时制
                 Config.saveTimeFormat(btSelect)
+                listview.reloadData()
                 break
             default:
                 break
@@ -285,6 +369,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             case 0:
                 //日历选择
                 Config.saveCalenderSelection(btSelect)
+                listview.reloadData()
                 break
             default:
                 break
@@ -303,6 +388,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             case 0:
                 select = Config.faction
                 break
+            case 2:
+                select = Config.AutoSwitch
+                break
             case 3:
                 select = Config.CalculationMethods
                 break
@@ -317,6 +405,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 break
             case 7:
                 select = Config.TimeFormat
+                break
+            case 8:
+                select = Config.SlinetMode
                 break
             default:
                 break
