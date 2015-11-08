@@ -13,6 +13,7 @@
                 <outlet property="locationSearchBar" destination="ZcH-Ub-F09" id="EXs-qH-sKO"/>
                 <outlet property="locationSettingsBkgView" destination="qhc-0W-l2Z" id="EBT-mX-bal"/>
                 <outlet property="manButton" destination="dSN-xN-STW" id="VD6-VQ-M2n"/>
+                <outlet property="manlTableView" destination="c2Y-He-C4z" id="hAV-oV-Mcc"/>
                 <outlet property="rightLineLabel" destination="bjx-Vo-p0T" id="d37-Fk-uIb"/>
                 <outlet property="rightView" destination="l6i-iw-RrO" id="lon-dJ-1xr"/>
                 <outlet property="searchView" destination="two-k8-1fs" id="MLG-De-LAH"/>
@@ -60,6 +61,10 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="LBJ-9z-9Ad"/>
+                                                <outlet property="delegate" destination="-1" id="O5Q-tT-lbp"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                     <animations/>

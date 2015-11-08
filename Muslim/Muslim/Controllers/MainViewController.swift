@@ -8,10 +8,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearchBarDelegate {
+class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, UITableViewDelegate, UITableViewDataSource {
     var menuView : UIView!
     let locationManager : AMapLocationManager = AMapLocationManager()
     let topSearchView : UIView = UIView()
+    
+    var httpClient : MSLHttpClient = MSLHttpClient()
+    var manlResultArray : NSMutableArray = NSMutableArray()
+    let auto : NSInteger = 0
+    let manl : NSInteger = 1
+    
+    @IBOutlet weak var manlTableView: UITableView!
     
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var locationSettingsBkgView: UIView!
@@ -47,6 +54,33 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: Selector.init("settingsBkgClicked"))
         locationSettingsBkgView.addGestureRecognizer(tapGesture)
+        
+        httpClient.delegate = self
+    }
+    
+    func succssResult(result: NSDictionary, tag : NSInteger) {
+        if (tag == manl) {
+            print("手动数据返回了!")
+            print(result)
+            let manlResult : ManlResult = ManlResult()
+            manlResult.initValues(result)
+            if (manlResult.places!.count!.integerValue > 0) {
+               manlResultArray.removeAllObjects()
+               manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
+               manlTableView.reloadData()
+            }
+        } else if (tag == auto) {
+            print("自动数据返回了!")
+            print(result)
+        }
+    }
+    
+    func errorResult(error : NSError, tag : NSInteger) {
+        if (tag == manl) {
+            print("手动数据错误!")
+        } else if (tag == auto) {
+            print("自动数据错误!")
+        }
     }
     
     func configLocationManager() {
@@ -61,7 +95,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
         locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
             if (code != nil) {
                 print(code.formattedAddress)
-                MSLHttpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude)
+                self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.manl)
             }
         }
     }
@@ -174,7 +208,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        MSLHttpClient.searchLocationByName(searchBar.text!)
+        self.httpClient.searchLocationByName(searchBar.text!, tag: self.manl)
     }
     
     func leftButtonClicked() {
@@ -287,6 +321,29 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return manlResultArray.count
+    }
+   
+    //类似android的getView方法，进行生成界面和赋值
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        
+        let info : NSDictionary = manlResultArray[indexPath.row] as! NSDictionary
+        let province : NSString = info["admin1"] as! NSString
+        let city : NSString = info["admin2"] as! NSString
+        let countryInfo : NSDictionary = info["country attrs"] as! NSDictionary
+        let countryCode : NSString = countryInfo["code"] as! NSString
+        
+        let cellTxt : NSString = String(format: "%@ %@ %@", city, province, countryCode)
+        cell.textLabel?.text = String(cellTxt)
+        return cell
+    }
+    
+    //选中
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
 }
 
