@@ -33,6 +33,8 @@
 		185556551BF03FDD00A29B49 /* PrayTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185556531BF03FDD00A29B49 /* PrayTimeViewController.swift */; };
 		185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185556571BF0734E00A29B49 /* PrayTimeCell.swift */; };
 		1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185556581BF0734E00A29B49 /* PrayTimeCell.xib */; };
+		1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855565B1BF08F6000A29B49 /* CalendarView.swift */; };
+		1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1855565D1BF097C200A29B49 /* CalendarView.xib */; };
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
@@ -136,8 +138,10 @@
 		185556501BF03F5900A29B49 /* PrayTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayTime.h; sourceTree = "<group>"; };
 		185556511BF03F5900A29B49 /* PrayTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayTime.m; sourceTree = "<group>"; };
 		185556531BF03FDD00A29B49 /* PrayTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayTimeViewController.swift; sourceTree = "<group>"; };
-		185556571BF0734E00A29B49 /* PrayTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayTimeCell.swift; sourceTree = "<group>"; };
-		185556581BF0734E00A29B49 /* PrayTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayTimeCell.xib; sourceTree = "<group>"; };
+		185556571BF0734E00A29B49 /* PrayTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrayTimeCell.swift; path = ../Models/PrayTimeCell.swift; sourceTree = "<group>"; };
+		185556581BF0734E00A29B49 /* PrayTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrayTimeCell.xib; path = ../Models/PrayTimeCell.xib; sourceTree = "<group>"; };
+		1855565B1BF08F6000A29B49 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		1855565D1BF097C200A29B49 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD021BD7387400CB83D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1887FD091BD7387400CB83D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -330,8 +334,6 @@
 				45AB3B431BEB327F005B91BA /* Setting.swift */,
 				185051721BEF8664000B5D3F /* ManlResult.swift */,
 				185051741BEF88DC000B5D3F /* ManlDetailResult.swift */,
-				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
-				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,12 +355,16 @@
 		186B5EF51BE1B1E600212049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
+				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
 				45AB3B331BEB24F2005B91BA /* SettingCell.xib */,
 				45AB3B341BEB24F2005B91BA /* SettingHead.swift */,
 				45AB3B351BEB24F2005B91BA /* SettingHead.xib */,
 				45184AF71BE3B2FA007D3088 /* GuLJCell.swift */,
 				18ADB8D51BE34F6300FA387E /* GuLJCell.xib */,
+				1855565B1BF08F6000A29B49 /* CalendarView.swift */,
+				1855565D1BF097C200A29B49 /* CalendarView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
+				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
 				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +606,7 @@
 			files = (
 				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
 				45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */,
+				1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */,
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
 				182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */,
 				184357A81BE9E88D00194744 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

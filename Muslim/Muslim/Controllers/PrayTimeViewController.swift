@@ -13,6 +13,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     var tableView : UITableView!
     var locationButton : UIButton!
     let prayNames : NSArray = [NSLocalizedString("prayer_names_generic_1", comment: ""), NSLocalizedString("prayer_names_generic_2", comment: ""), NSLocalizedString("prayer_names_generic_3", comment: ""), NSLocalizedString("prayer_names_generic_4", comment: ""), NSLocalizedString("prayer_names_generic_5", comment: ""), NSLocalizedString("prayer_names_generic_6", comment: "")]
+    var calendarView : CalendarView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,11 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         locationButton.addTarget(self, action: Selector.init("locationSet"), forControlEvents: UIControlEvents.TouchUpInside)
         settingLocationView.addSubview(locationButton)
         
-        let calendarScrollView : UIScrollView = UIScrollView(frame: CGRectMake(0, CGRectGetMaxY(settingLocationView.frame), Constants.screenWidth, 200))
-        calendarScrollView.backgroundColor = UIColor.lightGrayColor()
-        self.view.addSubview(calendarScrollView)
+        let calendarBkgView : UIView = UIScrollView(frame: CGRectMake(0, CGRectGetMaxY(settingLocationView.frame), Constants.screenWidth, 200))
+        calendarBkgView.backgroundColor = Colors.searchGray
+        self.view.addSubview(calendarBkgView)
         
-        tableView = UITableView(frame: CGRectMake(0, CGRectGetMaxY(calendarScrollView.frame), Constants.screenWidth, Constants.screenHeight - settingLocationView.frame.size.height - calendarScrollView.frame.size.height - 64), style: UITableViewStyle.Plain)
+        tableView = UITableView(frame: CGRectMake(0, CGRectGetMaxY(calendarBkgView.frame), Constants.screenWidth, Constants.screenHeight - settingLocationView.frame.size.height - calendarBkgView.frame.size.height - 64), style: UITableViewStyle.Plain)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.delegate = self
         tableView.dataSource = self
@@ -48,6 +49,51 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         //注册ListView的adapter
         tableView!.registerNib(UINib(nibName: "PrayTimeCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        
+        let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("CalendarView", owner: nil, options: nil)
+        calendarView = nibs.lastObject as! CalendarView
+        
+        let canlendarX : CGFloat = (calendarBkgView.frame.size.width - calendarView.frame.size.width) / 2
+        let canlendarY : CGFloat = (calendarBkgView.frame.size.height - calendarView.frame.size.height) / 2
+        calendarView.frame = CGRectMake(canlendarX, canlendarY, calendarView.frame.size.width, calendarView.frame.size.height)
+        calendarView.backgroundColor = UIColor.clearColor()
+        calendarBkgView.addSubview(calendarView)
+        
+        let leftButton : UIButton = UIButton.init(type: UIButtonType.Custom)
+        leftButton.frame = CGRectMake(CGRectGetMinX(calendarView.frame) - 70, calendarView.center.y, 11, 21)
+        leftButton.setImage(UIImage(named: "before_small"), forState: UIControlState.Normal)
+        leftButton.addTarget(self, action: Selector.init("beforeDayClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        calendarBkgView.addSubview(leftButton)
+        
+        let rightButton : UIButton = UIButton.init(type: UIButtonType.Custom)
+        rightButton.frame = CGRectMake(CGRectGetMaxX(calendarView.frame) + 60, calendarView.center.y, 11, 21)
+        rightButton.setImage(UIImage(named: "next_small"), forState: UIControlState.Normal)
+        rightButton.addTarget(self, action: Selector.init("nextDayClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        calendarBkgView.addSubview(rightButton)
+        
+        
+        let leftSwipeGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer.init(target: self, action: Selector.init("swipeValueChanged:"))
+        leftSwipeGesture.direction = UISwipeGestureRecognizerDirection.Left
+        let rightSwipeGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer.init(target: self, action: Selector.init("swipeValueChanged:"))
+        rightSwipeGesture.direction = UISwipeGestureRecognizerDirection.Right
+        calendarBkgView.addGestureRecognizer(leftSwipeGesture)
+        calendarBkgView.addGestureRecognizer(rightSwipeGesture)
+    }
+    
+    func swipeValueChanged(swipeGesture : UISwipeGestureRecognizer) {
+        if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
+            print("左")
+        } else {
+            print("右")
+        }
+    }
+    
+    func beforeDayClicked() {
+        print("前一天")
+    }
+    
+    func nextDayClicked() {
+        print("后一天")
     }
     
     func locationSet() {
