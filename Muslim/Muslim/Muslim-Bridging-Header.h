@@ -8,3 +8,4 @@
 
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "AFNetworking.h"
+#import "PrayTime.h"

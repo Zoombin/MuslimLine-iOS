@@ -299,6 +299,8 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     //礼拜时间
     func clickLiBSJ() {
         print("礼拜时间")
+        let prayTimeViewController : PrayTimeViewController = PrayTimeViewController()
+        self.navigationController?.pushViewController(prayTimeViewController, animated: true)
     }
     
     //附近位置

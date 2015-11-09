@@ -29,6 +29,10 @@
 		185051731BEF8664000B5D3F /* ManlResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185051721BEF8664000B5D3F /* ManlResult.swift */; };
 		185051751BEF88DC000B5D3F /* ManlDetailResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185051741BEF88DC000B5D3F /* ManlDetailResult.swift */; };
 		18522CFD1BEAEEDE00524539 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18522CFC1BEAEEDE00524539 /* CountryInfo.swift */; };
+		185556521BF03F5900A29B49 /* PrayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 185556511BF03F5900A29B49 /* PrayTime.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		185556551BF03FDD00A29B49 /* PrayTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185556531BF03FDD00A29B49 /* PrayTimeViewController.swift */; };
+		185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185556571BF0734E00A29B49 /* PrayTimeCell.swift */; };
+		1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185556581BF0734E00A29B49 /* PrayTimeCell.xib */; };
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
@@ -129,6 +133,11 @@
 		185051721BEF8664000B5D3F /* ManlResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManlResult.swift; sourceTree = "<group>"; };
 		185051741BEF88DC000B5D3F /* ManlDetailResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManlDetailResult.swift; sourceTree = "<group>"; };
 		18522CFC1BEAEEDE00524539 /* CountryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
+		185556501BF03F5900A29B49 /* PrayTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayTime.h; sourceTree = "<group>"; };
+		185556511BF03F5900A29B49 /* PrayTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayTime.m; sourceTree = "<group>"; };
+		185556531BF03FDD00A29B49 /* PrayTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayTimeViewController.swift; sourceTree = "<group>"; };
+		185556571BF0734E00A29B49 /* PrayTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayTimeCell.swift; sourceTree = "<group>"; };
+		185556581BF0734E00A29B49 /* PrayTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayTimeCell.xib; sourceTree = "<group>"; };
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD021BD7387400CB83D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1887FD091BD7387400CB83D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -276,6 +285,15 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		1855564F1BF03F5900A29B49 /* PrayTimes */ = {
+			isa = PBXGroup;
+			children = (
+				185556501BF03F5900A29B49 /* PrayTime.h */,
+				185556511BF03F5900A29B49 /* PrayTime.m */,
+			);
+			path = PrayTimes;
+			sourceTree = "<group>";
+		};
 		186B5EF11BE1B1E600212049 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +318,7 @@
 				451242B61BEE231F00AE3545 /* SettingAdjustViewController.swift */,
 				451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */,
 				451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */,
+				185556531BF03FDD00A29B49 /* PrayTimeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -311,6 +330,8 @@
 				45AB3B431BEB327F005B91BA /* Setting.swift */,
 				185051721BEF8664000B5D3F /* ManlResult.swift */,
 				185051741BEF88DC000B5D3F /* ManlDetailResult.swift */,
+				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
+				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,6 +425,7 @@
 		18BED7361BE84A2800418054 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1855564F1BF03F5900A29B49 /* PrayTimes */,
 				18BED7371BE84F1E00418054 /* Amap */,
 			);
 			path = Library;
@@ -549,6 +571,7 @@
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
+				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
 				45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */,
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
 				182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */,
@@ -585,6 +609,7 @@
 				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
 				184357501BE9E88D00194744 /* AFNetworkReachabilityManager.m in Sources */,
 				1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */,
+				185556521BF03F5900A29B49 /* PrayTime.m in Sources */,
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
 				185051731BEF8664000B5D3F /* ManlResult.swift in Sources */,
 				184357531BE9E88D00194744 /* AFURLRequestSerialization.m in Sources */,
@@ -598,6 +623,7 @@
 				45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */,
 				184357AE1BE9E88D00194744 /* UIWebView+AFNetworking.m in Sources */,
 				18522CFD1BEAEEDE00524539 /* CountryInfo.swift in Sources */,
+				185556551BF03FDD00A29B49 /* PrayTimeViewController.swift in Sources */,
 				184357AA1BE9E88D00194744 /* UIButton+AFNetworking.m in Sources */,
 				1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */,
 				451BD58C1BECA157008D98C2 /* Config.swift in Sources */,
