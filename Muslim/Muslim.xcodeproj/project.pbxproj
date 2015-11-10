@@ -53,6 +53,8 @@
 		18BED7681BE8931600418054 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BED7671BE8931600418054 /* MainViewController.xib */; };
 		18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */; };
 		18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */; };
+		4504AFF81BF227A100F63067 /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504AFF61BF227A100F63067 /* SettingAdjustCell.swift */; };
+		4504AFF91BF227A100F63067 /* SettingAdjustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4504AFF71BF227A100F63067 /* SettingAdjustCell.xib */; };
 		451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242B61BEE231F00AE3545 /* SettingAdjustViewController.swift */; };
 		451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */; };
 		451242BD1BEE2B0A00AE3545 /* QuranAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */; };
@@ -168,6 +170,8 @@
 		18BED7671BE8931600418054 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchViewController.swift; sourceTree = "<group>"; };
+		4504AFF61BF227A100F63067 /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
+		4504AFF71BF227A100F63067 /* SettingAdjustCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustCell.xib; sourceTree = "<group>"; };
 		451242B61BEE231F00AE3545 /* SettingAdjustViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustViewController.swift; sourceTree = "<group>"; };
 		451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranTextViewController.swift; sourceTree = "<group>"; };
 		451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranAudioViewController.swift; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 		186B5EF51BE1B1E600212049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4504AFF61BF227A100F63067 /* SettingAdjustCell.swift */,
+				4504AFF71BF227A100F63067 /* SettingAdjustCell.xib */,
 				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
 				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
@@ -576,6 +582,7 @@
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
+				4504AFF91BF227A100F63067 /* SettingAdjustCell.xib in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
@@ -643,6 +650,7 @@
 				184357A91BE9E88D00194744 /* UIAlertView+AFNetworking.m in Sources */,
 				451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */,
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
+				4504AFF81BF227A100F63067 /* SettingAdjustCell.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */,
