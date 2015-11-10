@@ -14,11 +14,15 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     var locationButton : UIButton!
     let prayNames : NSArray = [NSLocalizedString("prayer_names_generic_1", comment: ""), NSLocalizedString("prayer_names_generic_2", comment: ""), NSLocalizedString("prayer_names_generic_3", comment: ""), NSLocalizedString("prayer_names_generic_4", comment: ""), NSLocalizedString("prayer_names_generic_5", comment: ""), NSLocalizedString("prayer_names_generic_6", comment: "")]
     var calendarView : CalendarView!
+    var prayTimes : NSMutableArray = NSMutableArray()
+    var currentTime : Double = NSDate().timeIntervalSince1970
+    var todayTime : Double = NSDate().timeIntervalSince1970
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("main_pray_label", comment:"")
         initView()
+        getPrayTime()
     }
     
     let cellIdentifier = "myCell"
@@ -78,22 +82,50 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         rightSwipeGesture.direction = UISwipeGestureRecognizerDirection.Right
         calendarBkgView.addGestureRecognizer(leftSwipeGesture)
         calendarBkgView.addGestureRecognizer(rightSwipeGesture)
+        
+        checkIsToday()
     }
     
     func swipeValueChanged(swipeGesture : UISwipeGestureRecognizer) {
         if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
             print("左")
+            currentTime = currentTime - (60 * 60 * 24)
         } else {
             print("右")
+            currentTime = currentTime + (60 * 60 * 24)
         }
+        checkIsToday()
+        getPrayTime()
     }
     
     func beforeDayClicked() {
         print("前一天")
+        currentTime = currentTime - (60 * 60 * 24)
+        checkIsToday()
+        getPrayTime()
     }
     
     func nextDayClicked() {
         print("后一天")
+        currentTime = currentTime + (60 * 60 * 24)
+        checkIsToday()
+        getPrayTime()
+    }
+    
+    func checkIsToday() {
+        let date : NSDate = NSDate(timeIntervalSince1970: currentTime)
+        let dateFormatter1 : NSDateFormatter = NSDateFormatter()
+        dateFormatter1.dateFormat = "EEE"
+        let dateFormatter2 : NSDateFormatter = NSDateFormatter()
+        dateFormatter2.dateFormat = "MMM dd,yyyy"
+        let week : String = dateFormatter1.stringFromDate(date)
+        let dateString : String = dateFormatter2.stringFromDate(date)
+        calendarView.dateLabel.text = dateString
+        if (currentTime == todayTime) {
+            calendarView.weekLabel.text = "今天"
+            return
+        }
+        calendarView.weekLabel.text = week
     }
     
     func locationSet() {
@@ -121,11 +153,45 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         if (indexPath.row == 1) {
             prayCell.praySunImg.hidden = false
         }
+        if (prayTimes.count == 6) {
+            prayCell.prayTimeLabel.text = prayTimes[indexPath.row] as? String
+        }
         return prayCell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    var conNum:Int = 3
+    var asrNum:Int = 1
+    func getPrayTime()
+    {
+        let prayTime = PrayTime();
+        prayTime.setCalcMethod(Int32(self.conNum))
+        prayTime.setAsrMethod(Int32(self.asrNum))
+        prayTime.setTimeFormat(Int32(prayTime.Time24))
+        prayTime.setHighLatsMethod(Int32(prayTime.AngleBased))
+        
+        print(currentTime)
+        let date = NSDate(timeIntervalSince1970: currentTime)
+        let calendar = NSCalendar.currentCalendar()
+        
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:date)
+        NSLog("%ld月%ld日%ld时%ld分" ,components.month, components.day, components.hour, components.minute)
+        
+        let lat : Double = 31.2977196856
+        let lng : Double = 120.6138407910
+        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
+        prayTimes.removeAllObjects()
+        prayTimes.addObjectsFromArray(times as [AnyObject])
+        if (prayTimes.count == 7) {
+            //TODO:删除sunset
+            prayTimes.removeObjectAtIndex(4)
+        }
+        print(prayTimes)
+        tableView.reloadData()
     }
 
 }
