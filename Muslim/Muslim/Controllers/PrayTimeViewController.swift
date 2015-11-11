@@ -16,7 +16,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     var calendarView : CalendarView!
     var prayTimes : NSMutableArray = NSMutableArray()
     var currentTime : Double = NSDate().timeIntervalSince1970
-    var todayTime : Double = NSDate().timeIntervalSince1970
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +112,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func checkIsToday() {
+        //TODO: 显示下方的日期
         let date : NSDate = NSDate(timeIntervalSince1970: currentTime)
         let dateFormatter1 : NSDateFormatter = NSDateFormatter()
         dateFormatter1.dateFormat = "EEE"
@@ -121,8 +121,25 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         let week : String = dateFormatter1.stringFromDate(date)
         let dateString : String = dateFormatter2.stringFromDate(date)
         calendarView.dateLabel.text = dateString
-        if (currentTime == todayTime) {
-            calendarView.weekLabel.text = "今天"
+        
+        //TODO: 设置日历
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: NSPersianCalendar)!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:date)
+        calendarView.dayLabel.text = String(format: "%ld", components.day)
+        calendarView.muslimDateLabel.text = String(format: "%d/%d", components.month, components.year)
+        calendarView.calendarTypeLabel.text = String(format: "%ld", components.weekday)
+        
+        let todayTime : NSDate = NSDate()
+        let todayStr : NSString = dateFormatter2.stringFromDate(todayTime)
+        
+        print("%d %d", currentTime, todayTime)
+        let currentStr : String = dateFormatter2.stringFromDate(NSDate(timeIntervalSince1970: currentTime))
+        
+        if (todayStr.isEqualToString(currentStr)) {
+            calendarView.weekLabel.text = NSLocalizedString("prayer_calendar_today", comment: "")
             return
         }
         calendarView.weekLabel.text = week
@@ -154,7 +171,11 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             prayCell.praySunImg.hidden = false
         }
         if (prayTimes.count == 6) {
-            prayCell.prayTimeLabel.text = prayTimes[indexPath.row] as? String
+            var prayTime : String = (prayTimes[indexPath.row] as? String)!
+            if (prayTime == "-----") {
+                prayTime = "00:00"
+            }
+            prayCell.prayTimeLabel.text = prayTime
         }
         return prayCell
     }
@@ -181,8 +202,9 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         let components = calendar.components(flags, fromDate:date)
         NSLog("%ld月%ld日%ld时%ld分" ,components.month, components.day, components.hour, components.minute)
         
-        let lat : Double = 31.2977196856
-        let lng : Double = 120.6138407910
+        let lat : Double = 80.4157074446
+        let lng : Double = -29.5312500000
+//        80.4157074446,-29.5312500000
         let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
