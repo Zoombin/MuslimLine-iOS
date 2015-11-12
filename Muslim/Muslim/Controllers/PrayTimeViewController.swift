@@ -88,10 +88,10 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     func swipeValueChanged(swipeGesture : UISwipeGestureRecognizer) {
         if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
             print("左")
-            currentTime = currentTime - (60 * 60 * 24)
+            currentTime = currentTime + (60 * 60 * 24)
         } else {
             print("右")
-            currentTime = currentTime + (60 * 60 * 24)
+            currentTime = currentTime - (60 * 60 * 24)
         }
         checkIsToday()
         getPrayTime()
@@ -204,7 +204,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         let lat : Double = 80.4157074446
         let lng : Double = -29.5312500000
-//        80.4157074446,-29.5312500000
+
         let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
