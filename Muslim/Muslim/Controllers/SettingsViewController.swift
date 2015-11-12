@@ -82,7 +82,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     ///let string : NSString = dict.objectForKey("title") as! String
     //print(string)
     
-    //类似android的getView方法，进行生成界面和赋值
+    //进行生成界面和赋值
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let settingCell : SettingCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SettingCell
         let section = indexPath.section
@@ -174,6 +174,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let section = indexPath.section
         let row = indexPath.row
         let mDict : NSDictionary  =  settingData.objectAtIndex(section) as! NSDictionary
@@ -181,8 +182,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let set : NSDictionary = setArr.objectAtIndex(row) as! NSDictionary
         let title :NSString = set.objectForKey("title") as! NSString
         let subset :NSArray = set.objectForKey("subset") as! NSArray
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         listSection = section;
         listRow = row;

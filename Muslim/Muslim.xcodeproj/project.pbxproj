@@ -64,6 +64,10 @@
 		451BD58F1BECB229008D98C2 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 451BD5911BECB229008D98C2 /* settings.json */; };
 		4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD881BE883B90075A1FB /* BaseViewController.swift */; };
 		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
+		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
+		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
+		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
+		455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */; };
 		45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B321BEB24F2005B91BA /* SettingCell.swift */; };
 		45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B331BEB24F2005B91BA /* SettingCell.xib */; };
 		45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B341BEB24F2005B91BA /* SettingHead.swift */; };
@@ -181,6 +185,10 @@
 		451BD5931BECB243008D98C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "zh-Hans"; path = "zh-Hans.lproj/settings.json"; sourceTree = "<group>"; };
 		4521DD881BE883B90075A1FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
+		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
+		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
+		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
+		455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustCell.xib; sourceTree = "<group>"; };
 		45AB3B321BEB24F2005B91BA /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		45AB3B331BEB24F2005B91BA /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		45AB3B341BEB24F2005B91BA /* SettingHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHead.swift; sourceTree = "<group>"; };
@@ -358,6 +366,10 @@
 		186B5EF51BE1B1E600212049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */,
+				455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */,
+				455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */,
+				455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */,
 				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
 				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
@@ -580,6 +592,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
+				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
 				451BD58F1BECB229008D98C2 /* settings.json in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
@@ -627,6 +641,7 @@
 				1843574F1BE9E88D00194744 /* AFHTTPSessionManager.m in Sources */,
 				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
 				184357501BE9E88D00194744 /* AFNetworkReachabilityManager.m in Sources */,
+				455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */,
 				1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */,
 				185556521BF03F5900A29B49 /* PrayTime.m in Sources */,
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
@@ -661,6 +676,7 @@
 				45AB3B441BEB327F005B91BA /* Setting.swift in Sources */,
 				451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */,
 				184357AB1BE9E88D00194744 /* UIImageView+AFNetworking.m in Sources */,
+				455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */,
 				184357541BE9E88D00194744 /* AFURLResponseSerialization.m in Sources */,
 				45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */,
 				451242BD1BEE2B0A00AE3545 /* QuranAudioViewController.swift in Sources */,

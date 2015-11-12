@@ -35,12 +35,16 @@ class UserDefaultsUtil: NSObject {
     
     /**获取保存的Int数据*/
     static func getInt(key :NSString) -> Int{
+        return getInt(key,defalt: 0)
+    }
+    static func getInt(key :NSString,defalt:Int) -> Int{
         if(userDefault.objectForKey(key as String) != nil) {
             let value : Int = userDefault.objectForKey(key as String) as! Int
             return value
         }else{
-            return 0;
+            return defalt;
         }
     }
+    
     
 }
