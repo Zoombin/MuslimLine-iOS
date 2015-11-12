@@ -1,3 +1,6 @@
 [submodule "Muslim/Muslim/Submodules/AFNetworking"]
 	path = Muslim/Muslim/Submodules/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking
+[submodule "Muslim/Muslim/Submodules/Toast"]
+	path = Muslim/Muslim/Submodules/Toast
+	url = https://github.com/Rannie/Toast-Swift.git
