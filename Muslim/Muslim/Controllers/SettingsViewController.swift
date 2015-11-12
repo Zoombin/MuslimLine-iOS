@@ -303,17 +303,17 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         if(2 == tag){
             //自动设置
             if(sender.on){
-                Config.saveAutoSwitch(2)
-            }else{
                 Config.saveAutoSwitch(1)
+            }else{
+                Config.saveAutoSwitch(0)
             }
         }
         if(8 == tag){
             //默认播放
             if(sender.on){
-                Config.saveSlientMode(2)
-            }else{
                 Config.saveSlientMode(1)
+            }else{
+                Config.saveSlientMode(0)
             }
         }
     }
