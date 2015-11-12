@@ -59,6 +59,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     }
     
     func succssResult(result: NSDictionary, tag : NSInteger) {
+        self.view.hideToastActivity()
         if (tag == manl) {
             print("手动数据返回了!")
             print(result)
@@ -76,6 +77,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     }
     
     func errorResult(error : NSError, tag : NSInteger) {
+        self.view.hideToastActivity()
         if (tag == manl) {
             print("手动数据错误!")
         } else if (tag == auto) {
@@ -208,6 +210,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        self.view.makeToastActivity()
         self.httpClient.searchLocationByName(searchBar.text!, tag: self.manl)
     }
     
