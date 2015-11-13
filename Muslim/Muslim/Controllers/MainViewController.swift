@@ -321,6 +321,9 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     //尊主姓名
     func clickZunZXM() {
         print("尊主姓名")
+        let allahNamesViewController : AllahNamesViewController = AllahNamesViewController()
+        self.navigationController?.pushViewController(allahNamesViewController, animated: true)
+
     }
     
     override func didReceiveMemoryWarning() {
