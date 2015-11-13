@@ -9,12 +9,28 @@
 import UIKit
 
 class QuranAudioViewController: BaseViewController {
+    var readerArray : NSArray!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("quran_audio_setting_title", comment:"");
 
-        // Do any additional setup after loading the view.
+        getData()
+        setupView()
+    }
+    
+    func getData(){
+        if(Config.FACTION_SHIA == Config.getFaction()){
+            //什叶派
+            readerArray = Config.QuranAudioReaderIran;
+        }else{
+            //逊尼派
+             readerArray = Config.QuranAudioReader;
+        }
+    }
+    
+    func setupView(){
+        
     }
 
     override func didReceiveMemoryWarning() {
