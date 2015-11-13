@@ -18,7 +18,27 @@ class MSLHttpClient: NSObject {
     static var httpClient : MSLHttpClient!
     var delegate : httpClientDelegate?
     
-//    Suzhou JiangSu CN
+    func getNearByForServer(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
+        let urlString : String = "http://www.csufo.com:8002/Interface"
+        let manager = AFHTTPRequestOperationManager()
+        let params : NSMutableDictionary = NSMutableDictionary()
+        params["Action"] = "1004"
+        params["lat"] = lat
+        params["lng"] = lng
+        params["range"] = "15000"
+        params["Lang"] = "EN"
+        params["keywords"] = keywords
+        manager.GET(urlString, parameters: params, success:
+            { (operation, responseObject) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+                }
+            }) { (operation, error) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.errorResult(error, tag: tag)
+                }
+        }
+    }
 
     func getTimezoneAndCountryName(lat : Double, lng : Double, tag : NSInteger) {
         let urlString : String = String(format:"http://api.geonames.org/timezoneJSON?lat=%f&lng=%f&username=daiye", lat, lng)
@@ -39,9 +59,6 @@ class MSLHttpClient: NSObject {
         print(cityName)
         var urlString : String = "http://where.yahooapis.com/v1/places.q(%22cityName%22%2A);count=10"
         urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: cityName)
-
-//        let urlString : String = String(format: "http://where.yahooapis.com/v1/places.q(%22%@%22%2A);count=10", cityName)
-//        urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: cityName)
         
         let manager = AFHTTPRequestOperationManager()
         let params : NSMutableDictionary = NSMutableDictionary()

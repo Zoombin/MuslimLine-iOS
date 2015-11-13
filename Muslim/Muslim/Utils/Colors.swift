@@ -9,8 +9,12 @@
 import UIKit
 
 class Colors: NSObject {
+    //附近位置灰
+    static let nearbyGrayColor : UIColor = UIColor(colorLiteralRed: 229/255.0, green: 234/255.0, blue: 225/255.0, alpha: 1.0)
+    
     //天房绿
     static let houseColor : UIColor = UIColor(colorLiteralRed: 87/255.0, green: 183/255.0, blue: 127/255.0, alpha: 1.0)
+    
     //绿色
     static let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
     //淡灰色

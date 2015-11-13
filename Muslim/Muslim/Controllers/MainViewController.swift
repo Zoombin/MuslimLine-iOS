@@ -309,6 +309,8 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     //附近位置
     func clickFuJWZ() {
         print("附近位置")
+        let nearbyViewController : NearbyViewController = NearbyViewController()
+        self.navigationController?.pushViewController(nearbyViewController, animated: true)
     }
     
     //日历
