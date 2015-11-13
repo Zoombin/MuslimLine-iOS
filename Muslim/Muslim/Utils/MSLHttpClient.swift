@@ -28,7 +28,7 @@ class MSLHttpClient: NSObject {
         params["range"] = "15000"
         params["Lang"] = "EN"
         params["keywords"] = keywords
-        manager.GET(urlString, parameters: params, success:
+        manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
                     self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
