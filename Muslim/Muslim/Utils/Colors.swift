@@ -9,6 +9,8 @@
 import UIKit
 
 class Colors: NSObject {
+    //天房绿
+    static let houseColor : UIColor = UIColor(colorLiteralRed: 87/255.0, green: 183/255.0, blue: 127/255.0, alpha: 1.0)
     //绿色
     static let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
     //淡灰色

@@ -39,6 +39,7 @@
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
 		1887FD231BD7387500CB83D5 /* MuslimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD221BD7387500CB83D5 /* MuslimUITests.swift */; };
+		18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A424F81BF49326002FE6BC /* HouseLocationViewController.xib */; };
 		18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */; };
 		18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */; };
 		18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8D51BE34F6300FA387E /* GuLJCell.xib */; };
@@ -157,6 +158,7 @@
 		1887FD1E1BD7387500CB83D5 /* MuslimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD221BD7387500CB83D5 /* MuslimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimUITests.swift; sourceTree = "<group>"; };
 		1887FD241BD7387500CB83D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18A424F81BF49326002FE6BC /* HouseLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseLocationViewController.xib; sourceTree = "<group>"; };
 		18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJViewController.swift; sourceTree = "<group>"; };
 		18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJViewController.xib; sourceTree = "<group>"; };
 		18ADB8D51BE34F6300FA387E /* GuLJCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJCell.xib; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */,
 				18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */,
 				182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */,
+				18A424F81BF49326002FE6BC /* HouseLocationViewController.xib */,
 				4521DD881BE883B90075A1FB /* BaseViewController.swift */,
 				451242B61BEE231F00AE3545 /* SettingAdjustViewController.swift */,
 				451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */,
@@ -604,6 +607,7 @@
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
+				18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */,
 				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
