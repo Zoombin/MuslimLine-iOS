@@ -83,10 +83,12 @@
 		45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B351BEB24F2005B91BA /* SettingHead.xib */; };
 		45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */; };
 		45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */; };
-		45AB3B441BEB327F005B91BA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B431BEB327F005B91BA /* Setting.swift */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
+		45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA41BF7221400BA35F9 /* Translation.swift */; };
+		45FBBDA81BF72C9300BA35F9 /* QuranTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */; };
+		45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,10 +215,12 @@
 		45AB3B351BEB24F2005B91BA /* SettingHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingHead.xib; sourceTree = "<group>"; };
 		45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		45AB3B431BEB327F005B91BA /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
+		45FBBDA41BF7221400BA35F9 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranTextCell.swift; sourceTree = "<group>"; };
+		45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuranTextCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,9 +367,9 @@
 			isa = PBXGroup;
 			children = (
 				18522CFC1BEAEEDE00524539 /* CountryInfo.swift */,
-				45AB3B431BEB327F005B91BA /* Setting.swift */,
 				185051721BEF8664000B5D3F /* ManlResult.swift */,
 				185051741BEF88DC000B5D3F /* ManlDetailResult.swift */,
+				45FBBDA41BF7221400BA35F9 /* Translation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,6 +411,8 @@
 				1855565D1BF097C200A29B49 /* CalendarView.xib */,
 				18F8FE7E1BF5C17F00AC1888 /* NearbyCell.swift */,
 				18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */,
+				45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */,
+				45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -629,6 +635,7 @@
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
+				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
@@ -671,6 +678,7 @@
 				451BD58E1BECA428008D98C2 /* UserDefaultsUtil.swift in Sources */,
 				1843574F1BE9E88D00194744 /* AFHTTPSessionManager.m in Sources */,
 				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
+				45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */,
 				184357501BE9E88D00194744 /* AFNetworkReachabilityManager.m in Sources */,
 				18F8FE801BF5C17F00AC1888 /* NearbyCell.swift in Sources */,
 				455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */,
@@ -686,6 +694,7 @@
 				184357551BE9E88D00194744 /* AFURLSessionManager.m in Sources */,
 				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
 				45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */,
+				45FBBDA81BF72C9300BA35F9 /* QuranTextCell.swift in Sources */,
 				184357AC1BE9E88D00194744 /* UIProgressView+AFNetworking.m in Sources */,
 				18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */,
 				45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */,
@@ -709,7 +718,6 @@
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				18F9EB9E1BF447BC0096D021 /* HRToast+UIView.swift in Sources */,
 				4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */,
-				45AB3B441BEB327F005B91BA /* Setting.swift in Sources */,
 				451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */,
 				184357AB1BE9E88D00194744 /* UIImageView+AFNetworking.m in Sources */,
 				455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */,

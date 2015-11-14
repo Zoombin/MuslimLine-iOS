@@ -25,20 +25,20 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         super.viewDidLoad()
         title = NSLocalizedString("setting_manual_corr", comment:"");
         setupView()
-        
-        //注册view
-        mTableView!.registerNib(UINib(nibName: "SettingAdjustCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
     
     }
     
     func setupView(){
         mTableView = UITableView(frame: CGRectMake(0,0,PhoneUtils.screenWidth,PhoneUtils.screenHeight))
+        //注册view
+        mTableView!.registerNib(UINib(nibName: "SettingAdjustCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         mTableView.tag = tag1
         mTableView.delegate = self
         mTableView.dataSource = self
         self.view.addSubview(mTableView)
     }
     
+    //行高
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let tag = tableView.tag
         if(tag == 100){
@@ -50,6 +50,7 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         return 0
     }
     
+    //个数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tag = tableView.tag
         if(tag == 100){
