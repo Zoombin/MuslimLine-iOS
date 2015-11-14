@@ -54,8 +54,6 @@ class MSLHttpClient: NSObject {
                 }
             }) { (operation, error) -> Void in
                 if (self.delegate != nil) {
-                    let op : AFHTTPRequestOperation = operation!
-                    let string = String.init(data: op.responseData!, encoding: NSUTF8StringEncoding)
                     self.delegate!.errorResult(error, tag: tag)
                 }
         }
