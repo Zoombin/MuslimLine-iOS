@@ -222,6 +222,32 @@ class Config: NSObject {
     }
     
     
+    /**获取当前读者*/
+    static func getCurrentReader() ->String{
+        if(faction == FACTION_SHIA){
+            return QuranAudioReaderIran[getCurrentReaderIndex()] as! String
+        }else{
+            return QuranAudioReader[getCurrentReaderIndex()] as! String
+        }
+    }
+    
+    static func saveCurrentReaderIndex(pos :Int){
+        if(faction == FACTION_SHIA){
+            UserDefaultsUtil.saveInt("CurrentReader_shia", value: pos)
+        }else{
+            UserDefaultsUtil.saveInt("CurrentReader_suni", value: pos)
+        }
+    }
+    
+    static func getCurrentReaderIndex()->Int{
+        if(faction == FACTION_SHIA){
+            return UserDefaultsUtil.getInt("CurrentReader_shia",defalt: 0)
+        }else{
+            return UserDefaultsUtil.getInt("CurrentReader_suni",defalt: 0)
+        }
+    }
+    
+    
     
     
     
