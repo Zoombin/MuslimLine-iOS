@@ -89,6 +89,7 @@
 		45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA41BF7221400BA35F9 /* Translation.swift */; };
 		45FBBDA81BF72C9300BA35F9 /* QuranTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */; };
 		45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */; };
+		45FBBDAB1BF73FF000BA35F9 /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45FBBDAA1BF73FF000BA35F9 /* allahnames.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,7 @@
 		45FBBDA41BF7221400BA35F9 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranTextCell.swift; sourceTree = "<group>"; };
 		45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuranTextCell.xib; sourceTree = "<group>"; };
+		45FBBDAA1BF73FF000BA35F9 /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +517,7 @@
 		45AB3B401BEB3226005B91BA /* config */ = {
 			isa = PBXGroup;
 			children = (
+				45FBBDAA1BF73FF000BA35F9 /* allahnames.json */,
 				451BD5911BECB229008D98C2 /* settings.json */,
 				451BD58B1BECA157008D98C2 /* Config.swift */,
 			);
@@ -633,6 +636,7 @@
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
+				45FBBDAB1BF73FF000BA35F9 /* allahnames.json in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
