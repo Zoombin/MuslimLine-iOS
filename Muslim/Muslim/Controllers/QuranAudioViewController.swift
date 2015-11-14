@@ -51,9 +51,9 @@ class QuranAudioViewController: BaseViewController {
         let intervalW = (PhoneUtils.screenWidth-(margin*2) - itemWidth*3) / 2 //列间隔
         let intervalH:CGFloat = 10 //行间隔
         
-        scrollView.frame = CGRectMake(0, 64 , PhoneUtils.screenWidth, PhoneUtils.screenHeight)
+        scrollView.frame = CGRectMake(0, 0 , PhoneUtils.screenWidth, PhoneUtils.screenHeight)
         //纵向滚动
-        let pageHeight:CGFloat = ((itemHigth + intervalH + margin) * CGFloat(totalrow)) //多算一些高度
+        let pageHeight:CGFloat = ((itemHigth + intervalH ) * CGFloat(totalrow)) + margin//滚动区域的高度
         scrollView.contentSize = CGSizeMake(PhoneUtils.screenWidth, CGFloat(pageHeight))
         scrollView.showsVerticalScrollIndicator = true
 
@@ -63,8 +63,8 @@ class QuranAudioViewController: BaseViewController {
                 if(itemP >= readerArray.count ){
                     break;
                 }
-                let itemX :CGFloat = (CGFloat(Float(positon)) * itemWidth) + (CGFloat(Float(positon)) * intervalW) + margin
-                let itemY :CGFloat = (CGFloat(Float(index)) * itemHigth) + (CGFloat(Float(index)) * intervalH) + margin
+                let itemX :CGFloat = (CGFloat(positon) * itemWidth) + (CGFloat(positon) * intervalW) + margin
+                let itemY :CGFloat = (CGFloat(index) * itemHigth) + (CGFloat(index) * intervalH) + margin
                 
                 let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("ReaderItemView", owner: nil, options: nil)
                 let readerItemView : ReaderItemView = nibs.lastObject as! ReaderItemView
