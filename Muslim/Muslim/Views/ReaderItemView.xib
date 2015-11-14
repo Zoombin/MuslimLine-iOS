@@ -11,20 +11,53 @@
             <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abdelbasset_abdessamad" id="WjQ-t3-l8K">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quran_audio_reader_bg" id="WjQ-t3-l8K">
                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <animations/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2xV-yx-8Da">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xf1-wk-het">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <animations/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AQi-Pp-Uk4">
+                    <rect key="frame" x="8" y="91" width="74" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Ma-Ek-g9j">
+                    <rect key="frame" x="62" y="70" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <animations/>
+                    <state key="normal" title="Button"/>
+                    <state key="selected" image="quran_audio_reader_checked"/>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avstar" destination="2xV-yx-8Da" id="AWo-fW-mbd"/>
+                <outlet property="btAvstar" destination="Xf1-wk-het" id="xJ6-hK-rkL"/>
+                <outlet property="btCheck" destination="8Ma-Ek-g9j" id="6No-CJ-TT4"/>
+                <outlet property="name" destination="AQi-Pp-Uk4" id="Awm-tH-Pca"/>
+            </connections>
             <point key="canvasLocation" x="229" y="415"/>
         </view>
     </objects>
     <resources>
-        <image name="abdelbasset_abdessamad" width="90" height="90"/>
+        <image name="quran_audio_reader_bg" width="90" height="90"/>
+        <image name="quran_audio_reader_checked" width="20" height="20"/>
     </resources>
 </document>

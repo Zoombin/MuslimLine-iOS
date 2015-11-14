@@ -9,6 +9,14 @@
 import UIKit
 
 class ReaderItemView: UIView {
+    @IBOutlet weak var avstar: UIImageView!
+    @IBOutlet weak var btAvstar: UIButton!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var btCheck: UIButton!
+    
+    func setSelect(select :Bool){
+        btCheck.selected = select
+    }
 
     /*
     // Only override drawRect: if you perform custom drawing.
