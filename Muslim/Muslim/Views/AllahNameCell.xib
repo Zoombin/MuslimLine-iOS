@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vlc-WX-Qzo" userLabel="Name Localiz">
-                        <rect key="frame" x="56" y="43" width="126" height="21"/>
+                        <rect key="frame" x="56" y="43" width="160" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
