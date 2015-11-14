@@ -18,23 +18,44 @@ class MSLHttpClient: NSObject {
     static var httpClient : MSLHttpClient!
     var delegate : httpClientDelegate?
     
-    func getNearByForServer(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
-        let urlString : String = "http://www.csufo.com:8002/Interface"
+    func getUrl(tag : NSInteger) {
+        let urlString : String = "http://www.muslimsline.com/config/website.json"
         let manager = AFHTTPRequestOperationManager()
-        let params : NSMutableDictionary = NSMutableDictionary()
-        params["Action"] = "1004"
-        params["lat"] = lat
-        params["lng"] = lng
-        params["range"] = "15000"
-        params["Lang"] = "EN"
-        params["keywords"] = keywords
-        manager.POST(urlString, parameters: params, success:
+        manager.GET(urlString, parameters: nil, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
                     self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
                 }
             }) { (operation, error) -> Void in
                 if (self.delegate != nil) {
+                    self.delegate!.errorResult(error, tag: tag)
+                }
+        }
+    }
+    
+    func getNearByForServer(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
+        let urlString : String = Config.getUrl()
+        let manager = AFHTTPRequestOperationManager()
+        let params : NSMutableDictionary = NSMutableDictionary()
+        
+        let detailParams : NSMutableDictionary = NSMutableDictionary()
+        detailParams["Action"] = "1004"
+        detailParams["lat"] = lat
+        detailParams["lng"] = lng
+        detailParams["range"] = "15000"
+        detailParams["Lang"] = "EN"
+        detailParams["keywords"] = keywords
+        params["para"] = detailParams
+        
+        manager.GET(urlString, parameters: params, success:
+            { (operation, responseObject) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+                }
+            }) { (operation, error) -> Void in
+                if (self.delegate != nil) {
+                    let op : AFHTTPRequestOperation = operation!
+                    let string = String.init(data: op.responseData!, encoding: NSUTF8StringEncoding)
                     self.delegate!.errorResult(error, tag: tag)
                 }
         }

@@ -26,11 +26,11 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
 
     let cellIdentifier = "myCell"
     func initView() {
-        let settingLocationView : UIView = UIView(frame: CGRectMake(0, 64, Constants.screenWidth, 30))
+        let settingLocationView : UIView = UIView(frame: CGRectMake(0, 64, PhoneUtils.screenWidth, 30))
         settingLocationView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(settingLocationView)
         
-        let startX : CGFloat = (Constants.screenWidth - 100) / 2
+        let startX : CGFloat = (PhoneUtils.screenWidth - 100) / 2
         locationButton = UIButton.init(type: UIButtonType.Custom)
         locationButton.frame = CGRectMake(startX, 0, 100, 30)
         locationButton.setImage(UIImage(named: "green_loaction"), forState: UIControlState.Normal)

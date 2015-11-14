@@ -26,10 +26,10 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     let cellIdentifier = "myCell"
     func initView() {
-        let settingLocationView : UIView = UIView(frame: CGRectMake(0, 64, Constants.screenWidth, 30))
+        let settingLocationView : UIView = UIView(frame: CGRectMake(0, 64, PhoneUtils.screenWidth, 30))
         self.view.addSubview(settingLocationView)
         
-        let startX : CGFloat = (Constants.screenWidth - 100) / 2
+        let startX : CGFloat = (PhoneUtils.screenWidth - 100) / 2
         locationButton = UIButton.init(type: UIButtonType.Custom)
         locationButton.frame = CGRectMake(startX, 0, 100, 30)
         locationButton.setImage(UIImage(named: "green_loaction"), forState: UIControlState.Normal)
@@ -40,11 +40,11 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         locationButton.addTarget(self, action: Selector.init("locationSet"), forControlEvents: UIControlEvents.TouchUpInside)
         settingLocationView.addSubview(locationButton)
         
-        let calendarBkgView : UIView = UIScrollView(frame: CGRectMake(0, CGRectGetMaxY(settingLocationView.frame), Constants.screenWidth, 200))
+        let calendarBkgView : UIView = UIScrollView(frame: CGRectMake(0, CGRectGetMaxY(settingLocationView.frame), PhoneUtils.screenWidth, 200))
         calendarBkgView.backgroundColor = Colors.searchGray
         self.view.addSubview(calendarBkgView)
         
-        tableView = UITableView(frame: CGRectMake(0, CGRectGetMaxY(calendarBkgView.frame), Constants.screenWidth, Constants.screenHeight - settingLocationView.frame.size.height - calendarBkgView.frame.size.height - 64), style: UITableViewStyle.Plain)
+        tableView = UITableView(frame: CGRectMake(0, CGRectGetMaxY(calendarBkgView.frame), PhoneUtils.screenWidth, PhoneUtils.screenHeight - settingLocationView.frame.size.height - calendarBkgView.frame.size.height - 64), style: UITableViewStyle.Plain)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.delegate = self
         tableView.dataSource = self

@@ -179,7 +179,7 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     }
     
     func initTopView() {
-        topSearchView.frame = CGRectMake(0, 64, Constants.screenWidth, Constants.screenHeight / 2 - 64)
+        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)
         self.view.addSubview(topSearchView)
         
         let bkgButton : UIButton = UIButton()
@@ -239,8 +239,8 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     func initBottomView() {
         //注: var 和 let的区别， var是变量 let是常量
         //let Object : 类型 比如CGFloat NSInterger等等
-        let width : CGFloat = Constants.screenWidth
-        let height : CGFloat = Constants.screenHeight
+        let width : CGFloat = PhoneUtils.screenWidth
+        let height : CGFloat = PhoneUtils.screenHeight
         let buttonWidth = width / 3
         let buttonHeight = height / 4;
         //第几行

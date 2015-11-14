@@ -9,8 +9,7 @@
 import UIKit
 
 class Constants: NSObject {
-    static let screenWidth : CGFloat = UIScreen.mainScreen().bounds.size.width
-    static let screenHeight : CGFloat = UIScreen.mainScreen().bounds.size.height
+    static let APIKey = "84cb993da727c58b8ce7911e7678e9ae"
     
     static let ADJUSTTIME : Int = 60; //默认时间调整
 }

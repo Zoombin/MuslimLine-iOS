@@ -9,16 +9,20 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, httpClientDelegate {
 
     var window: UIWindow?
-    let APIKey = "84cb993da727c58b8ce7911e7678e9ae"
+    
+    let getUrlTag : NSInteger = 0
+    let httpClient = MSLHttpClient();
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         Config.initData()  //获取设置的数据
+        httpClient.delegate = self
+        getUrl()
         
-        AMapLocationServices.sharedServices().apiKey = APIKey
+        AMapLocationServices.sharedServices().apiKey = Constants.APIKey
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         self.window!.backgroundColor = UIColor.whiteColor()
@@ -29,6 +33,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = nvc;
         self.window!.makeKeyAndVisible()
         return true
+    }
+    
+    func getUrl() {
+        httpClient.getUrl(getUrlTag)
+    }
+    
+    func succssResult(result: NSDictionary, tag: NSInteger) {
+        print(result)
+        if (tag == getUrlTag) {
+            let urls = result["urls"]
+            if (urls == nil) {
+                return
+            }
+            let arrayCount : NSInteger = urls!.count
+            for index in 0...arrayCount - 1 {
+                let info : NSDictionary = urls![index] as! NSDictionary
+                if (info["name"] as! String == "defualt") {
+                    let url : String =  info["url"] as! String
+                    Config.saveUrl(url)
+                }
+            }
+        }
+    }
+    
+    func errorResult(error: NSError, tag: NSInteger) {
+        print("失败")
     }
 
     func applicationWillResignActive(application: UIApplication) {

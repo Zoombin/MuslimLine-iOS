@@ -35,7 +35,7 @@ class Config: NSObject {
     static var Latitude :Double = 0 //纬度
     static var CityName :NSString = "" //城市名称
     static var CountryCode :Int = 21; //国家代码
-    
+    static var Url : String = "" //默认url
     
     /**启动获取配置数据*/
     static func initData(){
@@ -209,6 +209,16 @@ class Config: NSObject {
     static func getIshaaTime() ->Int{
         IshaaTime  = UserDefaultsUtil.getInt("IshaaTime",defalt: 60)
         return IshaaTime
+    }
+    
+    /**默认url*/
+    static func saveUrl(url : String) {
+        UserDefaultsUtil.saveString("defaultUrl", value: url)
+        Url = url
+    }
+    static func getUrl() -> String {
+        Url = UserDefaultsUtil.getString("defaultUrl")
+        return Url
     }
     
     
