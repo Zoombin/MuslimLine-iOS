@@ -45,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, httpClientDelegate {
         httpClient.getUrl(getUrlTag)
     }
     
-    func succssResult(result: NSDictionary, tag: NSInteger) {
+    func succssResult(result: NSObject, tag: NSInteger) {
         print(result)
         if (tag == getUrlTag) {
-            let urls = result["urls"]
+            let urls = (result as! NSDictionary)["urls"]
             if (urls == nil) {
                 return
             }

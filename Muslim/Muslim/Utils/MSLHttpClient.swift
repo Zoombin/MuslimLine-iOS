@@ -9,7 +9,7 @@
 import UIKit
 
 protocol httpClientDelegate : NSObjectProtocol {
-    func succssResult(result : NSDictionary, tag : NSInteger)
+    func succssResult(result : NSObject, tag : NSInteger)
     func errorResult(error : NSError, tag : NSInteger)
 }
 
@@ -33,21 +33,43 @@ class MSLHttpClient: NSObject {
         }
     }
     
+    func getNearByForGoodle(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
+        let urlString : String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+        let params : NSMutableDictionary = NSMutableDictionary()
+        params["Action"] = "1004"
+        params["location"] = String(format: "%f,%f", lat,lng)
+        params["radius"] = "15000"
+        params["key"] = "AIzaSyChdMgSqJNgAZCrGmP_9UhkGFW9f7FOVCs"
+        params["keywords"] = keywords
+        let manager = AFHTTPRequestOperationManager()
+        manager.GET(urlString, parameters: params, success:
+            { (operation, responseObject) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+                }
+            }) { (operation, error) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.errorResult(error, tag: tag)
+                }
+        }
+        
+    }
+    
     func getNearByForServer(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
         let urlString : String = Config.getUrl()
         let manager = AFHTTPRequestOperationManager()
+        
+        //TODO: 下面这句话一定要加，不然会失败
+        manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
+        params["Action"] = "1004"
+        params["lat"] = lat
+        params["lng"] = lng
+        params["range"] = "15000"
+        params["Lang"] = "EN"
+        params["keywords"] = keywords
         
-        let detailParams : NSMutableDictionary = NSMutableDictionary()
-        detailParams["Action"] = "1004"
-        detailParams["lat"] = lat
-        detailParams["lng"] = lng
-        detailParams["range"] = "15000"
-        detailParams["Lang"] = "EN"
-        detailParams["keywords"] = keywords
-        params["para"] = detailParams
-        
-        manager.GET(urlString, parameters: params, success:
+        manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
                     self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)

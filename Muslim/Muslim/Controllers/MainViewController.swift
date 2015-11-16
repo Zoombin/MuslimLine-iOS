@@ -58,13 +58,13 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
         httpClient.delegate = self
     }
     
-    func succssResult(result: NSDictionary, tag : NSInteger) {
+    func succssResult(result: NSObject, tag : NSInteger) {
         self.view.hideToastActivity()
         if (tag == manl) {
             print("手动数据返回了!")
             print(result)
             let manlResult : ManlResult = ManlResult()
-            manlResult.initValues(result)
+            manlResult.initValues(result as! NSDictionary)
             if (manlResult.places!.count!.integerValue > 0) {
                manlResultArray.removeAllObjects()
                manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
