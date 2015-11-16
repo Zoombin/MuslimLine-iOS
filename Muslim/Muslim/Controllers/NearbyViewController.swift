@@ -23,6 +23,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     var resultArray : NSMutableArray = NSMutableArray()
     var currentLng : Double = 0
     var currentLat : Double = 0
+    var menuView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,62 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         currentLng = 120.6286643729
         
         searchBYType(KEYWORD_MOSQUE)
+        
+        let rightImage : UIImage =  UIImage(named: "mosque")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
+        
+        initMenuView()
+    }
+    
+    func menuButtonClicked() {
+        menuView.hidden = !menuView.hidden
+    }
+    
+    //菜单界面
+    func initMenuView(){
+        let itemHight:CGFloat = 50
+        let menuWidth:CGFloat = 180
+        let menuHight:CGFloat = itemHight * 5
+        let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
+        let menuY :CGFloat = 64;
+        menuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
+        menuView.backgroundColor = UIColor.whiteColor()
+        menuView.hidden = true;
+
+        let imgs : [String] = ["mosque", "noodles", "store"]
+        let titles : [String] = [NSLocalizedString("keyword_mosque", comment:""), NSLocalizedString("keyword_restaurant", comment:""),
+            NSLocalizedString("keyword_store", comment:"")]
+        
+        var item :CGFloat = 0
+        for index in 0...titles.count - 1 {
+            let button : UIButton = UIButton()
+            let itemY :CGFloat = (item * itemHight)
+            button.frame = CGRectMake(0, itemY, menuWidth, itemHight)
+            button.backgroundColor = UIColor.whiteColor()
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0)
+            button.layer.borderWidth = 0.5 //设置边框的宽度
+            button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
+            button.addTarget(self, action: Selector.init("menuClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.tag = index
+            button.setTitle(titles[index], forState:UIControlState.Normal)
+            menuView.addSubview(button)
+            
+            let iconImage : UIImageView = UIImageView(frame: CGRectMake(5.0, 2.5, itemHight - 5, itemHight - 5))
+            iconImage.image = UIImage(named: imgs[index])
+            button.addSubview(iconImage)
+            item++
+        }
+        self.view.addSubview(menuView)
+        
+    }
+    
+    //菜单点击事件
+    func menuClick(item : UIButton){
+        menuView.hidden = true;
+        let tag : NSInteger = item.tag
+        let types : NSArray = [KEYWORD_MOSQUE, KEYWORD_RESTAURANT, KEYWORD_STORE]
+        searchBYType(types[tag] as! String)
     }
     
     func succssResult(result: NSObject, tag: NSInteger) {
@@ -83,7 +140,8 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     
     func searchBYType(type : String) {
         self.view.makeToastActivity()
-        httpClient.getNearByForGoodle(currentLat, lng: currentLng, keywords: KEYWORD_MOSQUE, tag: 0)
+//        getNearByForServer
+        httpClient.getNearByForGoogle(currentLat, lng: currentLng, keyword: type, tag: 0)
     }
     
     func locationSet() {
@@ -106,26 +164,33 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         let dictionary : NSDictionary = resultArray[indexPath.row] as! NSDictionary
         nearbyCell.locationNameLabel.text = dictionary["name"] as? String
         nearbyCell.addressLabel.text = dictionary["vicinity"] as? String
-//        @IBOutlet weak var addressLabel: UILabel!
-//        @IBOutlet weak var nearLabel: UILabel!
+        let geometry : NSDictionary = dictionary["geometry"] as! NSDictionary
+        nearbyCell.nearLabel.text = String(format: "%.2fkm", getDistance(geometry["location"] as! NSDictionary))
         return nearbyCell
     }
     
-    func getDistance(location1 : CLLocation, location2 : CLLocation) {
-//        let distance : CLLocationDistance =
-        
-//        CLLocation *loc1 = [[CLLocation alloc] initWithLatitude: 23.12769292 longitude: 113.35043818];
-//        
-//        CLLocation *loc2 =[[CLLocation alloc] initWithLatitude: 22.12769292 longitude: 113.35043818];
-//        
-//        CLLocationDistance distance = [loc1 distanceFromLocation:loc2];
+    func getDistance(location : NSDictionary) -> Double{
+        let lat : NSNumber = location["lat"] as! NSNumber
+        let lng : NSNumber = location["lng"] as! NSNumber
+        let location : CLLocation = CLLocation(latitude: lat.doubleValue, longitude: lng.doubleValue)
+        let currentLocation : CLLocation = CLLocation(latitude: currentLat, longitude: currentLng)
+        let distance : CLLocationDistance = currentLocation.distanceFromLocation(location)
+        return distance / 1000
     }
     
     //选中
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let dictionary : NSDictionary = resultArray[indexPath.row] as! NSDictionary
-        print(dictionary)
+        let geometry : NSDictionary = dictionary["geometry"] as! NSDictionary
+        let location : NSDictionary = geometry["location"] as! NSDictionary
+        let lat : NSNumber = location["lat"] as! NSNumber
+        let lng : NSNumber = location["lng"] as! NSNumber
+        let url : String = String(format: "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", currentLat, currentLng, lat.doubleValue, lng.doubleValue)
+        let webVC : WebViewController = WebViewController()
+        webVC.url = url
+        self.navigationController?.pushViewController(webVC, animated: true)
+        menuView.hidden = true
     }
     
     func searchButtonClicked() {

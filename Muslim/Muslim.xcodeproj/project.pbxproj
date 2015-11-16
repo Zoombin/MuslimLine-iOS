@@ -10,6 +10,8 @@
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
 		183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECF381BF97E98003FB90C /* LogoViewController.swift */; };
 		183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECF391BF97E98003FB90C /* LogoViewController.xib */; };
+		183ECF3D1BF9B026003FB90C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECF3C1BF9B026003FB90C /* WebViewController.swift */; };
+		183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECF3E1BF9B05D003FB90C /* WebViewController.xib */; };
 		1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184356991BE9DC2F00194744 /* MSLHttpClient.swift */; };
 		1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */; };
 		1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A41BE9E88C00194744 /* AFHTTPRequestOperationManager.m */; };
@@ -115,6 +117,8 @@
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
 		183ECF381BF97E98003FB90C /* LogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
 		183ECF391BF97E98003FB90C /* LogoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoViewController.xib; sourceTree = "<group>"; };
+		183ECF3C1BF9B026003FB90C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		183ECF3E1BF9B05D003FB90C /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		184356991BE9DC2F00194744 /* MSLHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLHttpClient.swift; sourceTree = "<group>"; };
 		184356A11BE9E88C00194744 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -367,6 +371,8 @@
 				18F8FE7A1BF5BDAC00AC1888 /* NearbyViewController.swift */,
 				183ECF381BF97E98003FB90C /* LogoViewController.swift */,
 				183ECF391BF97E98003FB90C /* LogoViewController.xib */,
+				183ECF3C1BF9B026003FB90C /* WebViewController.swift */,
+				183ECF3E1BF9B05D003FB90C /* WebViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
 				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
 				451BD58F1BECB229008D98C2 /* settings.json in Resources */,
+				183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */,
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
@@ -690,6 +697,7 @@
 				1843574F1BE9E88D00194744 /* AFHTTPSessionManager.m in Sources */,
 				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
 				45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */,
+				183ECF3D1BF9B026003FB90C /* WebViewController.swift in Sources */,
 				184357501BE9E88D00194744 /* AFNetworkReachabilityManager.m in Sources */,
 				18F8FE801BF5C17F00AC1888 /* NearbyCell.swift in Sources */,
 				455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */,

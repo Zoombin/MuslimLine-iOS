@@ -33,14 +33,14 @@ class MSLHttpClient: NSObject {
         }
     }
     
-    func getNearByForGoodle(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
+    func getNearByForGoogle(lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let urlString : String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
         let params : NSMutableDictionary = NSMutableDictionary()
         params["Action"] = "1004"
         params["location"] = String(format: "%f,%f", lat,lng)
         params["radius"] = "15000"
         params["key"] = "AIzaSyChdMgSqJNgAZCrGmP_9UhkGFW9f7FOVCs"
-        params["keywords"] = keywords
+        params["keyword"] = keyword
         let manager = AFHTTPRequestOperationManager()
         manager.GET(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
@@ -55,7 +55,7 @@ class MSLHttpClient: NSObject {
         
     }
     
-    func getNearByForServer(lat : Double, lng : Double, keywords : NSString, tag : NSInteger) {
+    func getNearByForServer(lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let urlString : String = Config.getUrl()
         let manager = AFHTTPRequestOperationManager()
         
@@ -65,9 +65,9 @@ class MSLHttpClient: NSObject {
         params["Action"] = "1004"
         params["lat"] = lat
         params["lng"] = lng
-        params["range"] = "15000"
+        params["range"] = 15000
         params["Lang"] = "EN"
-        params["keywords"] = keywords
+        params["keywords"] = keyword
         
         manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
