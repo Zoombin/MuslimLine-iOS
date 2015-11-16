@@ -10,11 +10,12 @@
 
 import UIKit
 
-class QuranTextViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource{
+class QuranTextViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource,httpClientDelegate{
+    var httpClient : MSLHttpClient = MSLHttpClient()
     var mTableView:UITableView!
     let cellIdentifier = "QuranTextCellIdentifier"
     
-    var translationArray : NSMutableArray!
+    var translationArray : NSMutableArray = NSMutableArray()
     var select = 0;
     
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         
         setupView()
         getData()
+        
+        httpClient.delegate = self
     }
     
     func getData(){
@@ -33,7 +36,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         let quranTranslationValues : NSArray! = Config.QuranTranslationValues
         let quranTranslationCountryIcon : NSArray! = Config.QuranTranslationCountryIcon
         
-        translationArray = NSMutableArray()
+            print(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true))
         for index in 0...quranTranslationActors.count-1 {
             let translation :Translation = Translation()
             translation.quran_translation_actor = quranTranslationActors[index] as! String
@@ -44,6 +47,15 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             translation.zippath = zippath
             let download_url = (quranTranslationValues[index] as! String) + ".sql.zip"
             translation.download_url = download_url
+            let path = FileUtils.documentsDirectory() + "/"+download_url
+            if(0 == index){
+                 print(path)
+            }
+            if(NSFileManager.defaultManager().fileExistsAtPath (path)){
+                translation.isdownload = 1;
+            }else{
+                translation.isdownload = 0;
+            }
             translationArray.addObject(translation)
         }
         mTableView.reloadData()
@@ -56,6 +68,32 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         mTableView.delegate = self
         mTableView.dataSource = self
         self.view.addSubview(mTableView)
+    }
+    
+    
+    /***  网络请求回调    ****/
+    func succssResult(result : NSObject, tag : NSInteger) {
+        print("下载成功")
+        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
+        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
+        
+        cell.probar.stopAnimating()
+        cell.probar.hidden = true
+        Config.saveCurrentLanguageIndex(indexPath.row)
+        let translation : Translation = translationArray[indexPath.row] as! Translation
+        translation.isdownload = 1
+        mTableView.reloadData()
+    }
+    
+    func errorResult(error : NSError, tag : NSInteger) {
+        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
+        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
+        
+        cell.ivSelected.hidden = true
+        cell.ivDownload.hidden = false
+        cell.probar.stopAnimating()
+        cell.probar.hidden = true
+        self.view.makeToast(message: "下载失败")
     }
     
     
@@ -76,33 +114,49 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         cell.ivCountry.image = UIImage(named: (translation.quran_translation_country_icon as! String))
         cell.tvLanguage.text = (translation.quran_translation_entry as! String)
         cell.tvActor.text = (translation.quran_translation_actor as! String)
+        cell.probar.hidden = true
         
-        let row = indexPath.row
-        if(row > 20){
+        if(1 == translation.isdownload){
+            //文件存在
+            cell.ivDownload.hidden = true
+            cell.ivSelected.hidden = true
+            if(select == indexPath.row){
+                cell.ivSelected.hidden = false
+            }
+        }else{
             cell.ivSelected.hidden = true
             cell.ivDownload.hidden = false
-        }else{
-            cell.ivSelected.hidden = false
-            cell.ivDownload.hidden = true
-            if(select == row){
-                cell.ivSelected.hidden = false
-            }else{
-                cell.ivSelected.hidden = true
-            }
         }
-        
         return cell
     }
     
     //item点击
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        Config.saveCurrentLanguageIndex(indexPath.row)
+        
+        let row = indexPath.row
+        let translation :Translation = translationArray[row] as! Translation
+        let fileName = translation.download_url as! String
+        
         select = indexPath.row
-        mTableView.reloadData()
+        let cell : QuranTextCell =  tableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
+        cell.ivDownload.hidden = true
+        
+        if(1 == translation.isdownload){
+            //文件存在
+            Config.saveCurrentLanguageIndex(indexPath.row)
+            cell.ivSelected.hidden = false
+            mTableView.reloadData()
+            
+            //写数据库
+        }else{
+            //下载
+            let url = Constants.downloadTranslationUri  + fileName
+            cell.probar.hidden = false
+            cell.probar.startAnimating()
+            httpClient.downloadDocument(url)
+        }
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_download" id="amt-xF-m7a">
@@ -45,6 +45,11 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="lOw-Gi-vMX">
+                        <rect key="frame" x="282" y="20" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                        <animations/>
+                    </activityIndicatorView>
                 </subviews>
                 <animations/>
             </tableViewCellContentView>
@@ -53,6 +58,7 @@
                 <outlet property="ivCountry" destination="rfr-3e-vN2" id="mp7-xh-o3h"/>
                 <outlet property="ivDownload" destination="amt-xF-m7a" id="fXo-gZ-TCa"/>
                 <outlet property="ivSelected" destination="AhV-is-Rhk" id="Mbd-K4-79w"/>
+                <outlet property="probar" destination="lOw-Gi-vMX" id="ZLR-gh-tBt"/>
                 <outlet property="tvActor" destination="SNp-wZ-QWe" id="I8x-c8-rt6"/>
                 <outlet property="tvLanguage" destination="NEy-qp-UWK" id="NOb-Yh-t5c"/>
             </connections>

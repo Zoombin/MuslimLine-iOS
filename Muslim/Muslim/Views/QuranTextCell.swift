@@ -15,6 +15,7 @@ class QuranTextCell: UITableViewCell {
     @IBOutlet weak var tvActor: UILabel!
     @IBOutlet weak var ivDownload: UIImageView!
     @IBOutlet weak var ivSelected: UIImageView!
+    @IBOutlet weak var probar: UIActivityIndicatorView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

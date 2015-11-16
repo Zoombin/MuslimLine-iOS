@@ -131,6 +131,15 @@ class MSLHttpClient: NSObject {
             return documentsDirectoryURL.URLByAppendingPathComponent(response.suggestedFilename!)
             }) { (response, filePath, error) -> Void in
                 print("File downloaded to: %@", filePath)
+                if(error != nil){
+                    if (self.delegate != nil) {
+                        self.delegate!.errorResult(error!, tag: 0)
+                    }
+                }else{
+                    if (self.delegate != nil) {
+                        self.delegate!.succssResult(filePath!.absoluteString, tag: 0)
+                    }
+                }
         }
         downloadTask.resume()
     }
