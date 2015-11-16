@@ -9,18 +9,13 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, httpClientDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    let getUrlTag : NSInteger = 0
-    let httpClient = MSLHttpClient();
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         Config.initData()  //获取设置的数据
-        httpClient.delegate = self
-        getUrl()
         
         AMapLocationServices.sharedServices().apiKey = Constants.APIKey
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -39,32 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, httpClientDelegate {
         //设置根视图
         self.window!.rootViewController = nvc
         self.window!.makeKeyAndVisible()
-    }
-    
-    func getUrl() {
-        httpClient.getUrl(getUrlTag)
-    }
-    
-    func succssResult(result: NSObject, tag: NSInteger) {
-        print(result)
-        if (tag == getUrlTag) {
-            let urls = (result as! NSDictionary)["urls"]
-            if (urls == nil) {
-                return
-            }
-            let arrayCount : NSInteger = urls!.count
-            for index in 0...arrayCount - 1 {
-                let info : NSDictionary = urls![index] as! NSDictionary
-                if (info["name"] as! String == "defualt") {
-                    let url : String =  info["url"] as! String
-                    Config.saveUrl(url)
-                }
-            }
-        }
-    }
-    
-    func errorResult(error: NSError, tag: NSInteger) {
-        print("失败")
     }
 
     func applicationWillResignActive(application: UIApplication) {

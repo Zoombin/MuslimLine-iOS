@@ -18,21 +18,6 @@ class MSLHttpClient: NSObject {
     static var httpClient : MSLHttpClient!
     var delegate : httpClientDelegate?
     
-    func getUrl(tag : NSInteger) {
-        let urlString : String = "http://www.muslimsline.com/config/website.json"
-        let manager = AFHTTPRequestOperationManager()
-        manager.GET(urlString, parameters: nil, success:
-            { (operation, responseObject) -> Void in
-                if (self.delegate != nil) {
-                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
-                }
-            }) { (operation, error) -> Void in
-                if (self.delegate != nil) {
-                    self.delegate!.errorResult(error, tag: tag)
-                }
-        }
-    }
-    
     func getNearByForGoogle(lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let urlString : String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
         let params : NSMutableDictionary = NSMutableDictionary()
@@ -57,13 +42,43 @@ class MSLHttpClient: NSObject {
     
     func getNearByForServer(lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let urlString : String = Config.getUrl()
+        if (urlString.isEmpty) {
+            print("为空")
+            let urlString : String = "http://www.muslimsline.com/config/website.json"
+            let manager = AFHTTPRequestOperationManager()
+            manager.GET(urlString, parameters: nil, success:
+                { (operation, responseObject) -> Void in
+                    let urls = (responseObject as! NSDictionary)["urls"]
+                    if (urls == nil) {
+                        return
+                    }
+                    let arrayCount : NSInteger = urls!.count
+                    for index in 0...arrayCount - 1 {
+                        let info : NSDictionary = urls![index] as! NSDictionary
+                        if (info["name"] as! String == "defualt") {
+                            let url : String =  info["url"] as! String
+                            Config.saveUrl(url)
+                            self.getNear(url, lat: lat, lng: lng, keyword: keyword, tag: tag)
+                        }
+                    }
+                }) { (operation, error) -> Void in
+                    if (self.delegate != nil) {
+                        self.delegate!.errorResult(error, tag: tag)
+                    }
+            }
+            return
+        }
+        getNear(urlString, lat: lat, lng: lng, keyword: keyword, tag: tag)
+    }
+    
+    func getNear(urlString : String, lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let manager = AFHTTPRequestOperationManager()
         
         //TODO: 下面这句话一定要加，不然会失败
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
-//        lat = 31.323466;
-//        lng = 48.649984;
+        //        lat = 31.323466;
+        //        lng = 48.649984;
         params["Action"] = "1004"
         params["lat"] = lat
         params["lng"] = lng
@@ -73,12 +88,12 @@ class MSLHttpClient: NSObject {
         
         manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
-                if (self.delegate != nil) {
-                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
-                }
+            if (self.delegate != nil) {
+                self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+            }
             }) { (operation, error) -> Void in
                 if (self.delegate != nil) {
-                    self.delegate!.errorResult(error, tag: tag)
+                self.delegate!.errorResult(error, tag: tag)
                 }
         }
     }

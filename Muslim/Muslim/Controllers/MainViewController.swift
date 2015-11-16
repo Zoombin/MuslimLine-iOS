@@ -316,6 +316,8 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     //日历
     func clickRiL() {
         print("日历")
+        let calendarViewController : CalendarViewController = CalendarViewController()
+        self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     
     //尊主姓名
