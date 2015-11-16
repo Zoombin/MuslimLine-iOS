@@ -62,6 +62,8 @@ class MSLHttpClient: NSObject {
         //TODO: 下面这句话一定要加，不然会失败
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
+//        lat = 31.323466;
+//        lng = 48.649984;
         params["Action"] = "1004"
         params["lat"] = lat
         params["lng"] = lng
