@@ -26,13 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, httpClientDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         self.window!.backgroundColor = UIColor.whiteColor()
-        let vc = MainViewController(nibName:nil, bundle: nil);
-        //创建导航控制器
-        let nvc = UINavigationController(rootViewController:vc);
-        //设置根视图
-        self.window!.rootViewController = nvc;
+        let logoVC = LogoViewController(nibName:nil, bundle: nil)
+        self.window!.rootViewController = logoVC
         self.window!.makeKeyAndVisible()
         return true
+    }
+    
+    func initMainVC() {
+        let vc = MainViewController(nibName:nil, bundle: nil)
+        //创建导航控制器
+        let nvc = UINavigationController(rootViewController:vc)
+        //设置根视图
+        self.window!.rootViewController = nvc
+        self.window!.makeKeyAndVisible()
     }
     
     func getUrl() {

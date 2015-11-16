@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
+		183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECF381BF97E98003FB90C /* LogoViewController.swift */; };
+		183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECF391BF97E98003FB90C /* LogoViewController.xib */; };
 		1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184356991BE9DC2F00194744 /* MSLHttpClient.swift */; };
 		1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */; };
 		1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A41BE9E88C00194744 /* AFHTTPRequestOperationManager.m */; };
@@ -111,6 +113,8 @@
 
 /* Begin PBXFileReference section */
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
+		183ECF381BF97E98003FB90C /* LogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
+		183ECF391BF97E98003FB90C /* LogoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoViewController.xib; sourceTree = "<group>"; };
 		184356991BE9DC2F00194744 /* MSLHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLHttpClient.swift; sourceTree = "<group>"; };
 		184356A11BE9E88C00194744 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -361,6 +365,8 @@
 				451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */,
 				185556531BF03FDD00A29B49 /* PrayTimeViewController.swift */,
 				18F8FE7A1BF5BDAC00AC1888 /* NearbyViewController.swift */,
+				183ECF381BF97E98003FB90C /* LogoViewController.swift */,
+				183ECF391BF97E98003FB90C /* LogoViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -639,6 +645,7 @@
 				45FBBDAB1BF73FF000BA35F9 /* allahnames.json in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
+				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
@@ -692,6 +699,7 @@
 				185556521BF03F5900A29B49 /* PrayTime.m in Sources */,
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
 				185051731BEF8664000B5D3F /* ManlResult.swift in Sources */,
+				183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */,
 				184357531BE9E88D00194744 /* AFURLRequestSerialization.m in Sources */,
 				184357521BE9E88D00194744 /* AFURLConnectionOperation.m in Sources */,
 				185051751BEF88DC000B5D3F /* ManlDetailResult.swift in Sources */,
