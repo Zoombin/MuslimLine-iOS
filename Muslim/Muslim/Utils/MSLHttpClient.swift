@@ -96,4 +96,20 @@ class MSLHttpClient: NSObject {
                 }
         }
     }
+    
+    func downloadDocument(url : String) {
+        let configuration : NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let manager : AFURLSessionManager = AFURLSessionManager.init(sessionConfiguration: configuration)
+        
+        let URL : NSURL = NSURL.init(string: url)!
+        let request : NSURLRequest = NSURLRequest(URL: URL)
+        
+        let downloadTask : NSURLSessionDownloadTask = manager.downloadTaskWithRequest(request, progress: nil, destination: { (targetPath, response) -> NSURL in
+            let documentsDirectoryURL : NSURL = try! NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false)
+            return documentsDirectoryURL.URLByAppendingPathComponent(response.suggestedFilename!)
+            }) { (response, filePath, error) -> Void in
+                print("File downloaded to: %@", filePath)
+        }
+        downloadTask.resume()
+    }
 }
