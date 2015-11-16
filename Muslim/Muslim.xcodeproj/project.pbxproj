@@ -23,6 +23,8 @@
 		183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFB91BF9BE4C003FB90C /* FMDatabaseQueue.m */; };
 		183ECFC61BF9BE4C003FB90C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFBC1BF9BE4C003FB90C /* FMResultSet.m */; };
 		183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */; };
+		183ECFCB1BF9C932003FB90C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFC91BF9C932003FB90C /* CalendarViewController.swift */; };
+		183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECFCA1BF9C932003FB90C /* CalendarViewController.xib */; };
 		1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184356991BE9DC2F00194744 /* MSLHttpClient.swift */; };
 		1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */; };
 		1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A41BE9E88C00194744 /* AFHTTPRequestOperationManager.m */; };
@@ -154,6 +156,8 @@
 		183ECFBB1BF9BE4C003FB90C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		183ECFBC1BF9BE4C003FB90C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		183ECFC91BF9C932003FB90C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		183ECFCA1BF9C932003FB90C /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
 		184356991BE9DC2F00194744 /* MSLHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLHttpClient.swift; sourceTree = "<group>"; };
 		184356A11BE9E88C00194744 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -482,6 +486,8 @@
 				183ECF391BF97E98003FB90C /* LogoViewController.xib */,
 				183ECF3C1BF9B026003FB90C /* WebViewController.swift */,
 				183ECF3E1BF9B05D003FB90C /* WebViewController.xib */,
+				183ECFC91BF9C932003FB90C /* CalendarViewController.swift */,
+				183ECFCA1BF9C932003FB90C /* CalendarViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -769,6 +775,7 @@
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
+				183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
@@ -823,6 +830,7 @@
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
 				185051731BEF8664000B5D3F /* ManlResult.swift in Sources */,
 				183ECFBD1BF9BE4C003FB90C /* FMDatabase+FTS3.m in Sources */,
+				183ECFCB1BF9C932003FB90C /* CalendarViewController.swift in Sources */,
 				183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */,
 				184357531BE9E88D00194744 /* AFURLRequestSerialization.m in Sources */,
 				184357521BE9E88D00194744 /* AFURLConnectionOperation.m in Sources */,

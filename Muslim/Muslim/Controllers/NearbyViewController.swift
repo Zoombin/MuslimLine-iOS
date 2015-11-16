@@ -141,6 +141,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     func searchBYType(type : String) {
         self.view.makeToastActivity()
 //        getNearByForServer
+//        getNearByForGoogle
         httpClient.getNearByForGoogle(currentLat, lng: currentLng, keyword: type, tag: 0)
     }
     
@@ -165,7 +166,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         nearbyCell.locationNameLabel.text = dictionary["name"] as? String
         nearbyCell.addressLabel.text = dictionary["vicinity"] as? String
         let geometry : NSDictionary = dictionary["geometry"] as! NSDictionary
-        nearbyCell.nearLabel.text = String(format: "%.2fkm", getDistance(geometry["location"] as! NSDictionary))
+        nearbyCell.nearLabel.text = String(format: "%.2fKM", getDistance(geometry["location"] as! NSDictionary))
         return nearbyCell
     }
     
