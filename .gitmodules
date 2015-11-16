@@ -7,3 +7,6 @@
 [submodule "Muslim/Muslim/Submodules/fmdb"]
 	path = Muslim/Muslim/Submodules/fmdb
 	url = https://github.com/ccgus/fmdb.git
+[submodule "Muslim/Muslim/Submodules/ZipArchive"]
+	path = Muslim/Muslim/Submodules/ZipArchive
+	url = https://github.com/ZipArchive/ZipArchive.git

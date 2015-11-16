@@ -104,6 +104,11 @@
 		45C836681BF9A4B300069723 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836671BF9A4B300069723 /* FileUtils.swift */; };
 		45C8366A1BF9B98500069723 /* SQLiteDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836691BF9B98500069723 /* SQLiteDBHelper.swift */; };
 		45C836A91BF9C61D00069723 /* FMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836A81BF9C61D00069723 /* FMDBHelper.swift */; };
+		45C8372B1BF9D20300069723 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836E91BF9D20300069723 /* ioapi.c */; };
+		45C8372C1BF9D20300069723 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836EB1BF9D20300069723 /* mztools.c */; };
+		45C8372D1BF9D20300069723 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836ED1BF9D20300069723 /* unzip.c */; };
+		45C8372E1BF9D20300069723 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836EF1BF9D20300069723 /* zip.c */; };
+		45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C836F21BF9D20300069723 /* SSZipArchive.m */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
 		45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA41BF7221400BA35F9 /* Translation.swift */; };
@@ -267,6 +272,18 @@
 		45C836671BF9A4B300069723 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		45C836691BF9B98500069723 /* SQLiteDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBHelper.swift; sourceTree = "<group>"; };
 		45C836A81BF9C61D00069723 /* FMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBHelper.swift; sourceTree = "<group>"; };
+		45C836E61BF9D20300069723 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		45C836E81BF9D20300069723 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		45C836E91BF9D20300069723 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		45C836EA1BF9D20300069723 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		45C836EB1BF9D20300069723 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		45C836EC1BF9D20300069723 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		45C836ED1BF9D20300069723 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		45C836EE1BF9D20300069723 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		45C836EF1BF9D20300069723 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		45C836F01BF9D20300069723 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		45C836F11BF9D20300069723 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		45C836F21BF9D20300069723 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
 		45FBBDA41BF7221400BA35F9 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -378,6 +395,7 @@
 		1843569B1BE9E51F00194744 /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
+				45C836B71BF9D20300069723 /* ZipArchive */,
 				183ECFA31BF9BE2E003FB90C /* FMDB */,
 				18F9EB6A1BF447640096D021 /* Toast */,
 				1843569C1BE9E88C00194744 /* AFNetworking */,
@@ -655,6 +673,41 @@
 			name = config;
 			sourceTree = "<group>";
 		};
+		45C836B71BF9D20300069723 /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				45C836E51BF9D20300069723 /* SSZipArchive */,
+			);
+			path = ZipArchive;
+			sourceTree = "<group>";
+		};
+		45C836E51BF9D20300069723 /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				45C836E61BF9D20300069723 /* Common.h */,
+				45C836E71BF9D20300069723 /* minizip */,
+				45C836F11BF9D20300069723 /* SSZipArchive.h */,
+				45C836F21BF9D20300069723 /* SSZipArchive.m */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		45C836E71BF9D20300069723 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				45C836E81BF9D20300069723 /* crypt.h */,
+				45C836E91BF9D20300069723 /* ioapi.c */,
+				45C836EA1BF9D20300069723 /* ioapi.h */,
+				45C836EB1BF9D20300069723 /* mztools.c */,
+				45C836EC1BF9D20300069723 /* mztools.h */,
+				45C836ED1BF9D20300069723 /* unzip.c */,
+				45C836EE1BF9D20300069723 /* unzip.h */,
+				45C836EF1BF9D20300069723 /* zip.c */,
+				45C836F01BF9D20300069723 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -811,6 +864,7 @@
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
 				45C836A91BF9C61D00069723 /* FMDBHelper.swift in Sources */,
 				182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */,
+				45C8372D1BF9D20300069723 /* unzip.c in Sources */,
 				184357A81BE9E88D00194744 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				184357AD1BE9E88D00194744 /* UIRefreshControl+AFNetworking.m in Sources */,
 				45C8366A1BF9B98500069723 /* SQLiteDBHelper.swift in Sources */,
@@ -832,6 +886,7 @@
 				183ECFBD1BF9BE4C003FB90C /* FMDatabase+FTS3.m in Sources */,
 				183ECFCB1BF9C932003FB90C /* CalendarViewController.swift in Sources */,
 				183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */,
+				45C8372E1BF9D20300069723 /* zip.c in Sources */,
 				184357531BE9E88D00194744 /* AFURLRequestSerialization.m in Sources */,
 				184357521BE9E88D00194744 /* AFURLConnectionOperation.m in Sources */,
 				183ECFBF1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
@@ -856,6 +911,7 @@
 				183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */,
 				18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */,
 				18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */,
+				45C8372C1BF9D20300069723 /* mztools.c in Sources */,
 				184357A71BE9E88D00194744 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */,
 				183ECFC41BF9BE4C003FB90C /* FMDatabasePool.m in Sources */,
@@ -865,6 +921,7 @@
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
 				18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
+				45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */,
 				183ECFC31BF9BE4C003FB90C /* FMDatabaseAdditions.m in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				183ECFC11BF9BE4C003FB90C /* FMDatabaseVariadic.swift in Sources */,
@@ -873,6 +930,7 @@
 				451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */,
 				45C836681BF9A4B300069723 /* FileUtils.swift in Sources */,
 				184357AB1BE9E88D00194744 /* UIImageView+AFNetworking.m in Sources */,
+				45C8372B1BF9D20300069723 /* ioapi.c in Sources */,
 				455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */,
 				184357541BE9E88D00194744 /* AFURLResponseSerialization.m in Sources */,
 				45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */,

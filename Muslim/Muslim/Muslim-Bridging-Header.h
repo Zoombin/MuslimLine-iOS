@@ -10,3 +10,4 @@
 #import "AFNetworking.h"
 #import "PrayTime.h"
 #import "FMDB.h"
+#import "SSZipArchive.h"
