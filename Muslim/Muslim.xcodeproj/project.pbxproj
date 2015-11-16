@@ -12,6 +12,17 @@
 		183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECF391BF97E98003FB90C /* LogoViewController.xib */; };
 		183ECF3D1BF9B026003FB90C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECF3C1BF9B026003FB90C /* WebViewController.swift */; };
 		183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECF3E1BF9B05D003FB90C /* WebViewController.xib */; };
+		183ECFBD1BF9BE4C003FB90C /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFA71BF9BE4C003FB90C /* FMDatabase+FTS3.m */; };
+		183ECFBE1BF9BE4C003FB90C /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFA91BF9BE4C003FB90C /* FMTokenizers.m */; };
+		183ECFBF1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFAD1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m */; };
+		183ECFC01BF9BE4C003FB90C /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFAF1BF9BE4C003FB90C /* FMDatabaseAdditionsVariadic.swift */; };
+		183ECFC11BF9BE4C003FB90C /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFB01BF9BE4C003FB90C /* FMDatabaseVariadic.swift */; };
+		183ECFC21BF9BE4C003FB90C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFB31BF9BE4C003FB90C /* FMDatabase.m */; };
+		183ECFC31BF9BE4C003FB90C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFB51BF9BE4C003FB90C /* FMDatabaseAdditions.m */; };
+		183ECFC41BF9BE4C003FB90C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFB71BF9BE4C003FB90C /* FMDatabasePool.m */; };
+		183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFB91BF9BE4C003FB90C /* FMDatabaseQueue.m */; };
+		183ECFC61BF9BE4C003FB90C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ECFBC1BF9BE4C003FB90C /* FMResultSet.m */; };
+		183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */; };
 		1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184356991BE9DC2F00194744 /* MSLHttpClient.swift */; };
 		1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */; };
 		1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184356A41BE9E88C00194744 /* AFHTTPRequestOperationManager.m */; };
@@ -121,6 +132,27 @@
 		183ECF391BF97E98003FB90C /* LogoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoViewController.xib; sourceTree = "<group>"; };
 		183ECF3C1BF9B026003FB90C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		183ECF3E1BF9B05D003FB90C /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		183ECFA61BF9BE4C003FB90C /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
+		183ECFA71BF9BE4C003FB90C /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
+		183ECFA81BF9BE4C003FB90C /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
+		183ECFA91BF9BE4C003FB90C /* FMTokenizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMTokenizers.m; sourceTree = "<group>"; };
+		183ECFAA1BF9BE4C003FB90C /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
+		183ECFAC1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		183ECFAD1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
+		183ECFAF1BF9BE4C003FB90C /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseAdditionsVariadic.swift; sourceTree = "<group>"; };
+		183ECFB01BF9BE4C003FB90C /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseVariadic.swift; sourceTree = "<group>"; };
+		183ECFB21BF9BE4C003FB90C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		183ECFB31BF9BE4C003FB90C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		183ECFB41BF9BE4C003FB90C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		183ECFB51BF9BE4C003FB90C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		183ECFB61BF9BE4C003FB90C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		183ECFB71BF9BE4C003FB90C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		183ECFB81BF9BE4C003FB90C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		183ECFB91BF9BE4C003FB90C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		183ECFBA1BF9BE4C003FB90C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		183ECFBB1BF9BE4C003FB90C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		183ECFBC1BF9BE4C003FB90C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		184356991BE9DC2F00194744 /* MSLHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLHttpClient.swift; sourceTree = "<group>"; };
 		184356A11BE9E88C00194744 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		184356A21BE9E88C00194744 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -242,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */,
 				18BED75E1BE8560000418054 /* libz.tbd in Frameworks */,
 				18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */,
 				18BED75A1BE855EC00418054 /* SystemConfiguration.framework in Frameworks */,
@@ -267,9 +300,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183ECFA31BF9BE2E003FB90C /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				183ECFA41BF9BE4C003FB90C /* extra */,
+				183ECFB11BF9BE4C003FB90C /* fmdb */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		183ECFA41BF9BE4C003FB90C /* extra */ = {
+			isa = PBXGroup;
+			children = (
+				183ECFA51BF9BE4C003FB90C /* fts3 */,
+				183ECFAB1BF9BE4C003FB90C /* InMemoryOnDiskIO */,
+				183ECFAE1BF9BE4C003FB90C /* Swift extensions */,
+			);
+			name = extra;
+			path = fmdb/src/extra;
+			sourceTree = "<group>";
+		};
+		183ECFA51BF9BE4C003FB90C /* fts3 */ = {
+			isa = PBXGroup;
+			children = (
+				183ECFA61BF9BE4C003FB90C /* FMDatabase+FTS3.h */,
+				183ECFA71BF9BE4C003FB90C /* FMDatabase+FTS3.m */,
+				183ECFA81BF9BE4C003FB90C /* FMTokenizers.h */,
+				183ECFA91BF9BE4C003FB90C /* FMTokenizers.m */,
+				183ECFAA1BF9BE4C003FB90C /* fts3_tokenizer.h */,
+			);
+			path = fts3;
+			sourceTree = "<group>";
+		};
+		183ECFAB1BF9BE4C003FB90C /* InMemoryOnDiskIO */ = {
+			isa = PBXGroup;
+			children = (
+				183ECFAC1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.h */,
+				183ECFAD1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m */,
+			);
+			path = InMemoryOnDiskIO;
+			sourceTree = "<group>";
+		};
+		183ECFAE1BF9BE4C003FB90C /* Swift extensions */ = {
+			isa = PBXGroup;
+			children = (
+				183ECFAF1BF9BE4C003FB90C /* FMDatabaseAdditionsVariadic.swift */,
+				183ECFB01BF9BE4C003FB90C /* FMDatabaseVariadic.swift */,
+			);
+			path = "Swift extensions";
+			sourceTree = "<group>";
+		};
+		183ECFB11BF9BE4C003FB90C /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				183ECFB21BF9BE4C003FB90C /* FMDatabase.h */,
+				183ECFB31BF9BE4C003FB90C /* FMDatabase.m */,
+				183ECFB41BF9BE4C003FB90C /* FMDatabaseAdditions.h */,
+				183ECFB51BF9BE4C003FB90C /* FMDatabaseAdditions.m */,
+				183ECFB61BF9BE4C003FB90C /* FMDatabasePool.h */,
+				183ECFB71BF9BE4C003FB90C /* FMDatabasePool.m */,
+				183ECFB81BF9BE4C003FB90C /* FMDatabaseQueue.h */,
+				183ECFB91BF9BE4C003FB90C /* FMDatabaseQueue.m */,
+				183ECFBA1BF9BE4C003FB90C /* FMDB.h */,
+				183ECFBB1BF9BE4C003FB90C /* FMResultSet.h */,
+				183ECFBC1BF9BE4C003FB90C /* FMResultSet.m */,
+			);
+			name = fmdb;
+			path = fmdb/src/fmdb;
+			sourceTree = "<group>";
+		};
 		1843569B1BE9E51F00194744 /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
+				183ECFA31BF9BE2E003FB90C /* FMDB */,
 				18F9EB6A1BF447640096D021 /* Toast */,
 				1843569C1BE9E88C00194744 /* AFNetworking */,
 			);
@@ -516,6 +619,7 @@
 		18BED73A1BE84F2600418054 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */,
 				18BED75D1BE8560000418054 /* libz.tbd */,
 				18BED75B1BE855F300418054 /* CoreLocation.framework */,
 				18BED7591BE855EC00418054 /* SystemConfiguration.framework */,
@@ -714,9 +818,11 @@
 				185556521BF03F5900A29B49 /* PrayTime.m in Sources */,
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
 				185051731BEF8664000B5D3F /* ManlResult.swift in Sources */,
+				183ECFBD1BF9BE4C003FB90C /* FMDatabase+FTS3.m in Sources */,
 				183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */,
 				184357531BE9E88D00194744 /* AFURLRequestSerialization.m in Sources */,
 				184357521BE9E88D00194744 /* AFURLConnectionOperation.m in Sources */,
+				183ECFBF1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				185051751BEF88DC000B5D3F /* ManlDetailResult.swift in Sources */,
 				184357551BE9E88D00194744 /* AFURLSessionManager.m in Sources */,
 				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
@@ -727,22 +833,29 @@
 				45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */,
 				184357AE1BE9E88D00194744 /* UIWebView+AFNetworking.m in Sources */,
 				18522CFD1BEAEEDE00524539 /* CountryInfo.swift in Sources */,
+				183ECFC01BF9BE4C003FB90C /* FMDatabaseAdditionsVariadic.swift in Sources */,
+				183ECFBE1BF9BE4C003FB90C /* FMTokenizers.m in Sources */,
 				185556551BF03FDD00A29B49 /* PrayTimeViewController.swift in Sources */,
+				183ECFC61BF9BE4C003FB90C /* FMResultSet.m in Sources */,
 				184357AA1BE9E88D00194744 /* UIButton+AFNetworking.m in Sources */,
 				1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */,
 				451BD58C1BECA157008D98C2 /* Config.swift in Sources */,
 				45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */,
+				183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */,
 				18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */,
 				18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */,
 				184357A71BE9E88D00194744 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */,
+				183ECFC41BF9BE4C003FB90C /* FMDatabasePool.m in Sources */,
 				45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */,
 				184357A91BE9E88D00194744 /* UIAlertView+AFNetworking.m in Sources */,
 				451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */,
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
 				18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
+				183ECFC31BF9BE4C003FB90C /* FMDatabaseAdditions.m in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
+				183ECFC11BF9BE4C003FB90C /* FMDatabaseVariadic.swift in Sources */,
 				18F9EB9E1BF447BC0096D021 /* HRToast+UIView.swift in Sources */,
 				4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */,
 				451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */,
@@ -751,6 +864,7 @@
 				455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */,
 				184357541BE9E88D00194744 /* AFURLResponseSerialization.m in Sources */,
 				45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */,
+				183ECFC21BF9BE4C003FB90C /* FMDatabase.m in Sources */,
 				451242BD1BEE2B0A00AE3545 /* QuranAudioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

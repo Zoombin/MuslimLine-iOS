@@ -4,45 +4,38 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "887A4DAF38295A7621106664C13C6A5C89B19F59" : 0,
-    "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD" : 0,
+    "04101981B66E318109934C9516F88D824BB96459" : 0,
     "3CECB6C6913FF4475240D796DD36D77C87AF69FC" : 0,
     "2454A7C0A4BC2A09472718EB55354F320600B245" : 0,
     "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 0,
-    "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D" : 0
+    "887A4DAF38295A7621106664C13C6A5C89B19F59" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "61B4953A-2A64-4B7A-B4A5-E181DDCF6601",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "887A4DAF38295A7621106664C13C6A5C89B19F59" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/Toast\/",
-    "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/SQLite\/",
+    "04101981B66E318109934C9516F88D824BB96459" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/fmdb\/",
     "3CECB6C6913FF4475240D796DD36D77C87AF69FC" : "MuslimLine-iOS\/",
     "2454A7C0A4BC2A09472718EB55354F320600B245" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/JSONModel\/",
     "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/AFNetworking\/",
-    "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/SQLite\/Vendor\/sqlcipher\/"
+    "887A4DAF38295A7621106664C13C6A5C89B19F59" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/Toast\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Muslim",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Muslim\/Muslim.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ccgus\/fmdb.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04101981B66E318109934C9516F88D824BB96459"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/icanzilb\/JSONModel.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2454A7C0A4BC2A09472718EB55354F320600B245"
     },
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/stephencelis\/SQLite.swift.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD"
-    },
-    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zoombin\/MuslimLine-iOS.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3CECB6C6913FF4475240D796DD36D77C87AF69FC"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sqlcipher\/sqlcipher.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Rannie\/Toast-Swift.git",

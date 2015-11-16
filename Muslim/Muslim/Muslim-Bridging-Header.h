@@ -9,3 +9,4 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "AFNetworking.h"
 #import "PrayTime.h"
+#import "FMDB.h"
