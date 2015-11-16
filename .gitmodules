@@ -4,6 +4,3 @@
 [submodule "Muslim/Muslim/Submodules/Toast"]
 	path = Muslim/Muslim/Submodules/Toast
 	url = https://github.com/Rannie/Toast-Swift.git
-[submodule "Muslim/Muslim/Submodules/SQLite"]
-	path = Muslim/Muslim/Submodules/SQLite
-	url = https://github.com/stephencelis/SQLite.swift.git
