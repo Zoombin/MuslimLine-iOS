@@ -10,11 +10,18 @@ import UIKit
 
 class FileUtils: NSObject {
     
-    /**路径*/
+    /**APP documents路径*/
     static func documentsDirectory() ->String {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let documentsDirectory = paths.first! as String
         return documentsDirectory
     }
+    
+    /**读取路径下的文件内容*/
+    static func readFile(path:String) ->String{
+        let str : String = try! String(contentsOfFile: path)
+        return str 
+    }
+    
 
 }

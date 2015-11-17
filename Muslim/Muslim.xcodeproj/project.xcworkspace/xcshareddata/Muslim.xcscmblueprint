@@ -4,6 +4,7 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "65E71B0513DBFB09F39CEEF3A8B769CB93E66994" : 0,
     "04101981B66E318109934C9516F88D824BB96459" : 0,
     "3CECB6C6913FF4475240D796DD36D77C87AF69FC" : 0,
     "2454A7C0A4BC2A09472718EB55354F320600B245" : 0,
@@ -12,6 +13,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "61B4953A-2A64-4B7A-B4A5-E181DDCF6601",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "65E71B0513DBFB09F39CEEF3A8B769CB93E66994" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/ZipArchive\/",
     "04101981B66E318109934C9516F88D824BB96459" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/fmdb\/",
     "3CECB6C6913FF4475240D796DD36D77C87AF69FC" : "MuslimLine-iOS\/",
     "2454A7C0A4BC2A09472718EB55354F320600B245" : "MuslimLine-iOS\/Muslim\/Muslim\/Submodules\/JSONModel\/",
@@ -36,6 +38,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zoombin\/MuslimLine-iOS.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3CECB6C6913FF4475240D796DD36D77C87AF69FC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ZipArchive\/ZipArchive.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "65E71B0513DBFB09F39CEEF3A8B769CB93E66994"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Rannie\/Toast-Swift.git",

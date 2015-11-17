@@ -36,7 +36,6 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         let quranTranslationValues : NSArray! = Config.QuranTranslationValues
         let quranTranslationCountryIcon : NSArray! = Config.QuranTranslationCountryIcon
         
-            print(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true))
         for index in 0...quranTranslationActors.count-1 {
             let translation :Translation = Translation()
             translation.quran_translation_actor = quranTranslationActors[index] as! String
@@ -48,9 +47,6 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             let download_url = (quranTranslationValues[index] as! String) + ".sql.zip"
             translation.download_url = download_url
             let path = FileUtils.documentsDirectory() + "/"+download_url
-            if(0 == index){
-                 print(path)
-            }
             if(NSFileManager.defaultManager().fileExistsAtPath (path)){
                 translation.isdownload = 1;
             }else{
@@ -73,7 +69,10 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     
     /***  网络请求回调    ****/
     func succssResult(result : NSObject, tag : NSInteger) {
-        print("下载成功")
+        var path = result as? String
+        path = path!.stringByReplacingOccurrencesOfString("file:///", withString: "")
+        let sql = ZipUtils.readZipFile(path!)//读zip文件
+        FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
         let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
         let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
         
@@ -144,11 +143,13 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         
         if(1 == translation.isdownload){
             //文件存在
+            let path = FileUtils.documentsDirectory() + "/" + (translation.download_url as! String)
+            let sql = ZipUtils.readZipFile(path)//读zip文件
+            FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
+            
             Config.saveCurrentLanguageIndex(indexPath.row)
             cell.ivSelected.hidden = false
             mTableView.reloadData()
-            
-            //写数据库
         }else{
             //下载
             let url = Constants.downloadTranslationUri  + fileName

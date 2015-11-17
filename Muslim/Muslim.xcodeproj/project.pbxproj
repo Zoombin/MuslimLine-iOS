@@ -103,6 +103,7 @@
 		45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B351BEB24F2005B91BA /* SettingHead.xib */; };
 		45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */; };
 		45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */; };
+		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45C836681BF9A4B300069723 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836671BF9A4B300069723 /* FileUtils.swift */; };
 		45C8366A1BF9B98500069723 /* SQLiteDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836691BF9B98500069723 /* SQLiteDBHelper.swift */; };
@@ -274,6 +275,7 @@
 		45AB3B351BEB24F2005B91BA /* SettingHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingHead.xib; sourceTree = "<group>"; };
 		45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45C836671BF9A4B300069723 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		45C836691BF9B98500069723 /* SQLiteDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBHelper.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 		186B5EF41BE1B1E600212049 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */,
 				45C836671BF9A4B300069723 /* FileUtils.swift */,
 				45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */,
 				18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */,
@@ -930,6 +933,7 @@
 				45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */,
 				184357A91BE9E88D00194744 /* UIAlertView+AFNetworking.m in Sources */,
 				451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */,
+				45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */,
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
 				18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
