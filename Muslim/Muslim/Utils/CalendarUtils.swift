@@ -1,0 +1,33 @@
+//
+//  CalendarUtils.swift
+//  Muslim
+//
+//  Created by 颜超 on 15/11/17.
+//  Copyright © 2015年 ZoomBin. All rights reserved.
+//
+
+import UIKit
+
+class CalendarUtils: NSObject {
+    static func getFirstDayComponents(date : NSDate) -> NSDateComponents {
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: NSPersianCalendar)!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:date)
+        
+        let firstDate = NSDate(timeInterval:  Double((components.day - 1) * 3600 * 24), sinceDate:date)
+        let firstComponents = calendar.components(flags, fromDate:firstDate)
+        return firstComponents
+    }
+    
+    static func getComponents(date : NSDate) -> NSDateComponents {
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: NSPersianCalendar)!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:date)
+        return components
+    }
+    
+}
