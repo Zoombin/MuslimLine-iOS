@@ -12,6 +12,7 @@ class AllahNamesViewController: BaseViewController , UITableViewDelegate, UITabl
     var mTableView:UITableView!
     let cellIdentifier = "AllahNameCellIdentifier"
     var namesData : NSArray! //设置的数据
+    var namesPlist : NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class AllahNamesViewController: BaseViewController , UITableViewDelegate, UITabl
         let txtString = try? NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
         let data = txtString?.dataUsingEncoding(NSUTF8StringEncoding)
         namesData = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+   
+        
+        let namespath = NSBundle.mainBundle().pathForResource("allah_names", ofType: "plist") 
+        namesPlist = NSArray(contentsOfFile: namespath!)
     }
     
     
@@ -58,8 +63,8 @@ class AllahNamesViewController: BaseViewController , UITableViewDelegate, UITabl
 
         let mDict : NSDictionary  =  namesData.objectAtIndex(row) as! NSDictionary
         let nameEn :NSString = mDict.objectForKey("transliteration") as! NSString
-        let nameLocaliz = Config.AllahNames[row]
         let nameOt :NSString = mDict.objectForKey("arabic") as! NSString
+        let nameLocaliz = namesPlist[row]
         
         allahNameCell.indexLable.text = String(format: "%d", row+1)
         allahNameCell.nameEn.text = nameEn as String

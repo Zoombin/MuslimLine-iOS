@@ -9,6 +9,9 @@
 import UIKit
 
 class FMDBHelper: NSObject {
+    // 古兰经
+    // 章节信息表
+    let TB_CHAPTERS : String = "chapters"
     
     let dbPath:String
     let dbBase:FMDatabase
@@ -53,7 +56,34 @@ class FMDBHelper: NSObject {
     
     //操作单个语句
     func executeSQL(sql:String) {
+        dbBase.open()
+        dbBase.executeStatements(sql)
+        dbBase.close()
+    }
     
+    //获取古兰经章节  Chapter
+    func getChapters() ->NSMutableArray {
+        let dbpath = NSBundle.mainBundle().pathForResource("quran_v2", ofType: "db") //直接读项目里面的db文件
+        let dbChapter:FMDatabase =  FMDatabase(path: dbpath! as String)
+        
+        let sql:String = String(format:"SELECT * FROM %@", TB_CHAPTERS)
+        dbChapter.open()
+        let rs = try? dbChapter.executeQuery(sql, values: nil)
+        let array : NSMutableArray = NSMutableArray()
+        while rs!.next() {
+            let chapter : Chapter = Chapter()
+            chapter.sura = Int(rs!.intForColumn("sura"))
+            chapter.ayas_count = Int(rs!.intForColumn("ayas_count"))
+            chapter.first_aya_id = Int(rs!.intForColumn("first_aya_id"))
+            chapter.name_arabic = rs!.stringForColumn("name_arabic")
+            chapter.name_transliteration = rs!.stringForColumn("name_transliteration")
+            chapter.type = rs!.stringForColumn("type")
+            chapter.revelation_order = Int(rs!.intForColumn("revelation_order"))
+            chapter.rukus = Int(rs!.intForColumn("rukus"))
+            array.addObject(chapter)
+        }
+        dbChapter.close()
+        return array
     }
 
 
