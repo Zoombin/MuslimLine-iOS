@@ -70,7 +70,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         let rightButton : UIButton = UIButton.init(type: UIButtonType.Custom)
         rightButton.frame = CGRectMake(CGRectGetMaxX(calendarView.frame) + 60, calendarView.center.y, 11, 21)
-        rightButton.setImage(UIImage(named: "next_small"), forState: UIControlState.Normal)
+        rightButton.setImage(UIImage(named: "nextday_small"), forState: UIControlState.Normal)
         rightButton.addTarget(self, action: Selector.init("nextDayClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarBkgView.addSubview(rightButton)
         
