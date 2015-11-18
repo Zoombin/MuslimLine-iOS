@@ -9,7 +9,7 @@
 import UIKit
 
 class FMDBHelper: NSObject {
-    let dbPath:String
+    var dbPath:String
     let dbBase:FMDatabase
     
     
@@ -29,10 +29,19 @@ class FMDBHelper: NSObject {
     
     //创建数据库
     override init() {
-        let documentsFolder : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        var url : NSURL = NSURL.init(string: documentsFolder)!
-        url = url.URLByAppendingPathComponent("MuslimLine.sqlite")
-        self.dbPath = url.absoluteString
+//        let documentsFolder : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+//        var url : NSURL = NSURL.init(string: documentsFolder)!
+//        url = url.URLByAppendingPathComponent("MuslimLine.sqlite")
+//        self.dbPath = url.absoluteString
+        
+        let path = FileUtils.documentsDirectory() + "/" + DBConstants.DB_NAME
+        //是否存在
+        if(!NSFileManager.defaultManager().fileExistsAtPath (path)){
+            let dbZipPath = NSBundle.mainBundle().pathForResource(DBConstants.DB_ZIP_NAME, ofType: "zip")
+            //解压zip包
+            ZipUtils.unZipFile(dbZipPath!, unzipPath: FileUtils.documentsDirectory())
+        }
+        self.dbPath = path
         //创建数据库
         dbBase =  FMDatabase(path: self.dbPath as String)
 
@@ -59,12 +68,9 @@ class FMDBHelper: NSObject {
     
     //获取古兰经章节  Chapter
     func getChapters() ->NSMutableArray {
-        let dbpath = NSBundle.mainBundle().pathForResource("quran_v2", ofType: "db") //直接读项目里面的db文件
-        let dbChapter:FMDatabase =  FMDatabase(path: dbpath! as String)
-        
         let sql:String = String(format:"SELECT * FROM %@", DBConstants.TB_CHAPTERS)
-        dbChapter.open()
-        let rs = try? dbChapter.executeQuery(sql, values: nil)
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
         let array : NSMutableArray = NSMutableArray()
         while rs!.next() {
             let chapter : Chapter = Chapter()
@@ -78,7 +84,7 @@ class FMDBHelper: NSObject {
             chapter.rukus = Int(rs!.intForColumn(DBConstants.Field_RUKUS))
             array.addObject(chapter)
         }
-        dbChapter.close()
+        dbBase.close()
         return array
     }
 

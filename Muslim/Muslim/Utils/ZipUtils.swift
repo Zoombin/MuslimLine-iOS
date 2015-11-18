@@ -34,6 +34,16 @@ class ZipUtils: NSObject {
         }
     }
     
+    /***解压文件到制定路径*/
+    static func unZipFile(zipPath:String,unzipPath:String)->String{
+        let success = SSZipArchive.unzipFileAtPath(zipPath, toDestination: unzipPath)
+        if !success {
+            return ""
+        }
+        return unzipPath
+    }
+
+    
     static func unZipPath() -> String? {
         var path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
         path += "/\(NSUUID().UUIDString)"

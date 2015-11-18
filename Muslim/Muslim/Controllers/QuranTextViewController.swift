@@ -70,6 +70,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     /***  网络请求回调    ****/
     func succssResult(result : NSObject, tag : NSInteger) {
         var path = result as? String
+        //print("download path = "+path!)
         path = path!.stringByReplacingOccurrencesOfString("file:///", withString: "")
         let sql = ZipUtils.readZipFile(path!)//读zip文件
         FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
@@ -155,6 +156,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             let url = Constants.downloadTranslationUri  + fileName
             cell.probar.hidden = false
             cell.probar.startAnimating()
+            //print("download url = "+url)
             httpClient.downloadDocument(url)
         }
     }

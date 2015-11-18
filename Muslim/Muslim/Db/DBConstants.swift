@@ -9,6 +9,9 @@
 import UIKit
 
 class DBConstants: NSObject {
+    // 数据库名称
+    static let DB_NAME :String = "quran_v2.db"
+    static let DB_ZIP_NAME :String = "quran_v2"
 
     // 古兰经
     // 章节信息表
