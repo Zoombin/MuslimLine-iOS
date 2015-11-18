@@ -36,6 +36,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         
         setupView()
         loadChaptersData()
+        loadBookMarkData()
     }
     
     /***tab切换*/
@@ -43,9 +44,23 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         if (segmentedControl.selectedSegmentIndex == 0) {
             print("章节")
             tabIndex = 1
+            
+            listView.hidden = false
+            bmarkListview.hidden = true
+            nomarkLable.hidden = true
         } else {
             print("书签")
             tabIndex = 2
+            
+            listView.hidden = true
+            if(bookmarkArray.count == 0){
+                //没有书签
+                bmarkListview.hidden = true
+                nomarkLable.hidden = false
+            }else{
+                bmarkListview.hidden = false
+                nomarkLable.hidden = true
+            }
         }
     }
     /**搜索按钮*/
@@ -69,6 +84,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         SegmentedControlUtil.changeSegmentedControlColor(segmentedControl)
         
         tabIndex = 1
+        listView.hidden = false
         nomarkLable.hidden = true
         bmarkListview.hidden = true
     }
@@ -86,7 +102,9 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     /**加载书签数据*/
     func loadBookMarkData(){
-    
+        bookmarkArray = FMDBHelper.getInstance().getBookmarks() //书签
+        
+        bmarkListview.reloadData()
     }
 
     //设置cell的高度
@@ -121,6 +139,13 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             return guLJCell
         }else{
             let bookmarkCell : BookMarkCell = tableView.dequeueReusableCellWithIdentifier(markCellIdentifier, forIndexPath: indexPath) as! BookMarkCell
+            
+            let bookmark = bookmarkArray[indexPath.row] as! Bookmark
+            bookmarkCell.bookmark_title.text = bookmark.transliteration as? String
+            bookmarkCell.bookmark_subtitle.text = String(format: NSLocalizedString("verse2", comment:""), bookmark.ayaId! )
+            bookmarkCell.arabic_title.text = bookmark.suraName as? String
+            //字体未设置
+            
             return bookmarkCell
         }
     }
@@ -130,6 +155,16 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let tag = tableView.tag
         if(100 == tag){
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            let chapter = dataArray[indexPath.row] as! Chapter
+            let readVC : ReadViewController = ReadViewController()
+            //历史
+            //readVC.EXTRA_BOOKMARK_JUMP = true
+            //readVC.EXTRA_SURA = 1
+            //readVC.EXTRA_SCOLLPOSITION = 1
+            
+            //正常跳转
+            readVC.EXTRA_SURA = chapter.sura
+            self.navigationController?.pushViewController(readVC, animated: true)
         }
     }
     

@@ -87,6 +87,29 @@ class FMDBHelper: NSObject {
         dbBase.close()
         return array
     }
+    
+    //获取书签数据
+    func getBookmarks()->NSMutableArray{
+        let sql:String = "select a.id, a.sura, a.aya, a.add_date, b.name_arabic, b.name_transliteration " +
+            "from bookmark a left join chapters b " +
+            "on a.[sura] = b.[sura] " +
+        "order by a.add_date desc"
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        let array : NSMutableArray = NSMutableArray()
+        while rs!.next() {
+            let bookmark : Bookmark = Bookmark()
+            bookmark.id = Int(rs!.intForColumnIndex(0))
+            bookmark.suraId = Int(rs!.intForColumnIndex(1))
+            bookmark.ayaId = Int(rs!.intForColumnIndex(2))
+            bookmark.add_date = NSNumber(long: rs!.longForColumnIndex(3))
+            bookmark.suraName = rs!.stringForColumnIndex(4)
+            bookmark.transliteration = rs!.stringForColumnIndex(5)
+            array.addObject(bookmark)
+        }
+        dbBase.close()
+        return array
+    }
 
 
 }

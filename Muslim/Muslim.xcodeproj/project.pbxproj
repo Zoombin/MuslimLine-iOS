@@ -123,6 +123,11 @@
 		45EF2B741BFC3B8A008B01EE /* translated_sura_titles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */; };
 		45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */; };
 		45EF2B771BFC3D12008B01EE /* FMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */; };
+		45EF2B791BFC4E8B008B01EE /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */; };
+		45EF2B7B1BFC58DF008B01EE /* ReadRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B7A1BFC58DF008B01EE /* ReadRightView.swift */; };
+		45EF2B7D1BFC5913008B01EE /* ReadRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B7C1BFC5913008B01EE /* ReadRightView.xib */; };
+		45EF2B7F1BFC5F7E008B01EE /* ReadLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */; };
+		45EF2B811BFC5FA3008B01EE /* ReadLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B801BFC5FA3008B01EE /* ReadLeftView.xib */; };
 		45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */; };
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
 		45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA41BF7221400BA35F9 /* Translation.swift */; };
@@ -310,6 +315,11 @@
 		45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = translated_sura_titles.plist; sourceTree = "<group>"; };
 		45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
 		45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBHelper.swift; sourceTree = "<group>"; };
+		45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		45EF2B7A1BFC58DF008B01EE /* ReadRightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadRightView.swift; sourceTree = "<group>"; };
+		45EF2B7C1BFC5913008B01EE /* ReadRightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadRightView.xib; sourceTree = "<group>"; };
+		45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadLeftView.swift; sourceTree = "<group>"; };
+		45EF2B801BFC5FA3008B01EE /* ReadLeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadLeftView.xib; sourceTree = "<group>"; };
 		45F7E12D1BE36EF800FE79AB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
 		45FBBDA41BF7221400BA35F9 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -531,6 +541,7 @@
 				183ECF3E1BF9B05D003FB90C /* WebViewController.xib */,
 				183ECFC91BF9C932003FB90C /* CalendarViewController.swift */,
 				183ECFCA1BF9C932003FB90C /* CalendarViewController.xib */,
+				45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -595,6 +606,10 @@
 				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
 				45B741631BFB7177000A67D5 /* BookMarkCell.swift */,
 				45B741641BFB7177000A67D5 /* BookMarkCell.xib */,
+				45EF2B7A1BFC58DF008B01EE /* ReadRightView.swift */,
+				45EF2B7C1BFC5913008B01EE /* ReadRightView.xib */,
+				45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */,
+				45EF2B801BFC5FA3008B01EE /* ReadLeftView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -861,6 +876,7 @@
 				45EF2B731BFC3B8A008B01EE /* settings.json in Resources */,
 				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
 				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
+				45EF2B7D1BFC5913008B01EE /* ReadRightView.xib in Resources */,
 				183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */,
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
@@ -878,6 +894,7 @@
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
 				45EF2B6E1BFC3B8A008B01EE /* allah_names.plist in Resources */,
+				45EF2B811BFC5FA3008B01EE /* ReadLeftView.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
@@ -968,15 +985,18 @@
 				18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */,
 				45C8372C1BF9D20300069723 /* mztools.c in Sources */,
 				184357A71BE9E88D00194744 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				45EF2B791BFC4E8B008B01EE /* ReadViewController.swift in Sources */,
 				18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */,
 				183ECFC41BF9BE4C003FB90C /* FMDatabasePool.m in Sources */,
 				45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */,
 				184357A91BE9E88D00194744 /* UIAlertView+AFNetworking.m in Sources */,
+				45EF2B7F1BFC5F7E008B01EE /* ReadLeftView.swift in Sources */,
 				451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */,
 				45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */,
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
 				18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
+				45EF2B7B1BFC58DF008B01EE /* ReadRightView.swift in Sources */,
 				45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */,
 				183ECFC31BF9BE4C003FB90C /* FMDatabaseAdditions.m in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
