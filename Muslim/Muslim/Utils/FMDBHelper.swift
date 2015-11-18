@@ -9,10 +9,6 @@
 import UIKit
 
 class FMDBHelper: NSObject {
-    // 古兰经
-    // 章节信息表
-    let TB_CHAPTERS : String = "chapters"
-    
     let dbPath:String
     let dbBase:FMDatabase
     
@@ -66,20 +62,20 @@ class FMDBHelper: NSObject {
         let dbpath = NSBundle.mainBundle().pathForResource("quran_v2", ofType: "db") //直接读项目里面的db文件
         let dbChapter:FMDatabase =  FMDatabase(path: dbpath! as String)
         
-        let sql:String = String(format:"SELECT * FROM %@", TB_CHAPTERS)
+        let sql:String = String(format:"SELECT * FROM %@", DBConstants.TB_CHAPTERS)
         dbChapter.open()
         let rs = try? dbChapter.executeQuery(sql, values: nil)
         let array : NSMutableArray = NSMutableArray()
         while rs!.next() {
             let chapter : Chapter = Chapter()
-            chapter.sura = Int(rs!.intForColumn("sura"))
-            chapter.ayas_count = Int(rs!.intForColumn("ayas_count"))
-            chapter.first_aya_id = Int(rs!.intForColumn("first_aya_id"))
-            chapter.name_arabic = rs!.stringForColumn("name_arabic")
-            chapter.name_transliteration = rs!.stringForColumn("name_transliteration")
-            chapter.type = rs!.stringForColumn("type")
-            chapter.revelation_order = Int(rs!.intForColumn("revelation_order"))
-            chapter.rukus = Int(rs!.intForColumn("rukus"))
+            chapter.sura = Int(rs!.intForColumn(DBConstants.Field_SURA))
+            chapter.ayas_count = Int(rs!.intForColumn(DBConstants.Field_AYAS_COUNT))
+            chapter.first_aya_id = Int(rs!.intForColumn(DBConstants.Field_FIRST_AYA_ID))
+            chapter.name_arabic = rs!.stringForColumn(DBConstants.Field_NAME_ARABIC)
+            chapter.name_transliteration = rs!.stringForColumn(DBConstants.Field_NAME_TRANSLITERATION)
+            chapter.type = rs!.stringForColumn(DBConstants.Field_TYPE)
+            chapter.revelation_order = Int(rs!.intForColumn(DBConstants.Field_REVELATION_ORDER))
+            chapter.rukus = Int(rs!.intForColumn(DBConstants.Field_RUKUS))
             array.addObject(chapter)
         }
         dbChapter.close()

@@ -86,6 +86,6 @@
     <resources>
         <image name="calendar_bg" width="156" height="85"/>
         <image name="calendar_bg2" width="156" height="39"/>
-        <image name="moon" width="11" height="10"/>
+        <image name="moon" width="13" height="12"/>
     </resources>
 </document>

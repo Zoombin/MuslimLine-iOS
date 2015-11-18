@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuLJViewController" customModule="Muslim" customModuleProvider="target">
             <connections>
+                <outlet property="bmarkListview" destination="SbR-0F-Wbe" id="pCD-V5-haQ"/>
                 <outlet property="listView" destination="DVL-UP-CtT" id="SoK-Pv-Bae"/>
+                <outlet property="nomarkLable" destination="U6a-rv-nJ6" id="s6K-7G-gaH"/>
                 <outlet property="segmentedControl" destination="XSE-K1-sD0" id="eKU-UF-XLq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,6 +37,24 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="FMz-8p-856"/>
                         <outlet property="delegate" destination="-1" id="gfo-Af-9dZ"/>
+                    </connections>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无书签" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U6a-rv-nJ6">
+                    <rect key="frame" x="115" y="327" width="91" height="21"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SbR-0F-Wbe">
+                    <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="koj-mC-8f2"/>
+                        <outlet property="delegate" destination="-1" id="diy-Q7-Udl"/>
                     </connections>
                 </tableView>
             </subviews>

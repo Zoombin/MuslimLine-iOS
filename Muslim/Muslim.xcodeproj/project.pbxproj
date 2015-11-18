@@ -111,6 +111,9 @@
 		45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */; };
 		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45B7415F1BFB659F000A67D5 /* translated_sura_titles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45B741611BFB659F000A67D5 /* translated_sura_titles.plist */; };
+		45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741631BFB7177000A67D5 /* BookMarkCell.swift */; };
+		45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B741641BFB7177000A67D5 /* BookMarkCell.xib */; };
+		45B741691BFB7B10000A67D5 /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741681BFB7B10000A67D5 /* DBConstants.swift */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45C836681BF9A4B300069723 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836671BF9A4B300069723 /* FileUtils.swift */; };
 		45C8366A1BF9B98500069723 /* SQLiteDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836691BF9B98500069723 /* SQLiteDBHelper.swift */; };
@@ -292,6 +295,9 @@
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741601BFB659F000A67D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
 		45B741621BFB65A2000A67D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/translated_sura_titles.plist"; sourceTree = "<group>"; };
+		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
+		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
+		45B741681BFB7B10000A67D5 /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45C836671BF9A4B300069723 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		45C836691BF9B98500069723 /* SQLiteDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBHelper.swift; sourceTree = "<group>"; };
@@ -594,6 +600,8 @@
 				183ECFCD1BF9D350003FB90C /* CalendarCell.swift */,
 				183ECFCE1BF9D350003FB90C /* CalendarCell.xib */,
 				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
+				45B741631BFB7177000A67D5 /* BookMarkCell.swift */,
+				45B741641BFB7177000A67D5 /* BookMarkCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -621,6 +629,7 @@
 		1887FD011BD7387400CB83D5 /* Muslim */ = {
 			isa = PBXGroup;
 			children = (
+				45B741671BFB7AC3000A67D5 /* db */,
 				45AB3B401BEB3226005B91BA /* config */,
 				1843569B1BE9E51F00194744 /* Submodules */,
 				18BED73A1BE84F2600418054 /* Framework */,
@@ -706,6 +715,14 @@
 				45B741611BFB659F000A67D5 /* translated_sura_titles.plist */,
 			);
 			name = config;
+			sourceTree = "<group>";
+		};
+		45B741671BFB7AC3000A67D5 /* db */ = {
+			isa = PBXGroup;
+			children = (
+				45B741681BFB7B10000A67D5 /* DBConstants.swift */,
+			);
+			name = db;
 			sourceTree = "<group>";
 		};
 		45C836B71BF9D20300069723 /* ZipArchive */ = {
@@ -866,6 +883,7 @@
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				457CB50C1BFB3723009BFAC3 /* allah_names.plist in Resources */,
+				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
@@ -900,6 +918,7 @@
 			files = (
 				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
 				45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */,
+				45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */,
 				1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */,
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
 				45C836A91BF9C61D00069723 /* FMDBHelper.swift in Sources */,
@@ -920,6 +939,7 @@
 				455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */,
 				18F8FE831BF5D5A200AC1888 /* AllahNamesViewController.swift in Sources */,
 				18F8FE881BF5D5AC00AC1888 /* AllahNameCell.swift in Sources */,
+				45B741691BFB7B10000A67D5 /* DBConstants.swift in Sources */,
 				1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */,
 				185556521BF03F5900A29B49 /* PrayTime.m in Sources */,
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
