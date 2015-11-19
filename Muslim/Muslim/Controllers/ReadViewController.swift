@@ -33,7 +33,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         mTableView = UITableView(frame: CGRectMake(0,0,PhoneUtils.screenWidth,PhoneUtils.screenHeight))
-        mTableView!.registerNib(UINib(nibName: "SettingAdjustCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        mTableView!.registerNib(UINib(nibName: "ReadViewCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         mTableView.delegate = self
         mTableView.dataSource = self
         self.view.addSubview(mTableView)
@@ -85,7 +85,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     //行高
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 10
+        if (indexPath.row % 3 == 0) {
+            return 120
+        }
+
+        return 70
     }
     
     //行数
@@ -96,8 +100,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //生成界面
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-       let cell : SettingAdjustCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as!SettingAdjustCell
-           return cell
+       let cell : ReadViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as!ReadViewCell
+        
+        return cell
         
     }
     

@@ -124,29 +124,33 @@ class FMDBHelper: NSObject {
         var sql : String!
         if( chapterNum != -1 && sectionNum == -1){
              if(curLanguage.length == 0){
-                sql = String(format: "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya where a.sura  =%d", chapterNum)
+                sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.sura  =" + String(chapterNum)
             } else {
-                sql = String(format: "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join %@ b on a.[sura]=b.sura and a.aya=b.aya left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya where a.sura  =%d", curLanguage,chapterNum)
+                sql = "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join " + String(curLanguage) + " b on a.[sura]=b.sura and a.aya=b.aya " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.sura  =" + String(chapterNum)
             }
         }else if(chapterNum != -1 && sectionNum != -1){
             if(curLanguage.length == 0){
-                sql = String(format: "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
-                    "where a.sura  =%d and a.aya = %d", chapterNum , sectionNum)
+                    "where a.sura  =" + String(chapterNum) + " and a.aya = " + String(sectionNum)
             }else{
-                sql = String(format: "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join %@ b on a.[sura]=b.sura and a.aya=b.aya " +
+                sql = "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join " + String(curLanguage) + " b on a.[sura]=b.sura and a.aya=b.aya " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
-                    "where a.sura  =%d and a.aya = %d", curLanguage , chapterNum , sectionNum)
+                    "where a.sura  =" + String(chapterNum) + " and a.aya = " + String(sectionNum)
             }
         }else{
             if(curLanguage.length == 0){
-                sql = String(format: "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
-                    "where a.text  like '%%@%'", replaceStr)
+                    "where a.text  like '%" + replaceStr + "%'"
             }else{
-                sql = String(format: "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join %@ b on a.[sura]=b.sura and a.aya=b.aya " +
+                sql = "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join " + String(curLanguage) + " b on a.[sura]=b.sura and a.aya=b.aya " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
-                    "where a.text  like '%%@%' or b.text like '%%@%'", curLanguage,replaceStr,replaceStr)
+                    "where a.text  like '%" + replaceStr + "%' or b.text like '%" + replaceStr + "%'";
             }
         }
         dbBase.open()

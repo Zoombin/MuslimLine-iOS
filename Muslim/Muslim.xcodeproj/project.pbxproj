@@ -99,6 +99,8 @@
 		456408DA1BFD7609007A217B /* GuLJSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408D81BFD7609007A217B /* GuLJSearchCell.swift */; };
 		456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456408D91BFD7609007A217B /* GuLJSearchCell.xib */; };
 		456408DD1BFDA06E007A217B /* Quran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408DC1BFDA06E007A217B /* Quran.swift */; };
+		456408E01BFDC853007A217B /* ReadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408DE1BFDC853007A217B /* ReadViewCell.swift */; };
+		456408E11BFDC853007A217B /* ReadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456408DF1BFDC853007A217B /* ReadViewCell.xib */; };
 		457CB5051BFB0BD0009BFAC3 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5041BFB0BD0009BFAC3 /* Chapter.swift */; };
 		457CB5071BFB0EB7009BFAC3 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */; };
 		45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B321BEB24F2005B91BA /* SettingCell.swift */; };
@@ -287,6 +289,8 @@
 		456408D81BFD7609007A217B /* GuLJSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchCell.swift; sourceTree = "<group>"; };
 		456408D91BFD7609007A217B /* GuLJSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJSearchCell.xib; sourceTree = "<group>"; };
 		456408DC1BFDA06E007A217B /* Quran.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quran.swift; sourceTree = "<group>"; };
+		456408DE1BFDC853007A217B /* ReadViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewCell.swift; sourceTree = "<group>"; };
+		456408DF1BFDC853007A217B /* ReadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadViewCell.xib; sourceTree = "<group>"; };
 		457CB5041BFB0BD0009BFAC3 /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		45AB3B321BEB24F2005B91BA /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -619,6 +623,8 @@
 				45EF2B801BFC5FA3008B01EE /* ReadLeftView.xib */,
 				456408D81BFD7609007A217B /* GuLJSearchCell.swift */,
 				456408D91BFD7609007A217B /* GuLJSearchCell.xib */,
+				456408DE1BFDC853007A217B /* ReadViewCell.swift */,
+				456408DF1BFDC853007A217B /* ReadViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -906,6 +912,7 @@
 				45EF2B6E1BFC3B8A008B01EE /* allah_names.plist in Resources */,
 				45EF2B811BFC5FA3008B01EE /* ReadLeftView.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
+				456408E11BFDC853007A217B /* ReadViewCell.xib in Resources */,
 				183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
@@ -1019,6 +1026,7 @@
 				451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */,
 				45C836681BF9A4B300069723 /* FileUtils.swift in Sources */,
 				184357AB1BE9E88D00194744 /* UIImageView+AFNetworking.m in Sources */,
+				456408E01BFDC853007A217B /* ReadViewCell.swift in Sources */,
 				45C8372B1BF9D20300069723 /* ioapi.c in Sources */,
 				455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */,
 				184357541BE9E88D00194744 /* AFURLResponseSerialization.m in Sources */,
