@@ -9,7 +9,7 @@
 import UIKit
 
 class CalendarViewController: UIViewController {
-
+    
     @IBOutlet weak var customYearLabel: UILabel!
     @IBOutlet weak var yearMonthLabel: UILabel!
     @IBOutlet weak var holidayTableView: UITableView!
@@ -33,30 +33,16 @@ class CalendarViewController: UIViewController {
         holidayTableView!.registerNib(UINib(nibName: "CalendarCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         holidayTableView.tableHeaderView = calendarBkgView
         loadHolidays()
-        let components = CalendarUtils.getComponents(NSDate())
-        mslYear = components.year
-        mslMonth = components.month
-//        currentComponents = getComponents(NSDate())
         currentDate = NSDate()
         initCalendarView()
     }
     
     @IBAction func backButtonClicked(sender : UIButton) {
-//        currentComponents?.month = (currentComponents?.month)! - 1
-//        currentDate = CalendarUtils.getPriousorLaterDateFromDate(currentDate!, month: -1)
-        print(currentDate)
-        reloadMonthInfo()
+        refreshCalendarButton()
     }
     
     @IBAction func nextButtonClicked(sender : UIButton) {
-//        currentComponents?.month = (currentComponents?.month)! + 1
-//        currentDate = CalendarUtils.getPriousorLaterDateFromDate(currentDate!, month: 1)
-        print(currentDate)
-        reloadMonthInfo()
-    }
-    
-    func reloadMonthInfo() {
-//        yearMonthLabel.text = String(format: "%d/%d", mslMonth / mslYear)
+        refreshCalendarButton()
     }
     
     func initCalendarView() {
@@ -67,12 +53,8 @@ class CalendarViewController: UIViewController {
         let buttonWidth : CGFloat = buttonHeight
         
         let offSetX = (PhoneUtils.screenWidth - (CGFloat(rowCount) * CGFloat(buttonWidth))) / 2
-        print(offSetX)
         
-        var currentIndex : CGFloat = 0
-        var currentRow : CGFloat = 0
-        var firstDate : NSDate = NSDate()
-        let weeks : [String] = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
+        let weeks : [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         for index in 0...6 {
             let weekLabel : UILabel = UILabel()
             weekLabel.frame = CGRectMake(offSetX + CGFloat(index) * buttonWidth, CGRectGetMinY(calendarView.frame) - buttonHeight, buttonWidth, buttonHeight)
@@ -82,32 +64,82 @@ class CalendarViewController: UIViewController {
             calendarBkgView.addSubview(weekLabel)
         }
         
-        let currentComponents = CalendarUtils.getFirstDayComponents(firstDate)
-        let firstDayIndex : NSInteger = currentComponents.weekday
-        let components = CalendarUtils.getComponents(NSDate())
-        let day : NSInteger = firstDayIndex + components.day - 1
-        firstDate = NSDate(timeInterval: Double(3600 * 24 * -day), sinceDate: firstDate)
-        print(day)
+        let todayBtn : UIButton = UIButton.init(type: UIButtonType.Custom)
+        todayBtn.frame = CGRectMake((PhoneUtils.screenWidth - 80) / 2, CGRectGetMaxY(calendarView.frame) - buttonHeight, 80, buttonHeight * 3/4)
+        todayBtn.layer.cornerRadius = 6.0
+        todayBtn.setTitle(NSLocalizedString("prayer_calendar_today", comment: ""), forState: UIControlState.Normal)
+        todayBtn.backgroundColor = Colors.greenColor
+        todayBtn.addTarget(self, action: Selector.init("todayButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        calendarBkgView.addSubview(todayBtn)
+        
+        calendarView.backgroundColor = UIColor.yellowColor()
+        refreshCalendarButton()
+    }
+    
+    func todayButtonClicked() {
+        currentDate = NSDate()
+        refreshCalendarButton()
+    }
+    
+    func refreshCalendarButton() {
+        let rowCount : NSInteger = 7
+        let sectionCount : NSInteger = 7
+        let calendarViewHeight : CGFloat = calendarView.frame.size.height
+        let buttonHeight : CGFloat = calendarViewHeight / sectionCount
+        let buttonWidth : CGFloat = buttonHeight
+        
+        let offSetX = (PhoneUtils.screenWidth - (CGFloat(rowCount) * CGFloat(buttonWidth))) / 2
+        var currentIndex : CGFloat = 0
+        var currentRow : CGFloat = 0
+        
+        //当前的第一天
+        let firstComponents = CalendarUtils.getFirstDayComponents(currentDate!)
+        print("本月第一天==>%d月%d日 周%d", firstComponents.month, firstComponents.day, firstComponents.weekday)
+        //当前的
+        let components = CalendarUtils.getComponents(currentDate!)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        customYearLabel.text = dateFormatter.stringFromDate(currentDate!)
+        mslMonth = firstComponents.month
+        mslYear = firstComponents.year
+        yearMonthLabel.text = String(format:"%@%d/%d", firstComponents.month > 9 ? "" : "0", mslMonth!, mslYear!)
+
+        print("当前点击的日期==>%d月%d日 周%d", components.month, components.day, components.weekday)
+        let firstDayIndex = firstComponents.weekday - 1
+        
+        let day = firstDayIndex + components.day - 1
+        var firstDate = NSDate(timeInterval: Double(3600 * 24 * -day), sinceDate: currentDate!)
+        print(firstDate)
+        let hasInit : Bool = calendarView.subviews.count > 0
         for index in 0...41 {
-            print(index)
-            
-            firstDate = NSDate(timeInterval: Double(3600 * 24), sinceDate: firstDate)
-            let label : CalendarButton = CalendarButton.init(frame:  CGRectMake(offSetX + currentIndex * buttonWidth, currentRow * buttonHeight, buttonWidth, buttonHeight))
-            label.backgroundColor = UIColor.lightGrayColor()
-            label.setDate(firstDate)
-            calendarView.addSubview(label)
-            currentIndex++
-            if ((index + 1) % 7 == 0) {
-                currentRow++
-                currentIndex = 0
+            if (hasInit) {
+                firstDate = NSDate(timeInterval: Double(3600 * 24), sinceDate: firstDate)
+                let calendarButton : CalendarButton = calendarView.subviews[index] as! CalendarButton
+                calendarButton.setDate(firstDate, month: components.month)
+            } else {
+                firstDate = NSDate(timeInterval: Double(3600 * 24), sinceDate: firstDate)
+                let calendarButton : CalendarButton = CalendarButton.init(frame:  CGRectMake(offSetX + currentIndex * buttonWidth, currentRow * buttonHeight, buttonWidth, buttonHeight))
+                calendarButton.setDate(firstDate, month: components.month)
+                calendarButton.addTarget(self, action: Selector.init("calendarButtonClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+                calendarView.addSubview(calendarButton)
+                currentIndex++
+                if ((index + 1) % 7 == 0) {
+                    currentRow++
+                    currentIndex = 0
+                }
             }
         }
+    }
+    
+    func calendarButtonClicked(button : CalendarButton) {
+       currentDate = button.dateTime
+       refreshCalendarButton()
+       holidayTableView.reloadData()
     }
     
     func loadHolidays() {
         let filePath = NSBundle.mainBundle().pathForResource("holidayTimes", ofType: "plist")
         let dictionary : NSDictionary = NSDictionary(contentsOfFile: filePath!)!
-        print(dictionary)
         if (isIslamic) {
             let islamic : NSArray = dictionary["islamic"] as! NSArray
             resultArray.addObjectsFromArray(islamic as [AnyObject])
@@ -136,7 +168,8 @@ class CalendarViewController: UIViewController {
         let calendarCell : CalendarCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CalendarCell
         let dictionary : NSDictionary = resultArray[indexPath.row] as! NSDictionary
         calendarCell.holidayNameLabel.text = dictionary["name"] as? String
-        calendarCell.dateLabel.text = dictionary["time"] as? String
+        calendarCell.dateLabel.text = String(format: "%@%d",  (dictionary["time"] as? String)!, mslYear!)
+        
         return calendarCell
     }
     

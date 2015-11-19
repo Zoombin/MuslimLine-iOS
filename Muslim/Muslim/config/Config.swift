@@ -131,6 +131,15 @@
             return IsIslamicCalendar
         }
         
+        static func getCalenderType() -> String{
+            let selection : Int = self.getCalenderSelection()
+            if (selection == 0) { //伊斯兰
+                return NSCalendarIdentifierPersian
+            } else { //波斯
+                return NSCalendarIdentifierIslamicCivil
+            }
+        }
+        
         /**自动设置*/
         static func saveAutoSwitch(pos :Int) {
             UserDefaultsUtil.saveInt("AutoSwitch", value: pos)

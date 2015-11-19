@@ -14,15 +14,20 @@ class CalendarButton: UIButton {
     var isSelect : Bool = false
     var dateTime : NSDate?
     
-    func setDate(date : NSDate) {
+    func setDate(date : NSDate, month : NSInteger) {
         self.dateTime = date
         //TODO: 设置日历
-        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: NSPersianCalendar)!
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
         let dateFormatter : NSDateFormatter = NSDateFormatter()
         dateFormatter.calendar = calendar
         let flags = NSCalendarUnit(rawValue: UInt.max)
         let components = calendar.components(flags, fromDate:date)
-        
+        print("月%d 日%d 周%d", components.month, components.day, components.weekday)
+        if (month == components.month) {
+            self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        } else {
+            self.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Normal)
+        }
         self.setTitle(String(components.day), forState: UIControlState.Normal)
         checkIsToday(date)
     }
@@ -37,14 +42,13 @@ class CalendarButton: UIButton {
     
     func checkIsToday(date : NSDate) {
         let currentDate : NSDate = NSDate()
-        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: NSPersianCalendar)!
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
         let dateFormatter : NSDateFormatter = NSDateFormatter()
         dateFormatter.calendar = calendar
         let flags = NSCalendarUnit(rawValue: UInt.max)
         
         let components = calendar.components(flags, fromDate:date)
         let currentComponents = calendar.components(flags, fromDate:currentDate)
-        print("%d%d%d  %d%d%d", components.year, components.month, components.day, currentComponents.year, currentComponents.month, currentComponents.day)
         if (components.day == currentComponents.day && components.month == currentComponents.month && components.year == currentComponents.year) {
             isToday = true
             self.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)

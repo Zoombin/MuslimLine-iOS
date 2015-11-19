@@ -51,7 +51,7 @@ class ReadViewController: BaseViewController {
         let nibsL : NSArray = NSBundle.mainBundle().loadNibNamed("ReadLeftView", owner: nil, options: nil)
         let readLeftView : ReadLeftView = nibsL.lastObject as! ReadLeftView
         readLeftView.ivBack.tag = bt_back
-        readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick"), forControlEvents: UIControlEvents.TouchUpInside)
+        readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftView)
         
     }
