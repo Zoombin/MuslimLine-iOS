@@ -96,6 +96,9 @@
 		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
 		455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */; };
+		456408DA1BFD7609007A217B /* GuLJSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408D81BFD7609007A217B /* GuLJSearchCell.swift */; };
+		456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456408D91BFD7609007A217B /* GuLJSearchCell.xib */; };
+		456408DD1BFDA06E007A217B /* Quran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408DC1BFDA06E007A217B /* Quran.swift */; };
 		457CB5051BFB0BD0009BFAC3 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5041BFB0BD0009BFAC3 /* Chapter.swift */; };
 		457CB5071BFB0EB7009BFAC3 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */; };
 		45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B321BEB24F2005B91BA /* SettingCell.swift */; };
@@ -281,6 +284,9 @@
 		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
 		455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustCell.xib; sourceTree = "<group>"; };
+		456408D81BFD7609007A217B /* GuLJSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchCell.swift; sourceTree = "<group>"; };
+		456408D91BFD7609007A217B /* GuLJSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJSearchCell.xib; sourceTree = "<group>"; };
+		456408DC1BFDA06E007A217B /* Quran.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quran.swift; sourceTree = "<group>"; };
 		457CB5041BFB0BD0009BFAC3 /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		45AB3B321BEB24F2005B91BA /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -555,6 +561,7 @@
 				45FBBDA41BF7221400BA35F9 /* Translation.swift */,
 				457CB5041BFB0BD0009BFAC3 /* Chapter.swift */,
 				457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */,
+				456408DC1BFDA06E007A217B /* Quran.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -610,6 +617,8 @@
 				45EF2B7C1BFC5913008B01EE /* ReadRightView.xib */,
 				45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */,
 				45EF2B801BFC5FA3008B01EE /* ReadLeftView.xib */,
+				456408D81BFD7609007A217B /* GuLJSearchCell.swift */,
+				456408D91BFD7609007A217B /* GuLJSearchCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -890,6 +899,7 @@
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
 				183ECFD01BF9D350003FB90C /* CalendarCell.xib in Resources */,
+				456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */,
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
@@ -986,7 +996,9 @@
 				45C8372C1BF9D20300069723 /* mztools.c in Sources */,
 				184357A71BE9E88D00194744 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				45EF2B791BFC4E8B008B01EE /* ReadViewController.swift in Sources */,
+				456408DA1BFD7609007A217B /* GuLJSearchCell.swift in Sources */,
 				18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */,
+				456408DD1BFDA06E007A217B /* Quran.swift in Sources */,
 				183ECFC41BF9BE4C003FB90C /* FMDatabasePool.m in Sources */,
 				45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */,
 				184357A91BE9E88D00194744 /* UIAlertView+AFNetworking.m in Sources */,

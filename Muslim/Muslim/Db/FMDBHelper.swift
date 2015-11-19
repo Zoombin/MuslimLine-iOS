@@ -88,6 +88,85 @@ class FMDBHelper: NSObject {
         return array
     }
     
+    //根据id获取古兰经章节
+    func getChapter(sura:Int) ->Chapter? {
+        let sql:String = String(format:"SELECT * FROM %@ WHERE sura=%d", DBConstants.TB_CHAPTERS,sura)
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        let array : NSMutableArray = NSMutableArray()
+        while rs!.next() {
+            let chapter : Chapter = Chapter()
+            chapter.sura = Int(rs!.intForColumn(DBConstants.Field_SURA))
+            chapter.ayas_count = Int(rs!.intForColumn(DBConstants.Field_AYAS_COUNT))
+            chapter.first_aya_id = Int(rs!.intForColumn(DBConstants.Field_FIRST_AYA_ID))
+            chapter.name_arabic = rs!.stringForColumn(DBConstants.Field_NAME_ARABIC)
+            chapter.name_transliteration = rs!.stringForColumn(DBConstants.Field_NAME_TRANSLITERATION)
+            chapter.type = rs!.stringForColumn(DBConstants.Field_TYPE)
+            chapter.revelation_order = Int(rs!.intForColumn(DBConstants.Field_REVELATION_ORDER))
+            chapter.rukus = Int(rs!.intForColumn(DBConstants.Field_RUKUS))
+            array.addObject(chapter)
+        }
+        dbBase.close()
+        if(array.count > 0){
+            return array[0] as? Chapter
+        }
+        return nil
+    }
+    
+    //获取古兰经
+    func searchQurans(str : String,chapterSectionNumber : NSMutableArray) ->NSMutableArray{
+        let chapterNum:Int = chapterSectionNumber[0] as! Int
+        let sectionNum:Int = chapterSectionNumber[1] as! Int
+        
+        let replaceStr:String = str.stringByReplacingOccurrencesOfString("\'", withString: "")
+        let curLanguage :NSString = Config.getCurrentLanguage()
+        
+        var sql : String!
+        if( chapterNum != -1 && sectionNum == -1){
+             if(curLanguage.length == 0){
+                sql = String(format: "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya where a.sura  =%d", chapterNum)
+            } else {
+                sql = String(format: "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join %@ b on a.[sura]=b.sura and a.aya=b.aya left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya where a.sura  =%d", curLanguage,chapterNum)
+            }
+        }else if(chapterNum != -1 && sectionNum != -1){
+            if(curLanguage.length == 0){
+                sql = String(format: "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.sura  =%d and a.aya = %d", chapterNum , sectionNum)
+            }else{
+                sql = String(format: "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join %@ b on a.[sura]=b.sura and a.aya=b.aya " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.sura  =%d and a.aya = %d", curLanguage , chapterNum , sectionNum)
+            }
+        }else{
+            if(curLanguage.length == 0){
+                sql = String(format: "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.text  like '%%@%'", replaceStr)
+            }else{
+                sql = String(format: "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join %@ b on a.[sura]=b.sura and a.aya=b.aya " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.text  like '%%@%' or b.text like '%%@%'", curLanguage,replaceStr,replaceStr)
+            }
+        }
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        let array : NSMutableArray = NSMutableArray()
+        while rs!.next() {
+            let quran : Quran = Quran()
+            quran.aya = Int(rs!.intForColumnIndex(0))
+            quran.sura = Int(rs!.intForColumnIndex(1))
+            quran.text = rs!.stringForColumnIndex(2)
+            quran.text_zh = rs!.stringForColumnIndex(3)
+            quran.isbookmark = rs!.intForColumnIndex(4) == 1 ? true : false
+            array.addObject(quran)
+        }
+        dbBase.close()
+        return array
+    }
+    
+    
+    
     //获取书签数据
     func getBookmarks()->NSMutableArray{
         let sql:String = "select a.id, a.sura, a.aya, a.add_date, b.name_arabic, b.name_transliteration " +
