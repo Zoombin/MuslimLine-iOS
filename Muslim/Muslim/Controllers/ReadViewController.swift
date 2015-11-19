@@ -11,7 +11,7 @@
 
 import UIKit
 
-class ReadViewController: BaseViewController {
+class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource{
     let bt_back = 100
     let bt_previous = 200
     let bt_next = 300
@@ -23,11 +23,23 @@ class ReadViewController: BaseViewController {
     var EXTRA_AYA :Int?
     var EXTRA_SCOLLPOSITION :Int?
     
+    var readLeftView : ReadLeftView!
+    let cellIdentifier = "cellIdentifier"
+    var mTableView:UITableView!
+    var chapter:Chapter?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mTableView = UITableView(frame: CGRectMake(0,0,PhoneUtils.screenWidth,PhoneUtils.screenHeight))
+        mTableView!.registerNib(UINib(nibName: "SettingAdjustCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        mTableView.delegate = self
+        mTableView.dataSource = self
+        self.view.addSubview(mTableView)
+        
         setTitleBar()
+        loadData()
     }
     
     func setTitleBar(){
@@ -49,16 +61,51 @@ class ReadViewController: BaseViewController {
         
         //左边的View
         let nibsL : NSArray = NSBundle.mainBundle().loadNibNamed("ReadLeftView", owner: nil, options: nil)
-        let readLeftView : ReadLeftView = nibsL.lastObject as! ReadLeftView
+        readLeftView = nibsL.lastObject as? ReadLeftView
         readLeftView.ivBack.tag = bt_back
-        readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick"), forControlEvents: UIControlEvents.TouchUpInside)
+        readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftView)
+    }
+    
+    /**加载数据*/
+    func loadData(){
+        chapter = FMDBHelper.getInstance().getChapter(EXTRA_SURA!)
+        
+        setDataToView()
+    }
+    
+    /**设置数据*/
+    func setDataToView(){
+        if(chapter != nil){
+            readLeftView.suraTitle.text = chapter?.name_arabic as? String
+            let subtext :String = String(format: "%d. %@", (chapter?.sura )!, (chapter?.name_transliteration as? String)!)
+            readLeftView.suraSubTitle.text = subtext
+        }
+    }
+    
+    //行高
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 10
+    }
+    
+    //行数
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    //生成界面
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+       let cell : SettingAdjustCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as!SettingAdjustCell
+           return cell
         
     }
     
-    func setupview(){
-        
+    //item点击
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
     }
+
     
     /**bt点击*/
     func onBtnClick(button:UIButton){
