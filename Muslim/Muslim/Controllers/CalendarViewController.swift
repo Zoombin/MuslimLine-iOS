@@ -28,7 +28,11 @@ class CalendarViewController: UIViewController {
     let cellIdentifier = "myCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("islamic_calendar", comment: "")
+        
+        isIslamic = Config.getCalenderSelection() == 0
+        let calendarType = isIslamic ?
+            "islamic_calendar" : "persian_calendar"
+        title = NSLocalizedString(calendarType, comment: "")
         //注册ListView的adapter
         holidayTableView!.registerNib(UINib(nibName: "CalendarCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         holidayTableView.tableHeaderView = calendarBkgView
@@ -38,10 +42,38 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func backButtonClicked(sender : UIButton) {
+        mslMonth = mslMonth! - 1
+        if (mslMonth < 1) {
+            mslMonth = 12
+            mslYear = mslYear! - 1
+        }
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:currentDate!)
+        components.month = mslMonth!
+        components.year = mslYear!
+        components.day = 1
+        currentDate = components.date
         refreshCalendarButton()
     }
     
     @IBAction func nextButtonClicked(sender : UIButton) {
+        mslMonth = mslMonth! + 1
+        if (mslMonth > 12) {
+            mslMonth = 1
+            mslYear = mslYear! + 1
+        }
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:currentDate!)
+        components.month = mslMonth!
+        components.year = mslYear!
+        components.day = 1
+        currentDate = components.date
         refreshCalendarButton()
     }
     
@@ -72,7 +104,7 @@ class CalendarViewController: UIViewController {
         todayBtn.addTarget(self, action: Selector.init("todayButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarBkgView.addSubview(todayBtn)
         
-        calendarView.backgroundColor = UIColor.yellowColor()
+        calendarView.backgroundColor = Colors.calendarGray
         refreshCalendarButton()
     }
     
@@ -91,10 +123,9 @@ class CalendarViewController: UIViewController {
         let offSetX = (PhoneUtils.screenWidth - (CGFloat(rowCount) * CGFloat(buttonWidth))) / 2
         var currentIndex : CGFloat = 0
         var currentRow : CGFloat = 0
-        
+
         //当前的第一天
         let firstComponents = CalendarUtils.getFirstDayComponents(currentDate!)
-        print("本月第一天==>%d月%d日 周%d", firstComponents.month, firstComponents.day, firstComponents.weekday)
         //当前的
         let components = CalendarUtils.getComponents(currentDate!)
         let dateFormatter = NSDateFormatter()
@@ -103,23 +134,31 @@ class CalendarViewController: UIViewController {
         mslMonth = firstComponents.month
         mslYear = firstComponents.year
         yearMonthLabel.text = String(format:"%@%d/%d", firstComponents.month > 9 ? "" : "0", mslMonth!, mslYear!)
-
-        print("当前点击的日期==>%d月%d日 周%d", components.month, components.day, components.weekday)
-        let firstDayIndex = firstComponents.weekday - 1
         
-        let day = firstDayIndex + components.day - 1
-        var firstDate = NSDate(timeInterval: Double(3600 * 24 * -day), sinceDate: currentDate!)
-        print(firstDate)
+        var day = firstComponents.day + firstComponents.weekday + 5
+        print(day)
+        if (day > 7) {
+            day = day - 7
+        }
+        
+        var firstDate = NSDate(timeInterval: Double(3600 * 24 * -day), sinceDate: firstComponents.date!)
+
         let hasInit : Bool = calendarView.subviews.count > 0
         for index in 0...41 {
             if (hasInit) {
                 firstDate = NSDate(timeInterval: Double(3600 * 24), sinceDate: firstDate)
+                let comp = CalendarUtils.getComponents(firstDate)
+                let dateStr = String(format: "%d/%d/", comp.month, comp.day)
                 let calendarButton : CalendarButton = calendarView.subviews[index] as! CalendarButton
-                calendarButton.setDate(firstDate, month: components.month)
+                let bool = checkIsHoliday(dateStr)
+                calendarButton.setDate(firstDate, selectedDate: currentDate!, holiday: bool, month: components.month)
             } else {
                 firstDate = NSDate(timeInterval: Double(3600 * 24), sinceDate: firstDate)
+                let comp = CalendarUtils.getComponents(firstDate)
+                let dateStr = String(format: "%d/%d/", comp.month, comp.day)
                 let calendarButton : CalendarButton = CalendarButton.init(frame:  CGRectMake(offSetX + currentIndex * buttonWidth, currentRow * buttonHeight, buttonWidth, buttonHeight))
-                calendarButton.setDate(firstDate, month: components.month)
+                let bool = checkIsHoliday(dateStr)
+                calendarButton.setDate(firstDate, selectedDate: currentDate!, holiday : bool, month: components.month)
                 calendarButton.addTarget(self, action: Selector.init("calendarButtonClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
                 calendarView.addSubview(calendarButton)
                 currentIndex++
@@ -129,6 +168,21 @@ class CalendarViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func checkIsHoliday(dateStr : String) -> Bool{
+        if (resultArray.count == 0) {
+            return false
+        }
+        for index in 0...resultArray.count - 1 {
+            let dictionary : NSDictionary = resultArray[index] as! NSDictionary
+            let holiday = dictionary["time"] as? String
+            print(holiday, dateStr)
+            if (dateStr == holiday) {
+                return true
+            }
+        }
+        return false
     }
     
     func calendarButtonClicked(button : CalendarButton) {
@@ -169,7 +223,6 @@ class CalendarViewController: UIViewController {
         let dictionary : NSDictionary = resultArray[indexPath.row] as! NSDictionary
         calendarCell.holidayNameLabel.text = dictionary["name"] as? String
         calendarCell.dateLabel.text = String(format: "%@%d",  (dictionary["time"] as? String)!, mslYear!)
-        
         return calendarCell
     }
     
