@@ -25,6 +25,11 @@ class CalendarViewController: UIViewController {
     var mslYear : NSInteger?
     var mslMonth : NSInteger?
     
+    @IBOutlet weak var pickView: UIPickerView!
+    @IBOutlet weak var pickBkgView: UIView!
+    @IBOutlet weak var sureButton: UIButton!
+    @IBOutlet weak var todayButton: UIButton!
+    
     let cellIdentifier = "myCell"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +38,41 @@ class CalendarViewController: UIViewController {
         let calendarType = isIslamic ?
             "islamic_calendar" : "persian_calendar"
         title = NSLocalizedString(calendarType, comment: "")
+        
+        todayButton.setTitle(NSLocalizedString("prayer_calendar_today", comment: ""), forState: UIControlState.Normal)
+        sureButton.setTitle(NSLocalizedString("ok", comment: ""), forState: UIControlState.Normal)
+        
         //注册ListView的adapter
         holidayTableView!.registerNib(UINib(nibName: "CalendarCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         holidayTableView.tableHeaderView = calendarBkgView
+        
+        let rightImage : UIImage =  UIImage(named: "calendar")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showPickViewButtonClicked"))
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: Selector.init("sureButtonClicked:"))
+        pickBkgView.addGestureRecognizer(tapGesture)
+        
         loadHolidays()
         currentDate = NSDate()
         initCalendarView()
+    }
+    
+    func showPickViewButtonClicked() {
+        pickBkgView.hidden = false
+    }
+    
+    @IBAction func todayButtonClicked(sender : UIButton) {
+        //今天
+        todayButtonClicked()
+    }
+    
+    @IBAction func sureButtonClicked(sender : UIButton) {
+        //确定
+        pickBkgView.hidden = true
+    }
+    
+    @IBAction func pickerViewTypeClicked(sender : UIButton) {
+        
     }
     
     @IBAction func backButtonClicked(sender : UIButton) {
