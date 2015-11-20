@@ -80,7 +80,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     }
     
     func locationSet() {
-        print("设置位置")
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,20 +92,14 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
-        //        let center = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!)
-        print("current location latitude \((location?.coordinate.latitude)!) and longitude \((location?.coordinate.longitude)!)")
-        
         self.latitude = location?.coordinate.latitude
         self.longitude = location?.coordinate.longitude
-        //
-        //        self.latitude = 31.5497
-        //        self.longitude = 74.3436
         self.locationManger.startUpdatingLocation()
         needleAngle     = self.setLatLonForDistanceAndAngle(location!)
         
     }
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error " + error.localizedDescription)
+       
     }
     
     func setLatLonForDistanceAndAngle(userlocation: CLLocation) -> Double
@@ -135,9 +129,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         let compassDirection  = -newHeading.magneticHeading;
         
         self.needle.transform = CGAffineTransformMakeRotation(CGFloat(((Double(needleDirection) * M_PI) / 180.0) + needleAngle!))
-        print("Needle \(CGAffineTransformMakeRotation(CGFloat(((Double(needleDirection) * M_PI) / 180.0) + needleAngle!)))")
         self.composs.transform = CGAffineTransformMakeRotation(CGFloat((Double(compassDirection) * M_PI) / 180.0))
-        print("composs \(CGAffineTransformMakeRotation(CGFloat((Double(compassDirection) * M_PI) / 180.0)))")
     }
     
     override func viewDidAppear(animated: Bool) {

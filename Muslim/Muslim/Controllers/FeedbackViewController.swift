@@ -71,8 +71,7 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate{
 
     
     func sendFeedback(){
-        //
-        print("反馈")
+        //反馈
     }
     
     override func didReceiveMemoryWarning() {

@@ -87,10 +87,8 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func swipeValueChanged(swipeGesture : UISwipeGestureRecognizer) {
         if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
-            print("左")
             currentTime = currentTime + (60 * 60 * 24)
         } else {
-            print("右")
             currentTime = currentTime - (60 * 60 * 24)
         }
         checkIsToday()
@@ -98,14 +96,12 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func beforeDayClicked() {
-        print("前一天")
         currentTime = currentTime - (60 * 60 * 24)
         checkIsToday()
         getPrayTime()
     }
     
     func nextDayClicked() {
-        print("后一天")
         currentTime = currentTime + (60 * 60 * 24)
         checkIsToday()
         getPrayTime()
@@ -135,7 +131,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         let todayTime : NSDate = NSDate()
         let todayStr : NSString = dateFormatter2.stringFromDate(todayTime)
         
-        print("%d %d", currentTime, todayTime)
         let currentStr : String = dateFormatter2.stringFromDate(NSDate(timeIntervalSince1970: currentTime))
         
         if (todayStr.isEqualToString(currentStr)) {
@@ -146,7 +141,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func locationSet() {
-       print("设置地址")
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -194,7 +189,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         prayTime.setTimeFormat(Int32(prayTime.Time24))
         prayTime.setHighLatsMethod(Int32(prayTime.AngleBased))
         
-        print(currentTime)
         let date = NSDate(timeIntervalSince1970: currentTime)
         let calendar = NSCalendar.currentCalendar()
         
@@ -212,7 +206,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             //TODO:删除sunset
             prayTimes.removeObjectAtIndex(4)
         }
-        print(prayTimes)
         tableView.reloadData()
     }
 

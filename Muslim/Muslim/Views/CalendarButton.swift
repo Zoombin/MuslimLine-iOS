@@ -26,7 +26,6 @@ class CalendarButton: UIButton {
         let flags = NSCalendarUnit(rawValue: UInt.max)
         let components = calendar.components(flags, fromDate:date)
         let selectedComponents = calendar.components(flags, fromDate:selectedDate)
-        print("月%d 日%d 周%d", components.month, components.day, components.weekday)
         if (month == components.month) {
             isThisMonth = true
             self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)

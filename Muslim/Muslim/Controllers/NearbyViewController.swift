@@ -123,7 +123,6 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     }
     
     func succssResult(result: NSObject, tag: NSInteger) {
-        print("成功 %@", result)
         self.view.hideToastActivity()
         resultArray.removeAllObjects()
         let arr = (result as! NSDictionary)["results"]
@@ -134,7 +133,6 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     }
     
     func errorResult(error: NSError, tag: NSInteger) {
-        print("失败")
         self.view.hideToastActivity()
     }
     
@@ -146,7 +144,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     }
     
     func locationSet() {
-        print("设置位置")
+
     }
     
     //设置cell的高度

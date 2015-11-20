@@ -185,7 +185,6 @@ class CalendarViewController: UIViewController {
         yearMonthLabel.text = String(format:"%@%d/%d", firstComponents.month > 9 ? "" : "0", mslMonth!, mslYear!)
         
         var day = firstComponents.day + firstComponents.weekday + 5
-        print(day)
         if (day > 7) {
             day = day - 7
         }
@@ -227,7 +226,6 @@ class CalendarViewController: UIViewController {
         for index in 0...resultArray.count - 1 {
             let dictionary : NSDictionary = resultArray[index] as! NSDictionary
             let holiday = dictionary["time"] as? String
-            print(holiday, dateStr)
             if (dateStr == holiday) {
                 return true
             }
@@ -297,7 +295,6 @@ class CalendarViewController: UIViewController {
             
             let dateFormatter : NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
-            print("==>", components.date, dateFormatter.stringFromDate(components.date!))
             return dateFormatter.stringFromDate(components.date!)
         }
         return ""

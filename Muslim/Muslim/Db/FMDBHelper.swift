@@ -44,8 +44,6 @@ class FMDBHelper: NSObject {
         self.dbPath = path
         //创建数据库
         dbBase =  FMDatabase(path: self.dbPath as String)
-
-        print("path: ---- \(self.dbPath)")
     }
     
     

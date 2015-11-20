@@ -75,13 +75,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         return num
     }
     
-    
-    
-    //let arr : NSArray = mObj.objectForKey("set") as! NSArray
-    ///let dict : NSDictionary = arr.objectAtIndex(0) as! NSDictionary
-    ///let string : NSString = dict.objectForKey("title") as! String
-    //print(string)
-    
     //进行生成界面和赋值
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let settingCell : SettingCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SettingCell
@@ -324,7 +317,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         removeAlertView()
         
         let btSelect : NSInteger = sender.tag
-        print(btSelect)
         //处理切换事件
         switch(listSection){
         case 0:

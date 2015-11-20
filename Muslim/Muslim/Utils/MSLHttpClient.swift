@@ -43,7 +43,6 @@ class MSLHttpClient: NSObject {
     func getNearByForServer(lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let urlString : String = Config.getUrl()
         if (urlString.isEmpty) {
-            print("为空")
             let urlString : String = "http://www.muslimsline.com/config/website.json"
             let manager = AFHTTPRequestOperationManager()
             manager.GET(urlString, parameters: nil, success:
@@ -114,7 +113,6 @@ class MSLHttpClient: NSObject {
     }
     
     func searchLocationByName(cityName : String, tag : NSInteger) {
-        print(cityName)
         var urlString : String = "http://where.yahooapis.com/v1/places.q(%22cityName%22%2A);count=10"
         urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: cityName)
         

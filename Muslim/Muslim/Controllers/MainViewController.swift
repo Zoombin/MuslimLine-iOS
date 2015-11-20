@@ -61,8 +61,6 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     func succssResult(result: NSObject, tag : NSInteger) {
         self.view.hideToastActivity()
         if (tag == manl) {
-            print("手动数据返回了!")
-            print(result)
             let manlResult : ManlResult = ManlResult()
             manlResult.initValues(result as! NSDictionary)
             if (manlResult.places!.count!.integerValue > 0) {
@@ -71,17 +69,13 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
                manlTableView.reloadData()
             }
         } else if (tag == auto) {
-            print("自动数据返回了!")
-            print(result)
         }
     }
     
     func errorResult(error : NSError, tag : NSInteger) {
         self.view.hideToastActivity()
         if (tag == manl) {
-            print("手动数据错误!")
         } else if (tag == auto) {
-            print("自动数据错误!")
         }
     }
     
@@ -96,7 +90,6 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     func getUserLocation() {
         locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
             if (code != nil) {
-                print(code.formattedAddress)
                 self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.manl)
             }
         }
@@ -287,42 +280,36 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     
     //古兰经
     func clickGuLj() {
-        print("古兰经")
         let guLJViewController = GuLJViewController()
         self.navigationController?.pushViewController(guLJViewController, animated: true)
     }
     
     //天房方向
     func clickTianFFX() {
-        print("天房方向")
         let houseLocationViewController = HouseLocationViewController()
         self.navigationController?.pushViewController(houseLocationViewController, animated: true)
     }
     
     //礼拜时间
     func clickLiBSJ() {
-        print("礼拜时间")
         let prayTimeViewController : PrayTimeViewController = PrayTimeViewController()
         self.navigationController?.pushViewController(prayTimeViewController, animated: true)
     }
     
     //附近位置
     func clickFuJWZ() {
-        print("附近位置")
         let nearbyViewController : NearbyViewController = NearbyViewController()
         self.navigationController?.pushViewController(nearbyViewController, animated: true)
     }
     
     //日历
     func clickRiL() {
-        print("日历")
         let calendarViewController : CalendarViewController = CalendarViewController()
         self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     
     //尊主姓名
     func clickZunZXM() {
-        print("尊主姓名")
         let allahNamesViewController : AllahNamesViewController = AllahNamesViewController()
         self.navigationController?.pushViewController(allahNamesViewController, animated: true)
 
