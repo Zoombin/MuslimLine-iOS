@@ -72,16 +72,15 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // 第一个符号是否为数字，是数字的话作为章节号解析，否则默认为字符串搜索
         let range : NSRange = NSRange.init(location: 0, length: 1)
-        let firstCharacter = searchStr.substringWithRange(range);
-        do {
-            try Int(firstCharacter)
-        } catch {
-            print("Exception")
+        let firstCharacter : NSString  = searchStr.substringWithRange(range)
+        var temp  = -1
+        temp = Int(firstCharacter.intValue)
+        if(temp == 0){
             return bSuccess
         }
 
         // 解析章节号
-        let strs : [String]!
+        let strs : [NSString]!
         if(searchStr.rangeOfString(":").location != NSNotFound) {
             strs = searchStr.componentsSeparatedByString(":")
         }else if(searchStr.rangeOfString(",").location != NSNotFound) {
@@ -97,13 +96,13 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         let len = strs.count
         for i in 0...len-1 {
-            let kk : String = strs[i]
+            let kk : NSString = strs[i]
             var gg :Int = -1
-            do {
-                try  gg = Int(kk)!
-                mSearchChapterSectionNumber[i] = gg
-            }catch{
+            gg = Int(kk.intValue)
+            if(gg == 0){
+                gg = -1
             }
+            mSearchChapterSectionNumber[i] = gg
         }
         
         if(mSearchChapterSectionNumber[0] as! Int != -1){
@@ -142,6 +141,17 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     //选中
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let quran : Quran = dataArray[indexPath.row] as! Quran
+        let readVC : ReadViewController = ReadViewController()
+        //历史
+        //readVC.EXTRA_BOOKMARK_JUMP = true
+        //readVC.EXTRA_SURA = 1
+        //readVC.EXTRA_SCOLLPOSITION = 1
+        
+        //正常跳转
+        readVC.EXTRA_SURA = quran.sura
+        readVC.EXTRA_AYA = quran.aya
+        self.navigationController?.pushViewController(readVC, animated: true)
     }
     
     
