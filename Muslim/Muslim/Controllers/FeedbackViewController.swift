@@ -32,11 +32,13 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate{
         let textview :UITextView = UITextView(frame: CGRectMake(textIndexX, textIndexY, textWidth, textHight))
         textview.font = UIFont.systemFontOfSize(18)
         textview.layer.cornerRadius = 16;
-        textview.textContainerInset = UIEdgeInsetsMake(padding, padding, padding,padding)
+        textview.textContainerInset = UIEdgeInsetsMake(padding * 2, padding, padding,padding)
         textview.textAlignment = NSTextAlignment.Left
         textview.delegate = self
         self.view.addSubview(textview)
         
+        //解决光标的问题
+        self.automaticallyAdjustsScrollViewInsets = false
         //提示文字
         textHint = UILabel(frame: CGRectMake(textIndexX+padding,textIndexY,textWidth-(padding*2),80))
         textHint.text = NSLocalizedString("feedback_description_hint", comment: "")
@@ -59,12 +61,13 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate{
     
     //监听文字变化
     internal func textViewDidChange(textView: UITextView){
-        if (textView.markedTextRange == nil) {
+        if (textView.text.isEmpty) {
             textHint.hidden = false;
         }else{
             textHint.hidden = true;
         }
     }
+    
 
     
     func sendFeedback(){

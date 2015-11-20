@@ -61,7 +61,7 @@
                 <outlet property="nameLocaliz" destination="vlc-WX-Qzo" id="iFv-lW-dwK"/>
                 <outlet property="nameOt" destination="9DV-ll-0wi" id="CPW-Uh-ups"/>
             </connections>
-            <point key="canvasLocation" x="358" y="343.5"/>
+            <point key="canvasLocation" x="208" y="269.5"/>
         </tableViewCell>
     </objects>
     <resources>

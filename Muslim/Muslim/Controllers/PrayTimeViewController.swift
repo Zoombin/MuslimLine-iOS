@@ -123,14 +123,14 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         calendarView.dateLabel.text = dateString
         
         //TODO: 设置日历
-        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: NSPersianCalendar)!
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
         let dateFormatter : NSDateFormatter = NSDateFormatter()
         dateFormatter.calendar = calendar
         let flags = NSCalendarUnit(rawValue: UInt.max)
         let components = calendar.components(flags, fromDate:date)
         calendarView.dayLabel.text = String(format: "%ld", components.day)
         calendarView.muslimDateLabel.text = String(format: "%d/%d", components.month, components.year)
-        calendarView.calendarTypeLabel.text = String(format: "%ld", components.weekday)
+        calendarView.calendarTypeLabel.text = week
         
         let todayTime : NSDate = NSDate()
         let todayStr : NSString = dateFormatter2.stringFromDate(todayTime)

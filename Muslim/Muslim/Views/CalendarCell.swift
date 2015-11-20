@@ -13,6 +13,8 @@ class CalendarCell: UITableViewCell {
     @IBOutlet weak var holidayNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var customDateLabel: UILabel!
+    @IBOutlet weak var yellowLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

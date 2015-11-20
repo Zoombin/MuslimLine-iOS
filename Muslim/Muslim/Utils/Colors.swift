@@ -25,6 +25,9 @@ class Colors: NSObject {
     
     //搜索地址淡灰色
     static let searchGray : UIColor = UIColor(colorLiteralRed: 215/255.0, green: 215/255.0, blue: 215/255.0, alpha: 1.0)
+    
+    //日历会
+    static let calendarGray : UIColor = UIColor(colorLiteralRed: 235/255.0, green: 235/255.0, blue: 235/255.0, alpha: 1.0)
 
     //黑色半透明
     static let trans : UIColor = UIColor(colorLiteralRed: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.4)
