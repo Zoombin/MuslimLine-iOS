@@ -12,6 +12,7 @@
                 <outlet property="customYearLabel" destination="AkZ-kX-LgX" id="aGG-HD-9bR"/>
                 <outlet property="holidayTableView" destination="dEL-tc-6I7" id="RJ9-Ip-UPG"/>
                 <outlet property="pickBkgView" destination="JeC-kH-Yjr" id="yxc-wd-FSH"/>
+                <outlet property="pickView" destination="vhf-SP-wBR" id="UCs-7a-XeJ"/>
                 <outlet property="sureButton" destination="LIa-eL-zVD" id="8kg-DG-CJm"/>
                 <outlet property="todayButton" destination="SEJ-Fo-zK2" id="gdR-Sy-gSN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -41,7 +42,7 @@
                             <rect key="frame" x="0.0" y="302" width="320" height="266"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <subviews>
-                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="vhf-SP-wBR">
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="vhf-SP-wBR">
                                     <rect key="frame" x="0.0" y="50" width="320" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <animations/>

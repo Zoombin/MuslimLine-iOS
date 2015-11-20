@@ -25,7 +25,7 @@ class CalendarViewController: UIViewController {
     var mslYear : NSInteger?
     var mslMonth : NSInteger?
     
-    @IBOutlet weak var pickView: UIPickerView!
+    @IBOutlet weak var pickView: UIDatePicker!
     @IBOutlet weak var pickBkgView: UIView!
     @IBOutlet weak var sureButton: UIButton!
     @IBOutlet weak var todayButton: UIButton!
@@ -33,7 +33,7 @@ class CalendarViewController: UIViewController {
     let cellIdentifier = "myCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pickView.calendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
         isIslamic = Config.getCalenderSelection() == 0
         let calendarType = isIslamic ?
             "islamic_calendar" : "persian_calendar"
@@ -52,9 +52,16 @@ class CalendarViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: Selector.init("sureButtonClicked:"))
         pickBkgView.addGestureRecognizer(tapGesture)
         
+        pickView.addTarget(self, action: Selector.init("datePickerValueChanged"), forControlEvents: UIControlEvents.ValueChanged)
+        
         loadHolidays()
         currentDate = NSDate()
         initCalendarView()
+    }
+    
+    func datePickerValueChanged() {
+        currentDate = pickView.date
+        refreshCalendarButton()
     }
     
     func showPickViewButtonClicked() {
@@ -64,6 +71,7 @@ class CalendarViewController: UIViewController {
     @IBAction func todayButtonClicked(sender : UIButton) {
         //今天
         todayButtonClicked()
+        pickView.date = NSDate()
     }
     
     @IBAction func sureButtonClicked(sender : UIButton) {
@@ -72,7 +80,11 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func pickerViewTypeClicked(sender : UIButton) {
-        
+        if (pickView.calendar.calendarIdentifier == NSCalendarIdentifierGregorian) {
+            pickView.calendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
+        } else {
+            pickView.calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        }
     }
     
     @IBAction func backButtonClicked(sender : UIButton) {
