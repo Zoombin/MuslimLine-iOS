@@ -188,13 +188,13 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         let url : String = String(format: "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", currentLat, currentLng, lat.doubleValue, lng.doubleValue)
         let webVC : WebViewController = WebViewController()
         webVC.url = url
-        self.navigationController?.pushViewController(webVC, animated: true)
+        self.pushViewController(webVC)
         menuView.hidden = true
     }
     
     func searchButtonClicked() {
         let guljSearchViewController = GuLJSearchViewController()
-        self.navigationController?.pushViewController(guljSearchViewController, animated: true)
+        self.pushViewController(guljSearchViewController)
     }
     
     override func didReceiveMemoryWarning() {

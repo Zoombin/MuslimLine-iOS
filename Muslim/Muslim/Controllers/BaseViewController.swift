@@ -19,6 +19,12 @@ class BaseViewController: UIViewController {
         //设置背景颜色
         self.view.backgroundColor = UIColor.whiteColor()
     }
+    
+    func pushViewController(to : UIViewController) {
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("back", comment: ""), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        self.navigationController?.pushViewController(to, animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

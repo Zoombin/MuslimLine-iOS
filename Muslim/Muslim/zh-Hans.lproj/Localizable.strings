@@ -206,3 +206,4 @@
 "setting_auto_choose" = "自动设置";
 "setting_auto_choose_stop" = "不可用于当前城市";
 "toast_sd_enough" = "SD卡空间不足!";
+"back" = "返回";

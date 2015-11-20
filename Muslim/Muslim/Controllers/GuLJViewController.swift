@@ -69,7 +69,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     /**搜索按钮*/
     func searchButtonClicked() {
         let guljSearchViewController = GuLJSearchViewController()
-        self.navigationController?.pushViewController(guljSearchViewController, animated: true)
+        self.pushViewController(guljSearchViewController)
     }
     
     
@@ -189,14 +189,14 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             
             //正常跳转
             readVC.EXTRA_SURA = chapter.sura
-            self.navigationController?.pushViewController(readVC, animated: true)
+            self.pushViewController(readVC)
         }else{
             //书签
             let bookmark = bookmarkArray[indexPath.row] as! Bookmark
             readVC.EXTRA_SURA = bookmark.suraId
             readVC.EXTRA_BOOKMARK_JUMP = true
             readVC.EXTRA_SCOLLPOSITION = bookmark.ayaId! - 1
-            self.navigationController?.pushViewController(readVC, animated: true)
+            self.pushViewController(readVC)
         }
     }
     
@@ -206,7 +206,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         readVC.EXTRA_SURA = firstbookmark.suraId
         readVC.EXTRA_BOOKMARK_JUMP = true
         readVC.EXTRA_SCOLLPOSITION = firstbookmark.ayaId! - 1
-        self.navigationController?.pushViewController(readVC, animated: true)
+        self.pushViewController(readVC)
     }
     
     override func didReceiveMemoryWarning() {

@@ -277,11 +277,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             break
         case bt_contry:
             let quranTextVC = QuranTextViewController()
-            self.navigationController?.pushViewController(quranTextVC, animated: true)
+            self.pushViewController(quranTextVC)
             break
         case bt_reader:
             let quranAudioVC = QuranAudioViewController()
-            self.navigationController?.pushViewController(quranAudioVC, animated: true)
+            self.pushViewController(quranAudioVC)
             break
         case bt_play:
             break

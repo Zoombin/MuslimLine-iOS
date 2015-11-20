@@ -195,19 +195,18 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             if(section == 0 && row == 1){
                 //手动更正
                 let settingAdjustViewController = SettingAdjustViewController()
-                self.navigationController?.pushViewController(settingAdjustViewController, animated: true)
+                self.pushViewController(settingAdjustViewController)
             }
             if(section == 1){
                 if(0 == row){
                     //文本&译文
                     let quranTextViewController = QuranTextViewController()
-                    self.navigationController?.pushViewController(quranTextViewController, animated: true)
+                    self.pushViewController(quranTextViewController)
                 }
                 if(row == 1){
                     //朗诵
                     let quranAudioViewController = QuranAudioViewController()
-                    self.navigationController?.pushViewController(quranAudioViewController, animated: true)
-
+                    self.pushViewController(quranAudioViewController)
                 }
             }
             

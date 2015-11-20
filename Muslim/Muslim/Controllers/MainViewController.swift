@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, UITableViewDelegate, UITableViewDataSource {
     var menuView : UIView!
     let locationManager : AMapLocationManager = AMapLocationManager()
     let topSearchView : UIView = UIView()
@@ -157,17 +157,17 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
         else if (tag == 2) {
             //设置
             let settingsViewController = SettingsViewController()
-            self.navigationController?.pushViewController(settingsViewController, animated: true)
+            self.pushViewController(settingsViewController)
         }
         else if (tag == 3) {
             //关于
             let aboutviewController = AboutViewController()
-            self.navigationController?.pushViewController(aboutviewController, animated: true)
+            self.pushViewController(aboutviewController)
         }
         else if (tag == 4) {
             //反馈
             let feedbackviewController = FeedbackViewController()
-            self.navigationController?.pushViewController(feedbackviewController, animated: true)
+            self.pushViewController(feedbackviewController)
         }
     }
     
@@ -281,38 +281,37 @@ class MainViewController: UIViewController, AMapLocationManagerDelegate, UISearc
     //古兰经
     func clickGuLj() {
         let guLJViewController = GuLJViewController()
-        self.navigationController?.pushViewController(guLJViewController, animated: true)
+        self.pushViewController(guLJViewController)
     }
     
     //天房方向
     func clickTianFFX() {
         let houseLocationViewController = HouseLocationViewController()
-        self.navigationController?.pushViewController(houseLocationViewController, animated: true)
+        self.pushViewController(houseLocationViewController)
     }
     
     //礼拜时间
     func clickLiBSJ() {
         let prayTimeViewController : PrayTimeViewController = PrayTimeViewController()
-        self.navigationController?.pushViewController(prayTimeViewController, animated: true)
+        self.pushViewController(prayTimeViewController)
     }
     
     //附近位置
     func clickFuJWZ() {
         let nearbyViewController : NearbyViewController = NearbyViewController()
-        self.navigationController?.pushViewController(nearbyViewController, animated: true)
+        self.pushViewController(nearbyViewController)
     }
     
     //日历
     func clickRiL() {
         let calendarViewController : CalendarViewController = CalendarViewController()
-        self.navigationController?.pushViewController(calendarViewController, animated: true)
+        self.pushViewController(calendarViewController)
     }
     
     //尊主姓名
     func clickZunZXM() {
         let allahNamesViewController : AllahNamesViewController = AllahNamesViewController()
-        self.navigationController?.pushViewController(allahNamesViewController, animated: true)
-
+        self.pushViewController(allahNamesViewController)
     }
     
     override func didReceiveMemoryWarning() {
