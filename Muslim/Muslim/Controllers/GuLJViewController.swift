@@ -2,7 +2,7 @@
 //  GuLJViewController.swift
 //  Muslim
 //
-//  Created by 颜超 on 15/10/30.
+//  Created by LSD on 15/10/30.
 //  Copyright © 2015年 ZoomBin. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     var tabIndex = 1
     
     let cellIdentifier = "myCell"
-    @IBOutlet weak var listView: UITableView! //章节listview
+    @IBOutlet weak var guLJlistView: UITableView!//章节listview
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
@@ -35,24 +35,27 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
         
         setupView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         loadChaptersData()
         loadBookMarkData()
+        addHeadView()
     }
+
     
     /***tab切换*/
     func segmentedControlSelect() {
         if (segmentedControl.selectedSegmentIndex == 0) {
-            print("章节")
             tabIndex = 1
             
-            listView.hidden = false
+            guLJlistView.hidden = false
             bmarkListview.hidden = true
             nomarkLable.hidden = true
         } else {
-            print("书签")
             tabIndex = 2
             
-            listView.hidden = true
+            guLJlistView.hidden = true
             if(bookmarkArray.count == 0){
                 //没有书签
                 bmarkListview.hidden = true
@@ -73,8 +76,8 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     //初始化界面
     func setupView(){
         //注册ListView的adapter
-        listView.tag = 100
-        listView!.registerNib(UINib(nibName: "GuLJCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        guLJlistView.tag = 100
+        guLJlistView!.registerNib(UINib(nibName: "GuLJCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         
         bmarkListview.tag = 200
         bmarkListview!.registerNib(UINib(nibName: "BookMarkCell", bundle:nil), forCellReuseIdentifier: markCellIdentifier)
@@ -84,10 +87,32 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         SegmentedControlUtil.changeSegmentedControlColor(segmentedControl)
         
         tabIndex = 1
-        listView.hidden = false
+        guLJlistView.hidden = false
         nomarkLable.hidden = true
         bmarkListview.hidden = true
     }
+    
+    //添加头部
+    var firstbookmark :Bookmark = Bookmark()
+    func addHeadView(){
+        let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("guLJViewHead", owner: nil, options: nil)
+        let readViewHead = nibs.lastObject as! guLJViewHead
+        let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("headViewClick"))
+        readViewHead.addGestureRecognizer(tagGesture)
+        
+        let sura = Config.getCurrentRura();
+        if (sura != -1) {
+            let chapter : Chapter = FMDBHelper.getInstance().getChapter(sura)!
+            firstbookmark.suraId = chapter.sura
+            firstbookmark.ayaId = Config.getCurrentPosition()
+            firstbookmark.suraName = chapter.name_arabic
+            firstbookmark.transliteration = chapter.name_transliteration
+            readViewHead.arabicTitle.text = firstbookmark.suraName as? String
+            readViewHead.arabicsubTitle.text = firstbookmark.transliteration as? String
+            guLJlistView.tableHeaderView = readViewHead
+        }
+    }
+
     
     
     /**加载章节数据*/
@@ -97,7 +122,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let path = NSBundle.mainBundle().pathForResource("translated_sura_titles", ofType: "plist") //翻译
         translated_sura_titles = NSArray(contentsOfFile: path!)!
         
-        listView.reloadData()
+        guLJlistView.reloadData()
     }
     
     /**加载书签数据*/
@@ -153,10 +178,10 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     //选中
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let tag = tableView.tag
+        let readVC : ReadViewController = ReadViewController()
         if(100 == tag){
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             let chapter = dataArray[indexPath.row] as! Chapter
-            let readVC : ReadViewController = ReadViewController()
             //历史
             //readVC.EXTRA_BOOKMARK_JUMP = true
             //readVC.EXTRA_SURA = 1
@@ -165,7 +190,23 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             //正常跳转
             readVC.EXTRA_SURA = chapter.sura
             self.navigationController?.pushViewController(readVC, animated: true)
+        }else{
+            //书签
+            let bookmark = bookmarkArray[indexPath.row] as! Bookmark
+            readVC.EXTRA_SURA = bookmark.suraId
+            readVC.EXTRA_BOOKMARK_JUMP = true
+            readVC.EXTRA_SCOLLPOSITION = bookmark.ayaId! - 1
+            self.navigationController?.pushViewController(readVC, animated: true)
         }
+    }
+    
+    //上一次阅读位置
+    func headViewClick(){
+        let readVC : ReadViewController = ReadViewController()
+        readVC.EXTRA_SURA = firstbookmark.suraId
+        readVC.EXTRA_BOOKMARK_JUMP = true
+        readVC.EXTRA_SCOLLPOSITION = firstbookmark.ayaId! - 1
+        self.navigationController?.pushViewController(readVC, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

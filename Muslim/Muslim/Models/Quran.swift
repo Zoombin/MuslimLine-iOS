@@ -13,7 +13,7 @@ class Quran: NSObject {
     var aya:Int?
     var text:String?
     var text_zh:String?
-    var isbookmark:Bool?
     var progress:Int?
+    var isbookmark:Bool?
     var isSelected :Bool?
 }

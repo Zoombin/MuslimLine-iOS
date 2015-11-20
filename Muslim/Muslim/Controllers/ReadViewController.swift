@@ -11,12 +11,16 @@
 
 import UIKit
 
-class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource{
+class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate{
     let bt_back = 100
     let bt_previous = 200
     let bt_next = 300
     let bt_contry = 400
     let bt_reader = 500
+    let bt_play = 600
+    let bt_play1 = 601
+    let bt_bookmark = 700
+    let bt_more = 800
     
     var EXTRA_BOOKMARK_JUMP : Bool = false
     var EXTRA_SURA : Int?
@@ -27,10 +31,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var readRightView : ReadRightView!
     let cellIdentifier = "cellIdentifier"
     var mTableView:UITableView!
+    var readViewHead : ReadViewHead!
     
     var chapter:Chapter?
     var sura:Int?
     var quranArray : NSMutableArray = NSMutableArray()
+    var select = 0
     
     
     override func viewDidLoad() {
@@ -54,7 +60,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         self.view.addSubview(mTableView)
         
         setTitleBar()
+        addHeadView()
+        
         getQurans(EXTRA_SURA!)
+      
     }
     
     func setTitleBar(){
@@ -82,26 +91,38 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftView)
     }
     
+    //添加头部
+    func addHeadView(){
+        let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("ReadViewHead", owner: nil, options: nil)
+        readViewHead = nibs.lastObject as! ReadViewHead
+        readViewHead.btPlay1.tag = bt_play1
+        readViewHead.btPlay1.hidden = true
+        readViewHead.btPlay1.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("headViewClick"))
+        readViewHead.addGestureRecognizer(tagGesture)
+        // 除1,9章，其他章最前面加一句话
+        if (sura != 1 && sura != 9) {
+            let quran:Quran  = Quran()
+            quran.sura = sura
+            quran.aya = 0
+            //quranArray.insertObject(quran, atIndex: 0)//加在第一个位置
+            //tableView增加一个头部
+            
+            mTableView.tableHeaderView = readViewHead
+        }
+    }
+
     
     /**获取古兰经*/
     func getQurans(sura:Int){
         self.sura = sura
         chapter = FMDBHelper.getInstance().getChapter(sura)
         setTitelBarData()
-        let array : NSMutableArray = FMDBHelper.getInstance().getQurans(sura)
-        // 除1,9章，其他章最前面加一句话
-        if (sura != 1 && sura != 9) {
-            let quran:Quran  = Quran()
-            quran.sura = sura
-            quran.aya = 0
-            quranArray.addObject(quran)//加在第一个位置
-            quranArray.addObjectsFromArray(array as [AnyObject])
-        }else{
-            quranArray.addObjectsFromArray(array as [AnyObject])
-        }
+        quranArray = FMDBHelper.getInstance().getQurans(sura)
+        
         mTableView.reloadData()
     }
-    
+
 
     /**设置头部数据*/
     func setTitelBarData(){
@@ -140,19 +161,36 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //生成界面
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let cell : ReadViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as!ReadViewCell
-        cell.ivPro.hidden = true
         
+        //设置界面
+        cell.ivPro.hidden = true
         let quran :Quran = quranArray[indexPath.row] as! Quran
         cell.textQuran.text = String(format: "%d. %@", quran.aya!,quran.text == nil ?"":quran.text!)
         cell.textCn.text = String(format: "%d. %@", quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
         if(quran.isSelected == true){
             cell.OptionsView.hidden = false
             cell.contentView.backgroundColor = Colors.lightGray
+            
+            let isbookmark :Bool = FMDBHelper.getInstance().isBookmark(quran.sura!, aya: quran.aya!)//原方法这样操作太耗资源  -- 要改进
+            if (isbookmark) {
+                cell.btBookMark.setImage(UIImage(named: "ic_bookmarks_selected"), forState: UIControlState.Normal)
+            } else {
+                cell.btBookMark.setImage(UIImage(named: "ic_bookmarks_no_selected"), forState: UIControlState.Normal)
+            }
         }else{
             cell.OptionsView.hidden = true
             cell.contentView.backgroundColor = UIColor.whiteColor()
         }
+        
+        //点击事件
+        cell.btPlay.tag = bt_play
+        cell.btPlay.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.btBookMark.tag = bt_bookmark
+        cell.btBookMark.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.btMore.tag = bt_more
+        cell.btMore.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
        
+        //自适应高度
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.preferredMaxLayoutWidth = CGRectGetWidth(tableView.bounds)
         
@@ -166,8 +204,63 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         
         let quran :Quran = quranArray[indexPath.row] as! Quran
         cleanSelect()
+        resetHeadView()
         quran.isSelected = true
+        select = indexPath.row
         tableView.reloadData()
+    }
+    
+    //actionSheet点击
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int){
+        let tag = actionSheet.tag
+        if(201 == tag){
+            //更多操作
+            switch(buttonIndex){
+            case 0:
+                share()
+                break
+            case 1:
+                textCopy()
+                break
+            default:
+                break
+            }
+        }
+        if(202 == tag){
+            //分享
+            switch(buttonIndex){
+            case 0:
+               //电子邮件
+                break
+            case 1:
+               //短信
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+    //分享
+    func share(){
+        let actionSheet = UIActionSheet()
+        actionSheet.tag = 202
+        actionSheet.title = "分享"
+        actionSheet.delegate = self
+        actionSheet.addButtonWithTitle("电子邮件")
+        actionSheet.addButtonWithTitle("短信")
+        actionSheet.addButtonWithTitle("取消")
+        actionSheet.cancelButtonIndex = 2
+        actionSheet.showInView(self.view)
+    }
+    
+    //复制
+    func textCopy(){
+        let quran :Quran = quranArray[select] as! Quran
+        
+        let board = UIPasteboard.generalPasteboard()
+        board.string = String(quran.text)+"\n"+String(quran.text_zh)
+        self.view.makeToast(message: "已复制到剪切板")
     }
 
     
@@ -190,9 +283,52 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             let quranAudioVC = QuranAudioViewController()
             self.navigationController?.pushViewController(quranAudioVC, animated: true)
             break
+        case bt_play:
+            break
+        case bt_bookmark:
+            let quran :Quran = quranArray[select] as! Quran
+            let isbookmark :Bool = FMDBHelper.getInstance().isBookmark(quran.sura!, aya: quran.aya!)
+            if (isbookmark) {
+               FMDBHelper.getInstance().deleteBookmark(quran.sura!, aya: quran.aya!)
+            } else {
+                FMDBHelper.getInstance().insertBookmark(quran.sura!, aya: quran.aya!)
+            }
+            mTableView.reloadData()
+            break
+        case bt_more:
+            let actionSheet = UIActionSheet()
+            actionSheet.tag = 201
+            actionSheet.title = "更多操作"
+            actionSheet.delegate = self
+            actionSheet.addButtonWithTitle("分享")
+            actionSheet.addButtonWithTitle("复制到剪切板")
+            actionSheet.addButtonWithTitle("取消")
+            actionSheet.cancelButtonIndex = 2
+            actionSheet.showInView(self.view)
+            break
         default:
             break
         }
+    }
+    
+    //头部点击
+    func headViewClick(){
+        
+        readViewHead.btPlay1.hidden = false
+        readViewHead.backgroundColor = Colors.lightGray
+        cleanSelect()
+        mTableView.reloadData()
+    }
+    
+    func resetHeadView(){
+        readViewHead.backgroundColor = UIColor.whiteColor()
+        readViewHead.btPlay1.hidden = true
+    }
+    
+    //保存数据
+    override func viewDidDisappear(animated: Bool) {
+        Config.setCurrentRura(sura!)
+        Config.setCurrentPosition(3)
     }
     
     override func didReceiveMemoryWarning() {

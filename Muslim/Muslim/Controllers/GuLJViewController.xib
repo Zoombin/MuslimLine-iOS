@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuLJViewController" customModule="Muslim" customModuleProvider="target">
             <connections>
                 <outlet property="bmarkListview" destination="SbR-0F-Wbe" id="pCD-V5-haQ"/>
-                <outlet property="listView" destination="DVL-UP-CtT" id="SoK-Pv-Bae"/>
+                <outlet property="guLJlistView" destination="DVL-UP-CtT" id="fhf-fO-ZBp"/>
                 <outlet property="nomarkLable" destination="U6a-rv-nJ6" id="s6K-7G-gaH"/>
                 <outlet property="segmentedControl" destination="XSE-K1-sD0" id="eKU-UF-XLq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

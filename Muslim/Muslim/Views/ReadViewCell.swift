@@ -13,10 +13,10 @@ class ReadViewCell: UITableViewCell {
     @IBOutlet weak var textCn: UILabel!
     
     @IBOutlet weak var OptionsView: UIView!
-    @IBOutlet weak var ivPlay: UIImageView!
-    @IBOutlet weak var ivBookMark: UIImageView!
     @IBOutlet weak var ivPro: UIActivityIndicatorView!
-    @IBOutlet weak var ivMore: UIImageView!
+    @IBOutlet weak var btMore: UIButton!
+    @IBOutlet weak var btBookMark: UIButton!
+    @IBOutlet weak var btPlay: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

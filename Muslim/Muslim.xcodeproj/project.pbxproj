@@ -96,6 +96,10 @@
 		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
 		455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */; };
+		45542E571BFEF64600F3A3A5 /* ReadViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */; };
+		45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */; };
+		45542E5B1BFF0AA300F3A3A5 /* guLJViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */; };
+		45542E5D1BFF0AB300F3A3A5 /* guLJViewHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45542E5C1BFF0AB300F3A3A5 /* guLJViewHead.xib */; };
 		456408DA1BFD7609007A217B /* GuLJSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408D81BFD7609007A217B /* GuLJSearchCell.swift */; };
 		456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456408D91BFD7609007A217B /* GuLJSearchCell.xib */; };
 		456408DD1BFDA06E007A217B /* Quran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456408DC1BFDA06E007A217B /* Quran.swift */; };
@@ -286,6 +290,10 @@
 		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
 		455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustCell.xib; sourceTree = "<group>"; };
+		45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewHead.swift; sourceTree = "<group>"; };
+		45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadViewHead.xib; sourceTree = "<group>"; };
+		45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = guLJViewHead.swift; sourceTree = "<group>"; };
+		45542E5C1BFF0AB300F3A3A5 /* guLJViewHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = guLJViewHead.xib; sourceTree = "<group>"; };
 		456408D81BFD7609007A217B /* GuLJSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchCell.swift; sourceTree = "<group>"; };
 		456408D91BFD7609007A217B /* GuLJSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJSearchCell.xib; sourceTree = "<group>"; };
 		456408DC1BFDA06E007A217B /* Quran.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quran.swift; sourceTree = "<group>"; };
@@ -625,6 +633,10 @@
 				456408D91BFD7609007A217B /* GuLJSearchCell.xib */,
 				456408DE1BFDC853007A217B /* ReadViewCell.swift */,
 				456408DF1BFDC853007A217B /* ReadViewCell.xib */,
+				45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */,
+				45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */,
+				45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */,
+				45542E5C1BFF0AB300F3A3A5 /* guLJViewHead.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -888,6 +900,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */,
 				45EF2B731BFC3B8A008B01EE /* settings.json in Resources */,
 				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
 				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
@@ -899,6 +912,7 @@
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
+				45542E5D1BFF0AB300F3A3A5 /* guLJViewHead.xib in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
 				45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */,
 				45EF2B721BFC3B8A008B01EE /* quran_v2.zip in Resources */,
@@ -957,6 +971,7 @@
 				1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */,
 				451BD58E1BECA428008D98C2 /* UserDefaultsUtil.swift in Sources */,
 				1843574F1BE9E88D00194744 /* AFHTTPSessionManager.m in Sources */,
+				45542E5B1BFF0AA300F3A3A5 /* guLJViewHead.swift in Sources */,
 				45C7D0791BE5A9870086D39E /* Colors.swift in Sources */,
 				45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */,
 				183ECF3D1BF9B026003FB90C /* WebViewController.swift in Sources */,
@@ -1010,6 +1025,7 @@
 				45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */,
 				184357A91BE9E88D00194744 /* UIAlertView+AFNetworking.m in Sources */,
 				45EF2B7F1BFC5F7E008B01EE /* ReadLeftView.swift in Sources */,
+				45542E571BFEF64600F3A3A5 /* ReadViewHead.swift in Sources */,
 				451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */,
 				45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */,
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
@@ -1169,6 +1185,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Muslim/Library/Amap",
@@ -1189,6 +1206,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Muslim/Library/Amap",

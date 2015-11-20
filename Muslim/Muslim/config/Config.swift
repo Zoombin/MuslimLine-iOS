@@ -264,7 +264,23 @@
             return UserDefaultsUtil.getInt("CurrentCountry",defalt: 0)
         }
         
+        /**当前阅读的古兰经**/
+        static func setCurrentRura(currentSura:Int) {
+           UserDefaultsUtil.saveInt("CurrentRura", value: currentSura)
+        }
         
+        static func getCurrentRura()->Int{
+            return UserDefaultsUtil.getInt("CurrentRura",defalt: -1)
+        }
+        
+        /**当前阅读位置*/
+        static func getCurrentPosition()->Int {
+          return UserDefaultsUtil.getInt("currentPosition")
+        }
+        
+        static func setCurrentPosition(currentPosition:Int) {
+            UserDefaultsUtil.saveInt("currentPosition", value:currentPosition)
+        }
         
         
         

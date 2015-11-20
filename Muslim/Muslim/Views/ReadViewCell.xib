@@ -23,34 +23,6 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="HYY-kg-S7k">
-                        <rect key="frame" x="0.0" y="176" width="320" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_play" id="QF6-wL-gUp">
-                                <rect key="frame" x="16" y="6" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bookmarks_no_selected" id="NNj-Sw-Muy">
-                                <rect key="frame" x="70" y="5" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                <animations/>
-                            </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="JxE-FA-pPm">
-                                <rect key="frame" x="25" y="16" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                <animations/>
-                            </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_more_no_selected" id="CnF-cj-ee0">
-                                <rect key="frame" x="267" y="5" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                                <animations/>
-                            </imageView>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y8Y-0h-nE5">
                         <rect key="frame" x="21" y="76" width="283" height="98"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -60,15 +32,46 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" id="HYY-kg-S7k">
+                        <rect key="frame" x="0.0" y="176" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aeC-TP-m85">
+                                <rect key="frame" x="269" y="5" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="ic_more_no_selected"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D2d-Sm-r1H">
+                                <rect key="frame" x="72" y="9" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="ic_bookmarks_no_selected"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G3l-IA-Y18">
+                                <rect key="frame" x="22" y="9" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="ic_play"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="JxE-FA-pPm">
+                                <rect key="frame" x="28" y="15" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <animations/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <animations/>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="OptionsView" destination="HYY-kg-S7k" id="vUL-QG-g1q"/>
-                <outlet property="ivBookMark" destination="NNj-Sw-Muy" id="ZM5-ut-rfF"/>
-                <outlet property="ivMore" destination="CnF-cj-ee0" id="kVs-BN-FPE"/>
-                <outlet property="ivPlay" destination="QF6-wL-gUp" id="hhk-GP-ROs"/>
+                <outlet property="btBookMark" destination="D2d-Sm-r1H" id="jRA-i7-bnH"/>
+                <outlet property="btMore" destination="aeC-TP-m85" id="H22-5B-ilr"/>
+                <outlet property="btPlay" destination="G3l-IA-Y18" id="17L-0D-5rY"/>
                 <outlet property="ivPro" destination="JxE-FA-pPm" id="eb4-Ji-q1h"/>
                 <outlet property="textCn" destination="y8Y-0h-nE5" id="9mQ-PG-gRn"/>
                 <outlet property="textQuran" destination="jQj-Ul-pUB" id="ize-Xf-4U4"/>

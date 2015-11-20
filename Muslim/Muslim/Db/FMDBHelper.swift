@@ -222,6 +222,39 @@ class FMDBHelper: NSObject {
         dbBase.close()
         return array
     }
+    
+    //是否有书签
+    func isBookmark(sura:Int,aya:Int)->Bool{
+        let sql:String = "select * from " + DBConstants.TB_BOOKMARK + " where sura=" + String(sura) + " and aya=" + String(aya)
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        while rs!.next() {
+            dbBase.close()
+            return true
+        }
+        dbBase.close()
+        return false
+    }
+    
+    //删除书签
+    func deleteBookmark(sura:Int,aya:Int){
+        let sql:String = "DELETE FROM "
+            + DBConstants.TB_BOOKMARK
+            + " WHERE " + DBConstants.Field_SURA + "=" + String(sura) + " AND " + DBConstants.Field_AYA + "=" + String(aya)
+        dbBase.open()
+        dbBase.executeStatements(sql)
+        dbBase.close()
+    }
+    
 
+    //插入书签
+    func insertBookmark(sura:Int,aya:Int){
+        let sql:String =  "INSERT INTO "
+            + DBConstants.TB_BOOKMARK
+            + "(" + DBConstants.Field_SURA + "," + DBConstants.Field_AYA + "," + DBConstants.Field_ADD_DATE + ") VALUES ("+String(sura)+","+String(aya)+","+String(Double(NSDate().timeIntervalSince1970 * 1000))+")"
+        dbBase.open()
+        dbBase.executeStatements(sql)
+        dbBase.close()
+    }
 
 }
