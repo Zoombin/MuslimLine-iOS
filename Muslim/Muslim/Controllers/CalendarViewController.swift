@@ -84,12 +84,13 @@ class CalendarViewController: UIViewController {
         let buttonHeight : CGFloat = calendarViewHeight / sectionCount
         let buttonWidth : CGFloat = buttonHeight
         
-        let offSetX = (PhoneUtils.screenWidth - (CGFloat(rowCount) * CGFloat(buttonWidth))) / 2
+        let startX : CGFloat = 20
+        let offSetX =  (PhoneUtils.screenWidth - (startX * 2) -  CGFloat(rowCount) * CGFloat(buttonWidth)) / (rowCount - 1)
         
         let weeks : [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         for index in 0...6 {
             let weekLabel : UILabel = UILabel()
-            weekLabel.frame = CGRectMake(offSetX + CGFloat(index) * buttonWidth, CGRectGetMinY(calendarView.frame) - buttonHeight, buttonWidth, buttonHeight)
+            weekLabel.frame = CGRectMake(startX + offSetX * CGFloat(index) + CGFloat(index) * buttonWidth, CGRectGetMinY(calendarView.frame) - buttonHeight, buttonWidth, buttonHeight)
             weekLabel.text = weeks[index]
             weekLabel.textAlignment = NSTextAlignment.Center
             weekLabel.textColor = UIColor.whiteColor()
@@ -98,9 +99,9 @@ class CalendarViewController: UIViewController {
         
         let todayBtn : UIButton = UIButton.init(type: UIButtonType.Custom)
         todayBtn.frame = CGRectMake((PhoneUtils.screenWidth - 80) / 2, CGRectGetMaxY(calendarView.frame) - buttonHeight, 80, buttonHeight * 3/4)
-        todayBtn.layer.cornerRadius = 6.0
         todayBtn.setTitle(NSLocalizedString("prayer_calendar_today", comment: ""), forState: UIControlState.Normal)
-        todayBtn.backgroundColor = Colors.greenColor
+        todayBtn.setBackgroundImage(UIImage(named: "today_bg"), forState: UIControlState.Normal)
+        todayBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
         todayBtn.addTarget(self, action: Selector.init("todayButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarBkgView.addSubview(todayBtn)
         
@@ -120,7 +121,9 @@ class CalendarViewController: UIViewController {
         let buttonHeight : CGFloat = calendarViewHeight / sectionCount
         let buttonWidth : CGFloat = buttonHeight
         
-        let offSetX = (PhoneUtils.screenWidth - (CGFloat(rowCount) * CGFloat(buttonWidth))) / 2
+        let startX : CGFloat = 20
+        let offSetX =  (PhoneUtils.screenWidth - (startX * 2) -  CGFloat(rowCount) * CGFloat(buttonWidth)) / (rowCount - 1)
+        
         var currentIndex : CGFloat = 0
         var currentRow : CGFloat = 0
 
@@ -156,7 +159,7 @@ class CalendarViewController: UIViewController {
                 firstDate = NSDate(timeInterval: Double(3600 * 24), sinceDate: firstDate)
                 let comp = CalendarUtils.getComponents(firstDate)
                 let dateStr = String(format: "%d/%d/", comp.month, comp.day)
-                let calendarButton : CalendarButton = CalendarButton.init(frame:  CGRectMake(offSetX + currentIndex * buttonWidth, currentRow * buttonHeight, buttonWidth, buttonHeight))
+                let calendarButton : CalendarButton = CalendarButton.init(frame:  CGRectMake(startX + offSetX * currentIndex + currentIndex * buttonWidth, currentRow * buttonHeight, buttonWidth, buttonHeight))
                 let bool = checkIsHoliday(dateStr)
                 calendarButton.setDate(firstDate, selectedDate: currentDate!, holiday : bool, month: components.month)
                 calendarButton.addTarget(self, action: Selector.init("calendarButtonClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
