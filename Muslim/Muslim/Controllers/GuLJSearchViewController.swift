@@ -141,6 +141,17 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     //选中
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let quran : Quran = dataArray[indexPath.row] as! Quran
+        let readVC : ReadViewController = ReadViewController()
+        //历史
+        //readVC.EXTRA_BOOKMARK_JUMP = true
+        //readVC.EXTRA_SURA = 1
+        //readVC.EXTRA_SCOLLPOSITION = 1
+        
+        //正常跳转
+        readVC.EXTRA_SURA = quran.sura
+        readVC.EXTRA_AYA = quran.aya
+        self.navigationController?.pushViewController(readVC, animated: true)
     }
     
     

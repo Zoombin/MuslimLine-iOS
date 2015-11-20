@@ -169,8 +169,37 @@ class FMDBHelper: NSObject {
         return array
     }
     
-    
-    
+    /**根据id获取古兰经*/
+    func getQurans(sura:Int) ->NSMutableArray{
+        let curLanguage :NSString = Config.getCurrentLanguage()
+        var sql:String = ""
+        if(curLanguage.length == 0){
+            sql = "select a.aya, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                "where a.sura=" + String(sura)
+        }else{
+            sql = "select a.aya, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join " + String(curLanguage) + " b on a.[sura]=b.sura and a.aya=b.aya " +
+                " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                "where a.sura=" + String(sura)
+        }
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        let array : NSMutableArray = NSMutableArray()
+        while rs!.next() {
+            let quran : Quran = Quran()
+            quran.aya = Int(rs!.intForColumnIndex(0))
+            quran.sura = Int(sura)
+            quran.text = rs!.stringForColumnIndex(1)
+            quran.text_zh = rs!.stringForColumnIndex(2)
+            quran.isbookmark = rs!.intForColumnIndex(3) == 1 ? true : false
+            array.addObject(quran)
+        }
+        dbBase.close()
+        return array
+    }
+
+
+
     //获取书签数据
     func getBookmarks()->NSMutableArray{
         let sql:String = "select a.id, a.sura, a.aya, a.add_date, b.name_arabic, b.name_transliteration " +

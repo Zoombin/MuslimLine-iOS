@@ -11,7 +11,12 @@ import UIKit
 class ReadViewCell: UITableViewCell {
     @IBOutlet weak var textQuran: UILabel!
     @IBOutlet weak var textCn: UILabel!
-    var isSelected : Bool?
+    
+    @IBOutlet weak var OptionsView: UIView!
+    @IBOutlet weak var ivPlay: UIImageView!
+    @IBOutlet weak var ivBookMark: UIImageView!
+    @IBOutlet weak var ivPro: UIActivityIndicatorView!
+    @IBOutlet weak var ivMore: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,13 +27,6 @@ class ReadViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func getSize(isSeleced : Bool) -> CGFloat{
-        if (isSeleced) {
-            return 120
-        }
-        return 70
     }
     
 }
