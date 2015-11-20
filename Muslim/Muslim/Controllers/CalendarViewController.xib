@@ -11,6 +11,9 @@
                 <outlet property="calendarView" destination="dH8-yJ-gp9" id="iUB-ya-dqo"/>
                 <outlet property="customYearLabel" destination="AkZ-kX-LgX" id="aGG-HD-9bR"/>
                 <outlet property="holidayTableView" destination="dEL-tc-6I7" id="RJ9-Ip-UPG"/>
+                <outlet property="pickBkgView" destination="JeC-kH-Yjr" id="yxc-wd-FSH"/>
+                <outlet property="sureButton" destination="LIa-eL-zVD" id="8kg-DG-CJm"/>
+                <outlet property="todayButton" destination="SEJ-Fo-zK2" id="gdR-Sy-gSN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yearMonthLabel" destination="S3t-Jy-VjB" id="EFk-an-r7c"/>
             </connections>
@@ -30,6 +33,74 @@
                         <outlet property="delegate" destination="-1" id="hFS-jE-zA1"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" id="JeC-kH-Yjr">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="Eha-XR-y6b">
+                            <rect key="frame" x="0.0" y="302" width="320" height="266"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <subviews>
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="vhf-SP-wBR">
+                                    <rect key="frame" x="0.0" y="50" width="320" height="216"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <date key="date" timeIntervalSinceReferenceDate="469701495.26933098">
+                                        <!--2015-11-20 08:38:15 +0000-->
+                                    </date>
+                                </datePicker>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H4l-Oy-Frf">
+                                    <rect key="frame" x="10" y="48" width="300" height="0.5"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SEJ-Fo-zK2">
+                                    <rect key="frame" x="10" y="10" width="60" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="今天">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="todayButtonClicked:" destination="-1" eventType="touchUpInside" id="uag-64-Blf"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LIa-eL-zVD">
+                                    <rect key="frame" x="250" y="10" width="60" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="确定">
+                                        <color key="titleColor" red="0.1450980392" green="0.70196078429999997" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sureButtonClicked:" destination="-1" eventType="touchUpInside" id="Eth-1g-qVc"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gA5-5d-2E0">
+                                    <rect key="frame" x="150" y="10" width="24" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <state key="normal" image="calendar_black">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pickerViewTypeClicked:" destination="-1" eventType="touchUpInside" id="HRs-XP-Dck"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -89,6 +160,7 @@
     </objects>
     <resources>
         <image name="befoe_small" width="7" height="12"/>
+        <image name="calendar_black" width="20" height="22"/>
         <image name="next_small" width="7" height="12"/>
     </resources>
 </document>
