@@ -134,9 +134,9 @@
         static func getCalenderType() -> String{
             let selection : Int = self.getCalenderSelection()
             if (selection == 0) { //伊斯兰
-                return NSCalendarIdentifierPersian
-            } else { //波斯
                 return NSCalendarIdentifierIslamicCivil
+            } else { //波斯
+                return NSCalendarIdentifierPersian
             }
         }
         

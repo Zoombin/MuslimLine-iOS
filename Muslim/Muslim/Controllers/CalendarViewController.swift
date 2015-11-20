@@ -168,6 +168,7 @@ class CalendarViewController: UIViewController {
                 }
             }
         }
+        holidayTableView.reloadData()
     }
     
     func checkIsHoliday(dateStr : String) -> Bool{
@@ -222,11 +223,57 @@ class CalendarViewController: UIViewController {
         let calendarCell : CalendarCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CalendarCell
         let dictionary : NSDictionary = resultArray[indexPath.row] as! NSDictionary
         calendarCell.holidayNameLabel.text = dictionary["name"] as? String
-        calendarCell.dateLabel.text = String(format: "%@%d",  (dictionary["time"] as? String)!, mslYear!)
+        let mslDate = String(format: "%@%d",  (dictionary["time"] as? String)!, mslYear!)
+        calendarCell.dateLabel.text = mslDate
+        calendarCell.customDateLabel.text = changeMslDate(mslDate)
+        calendarCell.greenLabel.hidden = indexPath.row % 2 != 0
+        calendarCell.yellowLabel.hidden = indexPath.row % 2 == 0
         return calendarCell
+    }
+    
+    func changeMslDate(mslDate : String) -> String{
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:currentDate!)
+        let arrs = mslDate.componentsSeparatedByString("/")
+        if (arrs.count == 3) {
+            let month : NSString = arrs[0] as NSString
+            let day : NSString = arrs[1] as NSString
+            let year : NSString = arrs[2] as NSString
+            components.day = day.integerValue
+            components.month = month.integerValue
+            components.year = year.integerValue
+            
+            let dateFormatter : NSDateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            print("==>", components.date, dateFormatter.stringFromDate(components.date!))
+            return dateFormatter.stringFromDate(components.date!)
+        }
+        return ""
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let calendar : NSCalendar = NSCalendar.init(calendarIdentifier: Config.getCalenderType())!
+        let dateFormatter : NSDateFormatter = NSDateFormatter()
+        dateFormatter.calendar = calendar
+        let flags = NSCalendarUnit(rawValue: UInt.max)
+        let components = calendar.components(flags, fromDate:currentDate!)
+        
+        let calendarCell : CalendarCell = tableView.cellForRowAtIndexPath(indexPath) as! CalendarCell
+        let str : NSString = calendarCell.dateLabel.text!
+        let arrs = str.componentsSeparatedByString("/")
+        if (arrs.count == 3) {
+            let month : NSString = arrs[0] as NSString
+            let day : NSString = arrs[1] as NSString
+            let year : NSString = arrs[2] as NSString
+            components.day = day.integerValue
+            components.month = month.integerValue
+            components.year = year.integerValue
+            currentDate = components.date
+            refreshCalendarButton()
+        }
     }
 }
