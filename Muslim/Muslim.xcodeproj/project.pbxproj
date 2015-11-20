@@ -73,6 +73,7 @@
 		18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BED75B1BE855F300418054 /* CoreLocation.framework */; };
 		18BED75E1BE8560000418054 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BED75D1BE8560000418054 /* libz.tbd */; };
 		18BED7681BE8931600418054 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BED7671BE8931600418054 /* MainViewController.xib */; };
+		18C320371BFF27A80087E359 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C320361BFF27A80087E359 /* Log.swift */; };
 		18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */; };
 		18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */; };
 		18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE7A1BF5BDAC00AC1888 /* NearbyViewController.swift */; };
@@ -267,6 +268,7 @@
 		18BED75B1BE855F300418054 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		18BED75D1BE8560000418054 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		18BED7671BE8931600418054 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		18C320361BFF27A80087E359 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchViewController.swift; sourceTree = "<group>"; };
 		18F8FE7A1BF5BDAC00AC1888 /* NearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				184356991BE9DC2F00194744 /* MSLHttpClient.swift */,
 				451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */,
 				1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */,
+				18C320361BFF27A80087E359 /* Log.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C320371BFF27A80087E359 /* Log.swift in Sources */,
 				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
 				45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */,
 				45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */,
