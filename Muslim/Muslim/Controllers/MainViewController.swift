@@ -63,12 +63,16 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         if (tag == manl) {
             let manlResult : ManlResult = ManlResult()
             manlResult.initValues(result as! NSDictionary)
+            if (manlResult.places == nil) {
+                return
+            }
             if (manlResult.places!.count!.integerValue > 0) {
                manlResultArray.removeAllObjects()
                manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
                manlTableView.reloadData()
             }
         } else if (tag == auto) {
+            print(result)
         }
     }
     
@@ -90,7 +94,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     func getUserLocation() {
         locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
             if (code != nil) {
-                self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.manl)
+                self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.auto)
             }
         }
     }
