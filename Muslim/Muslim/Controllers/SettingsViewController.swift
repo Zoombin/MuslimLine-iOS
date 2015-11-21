@@ -261,7 +261,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             item.text = "  "+(text as String)
             item.userInteractionEnabled = true//设置点击事件
             let tagGestureLable : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("popItemClick:"))
-            tagGestureLable.view?.tag = index
+            item.tag = index
             item.addGestureRecognizer(tagGestureLable);
             contentView.addSubview(item)
             
@@ -276,7 +276,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             if(index == select){
                 button.selected = true
             }
-            button.addTarget(self, action: Selector.init("popItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            //这边按钮就不需要让他点了，因为整个一行都可以点了
+            button.userInteractionEnabled = false
+//            button.addTarget(self, action: Selector.init("popItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             contentView.addSubview(button)
         }
         
@@ -314,11 +316,12 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     }
     
     /**选中按钮点击事件**/
-    func popItemClick(sender : UIView) {
+    func popItemClick(sender : UIGestureRecognizer) {
         //sender.selected = !sender.selected
         removeAlertView()
         
-        let btSelect : NSInteger = sender.tag
+        let btSelect : NSInteger = sender.view!.tag
+        print(btSelect)
         //处理切换事件
         switch(listSection){
         case 0:
