@@ -276,9 +276,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             if(index == select){
                 button.selected = true
             }
-            //这边按钮就不需要让他点了，因为整个一行都可以点了
+            
             button.userInteractionEnabled = false
-//            button.addTarget(self, action: Selector.init("popItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            //button.addTarget(self, action: Selector.init("popItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             contentView.addSubview(button)
         }
         

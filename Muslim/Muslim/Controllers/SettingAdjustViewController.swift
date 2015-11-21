@@ -104,15 +104,17 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
             }else{
                 cell.btCheckBox.selected = false
             }
-            cell.btCheckBox.tag = row
-            cell.btCheckBox.addTarget(self, action: Selector.init("adjustItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            //设置cell点击这里不处理点击事件
+            cell.btCheckBox.userInteractionEnabled = false
+            //cell.btCheckBox.tag = row
+            //cell.btCheckBox.addTarget(self, action: Selector.init("adjustItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             return cell
         }
     }
     
     //item点击
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
         let tag = tableView.tag
         let row = indexPath.row
         if(tag == 100){
@@ -121,7 +123,8 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
             showAlertView(select)
         }
         if(tag == 200){
-            
+            //弹出界面
+            adjustItemClick(row);
         }
     }
     
@@ -135,8 +138,8 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         bkgView = UIView()
         bkgView.frame = CGRectMake(0, 64, viewWidth, viewHight)
         bkgView.backgroundColor = Colors.trans
-//      let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
-//      bkgView.addGestureRecognizer(tagGesture)
+        //let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
+        // bkgView.addGestureRecognizer(tagGesture)
         self.view.addSubview(bkgView)
         
         
@@ -190,9 +193,9 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         alertTableView.scrollToRowAtIndexPath(IndexPath, atScrollPosition: UITableViewScrollPosition.Middle, animated: false)
     }
     
-    /***按钮框点击事件*/
-    func adjustItemClick(sender : UIButton) {
-        let position = sender.tag
+    /***弹出框item点击事件*/
+    func adjustItemClick(position:Int) {
+        //let position = sender.tag
         switch (listRow) {
         case 0:
             Config.saveFajrTime(position);
@@ -216,7 +219,7 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
             break
         }
         
-//        alertTableView.reloadData()
+
         mTableView.reloadData()
         removeAlertView()
     }
