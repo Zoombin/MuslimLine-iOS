@@ -257,9 +257,12 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let itemCount = subset.count
         for index in 0...(itemCount - 1) {
             let item :UILabel = UILabel(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,itemHight))
-            
             let text : NSString = subset.objectAtIndex(index) as! NSString
             item.text = "  "+(text as String)
+            item.userInteractionEnabled = true//设置点击事件
+            let tagGestureLable : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("popItemClick:"))
+            tagGestureLable.view?.tag = index
+            item.addGestureRecognizer(tagGestureLable);
             contentView.addSubview(item)
             
             let line :UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,1))
@@ -273,7 +276,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             if(index == select){
                 button.selected = true
             }
-            button.addTarget(self, action: Selector.init("buttonClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: Selector.init("popItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             contentView.addSubview(button)
         }
         
@@ -311,8 +314,8 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     }
     
     /**选中按钮点击事件**/
-    func buttonClick(sender : UIButton) {
-        sender.selected = !sender.selected
+    func popItemClick(sender : UIView) {
+        //sender.selected = !sender.selected
         removeAlertView()
         
         let btSelect : NSInteger = sender.tag
