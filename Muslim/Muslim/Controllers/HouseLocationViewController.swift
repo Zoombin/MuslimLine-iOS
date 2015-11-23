@@ -42,8 +42,12 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         super.viewDidLoad()
         self.view.backgroundColor = Colors.houseColor
         title = NSLocalizedString("main_qibla_label", comment: "")
-        noticeLabel.text = NSLocalizedString("qibla_warning_text", comment: "")
+        //title右边菜单
+        let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showOrHidePopView"))
         
+        
+        noticeLabel.text = NSLocalizedString("qibla_warning_text", comment: "")
         kabahLocation = CLLocation(latitude: 21.42 , longitude: 39.83)
         
         self.locationManger.delegate = self

@@ -14,6 +14,7 @@ protocol httpClientDelegate : NSObjectProtocol {
 }
 
 class MSLHttpClient: NSObject {
+    let defalturl:String = "http://www.muslimsline.com/config/website.json"
     
     static var httpClient : MSLHttpClient!
     var delegate : httpClientDelegate?
@@ -123,6 +124,34 @@ class MSLHttpClient: NSObject {
         params["appid"] = "dj0yJmk9cHlhcHpjcTZhYVhoJmQ9WVdrOVdGTklXRmhoTlRRbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0wZA--"
         
         manager.GET(urlString, parameters: params, success:
+            { (operation, responseObject) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+                }
+            }) { (operation, error) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.errorResult(error, tag: tag)
+                }
+        }
+    }
+    
+    /**反馈*/
+    func sendFeedback(message:String,tag:NSInteger){
+        var urlString :String = Config.getUrl()
+        if(urlString.isEmpty){
+            urlString = defalturl
+        }
+        let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
+        let params : NSMutableDictionary = NSMutableDictionary()
+        params["Action"] = "1003"
+        params["imsi"] = "" //获取设备IMSI
+        params["imei"] = "" //获取设备IMEI
+        params["model"] = "" //获取设备型号
+        params["display"] = "" //获取系统版本号
+        params["device"] = "" //获取设备名称
+        params["message"] = message
+        manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
                     self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
