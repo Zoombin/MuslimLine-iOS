@@ -8,20 +8,35 @@
 
 import UIKit
 
-class FeedbackViewController: BaseViewController,UITextViewDelegate{
+class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientDelegate{
     var textHint :UILabel!
+    var httpClient : MSLHttpClient = MSLHttpClient()
+    var textview :UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("feedback", comment:"")
         //设置背景颜色
         self.view.backgroundColor = Colors.lightGray
+        httpClient.delegate = self
+        
         setupView()
     }
     
+    ////网络请求回调
+    func succssResult(result: NSObject, tag : NSInteger) {
+        self.view.hideToastActivity()
+        self.view.makeToast(message: "发送成功")
+    }
+    func errorResult(error : NSError, tag : NSInteger) {
+        self.view.hideToastActivity()
+        self.view.makeToast(message: "发送失败")
+    }
+    
+    
     func setupView(){
         let margin :CGFloat = 30;
-        let padding :CGFloat = 10;
+        let padding :CGFloat = 11;
         
         let textWidth:CGFloat = PhoneUtils.screenWidth - (margin*2)
         let textHight:CGFloat = (PhoneUtils.screenHeight-64)/3*0.9
@@ -29,7 +44,7 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate{
         let textIndexY :CGFloat = 64 + margin
         
         //输入框
-        let textview :UITextView = UITextView(frame: CGRectMake(textIndexX, textIndexY, textWidth, textHight))
+        textview = UITextView(frame: CGRectMake(textIndexX, textIndexY, textWidth, textHight))
         textview.font = UIFont.systemFontOfSize(18)
         textview.layer.cornerRadius = 16;
         textview.textContainerInset = UIEdgeInsetsMake(padding * 2, padding, padding,padding)
@@ -69,9 +84,12 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate{
     }
     
 
-    
+    //发送反馈
     func sendFeedback(){
         //反馈
+        self.view.makeToastActivityWithMessage(message: "正在发送")
+        let message : String = textview.text as String
+        httpClient.sendFeedback(message, tag: 0)
     }
     
     override func didReceiveMemoryWarning() {

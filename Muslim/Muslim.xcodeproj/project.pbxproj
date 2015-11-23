@@ -129,6 +129,7 @@
 		45C8372D1BF9D20300069723 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836ED1BF9D20300069723 /* unzip.c */; };
 		45C8372E1BF9D20300069723 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836EF1BF9D20300069723 /* zip.c */; };
 		45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C836F21BF9D20300069723 /* SSZipArchive.m */; };
+		45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */; };
 		45EF2B6E1BFC3B8A008B01EE /* allah_names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B651BFC3B8A008B01EE /* allah_names.plist */; };
 		45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B661BFC3B8A008B01EE /* allahnames.json */; };
 		45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B671BFC3B8A008B01EE /* Config.swift */; };
@@ -337,6 +338,7 @@
 		45C836F01BF9D20300069723 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		45C836F11BF9D20300069723 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		45C836F21BF9D20300069723 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerMr.swift; sourceTree = "<group>"; };
 		45EF2B651BFC3B8A008B01EE /* allah_names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allah_names.plist; sourceTree = "<group>"; };
 		45EF2B661BFC3B8A008B01EE /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 		45EF2B671BFC3B8A008B01EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */,
 				1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */,
 				18C320361BFF27A80087E359 /* Log.swift */,
+				45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1034,6 +1037,7 @@
 				45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */,
 				45FBBDA81BF72C9300BA35F9 /* QuranTextCell.swift in Sources */,
 				184357AC1BE9E88D00194744 /* UIProgressView+AFNetworking.m in Sources */,
+				45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */,
 				457CB5051BFB0BD0009BFAC3 /* Chapter.swift in Sources */,
 				18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */,
 				45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */,

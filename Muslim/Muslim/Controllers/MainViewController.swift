@@ -9,7 +9,6 @@
 import UIKit
 
 class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, UITableViewDelegate, UITableViewDataSource {
-    var menuView : UIView!
     let locationManager : AMapLocationManager = AMapLocationManager()
     var noticeView : NoticeView!
     var calendarLocationView : CalendarLocationView!
@@ -45,13 +44,12 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         
         self.view.backgroundColor = Colors.greenColor
         
+        //title右边菜单
         let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showOrHidePopView"))
         
         initTopView()
         initBottomView()
-        initMenuView()
-        self.view.bringSubviewToFront(locationSettingsBkgView)
 
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: Selector.init("settingsBkgClicked"))
@@ -110,72 +108,6 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         }
     }
     
-    func menuButtonClicked() {
-        //这样写就行
-        menuView.hidden = !menuView.hidden
-    }
-    
-    //菜单界面
-    func initMenuView(){
-        let itemHight:CGFloat = 40
-        let menuWidth:CGFloat = 150
-        let menuHight:CGFloat = itemHight * 5
-        let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
-        let menuY :CGFloat = 64;
-        menuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
-        menuView.backgroundColor = UIColor.whiteColor()
-        menuView.hidden = true;
-        
-        let titles : [String] = [NSLocalizedString("upgrade_dialog_title", comment:""), NSLocalizedString("share", comment:""),
-            NSLocalizedString("settings_title", comment:""), NSLocalizedString("about", comment:""),
-            NSLocalizedString("feedback", comment:"")]
-        
-        var item :CGFloat = 0
-        for index in 0...4 {
-            let button : UIButton = UIButton()
-            let itemY :CGFloat = (item * itemHight)
-            button.frame = CGRectMake(0, itemY, menuWidth, itemHight)
-            button.backgroundColor = UIColor.whiteColor()
-            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center//居中
-            button.layer.borderWidth = 0.5 //设置边框的宽度
-            button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
-            button.addTarget(self, action: Selector.init("menuClick:"), forControlEvents: UIControlEvents.TouchUpInside)
-            button.tag = index
-            button.setTitle(titles[index], forState:UIControlState.Normal)
-            menuView.addSubview(button)
-            item++
-        }
-        self.view.addSubview(menuView)
-        
-    }
-    
-    //菜单点击事件
-    func menuClick(item : UIButton){
-        menuView.hidden = true;
-        let tag : NSInteger = item.tag
-        if (tag == 0) {
-            //升级
-        }
-        else if (tag == 1) {
-            //分享
-        }
-        else if (tag == 2) {
-            //设置
-            let settingsViewController = SettingsViewController()
-            self.pushViewController(settingsViewController)
-        }
-        else if (tag == 3) {
-            //关于
-            let aboutviewController = AboutViewController()
-            self.pushViewController(aboutviewController)
-        }
-        else if (tag == 4) {
-            //反馈
-            let feedbackviewController = FeedbackViewController()
-            self.pushViewController(feedbackviewController)
-        }
-    }
     
     func initTopView() {
 //        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)

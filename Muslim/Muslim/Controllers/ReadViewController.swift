@@ -11,7 +11,8 @@
 
 import UIKit
 
-class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate{
+class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate,httpClientDelegate{
+    //常量
     let bt_back = 100
     let bt_previous = 200
     let bt_next = 300
@@ -22,10 +23,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     let bt_bookmark = 700
     let bt_more = 800
     
+    //传递的数据
     var EXTRA_BOOKMARK_JUMP : Bool = false
     var EXTRA_SURA : Int?
     var EXTRA_AYA :Int?
     var EXTRA_SCOLLPOSITION :Int?
+    
     
     var readLeftView : ReadLeftView!
     var readRightView : ReadRightView!
@@ -34,13 +37,17 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var readViewHead : ReadViewHead!
     
     var chapter:Chapter?
-    var sura:Int?
+    var sura:Int = 0
     var quranArray : NSMutableArray = NSMutableArray()
-    var select = 0
+    var select:Int = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(EXTRA_SURA != nil){
+            sura = EXTRA_SURA!
+        }
+        
         let leftLace :UIImageView = UIImageView(frame: CGRectMake(0,0,16.5,PhoneUtils.screenHeight))
         leftLace.backgroundColor = UIColor(patternImage: UIImage(named:"lace_left")!)
         self.view.addSubview(leftLace)
@@ -53,17 +60,18 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.separatorColor = Colors.greenColor
         mTableView.delegate = self
         mTableView.dataSource = self
-        
         mTableView.estimatedRowHeight = 100
         mTableView.rowHeight = UITableViewAutomaticDimension
-        
         self.view.addSubview(mTableView)
         
-        setTitleBar()
-        addHeadView()
         
-        getQurans(EXTRA_SURA!)
-      
+        setTitleBar() //设置titlebar
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        getQurans(sura)
+        scrollViewTo(6-1) //滚动到上次阅读
+        addHeadView() //tableviewHead
     }
     
     func setTitleBar(){
@@ -136,11 +144,45 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         }
     }
     
+    /***滚动到某个位置*/
+    func scrollViewTo(position: NSNumber) {
+        let IndexPath :NSIndexPath = NSIndexPath.init(forItem: position.integerValue, inSection: 0)
+        mTableView.scrollToRowAtIndexPath(IndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+    }
+    
     func cleanSelect(){
         for i in 0...quranArray.count-1{
             let quran :Quran = quranArray[i] as! Quran
             quran.isSelected = false
         }
+    }
+    
+    /***  下载音频回调    ****/
+    func succssResult(result : NSObject, tag : NSInteger) {
+        var path = result as? String
+        path = path!.stringByReplacingOccurrencesOfString("file:///", withString: "")
+        let sql = ZipUtils.readZipFile(path!)//读zip文件
+        FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
+        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
+        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
+        
+        cell.probar.stopAnimating()
+        cell.probar.hidden = true
+        Config.saveCurrentLanguageIndex(indexPath.row)
+        //let translation : Translation = translationArray[indexPath.row] as! Translation
+        //translation.isdownload = 1
+        mTableView.reloadData()
+    }
+    
+    func errorResult(error : NSError, tag : NSInteger) {
+        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
+        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
+        
+        cell.ivSelected.hidden = true
+        cell.ivDownload.hidden = false
+        cell.probar.stopAnimating()
+        cell.probar.hidden = true
+        self.view.makeToast(message: "下载失败")
     }
     
     //行高
@@ -262,6 +304,32 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         board.string = String(quran.text)+"\n"+String(quran.text_zh)
         self.view.makeToast(message: "已复制到剪切板")
     }
+    
+    //播放音频
+    func playAudio(isHead:Bool){
+        let quran :Quran = quranArray[select] as! Quran
+        var audioPath :String = ""
+        if(isHead){
+            audioPath = AudioPlayerMr.getFirstAudioPath()
+        }else{
+            audioPath = AudioPlayerMr.getAudioPath(quran)
+        }
+         if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
+            //已经存在
+            if(AudioPlayerMr.getInstance().isPlayCurrent(select, sura: sura, isHead: isHead)){
+               //正在播放当前的 (停止)
+            }else{
+                AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: sura)
+            }
+         }else{
+            //下载
+            //let url = Constants.downloadBaseUri  + ""
+            
+            //cell.probar.hidden = false
+            //cell.probar.startAnimating()
+            //httpClient.downloadDocument(url)
+        }
+    }
 
     
     /**bt点击*/
@@ -284,6 +352,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             self.pushViewController(quranAudioVC)
             break
         case bt_play:
+            playAudio(false)
+            break
+        case bt_play1:
+            playAudio(true)
             break
         case bt_bookmark:
             let quran :Quran = quranArray[select] as! Quran
@@ -327,7 +399,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     //保存数据
     override func viewDidDisappear(animated: Bool) {
-        Config.setCurrentRura(sura!)
+        Config.setCurrentRura(sura)
         Config.setCurrentPosition(3)
     }
     
