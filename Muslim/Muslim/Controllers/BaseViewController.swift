@@ -54,7 +54,6 @@ class BaseViewController: UIViewController {
             popMenuView.addSubview(button)
             item++
         }
-        self.view.bringSubviewToFront(popMenuView)
         self.view.addSubview(popMenuView)
     }
     
@@ -83,8 +82,8 @@ class BaseViewController: UIViewController {
     }
     
     func showOrHidePopView() {
-        //这样写就行
         popMenuView.hidden = !popMenuView.hidden
+        self.view.bringSubviewToFront(popMenuView)
     }
     
     func pushViewController(to : UIViewController) {
