@@ -16,7 +16,7 @@ class Colors: NSObject {
     static let houseColor : UIColor = UIColor(colorLiteralRed: 87/255.0, green: 183/255.0, blue: 127/255.0, alpha: 1.0)
     
     //绿色
-    static let greenColor : UIColor = UIColor(colorLiteralRed: 25/255.0, green: 154/255.0, blue: 76/255.0, alpha: 1.0)
+    static let greenColor : UIColor = UIColor(colorLiteralRed: 32/255.0, green: 166/255.0, blue: 97/255.0, alpha: 1.0)
     //淡灰色
     static let lightGray : UIColor = UIColor(colorLiteralRed: 241/255.0, green: 241/255.0, blue: 241/255.0, alpha: 1.0)
     

@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, UITableViewDelegate, UITableViewDataSource {
     var menuView : UIView!
     let locationManager : AMapLocationManager = AMapLocationManager()
+    var noticeView : NoticeView!
+    var calendarLocationView : CalendarLocationView!
     let topSearchView : UIView = UIView()
     
     var httpClient : MSLHttpClient = MSLHttpClient()
@@ -176,33 +178,48 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     }
     
     func initTopView() {
-        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)
-        self.view.addSubview(topSearchView)
+//        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)
+//        self.view.addSubview(topSearchView)
+//        
+//        let bkgButton : UIButton = UIButton()
+//        bkgButton.frame = CGRectMake(0, 0, topSearchView.frame.size.width, topSearchView.frame.size.height)
+//        bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+//        bkgButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, topSearchView.frame.size.height / 4, 0)
+//        bkgButton.setImage(UIImage(named: "earth"), forState: UIControlState.Normal)
+//        topSearchView.addSubview(bkgButton)
+//        
+//        let settingsButton : UIButton = UIButton()
+//        settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
+//        settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
+//        settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
+//        settingsButton.backgroundColor = UIColor.clearColor()
+//        settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
+//        settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
+//        topSearchView.addSubview(settingsButton)
+//        
+//        manButton.addTarget(self, action: Selector.init("leftButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+//        autoButton.addTarget(self, action: Selector.init("rightButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+//        
+//        locationSearchBar.placeholder = NSLocalizedString("dlg_prayer_search_edit_text_hint", comment: "")
+//        locationSearchBar.delegate = self
+//        
+//        manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
+//        autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
         
-        let bkgButton : UIButton = UIButton()
-        bkgButton.frame = CGRectMake(0, 0, topSearchView.frame.size.width, topSearchView.frame.size.height)
-        bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
-        bkgButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, topSearchView.frame.size.height / 4, 0)
-        bkgButton.setImage(UIImage(named: "earth"), forState: UIControlState.Normal)
-        topSearchView.addSubview(bkgButton)
         
-        let settingsButton : UIButton = UIButton()
-        settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
-        settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
-        settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
-        settingsButton.backgroundColor = UIColor.clearColor()
-        settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
-        settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
-        topSearchView.addSubview(settingsButton)
         
-        manButton.addTarget(self, action: Selector.init("leftButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
-        autoButton.addTarget(self, action: Selector.init("rightButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        let nibs1 = NSBundle.mainBundle().loadNibNamed("NoticeView", owner: nil, options: nil)
+        noticeView = nibs1.first as? NoticeView
+        let startX = ((PhoneUtils.screenWidth / 2) - noticeView.frame.size.width) / 2
+        let startY = 64 + ((PhoneUtils.screenHeight / 2) - 64 - noticeView.frame.size.height) / 2
+        print(startY)
+        noticeView.frame = CGRectMake(startX * 2, startY, noticeView.frame.size.width, noticeView.frame.size.height)
+        self.view.addSubview(noticeView!)
         
-        locationSearchBar.placeholder = NSLocalizedString("dlg_prayer_search_edit_text_hint", comment: "")
-        locationSearchBar.delegate = self
-        
-        manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
-        autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
+        let nibs2 = NSBundle.mainBundle().loadNibNamed("CalendarLocationView", owner: nil, options: nil)
+        calendarLocationView = nibs2.first as? CalendarLocationView
+        calendarLocationView.frame = CGRectMake(startX + (PhoneUtils.screenWidth / 2), startY, calendarLocationView.frame.size.width, calendarLocationView.frame.size.height)
+        self.view.addSubview(calendarLocationView!)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

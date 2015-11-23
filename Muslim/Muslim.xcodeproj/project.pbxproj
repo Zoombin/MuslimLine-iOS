@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
+		183271C51C01C3A6005078B6 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183271C41C01C3A6005078B6 /* NoticeView.swift */; };
+		183271C71C01C3B8005078B6 /* CalendarLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183271C61C01C3B8005078B6 /* CalendarLocationView.swift */; };
+		183271C91C01C47A005078B6 /* NoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183271C81C01C47A005078B6 /* NoticeView.xib */; };
+		183271FC1C01EBE8005078B6 /* CNPPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183271FB1C01EBE8005078B6 /* CNPPopupController.m */; };
+		183271FE1C01ECF6005078B6 /* CalendarLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */; };
 		183ECF3A1BF97E98003FB90C /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECF381BF97E98003FB90C /* LogoViewController.swift */; };
 		183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183ECF391BF97E98003FB90C /* LogoViewController.xib */; };
 		183ECF3D1BF9B026003FB90C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ECF3C1BF9B026003FB90C /* WebViewController.swift */; };
@@ -164,6 +169,12 @@
 
 /* Begin PBXFileReference section */
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
+		183271C41C01C3A6005078B6 /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		183271C61C01C3B8005078B6 /* CalendarLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLocationView.swift; sourceTree = "<group>"; };
+		183271C81C01C47A005078B6 /* NoticeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeView.xib; sourceTree = "<group>"; };
+		183271FA1C01EBE8005078B6 /* CNPPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNPPopupController.h; path = CNPPopupController/CNPPopupController.h; sourceTree = "<group>"; };
+		183271FB1C01EBE8005078B6 /* CNPPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CNPPopupController.m; path = CNPPopupController/CNPPopupController.m; sourceTree = "<group>"; };
+		183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarLocationView.xib; sourceTree = "<group>"; };
 		183ECF381BF97E98003FB90C /* LogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
 		183ECF391BF97E98003FB90C /* LogoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoViewController.xib; sourceTree = "<group>"; };
 		183ECF3C1BF9B026003FB90C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +389,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183271CA1C01EBD2005078B6 /* CNPPopupController */ = {
+			isa = PBXGroup;
+			children = (
+				183271FA1C01EBE8005078B6 /* CNPPopupController.h */,
+				183271FB1C01EBE8005078B6 /* CNPPopupController.m */,
+			);
+			path = CNPPopupController;
+			sourceTree = "<group>";
+		};
 		183ECFA31BF9BE2E003FB90C /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +470,7 @@
 		1843569B1BE9E51F00194744 /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
+				183271CA1C01EBD2005078B6 /* CNPPopupController */,
 				45C836B71BF9D20300069723 /* ZipArchive */,
 				183ECFA31BF9BE2E003FB90C /* FMDB */,
 				18F9EB6A1BF447640096D021 /* Toast */,
@@ -640,6 +661,10 @@
 				45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */,
 				45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */,
 				45542E5C1BFF0AB300F3A3A5 /* guLJViewHead.xib */,
+				183271C41C01C3A6005078B6 /* NoticeView.swift */,
+				183271C81C01C47A005078B6 /* NoticeView.xib */,
+				183271C61C01C3B8005078B6 /* CalendarLocationView.swift */,
+				183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -906,6 +931,7 @@
 				45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */,
 				45EF2B731BFC3B8A008B01EE /* settings.json in Resources */,
 				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
+				183271FE1C01ECF6005078B6 /* CalendarLocationView.xib in Resources */,
 				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
 				45EF2B7D1BFC5913008B01EE /* ReadRightView.xib in Resources */,
 				183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */,
@@ -918,6 +944,7 @@
 				45542E5D1BFF0AB300F3A3A5 /* guLJViewHead.xib in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
 				45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */,
+				183271C91C01C47A005078B6 /* NoticeView.xib in Resources */,
 				45EF2B721BFC3B8A008B01EE /* quran_v2.zip in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
@@ -964,6 +991,7 @@
 				18C320371BFF27A80087E359 /* Log.swift in Sources */,
 				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
 				45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */,
+				183271C71C01C3B8005078B6 /* CalendarLocationView.swift in Sources */,
 				45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */,
 				1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */,
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
@@ -983,6 +1011,7 @@
 				18F8FE801BF5C17F00AC1888 /* NearbyCell.swift in Sources */,
 				455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */,
 				18F8FE831BF5D5A200AC1888 /* AllahNamesViewController.swift in Sources */,
+				183271FC1C01EBE8005078B6 /* CNPPopupController.m in Sources */,
 				18F8FE881BF5D5AC00AC1888 /* AllahNameCell.swift in Sources */,
 				45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */,
 				1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */,
@@ -999,6 +1028,7 @@
 				184357521BE9E88D00194744 /* AFURLConnectionOperation.m in Sources */,
 				183ECFBF1BF9BE4C003FB90C /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				185051751BEF88DC000B5D3F /* ManlDetailResult.swift in Sources */,
+				183271C51C01C3A6005078B6 /* NoticeView.swift in Sources */,
 				184357551BE9E88D00194744 /* AFURLSessionManager.m in Sources */,
 				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
 				45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */,
