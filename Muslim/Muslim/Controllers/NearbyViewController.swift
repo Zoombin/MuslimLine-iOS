@@ -140,7 +140,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         self.view.makeToastActivity()
 //        getNearByForServer
 //        getNearByForGoogle
-        httpClient.getNearByForGoogle(currentLat, lng: currentLng, keyword: type, tag: 0)
+        httpClient.getNearByForServer(currentLat, lng: currentLng, keyword: type, tag: 0)
     }
     
     func locationSet() {

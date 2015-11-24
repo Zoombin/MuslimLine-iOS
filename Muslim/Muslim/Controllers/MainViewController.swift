@@ -76,7 +76,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
 //               manlTableView.reloadData()
 //            }
         } else if (tag == auto) {
-            print(result)
+            Log.printLog(result)
             let countryInfo : CountryInfo = CountryInfo()
             countryInfo.initValues(result as! NSDictionary)
             Config.saveTimeZone((countryInfo.gmtOffset?.integerValue)!)
@@ -84,10 +84,15 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
             Config.saveLat(countryInfo.lat!)
             Config.saveLng(countryInfo.lng!)
             
-            
-            self.httpClient.getCityName((countryInfo.lat?.doubleValue)!, lng: (countryInfo.lng?.doubleValue)!, tag: self.city)
+            self.httpClient.getCityName(1222.284681, lng: 114.158177, tag: self.city)
+
+//            self.httpClient.getCityName((countryInfo.lat?.doubleValue)!, lng: (countryInfo.lng?.doubleValue)!, tag: self.city)
         } else if (tag == city) {
-            print(result)
+            Log.printLog(result)
+//            let query : NSDictionary = (result as! NSDictionary)["query"]
+//            if (query["count"] as! Int == 0) {
+//                
+//            }
         }
     }
     
@@ -98,7 +103,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         } else if (tag == auto) {
             
         } else if (tag == city) {
-            print(error)
+            Log.printLog(error)
             Config.clearHomeValues()
         }
     }
@@ -114,7 +119,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("获取到地址")
+        Log.printLog("获取到地址")
         self.locationManager.stopUpdatingLocation()
         self.locationManager.delegate = nil
         let location = locations.last!
@@ -173,7 +178,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         noticeView = nibs1.first as? NoticeView
         let startX = ((PhoneUtils.screenWidth / 2) - noticeView.frame.size.width) / 2
         let startY = 64 + ((PhoneUtils.screenHeight / 2) - 64 - noticeView.frame.size.height) / 2
-        print(startY)
+        Log.printLog(startY)
         noticeView.frame = CGRectMake(startX * 2, startY, noticeView.frame.size.width, noticeView.frame.size.height)
         self.view.addSubview(noticeView!)
         

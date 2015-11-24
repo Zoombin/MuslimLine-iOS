@@ -32,7 +32,7 @@ class CalendarUtils: NSObject {
     static func getDate() {
         let date = NSDate()
 //        let localDate = date.dateByAddingTimeInterval(interval)
-//        print(localDate)
+//        Log.printLog(localDate)
 //        NSDate *date = [NSDate date];
 //        
 //        NSTimeZone *zone = [NSTimeZone systemTimeZone];

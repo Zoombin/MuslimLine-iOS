@@ -321,7 +321,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         removeAlertView()
         
         let btSelect : NSInteger = sender.view!.tag
-        print(btSelect)
+        Log.printLog(btSelect)
         //处理切换事件
         switch(listSection){
         case 0:

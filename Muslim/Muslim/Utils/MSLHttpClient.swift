@@ -54,7 +54,7 @@ class MSLHttpClient: NSObject {
                     }
                     let arrayCount : NSInteger = urls!.count
                     for index in 0...arrayCount - 1 {
-                        let info : NSDictionary = urls![index] as! NSDictionary
+                        let info = (urls as! NSArray)[index]
                         if (info["name"] as! String == "defualt") {
                             let url : String =  info["url"] as! String
                             Config.saveUrl(url)
