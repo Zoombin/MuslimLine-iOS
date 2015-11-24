@@ -155,7 +155,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             let url = Constants.downloadTranslationUri  + fileName
             cell.probar.hidden = false
             cell.probar.startAnimating()
-            httpClient.downloadDocument(url)
+            httpClient.downloadDocument(url,outPath: "")
         }
     }
     

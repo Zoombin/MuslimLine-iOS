@@ -41,12 +41,17 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var quranArray : NSMutableArray = NSMutableArray()
     var select:Int = 0
     
+    var httpClient : MSLHttpClient = MSLHttpClient() //网络请求
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if(EXTRA_SURA != nil){
             sura = EXTRA_SURA!
         }
+        
+        //网络代理
+        httpClient.delegate = self
         
         let leftLace :UIImageView = UIImageView(frame: CGRectMake(0,0,16.5,PhoneUtils.screenHeight))
         leftLace.backgroundColor = UIColor(patternImage: UIImage(named:"lace_left")!)
@@ -159,19 +164,18 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     /***  下载音频回调    ****/
     func succssResult(result : NSObject, tag : NSInteger) {
+        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
+        let cell : ReadViewCell =  mTableView.cellForRowAtIndexPath(indexPath) as! ReadViewCell
+        cell.ivPro.stopAnimating()
+        cell.ivPro.hidden = true
+        cell.btPlay.hidden = false
+        cell.btPlay.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
+        
         var path = result as? String
         path = path!.stringByReplacingOccurrencesOfString("file:///", withString: "")
-        let sql = ZipUtils.readZipFile(path!)//读zip文件
-        FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
-        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
-        
-        cell.probar.stopAnimating()
-        cell.probar.hidden = true
-        Config.saveCurrentLanguageIndex(indexPath.row)
-        //let translation : Translation = translationArray[indexPath.row] as! Translation
-        //translation.isdownload = 1
-        mTableView.reloadData()
+        print(path)
+        AudioPlayerMr.getInstance().play(path!)
+        //mTableView.reloadData()
     }
     
     func errorResult(error : NSError, tag : NSInteger) {
@@ -213,11 +217,23 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             cell.OptionsView.hidden = false
             cell.contentView.backgroundColor = Colors.lightGray
             
+            //收藏状态
             let isbookmark :Bool = FMDBHelper.getInstance().isBookmark(quran.sura!, aya: quran.aya!)//原方法这样操作太耗资源  -- 要改进
             if (isbookmark) {
                 cell.btBookMark.setImage(UIImage(named: "ic_bookmarks_selected"), forState: UIControlState.Normal)
             } else {
                 cell.btBookMark.setImage(UIImage(named: "ic_bookmarks_no_selected"), forState: UIControlState.Normal)
+            }
+            
+            //播放状态
+            if(AudioPlayerMr.getInstance().isPlaying){
+                if(AudioPlayerMr.getInstance().isPlayCurrent(indexPath.row, sura: quran.sura!, isHead: false)){
+                    cell.btPlay.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
+                }else{
+                    cell.btPlay.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
+                }
+            }else{
+                cell.btPlay.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             }
         }else{
             cell.OptionsView.hidden = true
@@ -310,24 +326,35 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         let quran :Quran = quranArray[select] as! Quran
         var audioPath :String = ""
         if(isHead){
-            audioPath = AudioPlayerMr.getFirstAudioPath()
+            audioPath = AudioPlayerMr.getFirstAudioPath() + AudioPlayerMr.getFirstAudioName()
         }else{
-            audioPath = AudioPlayerMr.getAudioPath(quran)
+            audioPath = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
         }
          if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
             //已经存在
-            if(AudioPlayerMr.getInstance().isPlayCurrent(select, sura: sura, isHead: isHead)){
+            if(AudioPlayerMr.getInstance().isPlaying){
                //正在播放当前的 (停止)
+                AudioPlayerMr.getInstance().stop()
             }else{
-                AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: sura)
+                AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: sura,isHead: false)
             }
          }else{
+            let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
+            let cell : ReadViewCell =  mTableView.cellForRowAtIndexPath(indexPath) as! ReadViewCell
             //下载
-            //let url = Constants.downloadBaseUri  + ""
+            var fileName:String = ""
+            if(isHead){
+                fileName = AudioPlayerMr.getFirstAudioUrl() + AudioPlayerMr.getFirstAudioName()
+            }else{
+                fileName = AudioPlayerMr.getAudioUrl(quran) + AudioPlayerMr.getAudioName(quran)
+            }
+            let url = Constants.downloadBaseUri + fileName.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+            cell.btPlay.hidden = true
+            cell.ivPro.hidden = false
+            cell.ivPro.startAnimating()
             
-            //cell.probar.hidden = false
-            //cell.probar.startAnimating()
-            //httpClient.downloadDocument(url)
+            let outPath:String = AudioPlayerMr.getAudioPath(quran)
+            httpClient.downloadDocument(url,outPath: outPath)
         }
     }
 

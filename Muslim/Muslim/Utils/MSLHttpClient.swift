@@ -182,7 +182,7 @@ class MSLHttpClient: NSObject {
         }
     }
     
-    func downloadDocument(url : String) {
+    func downloadDocument(url : String,outPath:String) {
         let configuration : NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         let manager : AFURLSessionManager = AFURLSessionManager.init(sessionConfiguration: configuration)
         
@@ -190,8 +190,12 @@ class MSLHttpClient: NSObject {
         let request : NSURLRequest = NSURLRequest(URL: URL)
         
         let downloadTask : NSURLSessionDownloadTask = manager.downloadTaskWithRequest(request, progress: nil, destination: { (targetPath, response) -> NSURL in
-            let documentsDirectoryURL : NSURL = try! NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false)
-            return documentsDirectoryURL.URLByAppendingPathComponent(response.suggestedFilename!)
+            if(outPath.isEmpty){
+                let documentsDirectoryURL : NSURL = try! NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false)
+                return documentsDirectoryURL.URLByAppendingPathComponent(response.suggestedFilename!)
+            }else{
+                return NSURL.init(fileURLWithPath: String(format: "%@%@", outPath, response.suggestedFilename!))
+            }
             }) { (response, filePath, error) -> Void in
                 if(error != nil){
                     if (self.delegate != nil) {

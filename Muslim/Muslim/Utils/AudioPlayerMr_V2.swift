@@ -11,8 +11,7 @@
 import UIKit
 import AVFoundation
 
-class AudioPlayerMr: NSObject{
-    
+class AudioPlayerMr_V2: NSObject {
     var dataArray : NSMutableArray?
     var position:Int?
     var sura:Int?
@@ -20,30 +19,20 @@ class AudioPlayerMr: NSObject{
     var isPlaying :Bool  = false //正在播放
     var audioPlayer : AVAudioPlayer! //播放器
     
-    
-    
-//    class func getInstance()->AudioPlayerMr{
-//        struct psSingle{
-//            static var onceToken:dispatch_once_t = 0;
-//            static var instance:AudioPlayerMr? = nil
-//        }
-//        //保证单例只创建一次
-//        dispatch_once(&psSingle.onceToken,{
-//            psSingle.instance = AudioPlayerMr()
-//        })
-//        return psSingle.instance!
-//    }
-    
-    //单例
-    static var instance : AudioPlayerMr?
-    static func getInstance() -> AudioPlayerMr{
-        if (instance == nil) {
-            instance = AudioPlayerMr()
+    //单例化
+    class func getInstance()->AudioPlayerMr{
+        struct psSingle{
+            static var onceToken:dispatch_once_t = 0;
+            static var instance:AudioPlayerMr? = nil
         }
-        return instance!
+        //保证单例只创建一次
+        dispatch_once(&psSingle.onceToken,{
+            psSingle.instance = AudioPlayerMr()
+        })
+        return psSingle.instance!
     }
     
-    func setDataAndPlay(dataArray : NSMutableArray,position:Int,sura:Int,isHead:Bool){
+    func setDataAndPlay(dataArray : NSMutableArray,position:Int,sura:Int){
         //本地通知
         
         //设置数据
@@ -51,17 +40,7 @@ class AudioPlayerMr: NSObject{
         self.position = position
         self.sura = sura
         
-        stop();
-        
-        let quran :Quran = dataArray[position] as! Quran
-        var audioPath :String = ""
-        if(isHead){
-            audioPath = AudioPlayerMr.getFirstAudioPath() + AudioPlayerMr.getFirstAudioName()
-        }else{
-            audioPath = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
-        }
-        
-        play(audioPath)
+        //play()
     }
     
     func play(path:String){
@@ -79,9 +58,7 @@ class AudioPlayerMr: NSObject{
     
     func stop(){
         isPlaying = false
-        if(audioPlayer != nil && audioPlayer.playing){
-            audioPlayer.stop()
-        }
+        audioPlayer.stop()
     }
     
     /**正在播放当前音频*/
@@ -103,11 +80,12 @@ class AudioPlayerMr: NSObject{
     
     //音频路径
     static func getAudioPath(quran : Quran) ->String{
-        let folderPath :String = FileUtils.documentsDirectory() + "/" + Constants.audioPath + "/" + getAudioUrl(quran)
+        let folderPath :String = Constants.basePath + "/"+Constants.audioPath + "/" + getAudioUrl(quran)
         if(!NSFileManager.defaultManager().fileExistsAtPath (folderPath)){
-            try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
+             try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
         }
-        return folderPath
+        let fileName:String = getAudioName(quran)
+        return folderPath + fileName
     }
     //url
     static func getAudioUrl(quran : Quran) ->String{
@@ -126,7 +104,9 @@ class AudioPlayerMr: NSObject{
         if(!NSFileManager.defaultManager().fileExistsAtPath (folderPath)){
             try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
         }
-        return folderPath
+        let fileName:String = getFirstAudioName()
+        Log.print(folderPath)
+        return folderPath + fileName
     }
     //url
     static func getFirstAudioUrl()->String {

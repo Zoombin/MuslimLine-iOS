@@ -42,6 +42,7 @@ class FMDBHelper: NSObject {
             ZipUtils.unZipFile(dbZipPath!, unzipPath: FileUtils.documentsDirectory())
         }
         self.dbPath = path
+        Log.printLog(dbPath)
         //创建数据库
         dbBase =  FMDatabase(path: self.dbPath as String)
     }

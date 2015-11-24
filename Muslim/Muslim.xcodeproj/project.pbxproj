@@ -95,6 +95,7 @@
 		451242BD1BEE2B0A00AE3545 /* QuranAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */; };
 		451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242C21BEE2E7700AE3545 /* FeedbackViewController.swift */; };
 		45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AF71BE3B2FA007D3088 /* GuLJCell.swift */; };
+		451A2C791C040B77006BB000 /* quran_v3.zip in Resources */ = {isa = PBXBuildFile; fileRef = 451A2C781C040B76006BB000 /* quran_v3.zip */; };
 		451BD58E1BECA428008D98C2 /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */; };
 		4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD881BE883B90075A1FB /* BaseViewController.swift */; };
 		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
@@ -134,7 +135,6 @@
 		45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B661BFC3B8A008B01EE /* allahnames.json */; };
 		45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B671BFC3B8A008B01EE /* Config.swift */; };
 		45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */; };
-		45EF2B721BFC3B8A008B01EE /* quran_v2.zip in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B691BFC3B8A008B01EE /* quran_v2.zip */; };
 		45EF2B731BFC3B8A008B01EE /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B6A1BFC3B8A008B01EE /* settings.json */; };
 		45EF2B741BFC3B8A008B01EE /* translated_sura_titles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */; };
 		45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */; };
@@ -297,6 +297,7 @@
 		451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranAudioViewController.swift; sourceTree = "<group>"; };
 		451242C21BEE2E7700AE3545 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		45184AF71BE3B2FA007D3088 /* GuLJCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJCell.swift; sourceTree = "<group>"; };
+		451A2C781C040B76006BB000 /* quran_v3.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = quran_v3.zip; sourceTree = "<group>"; };
 		451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
 		4521DD881BE883B90075A1FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
@@ -343,7 +344,6 @@
 		45EF2B661BFC3B8A008B01EE /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 		45EF2B671BFC3B8A008B01EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = holidayTimes.plist; sourceTree = "<group>"; };
-		45EF2B691BFC3B8A008B01EE /* quran_v2.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = quran_v2.zip; sourceTree = "<group>"; };
 		45EF2B6A1BFC3B8A008B01EE /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 		45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = translated_sura_titles.plist; sourceTree = "<group>"; };
 		45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
@@ -807,11 +807,11 @@
 		45EF2B641BFC3B8A008B01EE /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				451A2C781C040B76006BB000 /* quran_v3.zip */,
 				45EF2B651BFC3B8A008B01EE /* allah_names.plist */,
 				45EF2B661BFC3B8A008B01EE /* allahnames.json */,
 				45EF2B671BFC3B8A008B01EE /* Config.swift */,
 				45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */,
-				45EF2B691BFC3B8A008B01EE /* quran_v2.zip */,
 				45EF2B6A1BFC3B8A008B01EE /* settings.json */,
 				45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */,
 			);
@@ -946,9 +946,9 @@
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45542E5D1BFF0AB300F3A3A5 /* guLJViewHead.xib in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
+				451A2C791C040B77006BB000 /* quran_v3.zip in Resources */,
 				45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */,
 				183271C91C01C47A005078B6 /* NoticeView.xib in Resources */,
-				45EF2B721BFC3B8A008B01EE /* quran_v2.zip in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
 				183ECFD01BF9D350003FB90C /* CalendarCell.xib in Resources */,
