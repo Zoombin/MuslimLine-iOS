@@ -61,6 +61,65 @@
             
         }
         
+        /**删除首页的数据*/
+        static func clearHomeValues() {
+            UserDefaultsUtil.removeForKey("Timezone")
+            UserDefaultsUtil.removeForKey("countryCode")
+            UserDefaultsUtil.removeForKey("cityName")
+            UserDefaultsUtil.removeForKey("latValue")
+            UserDefaultsUtil.removeForKey("lngValue")
+        }
+        
+        /**保存时区*/
+        static func saveTimeZone(zone : Int) {
+            UserDefaultsUtil.saveInt("Timezone", value: zone)
+        }
+        
+        /**获得时区*/
+        static func getTimeZone() -> Int {
+            return UserDefaultsUtil.getInt("Timezone")
+        }
+        
+        /**保存国家代码*/
+        static func saveCountryCode(countryCode : String) {
+            UserDefaultsUtil.saveString("countryCode", value: countryCode)
+        }
+        
+        /**获取国家代码*/
+        static func getCountryCode() -> String {
+            return UserDefaultsUtil.getString("countryCode")
+        }
+        
+        /**保存城市名*/
+        static func saveCityName(cityName : String) {
+            UserDefaultsUtil.saveString("cityName", value: cityName)
+        }
+        
+        /**获得城市名*/
+        static func getCityName() -> String {
+            return UserDefaultsUtil.getString("cityName")
+        }
+        
+        /**保存经度*/
+        static func saveLat(lat : NSNumber) {
+            UserDefaultsUtil.saveNumber("latValue", value: lat)
+        }
+        
+        /**获取经度*/
+        static func getLat() -> NSNumber? {
+            return UserDefaultsUtil.getNumber("latValue")
+        }
+        
+        /**保存纬度*/
+        static func saveLng(lng : NSNumber) {
+            UserDefaultsUtil.saveNumber("lngValue", value: lng)
+        }
+        
+        /**获取纬度*/
+        static func getLng() -> NSNumber {
+            return UserDefaultsUtil.getNumber("lngValue")
+        }
+        
         /**穆斯林派别*/
         static func saveFaction(pos :Int){
             UserDefaultsUtil.saveInt("faction", value: pos)

@@ -113,6 +113,25 @@ class MSLHttpClient: NSObject {
         }
     }
     
+    func getCityName(lat : Double, lng : Double, tag : NSInteger) {
+        let urlString : String = "http://query.yahooapis.com/v1/public/yql"
+        let params : NSMutableDictionary = NSMutableDictionary()
+        params["format"] = "json"
+        params["q"] = String(format: "select city from geo.placefinder where text=\"%f,%f\"  and gflags=\"R\"", lat, lng)
+        
+        let manager = AFHTTPRequestOperationManager()
+        manager.POST(urlString, parameters: params, success:
+            { (operation, responseObject) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+                }
+            }) { (operation, error) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.errorResult(error, tag: tag)
+                }
+        }
+    }
+    
     func searchLocationByName(cityName : String, tag : NSInteger) {
         var urlString : String = "http://where.yahooapis.com/v1/places.q(%22cityName%22%2A);count=10"
         urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: cityName)

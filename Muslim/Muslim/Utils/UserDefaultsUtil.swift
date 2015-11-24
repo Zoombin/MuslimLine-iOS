@@ -27,6 +27,22 @@ class UserDefaultsUtil: NSObject {
         }
     }
     
+    /**保存Number数据*/
+    static func saveNumber(key :NSString,value :NSNumber){
+        userDefault.setObject(value, forKey: key as String)
+        userDefault.synchronize()
+    }
+    
+    /**获取保存的Number数据*/
+    static func getNumber(key :NSString) -> NSNumber{
+        if(userDefault.objectForKey(key as String) != nil) {
+            let value : NSNumber = userDefault.objectForKey(key as String) as! NSNumber
+            return value
+        } else{
+            return 0;
+        }
+    }
+    
     /**保存Int数据*/
     static func saveInt(key :NSString,value :Int){
         userDefault.setObject(value, forKey: key as String)
@@ -44,6 +60,12 @@ class UserDefaultsUtil: NSObject {
         }else{
             return defalt;
         }
+    }
+    
+    /**删除数据*/
+    static func removeForKey(key : NSString) {
+        userDefault.removeObjectForKey(key as String)
+        userDefault.synchronize()
     }
     
     

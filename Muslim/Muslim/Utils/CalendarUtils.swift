@@ -29,4 +29,19 @@ class CalendarUtils: NSObject {
         return components
     }
     
+    static func getDate() {
+        let date = NSDate()
+//        let localDate = date.dateByAddingTimeInterval(interval)
+//        print(localDate)
+//        NSDate *date = [NSDate date];
+//        
+//        NSTimeZone *zone = [NSTimeZone systemTimeZone];
+//        
+//        NSInteger interval = [zone secondsFromGMTForDate: date];
+//        
+//        NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
+//        
+//        NSLog(@"%@", localeDate);
+    }
+    
 }

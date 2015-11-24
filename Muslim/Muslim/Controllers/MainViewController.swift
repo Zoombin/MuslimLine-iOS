@@ -8,8 +8,7 @@
 
 import UIKit
 
-class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, UITableViewDelegate, UITableViewDataSource {
-    let locationManager : AMapLocationManager = AMapLocationManager()
+class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, CLLocationManagerDelegate {
     var noticeView : NoticeView!
     var calendarLocationView : CalendarLocationView!
     let topSearchView : UIView = UIView()
@@ -18,8 +17,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     var manlResultArray : NSMutableArray = NSMutableArray()
     let auto : NSInteger = 0
     let manl : NSInteger = 1
-    
-    @IBOutlet weak var manlTableView: UITableView!
+    let city : NSInteger = 2
     
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var locationSettingsBkgView: UIView!
@@ -32,6 +30,8 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var locationSearchBar: UISearchBar!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,24 +54,39 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: Selector.init("settingsBkgClicked"))
         locationSettingsBkgView.addGestureRecognizer(tapGesture)
-        
+        self.view.bringSubviewToFront(locationSettingsBkgView)
         httpClient.delegate = self
+        
+        configLocationManager()
+        getUserLocation()
+        CalendarUtils.getDate()
     }
     
     func succssResult(result: NSObject, tag : NSInteger) {
         self.view.hideToastActivity()
         if (tag == manl) {
-            let manlResult : ManlResult = ManlResult()
-            manlResult.initValues(result as! NSDictionary)
-            if (manlResult.places == nil) {
-                return
-            }
-            if (manlResult.places!.count!.integerValue > 0) {
-               manlResultArray.removeAllObjects()
-               manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
-               manlTableView.reloadData()
-            }
+//            let manlResult : ManlResult = ManlResult()
+//            manlResult.initValues(result as! NSDictionary)
+//            if (manlResult.places == nil) {
+//                return
+//            }
+//            if (manlResult.places!.count!.integerValue > 0) {
+//               manlResultArray.removeAllObjects()
+//               manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
+//               manlTableView.reloadData()
+//            }
         } else if (tag == auto) {
+            print(result)
+            let countryInfo : CountryInfo = CountryInfo()
+            countryInfo.initValues(result as! NSDictionary)
+            Config.saveTimeZone((countryInfo.gmtOffset?.integerValue)!)
+            Config.saveCountryCode(countryInfo.countryCode as! String)
+            Config.saveLat(countryInfo.lat!)
+            Config.saveLng(countryInfo.lng!)
+            
+            
+            self.httpClient.getCityName((countryInfo.lat?.doubleValue)!, lng: (countryInfo.lng?.doubleValue)!, tag: self.city)
+        } else if (tag == city) {
             print(result)
         }
     }
@@ -79,24 +94,41 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     func errorResult(error : NSError, tag : NSInteger) {
         self.view.hideToastActivity()
         if (tag == manl) {
+            
         } else if (tag == auto) {
+            
+        } else if (tag == city) {
+            print(error)
+            Config.clearHomeValues()
         }
     }
     
     func configLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.allowsBackgroundLocationUpdates = false
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        if #available(iOS 8.0, *) {
+            self.locationManager.requestAlwaysAuthorization()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("获取到地址")
+        self.locationManager.stopUpdatingLocation()
+        self.locationManager.delegate = nil
+        let location = locations.last!
+        self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.auto)
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        //获取地址失败
     }
     
     //获取用户位置
     func getUserLocation() {
-        locationManager.requestLocationWithReGeocode(true) { (location, code, error) -> Void in
-            if (code != nil) {
-                self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.auto)
-            }
-        }
+        self.locationManager.delegate = self
+        self.locationManager.startUpdatingLocation()
     }
     
     func settingsBkgClicked() {
@@ -107,7 +139,6 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
             locationSearchBar.resignFirstResponder()
         }
     }
-    
     
     func initTopView() {
 //        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)
@@ -138,8 +169,6 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
 //        manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
 //        autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
         
-        
-        
         let nibs1 = NSBundle.mainBundle().loadNibNamed("NoticeView", owner: nil, options: nil)
         noticeView = nibs1.first as? NoticeView
         let startX = ((PhoneUtils.screenWidth / 2) - noticeView.frame.size.width) / 2
@@ -152,12 +181,6 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         calendarLocationView = nibs2.first as? CalendarLocationView
         calendarLocationView.frame = CGRectMake(startX + (PhoneUtils.screenWidth / 2), startY, calendarLocationView.frame.size.width, calendarLocationView.frame.size.height)
         self.view.addSubview(calendarLocationView!)
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        self.view.makeToastActivity()
-        self.httpClient.searchLocationByName(searchBar.text!, tag: self.manl)
     }
     
     func leftButtonClicked() {
@@ -272,29 +295,33 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manlResultArray.count
-    }
-   
-    //类似android的getView方法，进行生成界面和赋值
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-        
-        let info : NSDictionary = manlResultArray[indexPath.row] as! NSDictionary
-        let province : NSString = info["admin1"] as! NSString
-        let city : NSString = info["admin2"] as! NSString
-        let countryInfo : NSDictionary = info["country attrs"] as! NSDictionary
-        let countryCode : NSString = countryInfo["code"] as! NSString
-        
-        let cellTxt : NSString = String(format: "%@ %@ %@", city, province, countryCode)
-        cell.textLabel?.text = String(cellTxt)
-        return cell
-    }
-    
-    //选中
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return manlResultArray.count
+//    }
+//   
+//    //类似android的getView方法，进行生成界面和赋值
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell : UITableViewCell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+//        
+//        let info : NSDictionary = manlResultArray[indexPath.row] as! NSDictionary
+//        let province : NSString = info["admin1"] as! NSString
+//        let city : NSString = info["admin2"] as! NSString
+//        let countryInfo : NSDictionary = info["country attrs"] as! NSDictionary
+//        let countryCode : NSString = countryInfo["code"] as! NSString
+//        
+//        let cellTxt : NSString = String(format: "%@ %@ %@", city, province, countryCode)
+//        cell.textLabel?.text = String(cellTxt)
+//        return cell
+//    }
+//    
+//    //选中
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//    }
+//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//        self.view.makeToastActivity()
+//        self.httpClient.searchLocationByName(searchBar.text!, tag: self.manl)
+//    }
 }
 
