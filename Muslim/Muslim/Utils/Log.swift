@@ -9,7 +9,7 @@
 import UIKit
 
 class Log: NSObject {
-    static func print(str : String) {
-        print(str)
+    static func printLog(obj : AnyObject) {
+        print(obj)
     }
 }
