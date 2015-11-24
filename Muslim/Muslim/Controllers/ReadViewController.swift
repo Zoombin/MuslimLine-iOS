@@ -172,8 +172,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         cell.btPlay.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
         
         var path = result as? String
-        path = path!.stringByReplacingOccurrencesOfString("file:///", withString: "")
-        print(path)
+        path = path!.stringByReplacingOccurrencesOfString("file://", withString: "")
+        print("downOk = " + path!)
         AudioPlayerMr.getInstance().play(path!)
         //mTableView.reloadData()
     }
@@ -336,7 +336,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
                //正在播放当前的 (停止)
                 AudioPlayerMr.getInstance().stop()
             }else{
-                AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: sura,isHead: false)
+                //AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: sura,isHead: false)
+                AudioPlayerMr.getInstance().play(audioPath)
             }
          }else{
             let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
@@ -353,8 +354,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             cell.ivPro.hidden = false
             cell.ivPro.startAnimating()
             
-            let outPath:String = AudioPlayerMr.getAudioPath(quran)
-            httpClient.downloadDocument(url,outPath: outPath)
+            var outPath:String = AudioPlayerMr.getAudioPath(quran)
+            outPath = outPath.stringByReplacingOccurrencesOfString(" ", withString: "_")
+            Log.printLog("downUrl = "+url)
+            Log.printLog("outPath = "+outPath)
+            httpClient.downloadDocument(url,outPath: "")
         }
     }
 

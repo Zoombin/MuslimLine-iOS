@@ -70,7 +70,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     /***  网络请求回调    ****/
     func succssResult(result : NSObject, tag : NSInteger) {
         var path = result as? String
-        path = path!.stringByReplacingOccurrencesOfString("file:///", withString: "")
+        path = path!.stringByReplacingOccurrencesOfString("file://", withString: "")
         let sql = ZipUtils.readZipFile(path!)//读zip文件
         FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
         let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)

@@ -22,25 +22,16 @@ class AudioPlayerMr: NSObject{
     
     
     
-//    class func getInstance()->AudioPlayerMr{
-//        struct psSingle{
-//            static var onceToken:dispatch_once_t = 0;
-//            static var instance:AudioPlayerMr? = nil
-//        }
-//        //保证单例只创建一次
-//        dispatch_once(&psSingle.onceToken,{
-//            psSingle.instance = AudioPlayerMr()
-//        })
-//        return psSingle.instance!
-//    }
-    
-    //单例
-    static var instance : AudioPlayerMr?
-    static func getInstance() -> AudioPlayerMr{
-        if (instance == nil) {
-            instance = AudioPlayerMr()
+    class func getInstance()->AudioPlayerMr{
+        struct psSingle{
+            static var onceToken:dispatch_once_t = 0;
+            static var instance:AudioPlayerMr? = nil
         }
-        return instance!
+        //保证单例只创建一次
+        dispatch_once(&psSingle.onceToken,{
+            psSingle.instance = AudioPlayerMr()
+        })
+        return psSingle.instance!
     }
     
     func setDataAndPlay(dataArray : NSMutableArray,position:Int,sura:Int,isHead:Bool){
