@@ -42,33 +42,33 @@ class MSLHttpClient: NSObject {
     }
     
     func getNearByForServer(lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
-//        let urlString : String = Config.getUrl()
-//        if (urlString.isEmpty) {
-//            let urlString : String = "http://www.muslimsline.com/config/website.json"
-//            let manager = AFHTTPRequestOperationManager()
-//            manager.GET(urlString, parameters: nil, success:
-//                { (operation, responseObject) -> Void in
-//                    let urls = (responseObject as! NSDictionary)["urls"]
-//                    if (urls == nil) {
-//                        return
-//                    }
-//                    let arrayCount : NSInteger = urls!.count
-//                    for index in 0...arrayCount - 1 {
-//                        let info : NSDictionary = urls![index] as! NSDictionary
-//                        if (info["name"] as! String == "defualt") {
-//                            let url : String =  info["url"] as! String
-//                            Config.saveUrl(url)
-//                            self.getNear(url, lat: lat, lng: lng, keyword: keyword, tag: tag)
-//                        }
-//                    }
-//                }) { (operation, error) -> Void in
-//                    if (self.delegate != nil) {
-//                        self.delegate!.errorResult(error, tag: tag)
-//                    }
-//            }
-//            return
-//        }
-//        getNear(urlString, lat: lat, lng: lng, keyword: keyword, tag: tag)
+        let urlString : String = Config.getUrl()
+        if (urlString.isEmpty) {
+            let urlString : String = "http://www.muslimsline.com/config/website.json"
+            let manager = AFHTTPRequestOperationManager()
+            manager.GET(urlString, parameters: nil, success:
+                { (operation, responseObject) -> Void in
+                    let urls = (responseObject as! NSDictionary)["urls"]
+                    if (urls == nil) {
+                        return
+                    }
+                    let arrayCount : NSInteger = urls!.count
+                    for index in 0...arrayCount - 1 {
+                        let info = (urls as! NSArray)[index]
+                        if (info["name"] as! String == "defualt") {
+                            let url : String =  info["url"] as! String
+                            Config.saveUrl(url)
+                            self.getNear(url, lat: lat, lng: lng, keyword: keyword, tag: tag)
+                        }
+                    }
+                }) { (operation, error) -> Void in
+                    if (self.delegate != nil) {
+                        self.delegate!.errorResult(error, tag: tag)
+                    }
+            }
+            return
+        }
+        getNear(urlString, lat: lat, lng: lng, keyword: keyword, tag: tag)
     }
     
     func getNear(urlString : String, lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
