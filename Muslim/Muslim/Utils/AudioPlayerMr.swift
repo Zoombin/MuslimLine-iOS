@@ -11,16 +11,24 @@
 import UIKit
 import AVFoundation
 
-class AudioPlayerMr: NSObject{
+protocol mAudioPlayerDelegate : NSObjectProtocol {
+    func finishPlaying()
+    func startPlaying(position:Int)
+    func loading(position:Int)
+    func loadFail()
+   }
+
+class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
+    var delegate : mAudioPlayerDelegate?
     
-    var dataArray : NSMutableArray?
-    var position:Int?
+    var dataArray : NSMutableArray = NSMutableArray()
+    var position:Int = 0
     var sura:Int?
     
     var isPlaying :Bool  = false //正在播放
     var audioPlayer : AVAudioPlayer! //播放器
     
-    
+    var httpClient : MSLHttpClient =  MSLHttpClient() //网络请求
     
     class func getInstance()->AudioPlayerMr{
         struct psSingle{
@@ -34,6 +42,51 @@ class AudioPlayerMr: NSObject{
         return psSingle.instance!
     }
     
+    //初始化
+    override init() {
+        super.init()
+        httpClient.delegate = self
+    }
+    
+    /***  下载音频回调    ****/
+    func succssResult(result : NSObject, tag : NSInteger) {
+        var path = result as? String
+        path = path!.stringByReplacingOccurrencesOfString("file://", withString: "")
+        print("downFile = " + path!)
+        
+        play(path!)
+    }
+    func errorResult(error : NSError, tag : NSInteger) {
+        if(delegate != nil){
+            delegate?.loadFail()
+        }
+    }
+    
+    
+    /**播放完成回调**/
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool){
+        stop()
+        if(delegate != nil){
+            delegate?.finishPlaying()
+        }
+        next(position)
+    }
+    
+    func loadDataAndPlay(dataArray : NSMutableArray,position:Int,sura:Int,isHead:Bool){
+        //设置数据
+        self.dataArray  = dataArray
+        self.position = position
+        self.sura = sura
+        
+        if(isHead){
+            loadNewHeadAudio()
+        }else{
+            let quran :Quran = dataArray[position] as! Quran
+            loadNewAudio(quran, position: position)
+        }
+    }
+    
+    
     func setDataAndPlay(dataArray : NSMutableArray,position:Int,sura:Int,isHead:Bool){
         //本地通知
         
@@ -42,13 +95,11 @@ class AudioPlayerMr: NSObject{
         self.position = position
         self.sura = sura
         
-        stop();
-        
-        let quran :Quran = dataArray[position] as! Quran
         var audioPath :String = ""
         if(isHead){
             audioPath = AudioPlayerMr.getFirstAudioPath() + AudioPlayerMr.getFirstAudioName()
         }else{
+            let quran :Quran = dataArray[position] as! Quran
             audioPath = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
         }
         
@@ -59,6 +110,7 @@ class AudioPlayerMr: NSObject{
         //指定音乐路径
         let url = NSURL(fileURLWithPath: path)
         audioPlayer = try? AVAudioPlayer(contentsOfURL: url)
+        audioPlayer.delegate = self
         audioPlayer.numberOfLoops = 0
         //设置音乐播放次数，-1为循环播放
         audioPlayer.volume = 1
@@ -66,6 +118,9 @@ class AudioPlayerMr: NSObject{
         audioPlayer.prepareToPlay()
         audioPlayer.play()
         isPlaying = true
+        if(delegate != nil){
+            delegate?.startPlaying(position)
+        }
     }
     
     func stop(){
@@ -75,8 +130,50 @@ class AudioPlayerMr: NSObject{
         }
     }
     
+    /**上一个*/
+    func previous(curentPosition:Int){
+    
+    }
+    /**下一个*/
+    func next(curentPosition:Int){
+        if(dataArray.count > 0 && curentPosition < dataArray.count-1){
+            position = curentPosition+1;
+            
+            let quran :Quran = dataArray[position] as! Quran
+            let audioPath :String = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
+            //已经存在
+            if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
+                play(audioPath)
+            }else{
+                loadNewAudio(quran, position: position)
+            }
+        }
+    }
+    
+    func loadNewAudio(quran:Quran,position:Int){
+        if(delegate != nil){
+            delegate?.loading(position)
+        }
+        //下载
+        let fileName:String = AudioPlayerMr.getAudioUrl(quran) + AudioPlayerMr.getAudioName(quran)
+        let url = Constants.downloadBaseUri + fileName.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        let outPath :String = AudioPlayerMr.getAudioPath(quran)
+        
+        httpClient.downloadDocument(url,outPath: outPath)
+    }
+    
+    func loadNewHeadAudio(){
+        let fileName:String = AudioPlayerMr.getFirstAudioUrl() + AudioPlayerMr.getFirstAudioName()
+        let url = Constants.downloadBaseUri + fileName.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        let outPath :String = AudioPlayerMr.getFirstAudioPath()
+        httpClient.downloadDocument(url,outPath: outPath)
+    }
+    
     /**正在播放当前音频*/
     func isPlayCurrent(position:Int,sura:Int,isHead:Bool)->Bool{
+        if(!isPlaying){
+            return false
+        }
         if(isHead){
             if(sura == self.sura){
                 return true
@@ -94,7 +191,8 @@ class AudioPlayerMr: NSObject{
     
     //音频路径
     static func getAudioPath(quran : Quran) ->String{
-        let folderPath :String = FileUtils.documentsDirectory() + "/" + Constants.audioPath + "/" + getAudioUrl(quran)
+        var folderPath :String = FileUtils.documentsDirectory() + "/" + Constants.audioPath + "/" + getAudioUrl(quran)
+        folderPath = folderPath.stringByReplacingOccurrencesOfString(" ", withString: "_")
         if(!NSFileManager.defaultManager().fileExistsAtPath (folderPath)){
             try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
         }
@@ -113,7 +211,8 @@ class AudioPlayerMr: NSObject{
     
     //音频路径
     static func getFirstAudioPath()->String {
-        let folderPath :String = Constants.basePath + "/"+Constants.audioPath + "/" + getFirstAudioUrl()
+        var folderPath :String = Constants.basePath + "/"+Constants.audioPath + "/" + getFirstAudioUrl()
+        folderPath = folderPath.stringByReplacingOccurrencesOfString(" ", withString: "_")
         if(!NSFileManager.defaultManager().fileExistsAtPath (folderPath)){
             try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
         }

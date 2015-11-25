@@ -29,11 +29,6 @@ class FMDBHelper: NSObject {
     
     //创建数据库
     override init() {
-//        let documentsFolder : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-//        var url : NSURL = NSURL.init(string: documentsFolder)!
-//        url = url.URLByAppendingPathComponent("MuslimLine.sqlite")
-//        self.dbPath = url.absoluteString
-        
         let path = FileUtils.documentsDirectory() + "/" + DBConstants.DB_NAME
         //是否存在
         if(!NSFileManager.defaultManager().fileExistsAtPath (path)){
@@ -255,5 +250,36 @@ class FMDBHelper: NSObject {
         dbBase.executeStatements(sql)
         dbBase.close()
     }
+    
+
+    //最小章节id
+    func getMinSura() ->Int{
+        let sql :String = String(format: "SELECT min(sura) FROM %@", DBConstants.TB_QURAN_SIMPLE)
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        while rs!.next() {
+            let min = Int(rs!.intForColumnIndex(0))
+            dbBase.close()
+            return min
+        }
+        dbBase.close()
+        return -1;
+    }
+    
+    //最大章节id
+    func getMaxSura() ->Int{
+        let sql :String = String(format: "SELECT max(sura) FROM %@", DBConstants.TB_QURAN_SIMPLE)
+        dbBase.open()
+        let rs = try? dbBase.executeQuery(sql, values: nil)
+        while rs!.next() {
+            let max = Int(rs!.intForColumnIndex(0))
+            dbBase.close()
+            return max
+        }
+        dbBase.close()
+        return -1;
+    }
+
+    
 
 }

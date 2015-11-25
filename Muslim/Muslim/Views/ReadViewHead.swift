@@ -10,6 +10,7 @@ import UIKit
 
 class ReadViewHead: UIView {
     @IBOutlet weak var btPlay1: UIButton!
+    @IBOutlet weak var ivPro: UIActivityIndicatorView!
 
     /*
     // Only override drawRect: if you perform custom drawing.

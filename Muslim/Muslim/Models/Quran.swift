@@ -15,5 +15,11 @@ class Quran: NSObject {
     var text_zh:String?
     var progress:Int?
     var isbookmark:Bool?
+    
+    
+    /**** 界面需要的额外参数**/
+    //选中 - 需要变换高度
     var isSelected :Bool?
+    //音频状态
+    var audioStatus :Int = 0  //0:未播放 ， 1：播放中 -1：下载中
 }
