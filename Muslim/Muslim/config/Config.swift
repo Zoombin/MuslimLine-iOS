@@ -352,6 +352,23 @@
             UserDefaultsUtil.saveInt("currentPosition", value:currentPosition)
         }
         
+        /**逊尼派响里闹钟声音*/
+        static func getSunniAlarm(alarmType:Int)->Int {
+            return UserDefaultsUtil.getInt(String(format: "SunniAlarm_%d", alarmType))
+        }
+        static func setSunniAlarm(alarmType:Int,select:Int) {
+            UserDefaultsUtil.saveInt(String(format: "SunniAlarm_%d", alarmType), value:select)
+        }
+        
+        /**什叶派响里闹钟声音*/
+        static func getShiaAlarm(alarmType:Int)->Int {
+            return UserDefaultsUtil.getInt(String(format: "ShiaAlarm_%d", alarmType))
+        }
+        static func setShiaAlarm(alarmType:Int,select:Int) {
+            UserDefaultsUtil.saveInt(String(format: "ShiaAlarm_%d", alarmType), value:select)
+        }
+
+        
         
         
         /**祈祷时间数组*/
@@ -413,6 +430,70 @@
         static let QuranAudioReaderIran : NSArray  = [
             "Abdelbasset Abdessamad","Ahmed Nuinaa","Ali Hajjaj Souissi","Mohammad Al Tablaway",
             "Shahriar Parhizgar","Karim Masnsoori","Menshawi"
+        ]
+        
+        /**逊尼派闹钟*/
+        static let alarm_type_sunni : NSArray  = [
+            NSLocalizedString("adhan_alarm_type_slient", comment:""),
+            NSLocalizedString("adhan_alarm_type_default", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_AMF", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ADHAN", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_AAB", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ADHAN_EGYPT", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_AFMZ", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ADHAN_HALAB", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_AMFIVE", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ADHAN_MAKKAH", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ANAQ", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ADHAN_SALIMI", comment:""),
+            NSLocalizedString("SETTINGS_PRAYER_ALARM_ADHAN_SHARIF", comment:""),
+        ]
+         static let alarm_type_files_sunni : NSArray  = [
+            "",
+            "",
+            "adhan_fajr_madina.mp3",
+            "adhan_1.mp3",
+            "adhan_abdul_baset.mp3",
+            "adhan_egypt.mp3",
+            "adhan_fajr_mansour_zahrani.mp3",
+            "adhan_halab.mp3",
+            "adhan_madina_1952.mp3",
+            "adhan_makkah.mp3",
+            "adhan_nasser_al_qatami.mp3",
+            "adhan_salimi.mp3",
+            "adhan_sharif.mp3"
+        ]
+        
+        /**什叶派闹钟*/
+        static let alarm_type_shia : NSArray  = [
+            NSLocalizedString("adhan_alarm_type_slient", comment:""),
+            NSLocalizedString("adhan_alarm_type_default", comment:""),
+            "Aghati",
+            "Adhan Entezar",
+            "Hazin",
+            "karami",
+            "Rahim Moazenzadeh",
+            "Saeidyan",
+            "Salim Moazenzadeh",
+            "Seyed Abas Mirdamad",
+            "Sobhdel",
+            "Tasvieh Chi",
+            "Tukhi"
+        ]
+         static let alarm_type_files_shia : NSArray  = [
+            "",
+            "",
+            "",
+            "adhan_entezar.mp3",
+            "hazin.mp3",
+            "karami.mp3",
+            "rahim_moazenzadeh.mp3",
+            "saeidyan.mp3",
+            "salim-moazenzadeh.mp3",
+            "seyed_abas_mirdamad.mp3",
+            "sobhdel.mp3",
+            "tasvieh_chi.mp3",
+            "tukhi.mp3"
         ]
         
         

@@ -123,6 +123,11 @@
 		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741631BFB7177000A67D5 /* BookMarkCell.swift */; };
 		45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B741641BFB7177000A67D5 /* BookMarkCell.xib */; };
+		45C23D411C05604A008DCCEA /* MediaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D401C05604A008DCCEA /* MediaSettingViewController.swift */; };
+		45C23D441C056216008DCCEA /* MediaSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D421C056216008DCCEA /* MediaSettingCell.swift */; };
+		45C23D451C056216008DCCEA /* MediaSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C23D431C056216008DCCEA /* MediaSettingCell.xib */; };
+		45C23D471C0581DA008DCCEA /* AlarmMediaMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */; };
+		45C23D491C05A4BC008DCCEA /* aghati.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45C23D481C05A4BC008DCCEA /* aghati.mp3 */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45C836681BF9A4B300069723 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836671BF9A4B300069723 /* FileUtils.swift */; };
 		45C8372B1BF9D20300069723 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836E91BF9D20300069723 /* ioapi.c */; };
@@ -325,6 +330,11 @@
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
+		45C23D401C05604A008DCCEA /* MediaSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSettingViewController.swift; sourceTree = "<group>"; };
+		45C23D421C056216008DCCEA /* MediaSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSettingCell.swift; sourceTree = "<group>"; };
+		45C23D431C056216008DCCEA /* MediaSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaSettingCell.xib; sourceTree = "<group>"; };
+		45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmMediaMr.swift; sourceTree = "<group>"; };
+		45C23D481C05A4BC008DCCEA /* aghati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aghati.mp3; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45C836671BF9A4B300069723 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		45C836E61BF9D20300069723 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -585,6 +595,7 @@
 				183ECFC91BF9C932003FB90C /* CalendarViewController.swift */,
 				183ECFCA1BF9C932003FB90C /* CalendarViewController.xib */,
 				45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */,
+				45C23D401C05604A008DCCEA /* MediaSettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -618,6 +629,7 @@
 				1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */,
 				18C320361BFF27A80087E359 /* Log.swift */,
 				45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */,
+				45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -668,6 +680,8 @@
 				183271C81C01C47A005078B6 /* NoticeView.xib */,
 				183271C61C01C3B8005078B6 /* CalendarLocationView.swift */,
 				183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */,
+				45C23D421C056216008DCCEA /* MediaSettingCell.swift */,
+				45C23D431C056216008DCCEA /* MediaSettingCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -807,6 +821,7 @@
 		45EF2B641BFC3B8A008B01EE /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				45C23D481C05A4BC008DCCEA /* aghati.mp3 */,
 				451A2C781C040B76006BB000 /* quran_v3.zip */,
 				45EF2B651BFC3B8A008B01EE /* allah_names.plist */,
 				45EF2B661BFC3B8A008B01EE /* allahnames.json */,
@@ -941,6 +956,7 @@
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
 				45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */,
+				45C23D491C05A4BC008DCCEA /* aghati.mp3 in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
@@ -960,6 +976,7 @@
 				45EF2B811BFC5FA3008B01EE /* ReadLeftView.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				456408E11BFDC853007A217B /* ReadViewCell.xib in Resources */,
+				45C23D451C056216008DCCEA /* MediaSettingCell.xib in Resources */,
 				183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */,
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
@@ -993,11 +1010,13 @@
 			files = (
 				18C320371BFF27A80087E359 /* Log.swift in Sources */,
 				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
+				45C23D471C0581DA008DCCEA /* AlarmMediaMr.swift in Sources */,
 				45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */,
 				183271C71C01C3B8005078B6 /* CalendarLocationView.swift in Sources */,
 				45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */,
 				1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */,
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
+				45C23D441C056216008DCCEA /* MediaSettingCell.swift in Sources */,
 				182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */,
 				45C8372D1BF9D20300069723 /* unzip.c in Sources */,
 				184357A81BE9E88D00194744 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -1052,6 +1071,7 @@
 				45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */,
 				183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */,
 				18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */,
+				45C23D411C05604A008DCCEA /* MediaSettingViewController.swift in Sources */,
 				18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */,
 				45C8372C1BF9D20300069723 /* mztools.c in Sources */,
 				184357A71BE9E88D00194744 /* AFNetworkActivityIndicatorManager.m in Sources */,

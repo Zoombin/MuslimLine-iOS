@@ -16,7 +16,8 @@ protocol mAudioPlayerDelegate : NSObjectProtocol {
     func startPlaying(position:Int)
     func loading(position:Int)
     func loadFail()
-   }
+    func loadNext(sura:Int)
+}
 
 class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     var delegate : mAudioPlayerDelegate?
@@ -130,13 +131,12 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
         }
     }
     
-    /**上一个*/
-    func previous(curentPosition:Int){
-    
-    }
     /**下一个*/
     func next(curentPosition:Int){
-        if(dataArray.count > 0 && curentPosition < dataArray.count-1){
+        if(dataArray.count == 0){
+            return
+        }
+        if(curentPosition < dataArray.count-1){
             position = curentPosition+1;
             
             let quran :Quran = dataArray[position] as! Quran
@@ -146,6 +146,38 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
                 play(audioPath)
             }else{
                 loadNewAudio(quran, position: position)
+            }
+        }else{
+            //下一章节
+            if(sura > FMDBHelper.getInstance().getMaxSura()){
+                return
+            }
+            let tempSura = sura!+1
+            let quranArray : NSMutableArray = FMDBHelper.getInstance().getQurans(tempSura)
+            if(quranArray.count>0){
+                if(delegate != nil){
+                    delegate?.loadNext(tempSura)
+                }
+                var isHead: Bool = false;
+                if((tempSura) != 1 && (tempSura) != 9){
+                    isHead = true
+                }else{
+                    isHead = false
+                }
+                var audioPath :String = ""
+                if(isHead){
+                    audioPath = AudioPlayerMr.getFirstAudioPath() + AudioPlayerMr.getFirstAudioName()
+                }else{
+                    let quran :Quran = quranArray[0] as! Quran
+                    audioPath  = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
+                }
+                if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
+                    setDataAndPlay(quranArray, position: isHead ? -1 : 0, sura: tempSura, isHead: isHead)
+                }else{
+                    loadDataAndPlay(quranArray, position: isHead ? -1 : 0, sura: tempSura, isHead: isHead)
+                }
+            }else{
+                //所有章节已读完
             }
         }
     }
