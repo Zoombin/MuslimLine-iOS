@@ -66,6 +66,9 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     
     func refreshLocation() {
         let location = CLLocation(latitude: Config.getLat().doubleValue, longitude: Config.getLng().doubleValue)
+        if (Config.getLat() == 0 && Config.getLng() == 0) {
+            return;
+        }
         self.latitude = location.coordinate.latitude
         self.longitude = location.coordinate.longitude
         self.locationManger.startUpdatingLocation()
