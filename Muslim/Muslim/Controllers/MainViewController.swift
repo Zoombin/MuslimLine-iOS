@@ -33,6 +33,15 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     
     let locationManager = CLLocationManager()
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (Config.getLat() != 0) {
+            refresHomeInfo()
+        } else {
+            getUserLocation()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //注: 设置title
@@ -58,11 +67,6 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         httpClient.delegate = self
         
         configLocationManager()
-        if (Config.getLat() != 0) {
-            refresHomeInfo()
-        } else {
-            getUserLocation()
-        }
     }
     
     func succssResult(result: NSObject, tag : NSInteger) {
@@ -82,7 +86,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
             let countryInfo : CountryInfo = CountryInfo()
             countryInfo.initValues(result as! NSDictionary)
             Config.saveTimeZone((countryInfo.gmtOffset?.integerValue)!)
-            Config.saveCountryCode(countryInfo.countryCode as! String)
+            Config.savecountryName(countryInfo.countryName as! String)
             Config.saveLat(countryInfo.lat!)
             Config.saveLng(countryInfo.lng!)
             Log.printLog(countryInfo.gmtOffset!)
@@ -140,6 +144,8 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         self.locationManager.stopUpdatingLocation()
         self.locationManager.delegate = nil
         let location = locations.last!
+        //TODO: 测试用，两伊的经纬度
+//        let location = CLLocation(latitude: 31.323466, longitude: 48.649984)
         self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.auto)
     }
     
@@ -209,7 +215,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     }
     
     func showLocationView() {
-        
+        Log.printLog("显示设置位置")
     }
     
     func leftButtonClicked() {

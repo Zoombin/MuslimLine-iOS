@@ -21,8 +21,6 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     var locationTableView : UITableView!
     var httpClient : MSLHttpClient = MSLHttpClient()
     var resultArray : NSMutableArray = NSMutableArray()
-    var currentLng : Double = 0
-    var currentLat : Double = 0
     var menuView : UIView!
     
     override func viewDidLoad() {
@@ -59,9 +57,6 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         //注册ListView的adapter
         locationTableView!.registerNib(UINib(nibName: "NearbyCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         httpClient.delegate = self
-
-        currentLat = 31.3207416422
-        currentLng = 120.6286643729
         
         searchBYType(KEYWORD_MOSQUE)
         
@@ -138,9 +133,12 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     
     func searchBYType(type : String) {
         self.view.makeToastActivity()
-//        getNearByForServer
-//        getNearByForGoogle
-        httpClient.getNearByForServer(currentLat, lng: currentLng, keyword: type, tag: 0)
+        //如果在两伊就用ForService接口，否则用谷歌的
+        if (Config.getcountryName() == Config.COUNTRY_IRAN || Config.getcountryName() == Config.COUNTRY_IRAQ) {
+            httpClient.getNearByForServer(Config.getLat().doubleValue, lng: Config.getLng().doubleValue, keyword: type, tag: 0)
+        } else {
+            httpClient.getNearByForGoogle(Config.getLat().doubleValue, lng: Config.getLng().doubleValue, keyword: type, tag: 0)
+        }
     }
     
     func locationSet() {
@@ -172,7 +170,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         let lat : NSNumber = location["lat"] as! NSNumber
         let lng : NSNumber = location["lng"] as! NSNumber
         let location : CLLocation = CLLocation(latitude: lat.doubleValue, longitude: lng.doubleValue)
-        let currentLocation : CLLocation = CLLocation(latitude: currentLat, longitude: currentLng)
+        let currentLocation : CLLocation = CLLocation(latitude: Config.getLat().doubleValue, longitude: Config.getLng().doubleValue)
         let distance : CLLocationDistance = currentLocation.distanceFromLocation(location)
         return distance / 1000
     }
@@ -185,7 +183,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         let location : NSDictionary = geometry["location"] as! NSDictionary
         let lat : NSNumber = location["lat"] as! NSNumber
         let lng : NSNumber = location["lng"] as! NSNumber
-        let url : String = String(format: "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", currentLat, currentLng, lat.doubleValue, lng.doubleValue)
+        let url : String = String(format: "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", Config.getLat().doubleValue, Config.getLng().doubleValue, lat.doubleValue, lng.doubleValue)
         let webVC : WebViewController = WebViewController()
         webVC.url = url
         self.pushViewController(webVC)

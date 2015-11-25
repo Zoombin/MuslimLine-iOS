@@ -58,10 +58,18 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
             // Fallback on earlier versions
         }
         
-        self.locationManger.startUpdatingLocation()
+//        self.locationManger.startUpdatingLocation()
         self.locationManger.startUpdatingHeading()
-        
+        refreshLocation()
         initView()
+    }
+    
+    func refreshLocation() {
+        let location = CLLocation(latitude: Config.getLat().doubleValue, longitude: Config.getLng().doubleValue)
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
+        self.locationManger.startUpdatingLocation()
+        needleAngle = self.setLatLonForDistanceAndAngle(location)
     }
     
     func initView() {
@@ -93,19 +101,6 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     }
     
     // Mark: - LocationManger Delegate
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        self.latitude = location?.coordinate.latitude
-        self.longitude = location?.coordinate.longitude
-        self.locationManger.startUpdatingLocation()
-        needleAngle     = self.setLatLonForDistanceAndAngle(location!)
-        
-    }
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-       
-    }
-    
     func setLatLonForDistanceAndAngle(userlocation: CLLocation) -> Double
     {
         let lat1 = DegreesToRadians(userlocation.coordinate.latitude)

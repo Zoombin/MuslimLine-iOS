@@ -9,6 +9,8 @@
     import UIKit
 
     class Config: NSObject {
+        static let COUNTRY_IRAN : String = "Iran";
+        static let COUNTRY_IRAQ : String = "Iraq";
         // 什叶派
         static let FACTION_SHIA :NSInteger = 0;
         // 逊尼派
@@ -80,14 +82,14 @@
             return UserDefaultsUtil.getInt("Timezone")
         }
         
-        /**保存国家代码*/
-        static func saveCountryCode(countryCode : String) {
-            UserDefaultsUtil.saveString("countryCode", value: countryCode)
+        /**保存国家名称*/
+        static func savecountryName(countryName : String) {
+            UserDefaultsUtil.saveString("countryName", value: countryName)
         }
         
         /**获取国家代码*/
-        static func getCountryCode() -> String {
-            return UserDefaultsUtil.getString("countryCode")
+        static func getcountryName() -> String {
+            return UserDefaultsUtil.getString("countryName")
         }
         
         /**保存城市名*/
@@ -106,7 +108,7 @@
         }
         
         /**获取经度*/
-        static func getLat() -> NSNumber? {
+        static func getLat() -> NSNumber {
             return UserDefaultsUtil.getNumber("latValue")
         }
         
