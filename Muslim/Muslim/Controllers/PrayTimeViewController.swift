@@ -184,6 +184,9 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let mdVC = MediaSettingViewController()
+        mdVC.AlarmType = indexPath.row
+        self.pushViewController(mdVC)
     }
     
     var conNum:Int = 3

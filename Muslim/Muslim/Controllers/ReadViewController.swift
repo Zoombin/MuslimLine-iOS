@@ -11,7 +11,7 @@
 
 import UIKit
 
-class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate,httpClientDelegate,mAudioPlayerDelegate{
+class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate,mAudioPlayerDelegate{
     //常量
     let bt_back = 100
     let bt_previous = 200
@@ -42,8 +42,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var select:Int = 0
     var isHead:Bool = false
     
-    var httpClient : MSLHttpClient = MSLHttpClient() //网络请求
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +49,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             sura = EXTRA_SURA!
         }
         
-        //网络代理
-        httpClient.delegate = self
         //播放代理
         AudioPlayerMr.getInstance().delegate = self
         
@@ -98,8 +94,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             scrollViewTo(select) //滚动到正在阅读的位置
         }else{
             //滚动到顶部
-            scrollViewTo(0)
-            mTableView.setContentOffset(CGPointZero, animated: true)
+             //self.performSelector(Selector.init("scrollViewToTop"), withObject: nil, afterDelay: 0.3)
+             //scrollViewTo(0)
         }
     }
     
@@ -184,6 +180,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.scrollToRowAtIndexPath(IndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
     }
     
+    /***滚动到顶部*/
+    func scrollViewToTop() {
+        mTableView.setContentOffset(CGPointZero, animated: true)
+    }
+    
     func cleanSelect(){
         for i in 0...quranArray.count-1{
             let quran :Quran = quranArray[i] as! Quran
@@ -196,34 +197,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             let quran :Quran = quranArray[i] as! Quran
             quran.audioStatus = 0
         }
-    }
-    
-    /***  下载音频回调    ****/
-    func succssResult(result : NSObject, tag : NSInteger) {
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
-        let cell : ReadViewCell =  mTableView.cellForRowAtIndexPath(indexPath) as! ReadViewCell
-        cell.ivPro.stopAnimating()
-        cell.ivPro.hidden = true
-        cell.btPlay.hidden = false
-        cell.btPlay.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
-        
-        var path = result as? String
-        path = path!.stringByReplacingOccurrencesOfString("file://", withString: "")
-        print("downOk = " + path!)
-        
-        AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: sura, isHead: isHead)
-        //mTableView.reloadData()
-    }
-    
-    func errorResult(error : NSError, tag : NSInteger) {
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
-        let cell : ReadViewCell =  mTableView.cellForRowAtIndexPath(indexPath) as! ReadViewCell
-        
-        cell.ivPro.stopAnimating()
-        cell.ivPro.hidden = true
-        cell.btPlay.hidden = false
-        cell.btPlay.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
-        self.view.makeToast(message: "下载失败")
     }
     
     /**播放回调**/
@@ -245,6 +218,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         }
         if(-1 == position){
             //播放头部
+            readViewHead.btPlay1.hidden = false
+            readViewHead.btPlay1.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
+            readViewHead.ivPro.hidden = true
+            readViewHead.ivPro.stopAnimating()
             return
         }
         
@@ -260,10 +237,13 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     }
     //加载数据
     func loading(position:Int){
-        if(sura != AudioPlayerMr.getInstance().sura){
+        if(-1 == position){
+            readViewHead.btPlay1.hidden = true
+            readViewHead.ivPro.hidden = false
+            readViewHead.ivPro.startAnimating()
             return
         }
-        if(-1 == position){
+        if(sura != AudioPlayerMr.getInstance().sura){
             return
         }
         self.select = position
@@ -283,6 +263,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         cleanAudioStatus()
         resetHeadView()
         mTableView.reloadData()
+    }
+    //下一章节
+    func loadNext(sura:Int){
+        self.sura = sura
+        viewDidAppear(false)
     }
     
     
@@ -462,19 +447,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
                 //正在播放当前的 (停止)
                 AudioPlayerMr.getInstance().stop()
             }else{
-                readViewHead.btPlay1.hidden = false
-                readViewHead.btPlay1.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
-                readViewHead.ivPro.hidden = true
-                readViewHead.ivPro.stopAnimating()
-                
                 AudioPlayerMr.getInstance().stop()
                 AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: -1, sura: sura,isHead: true)
             }
         }else{
-            readViewHead.btPlay1.hidden = true
-            readViewHead.ivPro.hidden = false
-            readViewHead.ivPro.startAnimating()
-            
             AudioPlayerMr.getInstance().stop()
             AudioPlayerMr.getInstance().loadDataAndPlay(quranArray, position: -1, sura: sura,isHead: true)
         }

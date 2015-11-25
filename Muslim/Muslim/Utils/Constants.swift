@@ -15,7 +15,9 @@ class Constants: NSObject {
     
     static let downloadBaseUri = "http://www.csufo.com:8001/Public/res/quran/" //base下载地址
     static let downloadTranslationUri = downloadBaseUri + "translation/" //译文下载地址
+    static let downloadSoundUri = downloadBaseUri + "adhan/" //响礼闹钟音乐下载地址
     
     static let basePath = FileUtils.documentsDirectory() //document路径
     static let audioPath = "audio" //播放音频的路径
+    static let alarmPath = "alarm" //响里闹钟路径
 }
