@@ -684,13 +684,10 @@
 				183271C81C01C47A005078B6 /* NoticeView.xib */,
 				183271C61C01C3B8005078B6 /* CalendarLocationView.swift */,
 				183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */,
-<<<<<<< HEAD
 				18190BAD1C05912800708D35 /* LocationSettingView.swift */,
 				18190BAF1C05914100708D35 /* LocationSettingView.xib */,
-=======
 				45C23D421C056216008DCCEA /* MediaSettingCell.swift */,
 				45C23D431C056216008DCCEA /* MediaSettingCell.xib */,
->>>>>>> 2f7c4b28693267ebee926676267d18c5a79c5c56
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -965,11 +962,8 @@
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
 				45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */,
-<<<<<<< HEAD
 				18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */,
-=======
 				45C23D491C05A4BC008DCCEA /* aghati.mp3 in Resources */,
->>>>>>> 2f7c4b28693267ebee926676267d18c5a79c5c56
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
