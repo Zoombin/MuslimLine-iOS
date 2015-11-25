@@ -40,6 +40,9 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         } else {
             getUserLocation()
         }
+        topSearchView.hidden = Config.getLat() != 0
+        noticeView.hidden = Config.getLat() == 0
+        calendarLocationView.hidden = Config.getLat() == 0
     }
     
     override func viewDidLoad() {
@@ -115,6 +118,10 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         calendarLocationView.yearMonthLabel.text = String(format: "%d/%d", CalendarUtils.currentComponents().month, CalendarUtils.currentComponents().year)
         calendarLocationView.dayLabel.text = String(CalendarUtils.currentComponents().day)
         calendarLocationView.weekLabel.text = CalendarUtils.getWeek()
+        
+        topSearchView.hidden = Config.getLat() != 0
+        noticeView.hidden = Config.getLat() == 0
+        calendarLocationView.hidden = Config.getLat() == 0
     }
     
     func errorResult(error : NSError, tag : NSInteger) {
@@ -151,6 +158,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         //获取地址失败
+        Log.printLog("获取地址失败")
     }
     
     //获取用户位置
@@ -160,34 +168,35 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
     }
     
     func settingsBkgClicked() {
-        locationSettingsBkgView.hidden = !locationSettingsBkgView.hidden
-        if (!locationSettingsBkgView.hidden) {
-            getUserLocation()
-        } else {
-            locationSearchBar.resignFirstResponder()
-        }
+        getUserLocation()
+//        locationSettingsBkgView.hidden = !locationSettingsBkgView.hidden
+//        if (!locationSettingsBkgView.hidden) {
+//            getUserLocation()
+//        } else {
+//            locationSearchBar.resignFirstResponder()
+//        }
     }
     
     func initTopView() {
-//        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)
-//        self.view.addSubview(topSearchView)
-//        
-//        let bkgButton : UIButton = UIButton()
-//        bkgButton.frame = CGRectMake(0, 0, topSearchView.frame.size.width, topSearchView.frame.size.height)
-//        bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
-//        bkgButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, topSearchView.frame.size.height / 4, 0)
-//        bkgButton.setImage(UIImage(named: "earth"), forState: UIControlState.Normal)
-//        topSearchView.addSubview(bkgButton)
-//        
-//        let settingsButton : UIButton = UIButton()
-//        settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
-//        settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
-//        settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
-//        settingsButton.backgroundColor = UIColor.clearColor()
-//        settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
-//        settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
-//        topSearchView.addSubview(settingsButton)
-//        
+        topSearchView.frame = CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight / 2 - 64)
+        self.view.addSubview(topSearchView)
+        
+        let bkgButton : UIButton = UIButton()
+        bkgButton.frame = CGRectMake(0, 0, topSearchView.frame.size.width, topSearchView.frame.size.height)
+        bkgButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        bkgButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, topSearchView.frame.size.height / 4, 0)
+        bkgButton.setImage(UIImage(named: "earth"), forState: UIControlState.Normal)
+        topSearchView.addSubview(bkgButton)
+        
+        let settingsButton : UIButton = UIButton()
+        settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
+        settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
+        settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
+        settingsButton.backgroundColor = UIColor.clearColor()
+        settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
+        settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
+        topSearchView.addSubview(settingsButton)
+
 //        manButton.addTarget(self, action: Selector.init("leftButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
 //        autoButton.addTarget(self, action: Selector.init("rightButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
 //        
@@ -205,6 +214,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         noticeView.frame = CGRectMake(startX * 2, startY, noticeView.frame.size.width, noticeView.frame.size.height)
         noticeView.prayTimeButton.addTarget(self, action: Selector.init("clickLiBSJ"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(noticeView!)
+        noticeView.hidden = true
         
         let nibs2 = NSBundle.mainBundle().loadNibNamed("CalendarLocationView", owner: nil, options: nil)
         calendarLocationView = nibs2.first as? CalendarLocationView
@@ -212,6 +222,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         self.view.addSubview(calendarLocationView!)
         calendarLocationView.locationButton.addTarget(self, action: Selector.init("showLocationView"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarLocationView.calendarButton.addTarget(self, action: Selector.init("clickRiL"), forControlEvents: UIControlEvents.TouchUpInside)
+        calendarLocationView.hidden = true
     }
     
     func showLocationView() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18190BAE1C05912800708D35 /* LocationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18190BAD1C05912800708D35 /* LocationSettingView.swift */; };
+		18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18190BAF1C05914100708D35 /* LocationSettingView.xib */; };
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
 		183271C51C01C3A6005078B6 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183271C41C01C3A6005078B6 /* NoticeView.swift */; };
 		183271C71C01C3B8005078B6 /* CalendarLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183271C61C01C3B8005078B6 /* CalendarLocationView.swift */; };
@@ -169,6 +171,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18190BAD1C05912800708D35 /* LocationSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingView.swift; sourceTree = "<group>"; };
+		18190BAF1C05914100708D35 /* LocationSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSettingView.xib; sourceTree = "<group>"; };
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
 		183271C41C01C3A6005078B6 /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		183271C61C01C3B8005078B6 /* CalendarLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLocationView.swift; sourceTree = "<group>"; };
@@ -668,6 +672,8 @@
 				183271C81C01C47A005078B6 /* NoticeView.xib */,
 				183271C61C01C3B8005078B6 /* CalendarLocationView.swift */,
 				183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */,
+				18190BAD1C05912800708D35 /* LocationSettingView.swift */,
+				18190BAF1C05914100708D35 /* LocationSettingView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -941,6 +947,7 @@
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
 				45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */,
+				18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
@@ -1035,6 +1042,7 @@
 				184357551BE9E88D00194744 /* AFURLSessionManager.m in Sources */,
 				18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */,
 				45184AF81BE3B2FA007D3088 /* GuLJCell.swift in Sources */,
+				18190BAE1C05912800708D35 /* LocationSettingView.swift in Sources */,
 				45FBBDA81BF72C9300BA35F9 /* QuranTextCell.swift in Sources */,
 				184357AC1BE9E88D00194744 /* UIProgressView+AFNetworking.m in Sources */,
 				45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */,
