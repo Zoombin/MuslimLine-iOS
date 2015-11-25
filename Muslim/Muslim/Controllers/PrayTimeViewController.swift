@@ -25,7 +25,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showOrHidePopView"))
         
         initView()
-        getPrayTime()
     }
     
     let cellIdentifier = "myCell"
@@ -85,8 +84,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         rightSwipeGesture.direction = UISwipeGestureRecognizerDirection.Right
         calendarBkgView.addGestureRecognizer(leftSwipeGesture)
         calendarBkgView.addGestureRecognizer(rightSwipeGesture)
-        
-        checkIsToday()
     }
     
     func swipeValueChanged(swipeGesture : UISwipeGestureRecognizer) {
@@ -144,6 +141,12 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         calendarView.weekLabel.text = week
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        checkIsToday()
+        getPrayTime()
+    }
+    
     func locationSet() {
 
     }
@@ -155,7 +158,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return prayNames.count
+        return prayTimes.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -174,7 +177,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             if (prayTime == "-----") {
                 prayTime = "00:00"
             }
-            prayCell.prayTimeLabel.text = prayTime
+            prayCell.prayTimeLabel.text = prayTime.uppercaseString
         }
         return prayCell
     }
@@ -184,13 +187,12 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     var conNum:Int = 3
-    var asrNum:Int = 1
     func getPrayTime()
     {
         let prayTime = PrayTime();
         prayTime.setCalcMethod(Int32(self.conNum))
-        prayTime.setAsrMethod(Int32(self.asrNum))
-        prayTime.setTimeFormat(Int32(prayTime.Time24))
+        prayTime.setAsrMethod(Int32(Config.getAsrCalculationjuristicMethod()))
+        prayTime.setTimeFormat(Config.getTimeFormat() == 0 ? Int32(prayTime.Time24) : Int32(prayTime.Time12))
         prayTime.setHighLatsMethod(Int32(prayTime.AngleBased))
         
         let date = NSDate(timeIntervalSince1970: currentTime)
@@ -200,8 +202,13 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         let components = calendar.components(flags, fromDate:date)
         NSLog("%ld月%ld日%ld时%ld分" ,components.month, components.day, components.hour, components.minute)
         
-        let lat : Double = 80.4157074446
-        let lng : Double = -29.5312500000
+        let lat : Double = Config.getLat().doubleValue
+        let lng : Double = Config.getLng().doubleValue
+        if (lat == 0 && lng == 0) {
+            prayTimes.removeAllObjects()
+            tableView.reloadData()
+            return
+        }
 
         let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
         prayTimes.removeAllObjects()
