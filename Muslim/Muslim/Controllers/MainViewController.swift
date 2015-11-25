@@ -58,8 +58,11 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         httpClient.delegate = self
         
         configLocationManager()
-        getUserLocation()
-        CalendarUtils.getDate()
+        if (Config.getLat() != 0) {
+            refresHomeInfo()
+        } else {
+            getUserLocation()
+        }
     }
     
     func succssResult(result: NSObject, tag : NSInteger) {
@@ -76,24 +79,38 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
 //               manlTableView.reloadData()
 //            }
         } else if (tag == auto) {
-            Log.printLog(result)
             let countryInfo : CountryInfo = CountryInfo()
             countryInfo.initValues(result as! NSDictionary)
             Config.saveTimeZone((countryInfo.gmtOffset?.integerValue)!)
             Config.saveCountryCode(countryInfo.countryCode as! String)
             Config.saveLat(countryInfo.lat!)
             Config.saveLng(countryInfo.lng!)
-            
-            self.httpClient.getCityName(1222.284681, lng: 114.158177, tag: self.city)
-
-//            self.httpClient.getCityName((countryInfo.lat?.doubleValue)!, lng: (countryInfo.lng?.doubleValue)!, tag: self.city)
+            Log.printLog(countryInfo.gmtOffset!)
+            self.httpClient.getCityName((countryInfo.lat?.doubleValue)!, lng: (countryInfo.lng?.doubleValue)!, tag: self.city)
         } else if (tag == city) {
-            Log.printLog(result)
-//            let query : NSDictionary = (result as! NSDictionary)["query"]
-//            if (query["count"] as! Int == 0) {
-//                
-//            }
+            let query = (result as! NSDictionary)["query"]
+            if (query!["count"] as! Int != 0) {
+                let results = query!["results"]
+                let result = results!["Result"]
+                let city = result!["city"]
+                Config.saveCityName(city as! String)
+                refresHomeInfo()
+            } else {
+                Log.printLog("定位失败")
+                Config.clearHomeValues()
+            }
         }
+    }
+    
+    func refresHomeInfo() {
+        let cityName = Config.getCityName()
+        calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
+        CalendarUtils.getDate()
+        noticeView.currentTimeLabel.text = CalendarUtils.getDate()
+        
+        calendarLocationView.yearMonthLabel.text = String(format: "%d/%d", CalendarUtils.currentComponents().month, CalendarUtils.currentComponents().year)
+        calendarLocationView.dayLabel.text = String(CalendarUtils.currentComponents().day)
+        calendarLocationView.weekLabel.text = CalendarUtils.getWeek()
     }
     
     func errorResult(error : NSError, tag : NSInteger) {
@@ -180,12 +197,19 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         let startY = 64 + ((PhoneUtils.screenHeight / 2) - 64 - noticeView.frame.size.height) / 2
         Log.printLog(startY)
         noticeView.frame = CGRectMake(startX * 2, startY, noticeView.frame.size.width, noticeView.frame.size.height)
+        noticeView.prayTimeButton.addTarget(self, action: Selector.init("clickLiBSJ"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(noticeView!)
         
         let nibs2 = NSBundle.mainBundle().loadNibNamed("CalendarLocationView", owner: nil, options: nil)
         calendarLocationView = nibs2.first as? CalendarLocationView
         calendarLocationView.frame = CGRectMake(startX + (PhoneUtils.screenWidth / 2), startY, calendarLocationView.frame.size.width, calendarLocationView.frame.size.height)
         self.view.addSubview(calendarLocationView!)
+        calendarLocationView.locationButton.addTarget(self, action: Selector.init("showLocationView"), forControlEvents: UIControlEvents.TouchUpInside)
+        calendarLocationView.calendarButton.addTarget(self, action: Selector.init("clickRiL"), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func showLocationView() {
+        
     }
     
     func leftButtonClicked() {

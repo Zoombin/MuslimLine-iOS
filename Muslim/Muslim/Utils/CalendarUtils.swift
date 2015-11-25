@@ -29,19 +29,33 @@ class CalendarUtils: NSObject {
         return components
     }
     
-    static func getDate() {
+    static func getDate() -> String {
+        let timeFormat = Config.getTimeFormat()
         let date = NSDate()
-//        let localDate = date.dateByAddingTimeInterval(interval)
-//        Log.printLog(localDate)
-//        NSDate *date = [NSDate date];
-//        
-//        NSTimeZone *zone = [NSTimeZone systemTimeZone];
-//        
-//        NSInteger interval = [zone secondsFromGMTForDate: date];
-//        
-//        NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
-//        
-//        NSLog(@"%@", localeDate);
+//        let zone = Config.getTimeZone()
+        let dateFormatter = NSDateFormatter()
+        if (timeFormat == 0) {
+            //24
+            dateFormatter.dateFormat = "HH:mm"
+        } else {
+            //12
+            dateFormatter.dateFormat = "hh:mm a"
+        }
+        
+        Log.printLog(dateFormatter.stringFromDate(date))
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    static func getWeek() -> String {
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE"
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    static func currentComponents() -> NSDateComponents{
+        let date = NSDate()
+        return self.getComponents(date)
     }
     
 }

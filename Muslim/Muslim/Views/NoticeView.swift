@@ -13,6 +13,7 @@ class NoticeView: UIView {
     @IBOutlet weak var progressImageView : UIImageView!
     @IBOutlet weak var voiceIconImageView: UIImageView!
     @IBOutlet weak var leftTimeButton: UIButton!
+    @IBOutlet weak var prayTimeButton: UIButton!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var prayNameLabel: UILabel!
     /*
