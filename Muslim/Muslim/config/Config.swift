@@ -26,13 +26,6 @@
         static var SlinetMode :Int = 0 //默认播放
         static var AutoSwitch :Int = 0 //自动设置
         
-        static var FajrTime :Int = 60     // 手动更正 成礼(计算的时候 - 60)
-        static var SunriseTime :Int = 60  // 日出
-        static var DhuhrTime :Int = 60    // 响礼
-        static var AsrTime :Int = 60      // 普礼
-        static var MaghribTime :Int = 60  //昏礼
-        static var IshaaTime :Int = 60    //宵礼
-        
         static var Longitude :Double  = 0 //经度
         static var Latitude :Double = 0 //纬度
         static var CityName :NSString = "" //城市名称
@@ -51,12 +44,6 @@
             getAutoSwitch()
             getSlientMode()
             
-            getFajrTime()
-            getSunriseTime()
-            getDhuhrTime()
-            getAsrTime()
-            getMaghribTime()
-            getIshaaTime()
         }
         /**清除配置数据*/
         static func cleanData(){
@@ -221,64 +208,20 @@
             return SlinetMode
         }
         
-        /**晨礼*/ //-- 保存的是位置，时间需要减去默认值 60
-        static func saveFajrTime(pos :Int) {
-            UserDefaultsUtil.saveInt("FajrTime", value: pos)
-            FajrTime = pos
+        /**响礼调整时间*/ //-- 保存的是位置，时间需要减去默认值 60
+        static func saveAdjustPray(mediaType:Int,pos :Int) {
+            UserDefaultsUtil.saveInt(String(format: "AdjustPray_%d", mediaType),value: pos)
         }
-        static func getFajrTime() ->Int{
-            FajrTime  = UserDefaultsUtil.getInt("FajrTime",defalt: 60)
-            return FajrTime
+        static func getAdjustPray(mediaType:Int) ->Int{
+            return UserDefaultsUtil.getInt(String(format: "AdjustPray_%d", mediaType),defalt: 60)
         }
         
-        /**日出*/
-        static func saveSunriseTime(pos :Int) {
-            UserDefaultsUtil.saveInt("SunriseTime", value: pos)
-            SunriseTime = pos
+        /**最终设置的礼拜时间**/
+        static func savePrayTime(mediaType:Int,time :String) {
+            UserDefaultsUtil.saveString(String(format: "PrayTime_%d", mediaType),value: time)
         }
-        static func getSunriseTime() ->Int{
-            SunriseTime  = UserDefaultsUtil.getInt("SunriseTime",defalt: 60)
-            return SunriseTime
-        }
-        
-        /**响礼*/
-        static func saveDhuhrTime(pos :Int) {
-            UserDefaultsUtil.saveInt("DhuhrTime", value: pos)
-            DhuhrTime = pos
-        }
-        static func getDhuhrTime() ->Int{
-            DhuhrTime  = UserDefaultsUtil.getInt("DhuhrTime",defalt: 60)
-            return DhuhrTime
-        }
-        
-        /**普礼*/
-        static func saveAsrTime(pos :Int) {
-            UserDefaultsUtil.saveInt("AsrTime", value: pos)
-            AsrTime = pos
-        }
-        static func getAsrTime() ->Int{
-            AsrTime  = UserDefaultsUtil.getInt("AsrTime",defalt: 60)
-            return AsrTime
-        }
-        
-        /**昏礼*/
-        static func saveMaghribTime(pos :Int) {
-            UserDefaultsUtil.saveInt("MaghribTime", value: pos)
-            MaghribTime = pos
-        }
-        static func getMaghribTime() ->Int{
-            MaghribTime  = UserDefaultsUtil.getInt("MaghribTime",defalt: 60)
-            return MaghribTime
-        }
-        
-        /**宵礼*/
-        static func saveIshaaTime(pos :Int) {
-            UserDefaultsUtil.saveInt("IshaaTime", value: pos)
-            IshaaTime = pos
-        }
-        static func getIshaaTime() ->Int{
-            IshaaTime  = UserDefaultsUtil.getInt("IshaaTime",defalt: 60)
-            return IshaaTime
+        static func getPrayTime(mediaType:Int) ->String{
+            return UserDefaultsUtil.getString(String(format: "AdjustPray_%d", mediaType))
         }
         
         /**默认url*/

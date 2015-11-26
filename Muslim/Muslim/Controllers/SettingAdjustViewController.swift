@@ -72,22 +72,22 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
             let stringName : NSString = NSLocalizedString("setting_pray_adjuest_time_min", comment:"")
             switch(row){
             case 0:
-                cell.txtTime.text = String(format: "%d%@", (Config.FajrTime - Constants.ADJUSTTIME), stringName)
+                cell.txtTime.text = String(format: "%d%@", (Config.getAdjustPray(row) - Constants.ADJUSTTIME), stringName)
                 break
             case 1:
-                cell.txtTime.text = String(format: "%d%@", (Config.SunriseTime - Constants.ADJUSTTIME), stringName)
+                cell.txtTime.text = String(format: "%d%@", (Config.getAdjustPray(row) - Constants.ADJUSTTIME), stringName)
                 break
             case 2:
-                cell.txtTime.text = String(format: "%d%@", (Config.DhuhrTime - Constants.ADJUSTTIME), stringName)
+                cell.txtTime.text = String(format: "%d%@", (Config.getAdjustPray(row) - Constants.ADJUSTTIME), stringName)
                 break
             case 3:
-                cell.txtTime.text = String(format: "%d%@", (Config.AsrTime - Constants.ADJUSTTIME), stringName)
+                cell.txtTime.text = String(format: "%d%@", (Config.getAdjustPray(row) - Constants.ADJUSTTIME), stringName)
                 break
             case 4:
-                cell.txtTime.text = String(format: "%d%@", (Config.MaghribTime - Constants.ADJUSTTIME), stringName)
+                cell.txtTime.text = String(format: "%d%@", (Config.getAdjustPray(row) - Constants.ADJUSTTIME), stringName)
                 break
             case 5:
-                cell.txtTime.text = String(format: "%d%@", (Config.IshaaTime - Constants.ADJUSTTIME), stringName)
+                cell.txtTime.text = String(format: "%d%@", (Config.getAdjustPray(row) - Constants.ADJUSTTIME), stringName)
                 break
             default:
                 break
@@ -195,62 +195,14 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
     
     /***弹出框item点击事件*/
     func adjustItemClick(position:Int) {
-        //let position = sender.tag
-        switch (listRow) {
-        case 0:
-            Config.saveFajrTime(position);
-            break;
-        case 1:
-            Config.saveSunriseTime(position);
-            break;
-        case 2:
-            Config.saveDhuhrTime(position);
-            break;
-        case 3:
-            Config.saveAsrTime(position);
-            break;
-        case 4:
-            Config.saveMaghribTime(position);
-            break;
-        case 5:
-            Config.saveIshaaTime(position);
-            break;
-        default:
-            break
-        }
-        
-
+        Config.saveAdjustPray(listRow, pos: position)
         mTableView.reloadData()
         removeAlertView()
     }
     
     /**获取item选中状态*/
     func getaAdjustItemSelect(itemRow :Int)->Int{
-        var select :Int = 0;
-        
-        switch(itemRow){
-        case 0:
-            select = Config.FajrTime
-            break
-        case 1:
-            select = Config.SunriseTime
-            break
-        case 2:
-            select = Config.DhuhrTime
-            break
-        case 3:
-            select = Config.AsrTime
-            break
-        case 4:
-            select = Config.MaghribTime
-            break
-        case 5:
-            select = Config.IshaaTime
-            break
-        default:
-            break
-        }
-        return select
+        return Config.getAdjustPray(itemRow)
     }
     
     
