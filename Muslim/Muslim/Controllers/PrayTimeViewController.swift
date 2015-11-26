@@ -239,37 +239,16 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         for index in 0...prayTimes.count-1 {
             let pray = prayTimes[index]
             let date : NSDate = dateFormat.dateFromString(pray as! String)!
-            let adjust = getAdjustPray(index)
-            let newDate =  NSDate(timeInterval: Double(adjust), sinceDate: date)
+            let adjust = Config.getAdjustPray(index) //获取手动调整时间
+            let newDate =  NSDate(timeInterval: Double(( adjust - 60 )*60), sinceDate: date)//保存的是位置，时间要减去60
             let newPray = dateFormat.stringFromDate(newDate)
+            Config.savePrayTime(index, time: newPray)//保存最终设置的礼拜时间
             adjustArray.addObject(newPray)
         }
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(adjustArray as [AnyObject])
         
         tableView.reloadData()
-    }
-    
-    func getAdjustPray(mediaType:Int)->Int{
-        if(0 == mediaType){
-            return Config.getFajrTime() - 60
-        }
-        if(1 == mediaType){
-            return Config.getSunriseTime() - 60
-        }
-        if(2 == mediaType){
-            return Config.getDhuhrTime() - 60
-        }
-        if(3 == mediaType){
-            return Config.getAsrTime() - 60
-        }
-        if(4 == mediaType){
-            return Config.getMaghribTime() - 60
-        }
-        if(5 == mediaType){
-            return Config.getIshaaTime() - 60
-        }
-        return 0
     }
     
     func getPrayMediaStatu(mediaType:Int) ->Int{
