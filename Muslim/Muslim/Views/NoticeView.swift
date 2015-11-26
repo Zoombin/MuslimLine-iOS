@@ -16,18 +16,33 @@ class NoticeView: UIView {
     @IBOutlet weak var prayTimeButton: UIButton!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var prayNameLabel: UILabel!
-    
+    var aPath : UIBezierPath?
+    let start : Double = 145
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
-//        let color = UIColor.redColor()
+//        let color = UIColor.orangeColor()
 //        color.set()
-//        let aPath = UIBezierPath.init(arcCenter: CGPointMake(80, 80), radius: 75, startAngle: 0, endAngle: 90, clockwise: true)
-//        aPath.lineWidth = 2.0
-//        aPath.lineCapStyle = CGLineCap.Round
-//        aPath.lineJoinStyle = CGLineJoin.Round
-//        aPath.stroke()
+//        aPath = UIBezierPath()
+//        aPath!.addArcWithCenter(CGPointMake(80, 80), radius: 77, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * 395) / 180)  , clockwise: true)
+//        aPath!.lineWidth = 5.0
+//        aPath!.lineCapStyle = CGLineCap.Round
+//        aPath!.lineJoinStyle = CGLineJoin.Round
+//        aPath!.stroke()
+    }
+    
+    func clear() {
+//        aPath = nil
+//        aPath = UIBezierPath()
+//        setNeedsDisplay()
+//        path   = nil;  //Set current path nil
+//        path   = [UIBezierPath bezierPath]; //Create new path
+//        [self setNeedsDisplay];
+    }
+    
+    func currentProgress() {
+        clear()
     }
 
 

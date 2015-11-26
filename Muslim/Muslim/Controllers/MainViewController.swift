@@ -114,6 +114,7 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
         CalendarUtils.getDate()
         noticeView.currentTimeLabel.text = CalendarUtils.getDate()
+        noticeView.currentProgress()
         
         calendarLocationView.yearMonthLabel.text = String(format: "%d/%d", CalendarUtils.currentComponents().month, CalendarUtils.currentComponents().year)
         calendarLocationView.dayLabel.text = String(CalendarUtils.currentComponents().day)
