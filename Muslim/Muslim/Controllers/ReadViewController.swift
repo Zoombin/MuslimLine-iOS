@@ -27,7 +27,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var EXTRA_BOOKMARK_JUMP : Bool = false
     var EXTRA_SURA : Int?
     var EXTRA_AYA :Int?
-    var EXTRA_SCOLLPOSITION :Int?
+    var EXTRA_SCOLLPOSITION :Int = 0
     
     
     var readLeftView : ReadLeftView!
@@ -47,6 +47,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         if(EXTRA_SURA != nil){
             sura = EXTRA_SURA!
+        }
+        if(EXTRA_BOOKMARK_JUMP){
+            //阅读记录或者书签跳转
+            select = EXTRA_SCOLLPOSITION
+            EXTRA_BOOKMARK_JUMP = false
         }
         
         //播放代理
@@ -79,8 +84,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         //初始化播放位置
         if(AudioPlayerMr.getInstance().isPlaying && AudioPlayerMr.getInstance().sura == sura){
             select = AudioPlayerMr.getInstance().position
-            let quran :Quran = quranArray[select] as! Quran
-            quran.isSelected = true
         }else{
             if (sura == 1 || sura == 9) {
                 //没有头部 - 设置第一个选中
@@ -88,15 +91,19 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
                 quran.isSelected = true
             }
         }
-        
+        //准备滚动的位置的选中状态
+        if(select>0){
+            let quran :Quran = quranArray[select] as! Quran
+            quran.isSelected = true
+        }
+        //刷新界面
         mTableView.reloadData()
+        //滚动到相应的位置
         if(select>0){
             scrollViewTo(select) //滚动到正在阅读的位置
         }else{
             //滚动到顶部
-             //self.performSelector(Selector.init("scrollViewToTop"), withObject: nil, afterDelay: 0.3)
-             //scrollViewTo(0)
-            //scrollViewToTop()
+             scrollViewToTop()
         }
     }
     
@@ -183,6 +190,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     /***滚动到顶部*/
     func scrollViewToTop() {
+        scrollViewTo(0)
         mTableView.setContentOffset(CGPointMake(0,0), animated: false)
     }
     
@@ -450,6 +458,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             if(AudioPlayerMr.getInstance().isPlayCurrent(-1, sura: sura,isHead: true)){
                 //正在播放当前的 (停止)
                 AudioPlayerMr.getInstance().stop()
+                readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             }else{
                 AudioPlayerMr.getInstance().stop()
                 AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: -1, sura: sura,isHead: true)
@@ -471,12 +480,16 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         case bt_previous:
             if(sura > FMDBHelper.getInstance().getMinSura()){
                 sura = sura - 1
+                //清除上次位置
+                select = 0
                 viewDidAppear(false)
             }
             break
         case bt_next:
             if(sura < FMDBHelper.getInstance().getMaxSura()){
                 sura = sura + 1
+                //清除上次位置
+                select = 0
                 viewDidAppear(false)
             }
             break
@@ -542,8 +555,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     //保存数据
     override func viewDidDisappear(animated: Bool) {
+        //保存正在阅读的位置
         Config.setCurrentRura(sura)
-        Config.setCurrentPosition(3)
+        Config.setCurrentPosition(select)
     }
     
     override func didReceiveMemoryWarning() {
