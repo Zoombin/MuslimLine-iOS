@@ -9,6 +9,9 @@
 import UIKit
 
 class Colors: NSObject {
+    //进度条绿
+    static let progressGreenColor : UIColor = UIColor(colorLiteralRed: 189/255.0, green: 235/255.0, blue: 35/255.0, alpha: 1.0)
+    
     //附近位置灰
     static let nearbyGrayColor : UIColor = UIColor(colorLiteralRed: 229/255.0, green: 234/255.0, blue: 225/255.0, alpha: 1.0)
     
