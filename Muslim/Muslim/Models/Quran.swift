@@ -15,7 +15,9 @@ class Quran: NSObject {
     var text_zh:String?
     var progress:Int?
     var isbookmark:Bool?
-    
+    var unSelectedHeight : CGFloat = 180
+    var selectedHeight : CGFloat = 230
+    var hasCalulateHeight = false
     
     /**** 界面需要的额外参数**/
     //选中 - 需要变换高度

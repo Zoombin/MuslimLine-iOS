@@ -61,7 +61,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         self.view.addSubview(rightLace)
         
         mTableView = UITableView(frame: CGRectMake(16.5,64,PhoneUtils.screenWidth-(16.5*2),PhoneUtils.screenHeight-64))
-        mTableView!.registerNib(UINib(nibName: "ReadViewCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        
         mTableView.separatorColor = Colors.greenColor
         mTableView.delegate = self
         mTableView.dataSource = self
@@ -275,10 +275,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //行高
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let quran :Quran = quranArray[indexPath.row] as! Quran
-        if(quran.isSelected == true){
-            return 230
-        }else{
-            return 180
+        if(quran.isSelected == true) {
+            return quran.selectedHeight
+        } else {
+            return quran.unSelectedHeight
         }
     }
     
@@ -289,13 +289,16 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     //生成界面
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : ReadViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as!ReadViewCell
+        mTableView!.registerNib(UINib(nibName: "ReadViewCell", bundle:nil), forCellReuseIdentifier: String(indexPath.row))
+        let cell : ReadViewCell = tableView.dequeueReusableCellWithIdentifier(String(indexPath.row), forIndexPath: indexPath) as! ReadViewCell
+        
         
         //设置界面
         cell.ivPro.hidden = true
         let quran :Quran = quranArray[indexPath.row] as! Quran
         cell.textQuran.text = String(format: "%d. %@", quran.aya!,quran.text == nil ?"":quran.text!)
         cell.textCn.text = String(format: "%d. %@", quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+        cell.calculateHeight(quran)
         if(quran.isSelected == true){
             cell.OptionsView.hidden = false
             cell.contentView.backgroundColor = Colors.lightGray
