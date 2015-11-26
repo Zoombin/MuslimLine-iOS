@@ -319,7 +319,12 @@
         
         /**当前语言**/
         static func getCurrentLanguage() ->String{
-            return QuranTranslationValues[getCurrentLanguageIndex()] as! String
+            let currentLanguageIndex = getCurrentLanguageIndex()
+            if(0 == currentLanguageIndex){
+                return ""
+            }else{
+                return QuranTranslationValues[currentLanguageIndex] as! String
+            }
         }
         /**当前国家图标*/
         static func getCurrentCountryIcon() ->String{

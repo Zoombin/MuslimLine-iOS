@@ -18,6 +18,7 @@ class Constants: NSObject {
     static let downloadSoundUri = downloadBaseUri + "adhan/" //响礼闹钟音乐下载地址
     
     static let basePath = FileUtils.documentsDirectory() //document路径
-    static let audioPath = "audio" //播放音频的路径
-    static let alarmPath = "alarm" //响里闹钟路径
+    static let audioPath = "audio" //播放音频文件夹
+    static let alarmPath = "alarm" //响里闹钟文件夹
+    static let quranPath = "quran" //古兰经译文文件夹
 }

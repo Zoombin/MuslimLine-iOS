@@ -36,7 +36,7 @@ class AllahNamesViewController: BaseViewController , UITableViewDelegate, UITabl
     
     
     func setupView(){
-        mTableView = UITableView(frame: CGRectMake(0,0,PhoneUtils.screenWidth,PhoneUtils.screenHeight))
+        mTableView = UITableView(frame: CGRectMake(0,64,PhoneUtils.screenWidth,PhoneUtils.screenHeight-64))
         //注册ListView
         mTableView!.registerNib(UINib(nibName: "AllahNameCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         mTableView.delegate = self

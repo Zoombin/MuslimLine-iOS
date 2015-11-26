@@ -46,7 +46,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             translation.zippath = zippath
             let download_url = (quranTranslationValues[index] as! String) + ".sql.zip"
             translation.download_url = download_url
-            let path = FileUtils.documentsDirectory() + "/"+download_url
+            let path = getQuranOutPath() + download_url
             if(NSFileManager.defaultManager().fileExistsAtPath (path)){
                 translation.isdownload = 1;
             }else{
@@ -58,7 +58,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     }
     
     func setupView(){
-        mTableView = UITableView(frame: CGRectMake(0,64,PhoneUtils.screenWidth,PhoneUtils.screenHeight))
+        mTableView = UITableView(frame: CGRectMake(0,64,PhoneUtils.screenWidth,PhoneUtils.screenHeight-64))
         //注册view
         mTableView!.registerNib(UINib(nibName: "QuranTextCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         mTableView.delegate = self
@@ -143,7 +143,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         
         if(1 == translation.isdownload){
             //文件存在
-            let path = FileUtils.documentsDirectory() + "/" + (translation.download_url as! String)
+            let path = getQuranOutPath() + (translation.download_url as! String)
             let sql = ZipUtils.readZipFile(path)//读zip文件
             FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
             
@@ -155,8 +155,17 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             let url = Constants.downloadTranslationUri  + fileName
             cell.probar.hidden = false
             cell.probar.startAnimating()
-            httpClient.downloadDocument(url,outPath: "")
+            let outPath = getQuranOutPath()
+            httpClient.downloadDocument(url,outPath: outPath)
         }
+    }
+    
+     func getQuranOutPath()->String {
+        let folderPath :String = Constants.basePath + "/"+Constants.quranPath + "/"
+        if(!NSFileManager.defaultManager().fileExistsAtPath (folderPath)){
+            try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        return folderPath
     }
     
     override func didReceiveMemoryWarning() {

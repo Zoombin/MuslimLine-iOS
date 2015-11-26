@@ -96,6 +96,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             //滚动到顶部
              //self.performSelector(Selector.init("scrollViewToTop"), withObject: nil, afterDelay: 0.3)
              //scrollViewTo(0)
+            //scrollViewToTop()
         }
     }
     
@@ -182,7 +183,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     /***滚动到顶部*/
     func scrollViewToTop() {
-        mTableView.setContentOffset(CGPointZero, animated: true)
+        mTableView.setContentOffset(CGPointMake(0,0), animated: false)
     }
     
     func cleanSelect(){

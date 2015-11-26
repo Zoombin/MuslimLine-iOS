@@ -12,7 +12,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     var tableView : UITableView!
     var locationButton : UIButton!
-    let prayNames : NSArray = [NSLocalizedString("prayer_names_generic_1", comment: ""), NSLocalizedString("prayer_names_generic_2", comment: ""), NSLocalizedString("prayer_names_generic_3", comment: ""), NSLocalizedString("prayer_names_generic_4", comment: ""), NSLocalizedString("prayer_names_generic_5", comment: ""), NSLocalizedString("prayer_names_generic_6", comment: "")]
+    let prayNames : NSArray = Config.PrayNameArray
     var calendarView : CalendarView!
     var prayTimes : NSMutableArray = NSMutableArray()
     var currentTime : Double = NSDate().timeIntervalSince1970
@@ -25,6 +25,10 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showOrHidePopView"))
         
         initView()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        tableView.reloadData()
     }
     
     let cellIdentifier = "myCell"
@@ -167,6 +171,12 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let prayCell : PrayTimeCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PrayTimeCell
+        let status = getPrayMediaStatu(indexPath.row)
+        if(0 == status){
+            prayCell.voiceButton.setImage(UIImage(named: "voice_off"), forState: UIControlState.Normal)
+        }else{
+            prayCell.voiceButton.setImage(UIImage(named: "voice_on"), forState: UIControlState.Normal)
+        }
         let prayName : String = prayNames[indexPath.row] as! String
         prayCell.prayNameLabel.text = prayName
         if (indexPath.row == 1) {
@@ -213,14 +223,41 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             return
         }
 
-        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
+        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: Double(Config.getTimeZone())) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
         if (prayTimes.count == 7) {
             //TODO:删除sunset
             prayTimes.removeObjectAtIndex(4)
         }
+        
+        //let dateFormat = NSDateFormatter()
+        //dateFormat.dateFormat = "HH:mm"
+        // Date 转 String
+        //nowString = dateFormatter2.stringFromDate(now)          // 2015-03-24 21:00:00
+        // String 转 Date
+        //now = dateFormatter2.dateFromString(nowString)!
+        
+        //手动调整
+        for index in 0...prayTimes.count-1 {
+            let pray = prayTimes[index]
+            Log.printLog(pray)
+            //let date = dateFormat.dateFromString(pray as! String)
+            //Log.printLog(date!)
+//            let date:Date = dateFormat.dateFromString(pray)!
+        }
+        
         tableView.reloadData()
+    }
+    
+    func getPrayMediaStatu(mediaType:Int) ->Int{
+        if(Config.FACTION_SHIA == Config.getFaction()){
+            //什叶派
+            return Config.getShiaAlarm(mediaType)
+        }else{
+            //逊尼派
+            return Config.getSunniAlarm(mediaType)
+        }
     }
 
 }
