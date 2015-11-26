@@ -231,23 +231,45 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             prayTimes.removeObjectAtIndex(4)
         }
         
-        //let dateFormat = NSDateFormatter()
-        //dateFormat.dateFormat = "HH:mm"
-        // Date 转 String
-        //nowString = dateFormatter2.stringFromDate(now)          // 2015-03-24 21:00:00
-        // String 转 Date
-        //now = dateFormatter2.dateFromString(nowString)!
         
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "HH:mm"
+        let adjustArray : NSMutableArray = NSMutableArray()
         //手动调整
         for index in 0...prayTimes.count-1 {
             let pray = prayTimes[index]
-            Log.printLog(pray)
-            //let date = dateFormat.dateFromString(pray as! String)
-            //Log.printLog(date!)
-//            let date:Date = dateFormat.dateFromString(pray)!
+            let date : NSDate = dateFormat.dateFromString(pray as! String)!
+            let adjust = getAdjustPray(index)
+            let newDate =  NSDate(timeInterval: Double(adjust), sinceDate: date)
+            let newPray = dateFormat.stringFromDate(newDate)
+            adjustArray.addObject(newPray)
         }
+        prayTimes.removeAllObjects()
+        prayTimes.addObjectsFromArray(adjustArray as [AnyObject])
         
         tableView.reloadData()
+    }
+    
+    func getAdjustPray(mediaType:Int)->Int{
+        if(0 == mediaType){
+            return Config.getFajrTime() - 60
+        }
+        if(1 == mediaType){
+            return Config.getSunriseTime() - 60
+        }
+        if(2 == mediaType){
+            return Config.getDhuhrTime() - 60
+        }
+        if(3 == mediaType){
+            return Config.getAsrTime() - 60
+        }
+        if(4 == mediaType){
+            return Config.getMaghribTime() - 60
+        }
+        if(5 == mediaType){
+            return Config.getIshaaTime() - 60
+        }
+        return 0
     }
     
     func getPrayMediaStatu(mediaType:Int) ->Int{

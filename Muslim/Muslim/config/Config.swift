@@ -221,7 +221,7 @@
             return SlinetMode
         }
         
-        /**成礼*/
+        /**晨礼*/ //-- 保存的是位置，时间需要减去默认值 60
         static func saveFajrTime(pos :Int) {
             UserDefaultsUtil.saveInt("FajrTime", value: pos)
             FajrTime = pos

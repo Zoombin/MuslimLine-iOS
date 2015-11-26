@@ -29,7 +29,7 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
     }
     
     func setupView(){
-        mTableView = UITableView(frame: CGRectMake(0,0,PhoneUtils.screenWidth,PhoneUtils.screenHeight))
+        mTableView = UITableView(frame: CGRectMake(0,64,PhoneUtils.screenWidth,PhoneUtils.screenHeight-64))
         //注册view
         mTableView!.registerNib(UINib(nibName: "SettingAdjustCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         mTableView.tag = tag1
