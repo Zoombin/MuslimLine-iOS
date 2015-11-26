@@ -182,11 +182,6 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         if(100 == tag){
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             let chapter = dataArray[indexPath.row] as! Chapter
-            //历史
-            //readVC.EXTRA_BOOKMARK_JUMP = true
-            //readVC.EXTRA_SURA = 1
-            //readVC.EXTRA_SCOLLPOSITION = 1
-            
             //正常跳转
             readVC.EXTRA_SURA = chapter.sura
             self.pushViewController(readVC)
@@ -205,7 +200,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let readVC : ReadViewController = ReadViewController()
         readVC.EXTRA_SURA = firstbookmark.suraId
         readVC.EXTRA_BOOKMARK_JUMP = true
-        readVC.EXTRA_SCOLLPOSITION = firstbookmark.ayaId! - 1
+        readVC.EXTRA_SCOLLPOSITION = firstbookmark.ayaId!
         self.pushViewController(readVC)
     }
     
