@@ -297,8 +297,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     //生成界面
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        mTableView!.registerNib(UINib(nibName: "ReadViewCell", bundle:nil), forCellReuseIdentifier: String(format: "%d_%d",sura, indexPath.row))
-        let cell : ReadViewCell = tableView.dequeueReusableCellWithIdentifier(String(format: "%d_%d",sura, indexPath.row), forIndexPath: indexPath) as! ReadViewCell
+        mTableView!.registerNib(UINib(nibName: "ReadViewCell", bundle:nil), forCellReuseIdentifier: String(format: "%d_%d_%@",sura, indexPath.row, Config.getCurrentLanguage()))
+        let cell : ReadViewCell = tableView.dequeueReusableCellWithIdentifier(String(format: "%d_%d_%@",sura, indexPath.row, Config.getCurrentLanguage()), forIndexPath: indexPath) as! ReadViewCell
         
         
         //设置界面
