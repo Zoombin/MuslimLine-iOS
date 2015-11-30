@@ -8,19 +8,37 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, LocationSettingDelegate {
     var popMenuView : UIView!
+    var locationSettingView : LocationSettingView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let greenColor : UIColor = Colors.greenColor        //设置标题栏颜色
-        self.navigationController?.navigationBar.barTintColor = greenColor
+        self.navigationController!.navigationBar.barTintColor = greenColor
         //设置标题的字的颜色
-        self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
         //设置背景颜色
         self.view.backgroundColor = UIColor.whiteColor()
         
         initPopMenuView()
+        
+        let nibs = NSBundle.mainBundle().loadNibNamed("LocationSettingView", owner: nil, options: nil)
+        locationSettingView = nibs.first as! LocationSettingView
+        locationSettingView.delegate = self
+        locationSettingView.initView()
+        locationSettingView.hidden = true
+        self.view.addSubview(locationSettingView)
+    }
+    
+    func refreshUserLocation() {
+        
+    }
+    
+    func showLocationView() {
+        locationSettingView.hidden = false
+        locationSettingView.getUserLocation()
+        self.view.bringSubviewToFront(locationSettingView)
     }
     
     //通用的菜单弹出界面

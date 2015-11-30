@@ -60,13 +60,13 @@
         }
         
         /**保存时区*/
-        static func saveTimeZone(zone : Int) {
-            UserDefaultsUtil.saveInt("Timezone", value: zone)
+        static func saveTimeZone(zone : String) {
+            UserDefaultsUtil.saveString("Timezone", value: zone)
         }
         
         /**获得时区*/
-        static func getTimeZone() -> Int {
-            return UserDefaultsUtil.getInt("Timezone")
+        static func getTimeZone() -> String {
+            return UserDefaultsUtil.getString("Timezone")
         }
         
         /**保存国家名称*/

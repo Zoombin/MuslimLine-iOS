@@ -25,6 +25,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showOrHidePopView"))
         
         initView()
+        refreshLocation()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -151,8 +152,20 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         getPrayTime()
     }
     
+    override func refreshUserLocation() {
+        //刷新名称
+        refreshLocation()
+        checkIsToday()
+        getPrayTime()
+    }
+    
+    func refreshLocation() {
+        let cityName = Config.getCityName().isEmpty ? NSLocalizedString("main_location_set", comment: "") : Config.getCityName()
+        locationButton.setTitle(cityName, forState: UIControlState.Normal)
+    }
+    
     func locationSet() {
-
+        showLocationView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -223,7 +236,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             return
         }
 
-        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: Double(Config.getTimeZone())) as NSMutableArray
+        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
         if (prayTimes.count == 7) {

@@ -58,13 +58,20 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
             // Fallback on earlier versions
         }
         
-//        self.locationManger.startUpdatingLocation()
         self.locationManger.startUpdatingHeading()
-        refreshLocation()
+        
         initView()
+        refreshLocation()
+    }
+    
+    override func refreshUserLocation() {
+        refreshLocation()
     }
     
     func refreshLocation() {
+        let cityName = Config.getCityName().isEmpty ? NSLocalizedString("main_location_set", comment: "") : Config.getCityName()
+        locationButton.setTitle(cityName, forState: UIControlState.Normal)
+        
         let location = CLLocation(latitude: Config.getLat().doubleValue, longitude: Config.getLng().doubleValue)
         if (Config.getLat() == 0 && Config.getLng() == 0) {
             return;
@@ -95,7 +102,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     }
     
     func locationSet() {
-
+        showLocationView()
     }
     
     override func didReceiveMemoryWarning() {

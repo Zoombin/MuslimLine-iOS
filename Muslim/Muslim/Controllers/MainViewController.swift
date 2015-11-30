@@ -8,37 +8,15 @@
 
 import UIKit
 
-class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISearchBarDelegate, httpClientDelegate, CLLocationManagerDelegate {
+class MainViewController: BaseViewController {
     var noticeView : NoticeView!
     var calendarLocationView : CalendarLocationView!
     let topSearchView : UIView = UIView()
     
-    var httpClient : MSLHttpClient = MSLHttpClient()
-    var manlResultArray : NSMutableArray = NSMutableArray()
-    let auto : NSInteger = 0
-    let manl : NSInteger = 1
-    let city : NSInteger = 2
-    
-    @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var locationSettingsBkgView: UIView!
-    
-    @IBOutlet weak var autoButton: UIButton!
-    @IBOutlet weak var manButton: UIButton!
-
-    @IBOutlet weak var leftLineLabel: UILabel!
-    @IBOutlet weak var rightLineLabel: UILabel!
-    @IBOutlet weak var leftView: UIView!
-    @IBOutlet weak var rightView: UIView!
-    @IBOutlet weak var locationSearchBar: UISearchBar!
-    
-    let locationManager = CLLocationManager()
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if (Config.getLat() != 0) {
-            refresHomeInfo()
-        } else {
-            getUserLocation()
+            refreshUserLocation()
         }
         topSearchView.hidden = Config.getLat() != 0
         noticeView.hidden = Config.getLat() == 0
@@ -50,9 +28,9 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         //注: 设置title
         title = NSLocalizedString("app_name", comment:"");
         //设置标题栏颜色
-        self.navigationController?.navigationBar.barTintColor = Colors.greenColor
+        self.navigationController!.navigationBar.barTintColor = Colors.greenColor
         //设置标题的字的颜色
-        self.navigationController?.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName) as? [String : AnyObject]
         
         self.view.backgroundColor = Colors.greenColor
         
@@ -65,51 +43,10 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
 
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: Selector.init("settingsBkgClicked"))
-        locationSettingsBkgView.addGestureRecognizer(tapGesture)
-        self.view.bringSubviewToFront(locationSettingsBkgView)
-        httpClient.delegate = self
-        
-        configLocationManager()
+        topSearchView.addGestureRecognizer(tapGesture)
     }
     
-    func succssResult(result: NSObject, tag : NSInteger) {
-        self.view.hideToastActivity()
-        if (tag == manl) {
-//            let manlResult : ManlResult = ManlResult()
-//            manlResult.initValues(result as! NSDictionary)
-//            if (manlResult.places == nil) {
-//                return
-//            }
-//            if (manlResult.places!.count!.integerValue > 0) {
-//               manlResultArray.removeAllObjects()
-//               manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
-//               manlTableView.reloadData()
-//            }
-        } else if (tag == auto) {
-            let countryInfo : CountryInfo = CountryInfo()
-            countryInfo.initValues(result as! NSDictionary)
-            Config.saveTimeZone((countryInfo.gmtOffset?.integerValue)!)
-            Config.savecountryName(countryInfo.countryName as! String)
-            Config.saveLat(countryInfo.lat!)
-            Config.saveLng(countryInfo.lng!)
-            Log.printLog(countryInfo.gmtOffset!)
-            self.httpClient.getCityName((countryInfo.lat?.doubleValue)!, lng: (countryInfo.lng?.doubleValue)!, tag: self.city)
-        } else if (tag == city) {
-            let query = (result as! NSDictionary)["query"]
-            if (query!["count"] as! Int != 0) {
-                let results = query!["results"]
-                let result = results!["Result"]
-                let city = result!["city"]
-                Config.saveCityName(city as! String)
-                refresHomeInfo()
-            } else {
-                Log.printLog("定位失败")
-                Config.clearHomeValues()
-            }
-        }
-    }
-    
-    func refresHomeInfo() {
+    override func refreshUserLocation() {
         let cityName = Config.getCityName()
         calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
         CalendarUtils.getDate()
@@ -125,57 +62,8 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         calendarLocationView.hidden = Config.getLat() == 0
     }
     
-    func errorResult(error : NSError, tag : NSInteger) {
-        self.view.hideToastActivity()
-        if (tag == manl) {
-            
-        } else if (tag == auto) {
-            
-        } else if (tag == city) {
-            Log.printLog(error)
-            Config.clearHomeValues()
-        }
-    }
-    
-    func configLocationManager() {
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        if #available(iOS 8.0, *) {
-            self.locationManager.requestAlwaysAuthorization()
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        Log.printLog("获取到地址")
-        self.locationManager.stopUpdatingLocation()
-        self.locationManager.delegate = nil
-        let location = locations.last!
-        //TODO: 测试用，两伊的经纬度
-//        let location = CLLocation(latitude: 31.323466, longitude: 48.649984)
-        self.httpClient.getTimezoneAndCountryName(location.coordinate.latitude, lng: location.coordinate.longitude, tag: self.auto)
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        //获取地址失败
-        Log.printLog("获取地址失败")
-    }
-    
-    //获取用户位置
-    func getUserLocation() {
-        self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
-    }
-    
     func settingsBkgClicked() {
-        getUserLocation()
-//        locationSettingsBkgView.hidden = !locationSettingsBkgView.hidden
-//        if (!locationSettingsBkgView.hidden) {
-//            getUserLocation()
-//        } else {
-//            locationSearchBar.resignFirstResponder()
-//        }
+        showLocationView()
     }
     
     func initTopView() {
@@ -192,20 +80,12 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         let settingsButton : UIButton = UIButton()
         settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
         settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
+        settingsButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
         settingsButton.backgroundColor = UIColor.clearColor()
         settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
         settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
         topSearchView.addSubview(settingsButton)
-
-//        manButton.addTarget(self, action: Selector.init("leftButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
-//        autoButton.addTarget(self, action: Selector.init("rightButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        locationSearchBar.placeholder = NSLocalizedString("dlg_prayer_search_edit_text_hint", comment: "")
-//        locationSearchBar.delegate = self
-//        
-//        manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
-//        autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
         
         let nibs1 = NSBundle.mainBundle().loadNibNamed("NoticeView", owner: nil, options: nil)
         noticeView = nibs1.first as? NoticeView
@@ -221,37 +101,16 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         calendarLocationView = nibs2.first as? CalendarLocationView
         calendarLocationView.frame = CGRectMake(startX + (PhoneUtils.screenWidth / 2), startY, calendarLocationView.frame.size.width, calendarLocationView.frame.size.height)
         self.view.addSubview(calendarLocationView!)
-        calendarLocationView.locationButton.addTarget(self, action: Selector.init("showLocationView"), forControlEvents: UIControlEvents.TouchUpInside)
+        calendarLocationView.locationButton.addTarget(self, action: Selector.init("showLocationV"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarLocationView.calendarButton.addTarget(self, action: Selector.init("clickRiL"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarLocationView.hidden = true
     }
     
-    func showLocationView() {
+    func showLocationV() {
+        showLocationView()
         Log.printLog("显示设置位置")
     }
-    
-    func leftButtonClicked() {
-        manButton.backgroundColor = UIColor.whiteColor()
-        leftLineLabel.backgroundColor = Colors.greenColor
         
-        autoButton.backgroundColor = Colors.searchGray
-        rightLineLabel.backgroundColor = Colors.searchGray
-        
-        leftView.hidden = false
-        rightView.hidden = true
-    }
-    
-    func rightButtonClicked() {
-        manButton.backgroundColor = Colors.searchGray
-        leftLineLabel.backgroundColor = Colors.searchGray
-        
-        autoButton.backgroundColor = UIColor.whiteColor()
-        rightLineLabel.backgroundColor = Colors.greenColor
-        
-        leftView.hidden = true
-        rightView.hidden = false
-    }
-    
     func initBottomView() {
         //注: var 和 let的区别， var是变量 let是常量
         //let Object : 类型 比如CGFloat NSInterger等等
@@ -341,34 +200,5 @@ class MainViewController: BaseViewController, AMapLocationManagerDelegate, UISea
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return manlResultArray.count
-//    }
-//   
-//    //类似android的getView方法，进行生成界面和赋值
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell : UITableViewCell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-//        
-//        let info : NSDictionary = manlResultArray[indexPath.row] as! NSDictionary
-//        let province : NSString = info["admin1"] as! NSString
-//        let city : NSString = info["admin2"] as! NSString
-//        let countryInfo : NSDictionary = info["country attrs"] as! NSDictionary
-//        let countryCode : NSString = countryInfo["code"] as! NSString
-//        
-//        let cellTxt : NSString = String(format: "%@ %@ %@", city, province, countryCode)
-//        cell.textLabel?.text = String(cellTxt)
-//        return cell
-//    }
-//    
-//    //选中
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//    }
-//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-//        searchBar.resignFirstResponder()
-//        self.view.makeToastActivity()
-//        self.httpClient.searchLocationByName(searchBar.text!, tag: self.manl)
-//    }
 }
 

@@ -16,6 +16,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
 
     let forServer : NSInteger = 0
     let forGoogle : NSInteger = 1
+    var currentType : NSInteger = 0
     
     var locationButton : UIButton!
     var locationTableView : UITableView!
@@ -28,7 +29,21 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         self.title = NSLocalizedString("main_nearby_label", comment: "")
         // Do any additional setup after loading the view.
         initView()
+        refreshLocation()
     }
+    
+    override func refreshUserLocation() {
+        refreshLocation()
+    }
+    
+    func refreshLocation() {
+        let cityName = Config.getCityName().isEmpty ? NSLocalizedString("main_location_set", comment: "") : Config.getCityName()
+        locationButton.setTitle(cityName, forState: UIControlState.Normal)
+        
+        let types : NSArray = [KEYWORD_MOSQUE, KEYWORD_RESTAURANT, KEYWORD_STORE]
+        searchBYType(types[currentType] as! String)
+    }
+
 
     let cellIdentifier = "myCell"
     func initView() {
@@ -106,13 +121,13 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
             item++
         }
         self.view.addSubview(menuView)
-        
     }
     
     //菜单点击事件
     func menuClick(item : UIButton){
         menuView.hidden = true;
         let tag : NSInteger = item.tag
+        currentType = tag
         let types : NSArray = [KEYWORD_MOSQUE, KEYWORD_RESTAURANT, KEYWORD_STORE]
         searchBYType(types[tag] as! String)
     }
@@ -142,7 +157,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     }
     
     func locationSet() {
-
+        showLocationView()
     }
     
     //设置cell的高度
