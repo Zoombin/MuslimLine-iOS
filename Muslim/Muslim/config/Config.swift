@@ -370,16 +370,15 @@
         
         /**逊尼派读者*/
         static let QuranAudioReader : NSArray  = [
-            "Alafasy","Abdelbasset Abdessamad","Abdul Rahman Al_Sudais","Abdullah Ibn Ali Basfar",
-            "Ahmed Nuinaa","Ali Hajjaj Souissi","Fares Abbad","Ai Al Hudhaify","Hani Al Rifai",
+            "Shahriar Parhizgar","Alafasy","Abdelbasset Abdessamad","Abdul Rahman Al_Sudais","Abdullah Ibn Ali Basfar","Ahmed Nuinaa","Ali Hajjaj Souissi","Fares Abbad","Ai Al Hudhaify","Hani Al Rifai",
             "Khalifa Al Tunaiji","Mahmoud Ali Al Banna","Mohammad Al Tablaway","Saad Al Ghamadi",
-            "Saood ash Shuraym","Shahriar Parhizgar","Karim Masnsoori","Menshawi"
+            "Saood ash Shuraym","Karim Masnsoori","Menshawi"
         ]
         
         /**什叶派读者*/
         static let QuranAudioReaderIran : NSArray  = [
-            "Abdelbasset Abdessamad","Ahmed Nuinaa","Ali Hajjaj Souissi","Mohammad Al Tablaway",
-            "Shahriar Parhizgar","Karim Masnsoori","Menshawi"
+            "Shahriar Parhizgar","Abdelbasset Abdessamad","Ahmed Nuinaa","Ali Hajjaj Souissi","Mohammad Al Tablaway",
+            "Karim Masnsoori","Menshawi"
         ]
         
         /**逊尼派闹钟*/
