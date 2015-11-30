@@ -118,6 +118,7 @@
 		456408E11BFDC853007A217B /* ReadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456408DF1BFDC853007A217B /* ReadViewCell.xib */; };
 		457CB5051BFB0BD0009BFAC3 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5041BFB0BD0009BFAC3 /* Chapter.swift */; };
 		457CB5071BFB0EB7009BFAC3 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */; };
+		4592734D1C0C8AFA008145DB /* PrayTimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4592734C1C0C8AFA008145DB /* PrayTimeUtil.swift */; };
 		45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B321BEB24F2005B91BA /* SettingCell.swift */; };
 		45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B331BEB24F2005B91BA /* SettingCell.xib */; };
 		45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B341BEB24F2005B91BA /* SettingHead.swift */; };
@@ -329,6 +330,7 @@
 		456408DF1BFDC853007A217B /* ReadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadViewCell.xib; sourceTree = "<group>"; };
 		457CB5041BFB0BD0009BFAC3 /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		4592734C1C0C8AFA008145DB /* PrayTimeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayTimeUtil.swift; sourceTree = "<group>"; };
 		45AB3B321BEB24F2005B91BA /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		45AB3B331BEB24F2005B91BA /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		45AB3B341BEB24F2005B91BA /* SettingHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHead.swift; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 		186B5EF41BE1B1E600212049 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4592734C1C0C8AFA008145DB /* PrayTimeUtil.swift */,
 				45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */,
 				45C836671BF9A4B300069723 /* FileUtils.swift */,
 				45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */,
@@ -1032,6 +1035,7 @@
 				1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */,
 				4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */,
 				45C23D441C056216008DCCEA /* MediaSettingCell.swift in Sources */,
+				4592734D1C0C8AFA008145DB /* PrayTimeUtil.swift in Sources */,
 				182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */,
 				45C8372D1BF9D20300069723 /* unzip.c in Sources */,
 				184357A81BE9E88D00194744 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

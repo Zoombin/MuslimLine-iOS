@@ -15,7 +15,7 @@ import AVFoundation
 protocol mAlarmMediaDelegate : NSObjectProtocol {
     func loading(position:Int)
     func loadingfinish(position:Int)
-    func loadFail()
+    func loadFail(position:Int)
 }
 class AlarmMediaMr: NSObject ,httpClientDelegate{
     var isPlaying :Bool  = false //正在播放
@@ -56,11 +56,12 @@ class AlarmMediaMr: NSObject ,httpClientDelegate{
     }
     func errorResult(error : NSError, tag : NSInteger) {
         if(delegate != nil){
-            delegate?.loadFail()
+            delegate?.loadFail(mediaIndex)
         }
     }
     
-    func play(path:String){
+    func play(mediaIndex:Int,path:String){
+        self.mediaIndex = mediaIndex
         //指定音乐路径
         let url = NSURL(fileURLWithPath: path)
         audioPlayer = try? AVAudioPlayer(contentsOfURL: url)

@@ -44,6 +44,8 @@
             getAutoSwitch()
             getSlientMode()
             
+            //PrayTimeUtil.getPrayTime() //获取默认礼拜时间
+            
         }
         /**清除配置数据*/
         static func cleanData(){
@@ -221,7 +223,7 @@
             UserDefaultsUtil.saveString(String(format: "PrayTime_%d", mediaType),value: time)
         }
         static func getPrayTime(mediaType:Int) ->String{
-            return UserDefaultsUtil.getString(String(format: "AdjustPray_%d", mediaType))
+            return UserDefaultsUtil.getString(String(format: "PrayTime_%d", mediaType))
         }
         
         /**默认url*/
