@@ -74,7 +74,12 @@
     </objects>
     <resources>
         <image name="prayer_sun" width="18" height="18"/>
+<<<<<<< HEAD
         <image name="time_no_Selected" width="8" height="8"/>
+=======
+        <image name="time_no Selected" width="8" height="8"/>
+        <image name="time_no_selected" width="8" height="8"/>
+>>>>>>> e9bc628cc13faa993404cde7bd81f6265550417b
         <image name="voice_off" width="17" height="18"/>
         <image name="voice_on" width="16" height="18"/>
     </resources>

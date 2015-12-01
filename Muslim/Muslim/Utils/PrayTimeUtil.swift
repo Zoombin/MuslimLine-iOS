@@ -9,55 +9,10 @@
 import UIKit
 
 class PrayTimeUtil: NSObject {
-    var dataArray:NSMutableArray = NSMutableArray()
-    let dateFormat = NSDateFormatter()
-    
-    //初始化
-    override init() {
-        super.init()
-        getPrayTimes()
-        
-        dateFormat.dateFormat = "HH:mm"
-    }
-    
-    func getCurrentPrayTime() ->Int{
-        var index  = 0
-        let cDate = dateFormat.stringFromDate(NSDate())
-        let cDateArr = cDate.componentsSeparatedByString(":")
-        
-        var sH :String = ""
-        var cH :String = ""
-        if(dataArray.count > 0){
-            for i in 0...dataArray.count-1 {
-                let date = dataArray[i]
-                let saveDateArr = date.componentsSeparatedByString(":")
-                sH = saveDateArr[0]
-                let sM :String = saveDateArr[1]
-                
-                cH  = cDateArr[0]
-                let cM :String = cDateArr[1]
-                
-                if(Int(cH) > Int(sH)){
-                }else if(Int(cH) == Int(sH)){
-                    if(Int(cM) <= Int(sM)){
-                        index = i
-                    }
-                }else{
-                    index = i
-                }
-            }
-        }
-        if(index == 0){
-             if(Int(cH) > Int(sH)){
-                index = dataArray.count-1
-            }
-        }
-        return index
-    }
-    
     
     /**获取保存的时间*/
-    func getPrayTimes(){
+    static func getPrayTimes()->NSMutableArray{
+        let dataArray:NSMutableArray = NSMutableArray()
         for index in 0...5{
             let paryTime = Config.getPrayTime(index)
             if(paryTime.isEmpty){
@@ -65,6 +20,179 @@ class PrayTimeUtil: NSObject {
             }
             dataArray.addObject(paryTime)
         }
+        return dataArray
+    }
+    
+    static func getParyTimeLeft()->Int{
+        var leftTime = -1
+        let current = getCurrentPrayTime()
+        let next :Int
+        if(current  == 5){
+            next = 0
+        }else{
+            next = current + 1
+        }
+        var nextTime = Config.getPrayTime(next) as NSString
+        if(!nextTime.isEqualToString("")){
+            if(nextTime.rangeOfString("PM").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = nextTime.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                nextTime = String(hour)+":"+arr[1]
+            }
+            if(nextTime.rangeOfString("pm").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("pm", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = nextTime.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                nextTime = String(hour)+":"+arr[1]
+            }
+            if(nextTime.rangeOfString("AM").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            if(nextTime.rangeOfString("am").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("am", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            let nextTimeArr = nextTime.componentsSeparatedByString(":")
+            
+            
+            let zone = Config.getTimeZone()
+            let timeZone = NSTimeZone.init(name: zone)
+            let dateFormat = NSDateFormatter()
+            dateFormat.dateFormat = "HH:mm"
+            dateFormat.timeZone = timeZone
+            let cDate = dateFormat.stringFromDate(NSDate())
+            let cDateArr = cDate.componentsSeparatedByString(":")
+            
+            if(current == 5){
+                leftTime = (23 - Int(cDateArr[0])!) * 3600 + (60 - Int(cDateArr[1])!) * 60 + Int(nextTimeArr[0])! * 3600 + Int(nextTimeArr[1])! * 60
+            }else{
+                leftTime = (Int(nextTimeArr[0])! - Int(cDateArr[0])!) * 3600 + (Int(nextTimeArr[1])! - Int(cDateArr[1])!) * 60
+            }
+        }
+        return leftTime
+    }
+    
+    
+    static func getNextTimeTotal()->Int{
+        var leftTime = -1
+        let current = getCurrentPrayTime()
+        let next : Int
+        if(current  == 5){
+            next = 0
+        }else{
+            next = current+1
+        }
+        var currentTime = Config.getPrayTime(current) as NSString
+        if(!currentTime.isEqualToString("")){
+            if(currentTime.rangeOfString("PM").location != NSNotFound){
+                currentTime = currentTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = currentTime.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                currentTime = String(hour)+":"+arr[1]
+            }
+            if(currentTime.rangeOfString("pm").location != NSNotFound){
+                currentTime = currentTime.stringByReplacingOccurrencesOfString("pm", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = currentTime.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                currentTime = String(hour)+":"+arr[1]
+            }
+            if(currentTime.rangeOfString("AM").location != NSNotFound){
+                currentTime = currentTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            if(currentTime.rangeOfString("am").location != NSNotFound){
+                currentTime = currentTime.stringByReplacingOccurrencesOfString("am", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            let currentTimeArr = currentTime.componentsSeparatedByString(":")
+            
+            
+            var nextTime = Config.getPrayTime(next) as NSString
+            if(nextTime.rangeOfString("PM").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = nextTime.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                nextTime = String(hour)+":"+arr[1]
+            }
+            if(nextTime.rangeOfString("pm").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("pm", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = nextTime.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                nextTime = String(hour)+":"+arr[1]
+            }
+            if(nextTime.rangeOfString("AM").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            if(nextTime.rangeOfString("am").location != NSNotFound){
+                nextTime = nextTime.stringByReplacingOccurrencesOfString("am", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            let nextTimeArr = nextTime.componentsSeparatedByString(":")
+            
+            if(current == 5){
+                leftTime = (23 - Int(currentTimeArr[0])!) * 3600 + (60 - Int(currentTimeArr[1])!) * 60 + Int(nextTimeArr[0])! * 3600 + Int(nextTimeArr[1])!*60
+            }else{
+                leftTime = (Int(nextTimeArr[0])! - Int(currentTimeArr[0])!) * 3600 + (Int(nextTimeArr[1])! - Int(currentTimeArr[1])!) * 60
+            }
+            
+        }
+        return leftTime
+    }
+
+    
+    
+    
+    /**获取当前礼拜时间*/
+    static func getCurrentPrayTime() ->Int{
+        let dataArray:NSMutableArray = getPrayTimes()
+        var index  = -1
+        let zone = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: zone)
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "HH:mm"
+        dateFormat.timeZone = timeZone
+        let cDate = dateFormat.stringFromDate(NSDate())
+        let cDateArr = cDate.componentsSeparatedByString(":")
+        
+        var sH :String = ""
+        var cH :String = ""
+        if(dataArray.count > 0){
+            for var i = dataArray.count-1 ; i >= 0; i-- {
+                var date = dataArray[i]
+                if(date.rangeOfString("PM").location != NSNotFound){
+                    date = date.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                    let arr = date.componentsSeparatedByString(":")
+                    let hour = Int(arr[0])!+12
+                    date = String(hour)+":"+arr[1]
+                }
+                if(date.rangeOfString("pm").location != NSNotFound){
+                    date = date.stringByReplacingOccurrencesOfString("pm", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                    let arr = date.componentsSeparatedByString(":")
+                    let hour = Int(arr[0])!+12
+                    date = String(hour)+":"+arr[1]
+                }
+                if(date.rangeOfString("AM").location != NSNotFound){
+                    date = date.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                }
+                if(date.rangeOfString("am").location != NSNotFound){
+                    date = date.stringByReplacingOccurrencesOfString("am", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                }
+                
+                let saveDateArr = date.componentsSeparatedByString(":")
+                sH = saveDateArr[0]
+                let sM :String = saveDateArr[1]
+                
+                cH  = cDateArr[0]
+                let cM :String = cDateArr[1]
+                if(Int(cH) > Int(sH)){
+                    index = i
+                    break
+                }else if(Int(cH) == Int(sH)){
+                    if(Int(cM) >= Int(sM)){
+                        index = i
+                        break
+                    }
+                }
+            }
+        }
+        return index
     }
     
     /**获取礼拜时间算法*/

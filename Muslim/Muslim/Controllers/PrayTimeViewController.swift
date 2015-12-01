@@ -16,6 +16,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     var calendarView : CalendarView!
     var prayTimes : NSMutableArray = NSMutableArray()
     var currentTime : Double = NSDate().timeIntervalSince1970
+    var currentPrayTime = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewDidDisappear(animated: Bool) {
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
     }
     
@@ -99,6 +101,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         }
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
     }
     
@@ -106,6 +109,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         currentTime = currentTime - (60 * 60 * 24)
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
     }
     
@@ -113,6 +117,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         currentTime = currentTime + (60 * 60 * 24)
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
     }
     
@@ -153,6 +158,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         super.viewDidAppear(animated)
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
     }
     
@@ -161,6 +167,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         refreshLocation()
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
     }
     
@@ -206,6 +213,11 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
                 prayTime = "00:00"
             }
             prayCell.prayTimeLabel.text = prayTime.uppercaseString
+            if(currentPrayTime == indexPath.row){
+                prayCell.timeSelectedButton.setImage(UIImage(named: "time_selected"), forState: UIControlState.Normal)
+            }else{
+                prayCell.timeSelectedButton.setImage(UIImage(named: "time_no_selected"), forState: UIControlState.Normal)
+            }
         }
         return prayCell
     }
