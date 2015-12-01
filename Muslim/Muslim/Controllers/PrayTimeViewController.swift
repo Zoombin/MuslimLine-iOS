@@ -251,6 +251,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         dateFormat.dateFormat = "HH:mm"
         let adjustArray : NSMutableArray = NSMutableArray()
         //手动调整
+        /*
         for index in 0...prayTimes.count-1 {
             let pray = prayTimes[index]
             let date : NSDate = dateFormat.dateFromString(pray as! String)!
@@ -260,8 +261,10 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             Config.savePrayTime(index, time: newPray)//保存最终设置的礼拜时间
             adjustArray.addObject(newPray)
         }
+
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(adjustArray as [AnyObject])
+        */
         
         tableView.reloadData()
     }

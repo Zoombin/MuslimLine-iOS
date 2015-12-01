@@ -19,6 +19,7 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
     
     var dataArray : NSArray = NSArray()
     var mp3Array : NSArray = NSArray()
+    var statusArray :NSMutableArray = NSMutableArray()
     var select : Int = 0
     
     
@@ -49,24 +50,35 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
             mp3Array = Config.alarm_type_files_sunni
             dataArray = Config.alarm_type_sunni
         }
+        for index in 0...mp3Array.count-1 {
+            let path = AlarmMediaMr.getAlarmMediaPath() + (mp3Array[index] as! String)
+            if(NSFileManager.defaultManager().fileExistsAtPath (path)){
+                statusArray[index] = 1   //1: 存在， 0不存在， -1真正下载
+            }else{
+                statusArray[index] = 0
+            }
+        }
         mTableView.reloadData()
     }
     
     func loading(position:Int){
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: position, inSection: 0)
-        let cell : MediaSettingCell =  mTableView.cellForRowAtIndexPath(indexPath) as! MediaSettingCell
-        cell.ivStatus.hidden = true
-        cell.ivPro.hidden = false
-        cell.ivPro.startAnimating()
+        statusArray[position] = -1
+        mTableView.reloadData()
     }
     func loadingfinish(position:Int){
+        select = position
         let mp3Name = mp3Array[position] as! String
         let path = AlarmMediaMr.getAlarmMediaPath() + mp3Name
-        AlarmMediaMr.getInstance().play(path)
+        AlarmMediaMr.getInstance().stop()
+        AlarmMediaMr.getInstance().play(position,path:path)
         saveSelect(position)
+        
+        statusArray[position] = 1
+        mTableView.reloadData()
     }
-    func loadFail(){
+    func loadFail(position:Int){
         self.view.makeToast(message: "下载失败")
+        statusArray[position] = 0
         mTableView.reloadData()
     }
     
@@ -91,15 +103,20 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         }
         cell.tvTitle.text = dataArray[row] as? String
         cell.ivPro.hidden = true
+        cell.ivPro.stopAnimating()
         cell.ivStatus.hidden = false
-        cell.ivStatus.stopAnimating()
         if(select == row){
             cell.ivStatus.image = UIImage(named: "prayer_sound_selected")
         }else{
-            let path = AlarmMediaMr.getAlarmMediaPath() + (mp3Array[row] as! String)
-            if(NSFileManager.defaultManager().fileExistsAtPath (path)){
-                 cell.ivStatus.hidden = true
+            let statu :Int = statusArray[row] as! Int
+            if( statu == -1){
+                cell.ivStatus.hidden = true
+                cell.ivPro.hidden = false
+                cell.ivPro.startAnimating()
+            }else if(statu == 1){
+                cell.ivStatus.hidden = true
             }else{
+                cell.ivStatus.hidden = false
                 cell.ivStatus.image = UIImage(named: "prayer_download")
             }
         }
@@ -110,7 +127,10 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
     //item点击
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        AlarmMediaMr.getInstance().stop()
+        if(AlarmMediaMr.getInstance().isPlaying && AlarmMediaMr.getInstance().mediaIndex == indexPath.row){
+            AlarmMediaMr.getInstance().stop()
+            return
+        }
         let row =  indexPath.row
         if(row == 0){
             saveSelect(row)
@@ -125,13 +145,15 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
             //2 默认
             let defalt = NSBundle.mainBundle().pathForResource("aghati", ofType: "mp3")
             saveSelect(row)
-            AlarmMediaMr.getInstance().play(defalt!)
+            AlarmMediaMr.getInstance().stop()
+            AlarmMediaMr.getInstance().play(row,path:defalt!)
             return
         }else{
             let path = AlarmMediaMr.getAlarmMediaPath() + mp3Name
             if(NSFileManager.defaultManager().fileExistsAtPath (path)){
                 saveSelect(row)
-                AlarmMediaMr.getInstance().play(path)
+                AlarmMediaMr.getInstance().stop()
+                AlarmMediaMr.getInstance().play(row,path:path)
             }else{
                 AlarmMediaMr.getInstance().loadNewAlarmMedia(row)
             }
