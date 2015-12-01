@@ -23,6 +23,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     var httpClient : MSLHttpClient = MSLHttpClient()
     var resultArray : NSMutableArray = NSMutableArray()
     var menuView : UIView!
+    let imgs : [String] = ["mosque", "noodles", "store"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,14 +90,13 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     func initMenuView(){
         let itemHight:CGFloat = 50
         let menuWidth:CGFloat = 180
-        let menuHight:CGFloat = itemHight * 5
+        let menuHight:CGFloat = itemHight * 3
         let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
         let menuY :CGFloat = 64;
         menuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
         menuView.backgroundColor = UIColor.whiteColor()
         menuView.hidden = true;
 
-        let imgs : [String] = ["mosque", "noodles", "store"]
         let titles : [String] = [NSLocalizedString("keyword_mosque", comment:""), NSLocalizedString("keyword_restaurant", comment:""),
             NSLocalizedString("keyword_store", comment:"")]
         
@@ -128,6 +128,8 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         menuView.hidden = true;
         let tag : NSInteger = item.tag
         currentType = tag
+        let rightImage : UIImage =  UIImage(named: imgs[currentType])!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
         let types : NSArray = [KEYWORD_MOSQUE, KEYWORD_RESTAURANT, KEYWORD_STORE]
         searchBYType(types[tag] as! String)
     }
