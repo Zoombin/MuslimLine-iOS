@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, LocationSettingDelegate {
+class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsDelegate {
     var popMenuView : UIView!
     var locationSettingView : LocationSettingView!
 
@@ -81,6 +81,8 @@ class BaseViewController: UIViewController, LocationSettingDelegate {
         let tag : NSInteger = item.tag
         if (tag == 0) {
             //分享
+            ShareUtils.shared().delegate = self
+            ShareUtils.shared().getShareContent()
         }
         else if (tag == 1) {
             //设置
@@ -109,7 +111,16 @@ class BaseViewController: UIViewController, LocationSettingDelegate {
         self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("back", comment: ""), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
         self.navigationController?.pushViewController(to, animated: true)
     }
-
+    
+    func appShareContent(content : String) {
+        let shareViewController = UIActivityViewController.init(activityItems: [content], applicationActivities: nil)
+        self.navigationController?.presentViewController(shareViewController, animated: true, completion: nil)
+    }
+    
+    func getAppShareContentFail() {
+        self.view.makeToast(message: NSLocalizedString("net_err", comment: ""))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

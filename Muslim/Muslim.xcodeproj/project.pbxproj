@@ -61,6 +61,7 @@
 		1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185556581BF0734E00A29B49 /* PrayTimeCell.xib */; };
 		1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855565B1BF08F6000A29B49 /* CalendarView.swift */; };
 		1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1855565D1BF097C200A29B49 /* CalendarView.xib */; };
+		1864E0411C0D50D800D634E8 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864E0401C0D50D800D634E8 /* ShareUtils.swift */; };
 		1875BF901BFAD95500A4EEA3 /* CalendarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */; };
 		1875BF921BFB142800A4EEA3 /* CalendarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */; };
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
@@ -265,6 +266,7 @@
 		185556581BF0734E00A29B49 /* PrayTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrayTimeCell.xib; path = ../Models/PrayTimeCell.xib; sourceTree = "<group>"; };
 		1855565B1BF08F6000A29B49 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		1855565D1BF097C200A29B49 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
+		1864E0401C0D50D800D634E8 /* ShareUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtils.swift; sourceTree = "<group>"; };
 		1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarButton.swift; sourceTree = "<group>"; };
 		1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarUtils.swift; sourceTree = "<group>"; };
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -643,6 +645,7 @@
 				18C320361BFF27A80087E359 /* Log.swift */,
 				45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */,
 				45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */,
+				1864E0401C0D50D800D634E8 /* ShareUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1057,6 +1060,7 @@
 				45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */,
 				1843574D1BE9E88D00194744 /* AFHTTPRequestOperation.m in Sources */,
 				185556521BF03F5900A29B49 /* PrayTime.m in Sources */,
+				1864E0411C0D50D800D634E8 /* ShareUtils.swift in Sources */,
 				451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */,
 				183ECFCF1BF9D350003FB90C /* CalendarCell.swift in Sources */,
 				185051731BEF8664000B5D3F /* ManlResult.swift in Sources */,

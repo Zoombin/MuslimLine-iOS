@@ -97,6 +97,57 @@ class MSLHttpClient: NSObject {
                 }
         }
     }
+    
+    func getFeedBack(tag : NSInteger) {
+        let urlString : String = Config.getUrl()
+        if (urlString.isEmpty) {
+            let urlString : String = "http://www.muslimsline.com/config/website.json"
+            let manager = AFHTTPRequestOperationManager()
+            manager.GET(urlString, parameters: nil, success:
+                { (operation, responseObject) -> Void in
+                    let urls = (responseObject as! NSDictionary)["urls"]
+                    if (urls == nil) {
+                        return
+                    }
+                    let arrayCount : NSInteger = urls!.count
+                    for index in 0...arrayCount - 1 {
+                        let info = (urls as! NSArray)[index]
+                        if (info["name"] as! String == "defualt") {
+                            let url : String =  info["url"] as! String
+                            Config.saveUrl(url)
+                            self.getFeedBack(url, tag: tag)
+                        }
+                    }
+                }) { (operation, error) -> Void in
+                    if (self.delegate != nil) {
+                        self.delegate!.errorResult(error, tag: tag)
+                    }
+            }
+            return
+        }
+        getFeedBack(urlString, tag: tag)
+    }
+    
+    func getFeedBack(urlString : String, tag : NSInteger) {
+        let manager = AFHTTPRequestOperationManager()
+        
+        //TODO: 下面这句话一定要加，不然会失败
+        manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
+        let params : NSMutableDictionary = NSMutableDictionary()
+        params["Action"] = "1005"
+//        params["channel"] = ""
+        
+        manager.POST(urlString, parameters: params, success:
+            { (operation, responseObject) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.succssResult(responseObject as! NSDictionary, tag: tag)
+                }
+            }) { (operation, error) -> Void in
+                if (self.delegate != nil) {
+                    self.delegate!.errorResult(error, tag: tag)
+                }
+        }
+    }
 
     func getTimezoneAndCountryName(lat : Double, lng : Double, tag : NSInteger) {
         let urlString : String = String(format:"http://api.geonames.org/timezoneJSON?lat=%f&lng=%f&username=daiye", lat, lng)

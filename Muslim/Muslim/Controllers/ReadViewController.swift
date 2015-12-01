@@ -390,32 +390,14 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
                 break
             }
         }
-        if(202 == tag){
-            //分享
-            switch(buttonIndex){
-            case 0:
-                //电子邮件
-                break
-            case 1:
-                //短信
-                break
-            default:
-                break
-            }
-        }
     }
     
     //分享
     func share(){
-        let actionSheet = UIActionSheet()
-        actionSheet.tag = 202
-        actionSheet.title = "分享"
-        actionSheet.delegate = self
-        actionSheet.addButtonWithTitle("电子邮件")
-        actionSheet.addButtonWithTitle("短信")
-        actionSheet.addButtonWithTitle("取消")
-        actionSheet.cancelButtonIndex = 2
-        actionSheet.showInView(self.view)
+        let quran : Quran = quranArray[select] as! Quran
+        let content = String(format: "%@\n%@", quran.text!, quran.text_zh!)
+        let shareViewController = UIActivityViewController.init(activityItems: [content], applicationActivities: nil)
+        self.navigationController?.presentViewController(shareViewController, animated: true, completion: nil)
     }
     
     //复制
