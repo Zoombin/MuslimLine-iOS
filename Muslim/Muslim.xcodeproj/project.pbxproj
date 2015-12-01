@@ -918,15 +918,7 @@
 				TargetAttributes = {
 					1887FCFE1BD7387400CB83D5 = {
 						CreatedOnToolsVersion = 7.0.1;
-<<<<<<< HEAD
 						DevelopmentTeam = 53X7CJSLFN;
-=======
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 0;
-							};
-						};
->>>>>>> a49a780641272585cb04ce8cd70eefea0d3ee4ee
 					};
 					1887FD121BD7387400CB83D5 = {
 						CreatedOnToolsVersion = 7.0.1;
