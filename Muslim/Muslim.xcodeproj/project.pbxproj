@@ -62,6 +62,7 @@
 		1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855565B1BF08F6000A29B49 /* CalendarView.swift */; };
 		1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1855565D1BF097C200A29B49 /* CalendarView.xib */; };
 		1864E0411C0D50D800D634E8 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864E0401C0D50D800D634E8 /* ShareUtils.swift */; };
+		1864E0431C0D763A00D634E8 /* LocalNoticationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864E0421C0D763A00D634E8 /* LocalNoticationUtils.swift */; };
 		1875BF901BFAD95500A4EEA3 /* CalendarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */; };
 		1875BF921BFB142800A4EEA3 /* CalendarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */; };
 		1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD021BD7387400CB83D5 /* AppDelegate.swift */; };
@@ -75,7 +76,6 @@
 		18ADB8D91BE363C400FA387E /* SegmentedControlUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D81BE363C400FA387E /* SegmentedControlUtil.swift */; };
 		18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8DA1BE3651A00FA387E /* Constants.swift */; };
 		18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8E01BE374C200FA387E /* Localizable.strings */; };
-		18BED7561BE855C300418054 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BED7551BE855C300418054 /* AMapLocationKit.framework */; };
 		18BED7581BE855E300418054 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BED7571BE855E300418054 /* CoreTelephony.framework */; };
 		18BED75A1BE855EC00418054 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BED7591BE855EC00418054 /* SystemConfiguration.framework */; };
 		18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BED75B1BE855F300418054 /* CoreLocation.framework */; };
@@ -267,6 +267,7 @@
 		1855565B1BF08F6000A29B49 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		1855565D1BF097C200A29B49 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		1864E0401C0D50D800D634E8 /* ShareUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtils.swift; sourceTree = "<group>"; };
+		1864E0421C0D763A00D634E8 /* LocalNoticationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNoticationUtils.swift; sourceTree = "<group>"; };
 		1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarButton.swift; sourceTree = "<group>"; };
 		1875BF911BFB142800A4EEA3 /* CalendarUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarUtils.swift; sourceTree = "<group>"; };
 		1887FCFF1BD7387400CB83D5 /* Muslim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muslim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,7 +289,6 @@
 		18ADB8DF1BE374C200FA387E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		18ADB8E11BE374CD00FA387E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		18BED7541BE853C200418054 /* Muslim-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Muslim-Bridging-Header.h"; sourceTree = "<group>"; };
-		18BED7551BE855C300418054 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		18BED7571BE855E300418054 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		18BED7591BE855EC00418054 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18BED75B1BE855F300418054 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -392,7 +392,6 @@
 				18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */,
 				18BED75A1BE855EC00418054 /* SystemConfiguration.framework in Frameworks */,
 				18BED7581BE855E300418054 /* CoreTelephony.framework in Frameworks */,
-				18BED7561BE855C300418054 /* AMapLocationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +645,7 @@
 				45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */,
 				45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */,
 				1864E0401C0D50D800D634E8 /* ShareUtils.swift */,
+				1864E0421C0D763A00D634E8 /* LocalNoticationUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -768,17 +768,8 @@
 			isa = PBXGroup;
 			children = (
 				1855564F1BF03F5900A29B49 /* PrayTimes */,
-				18BED7371BE84F1E00418054 /* Amap */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		18BED7371BE84F1E00418054 /* Amap */ = {
-			isa = PBXGroup;
-			children = (
-				18BED7551BE855C300418054 /* AMapLocationKit.framework */,
-			);
-			path = Amap;
 			sourceTree = "<group>";
 		};
 		18BED73A1BE84F2600418054 /* Framework */ = {
@@ -927,6 +918,11 @@
 				TargetAttributes = {
 					1887FCFE1BD7387400CB83D5 = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					1887FD121BD7387400CB83D5 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -1095,6 +1091,7 @@
 				45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */,
 				183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */,
 				18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */,
+				1864E0431C0D763A00D634E8 /* LocalNoticationUtils.swift in Sources */,
 				45C23D411C05604A008DCCEA /* MediaSettingViewController.swift in Sources */,
 				18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */,
 				45C8372C1BF9D20300069723 /* mztools.c in Sources */,
