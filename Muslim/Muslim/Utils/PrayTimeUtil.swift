@@ -69,14 +69,15 @@ class PrayTimeUtil: NSObject {
     
     /**获取礼拜时间算法*/
     static func getPrayTime()->NSMutableArray{
-        let prayTimes : NSMutableArray = NSMutableArray()
+        let prayTimes:NSMutableArray = NSMutableArray()
         let prayTime = PrayTime();
         prayTime.setCalcMethod(Int32(3))
         prayTime.setAsrMethod(Int32(Config.getAsrCalculationjuristicMethod()))
         prayTime.setTimeFormat(Config.getTimeFormat() == 0 ? Int32(prayTime.Time24) : Int32(prayTime.Time12))
         prayTime.setHighLatsMethod(Int32(prayTime.AngleBased))
         
-        let date = NSDate(timeIntervalSince1970: NSDate().timeIntervalSince1970)
+        let currentTime : Double = NSDate().timeIntervalSince1970
+        let date = NSDate(timeIntervalSince1970: currentTime)
         let calendar = NSCalendar.currentCalendar()
         
         let flags = NSCalendarUnit(rawValue: UInt.max)
@@ -89,8 +90,10 @@ class PrayTimeUtil: NSObject {
             prayTimes.removeAllObjects()
             return prayTimes
         }
-        
-        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: Double(Config.getTimeZone())!) as NSMutableArray
+        let timeZoneString = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: timeZoneString)
+        let zone = Double((timeZone?.secondsFromGMT)! / 3600)
+        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: zone) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
         if (prayTimes.count == 7) {
@@ -98,24 +101,63 @@ class PrayTimeUtil: NSObject {
             prayTimes.removeObjectAtIndex(4)
         }
         
-        
+        //手动调整
+        //start
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "HH:mm"
         let adjustArray : NSMutableArray = NSMutableArray()
-        //手动调整
-        
         for index in 0...prayTimes.count-1 {
-            let pray = prayTimes[index]
-            let date : NSDate = dateFormat.dateFromString(pray as! String)!
+            var pray :NSString = prayTimes[index]  as! NSString
+            var replaceType = 0
+            if(pray.rangeOfString("PM").location != NSNotFound){
+                replaceType = 1
+                pray = pray.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = pray.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                pray = String(hour)+":"+arr[1]
+            }
+            if(pray.rangeOfString("pm").location != NSNotFound){
+                replaceType = 2
+                pray = pray.stringByReplacingOccurrencesOfString("pm", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                let arr = pray.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!+12
+                pray = String(hour)+":"+arr[1]
+            }
+            if(pray.rangeOfString("AM").location != NSNotFound){
+                replaceType = 3
+                pray = pray.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            if(pray.rangeOfString("am").location != NSNotFound){
+                replaceType = 4
+                pray = pray.stringByReplacingOccurrencesOfString("am", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+            let date : NSDate = dateFormat.dateFromString(pray as String)!
             let adjust = Config.getAdjustPray(index) //获取手动调整时间
-            let newDate =  NSDate(timeInterval: Double(( adjust - 60 )*60), sinceDate: date)//保存的是位置，时间要减去60
-            let newPray = dateFormat.stringFromDate(newDate)
+            let newDate =  NSDate(timeInterval: Double(( adjust - 60 ) * 60), sinceDate: date)//保存的是位置，时间要减去60
+            var newPray = dateFormat.stringFromDate(newDate)
+            if(replaceType == 1){
+                let arr = newPray.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!-12
+                newPray = String(hour)+":"+arr[1]+" PM"
+            }
+            if(replaceType == 2){
+                let arr = newPray.componentsSeparatedByString(":")
+                let hour = Int(arr[0])!-12
+                newPray = String(hour)+":"+arr[1]+" pm"
+            }
+            if(replaceType == 3){
+                newPray = newPray + " AM"
+            }
+            if(replaceType == 4){
+                newPray = newPray + " am"
+            }
             Config.savePrayTime(index, time: newPray)//保存最终设置的礼拜时间
             adjustArray.addObject(newPray)
         }
-
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(adjustArray as [AnyObject])
+        //end
+        
         return prayTimes
     }
 

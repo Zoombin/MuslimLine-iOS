@@ -44,7 +44,7 @@
             getAutoSwitch()
             getSlientMode()
             
-            //PrayTimeUtil.getPrayTime() //获取默认礼拜时间
+            PrayTimeUtil.getPrayTime() //获取默认礼拜时间
             
         }
         /**清除配置数据*/
