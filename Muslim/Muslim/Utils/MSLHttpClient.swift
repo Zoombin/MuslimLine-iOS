@@ -206,12 +206,38 @@ class MSLHttpClient: NSObject {
         }
     }
     
-    /**反馈*/
-    func sendFeedback(message:String,tag:NSInteger){
-        var urlString :String = Config.getUrl()
-        if(urlString.isEmpty){
-            urlString = defalturl
+    func sendFeedback(message:String,tag:NSInteger) {
+        let urlString : String = Config.getUrl()
+        if (urlString.isEmpty) {
+            let urlString : String = "http://www.muslimsline.com/config/website.json"
+            let manager = AFHTTPRequestOperationManager()
+            manager.GET(urlString, parameters: nil, success:
+                { (operation, responseObject) -> Void in
+                    let urls = (responseObject as! NSDictionary)["urls"]
+                    if (urls == nil) {
+                        return
+                    }
+                    let arrayCount : NSInteger = urls!.count
+                    for index in 0...arrayCount - 1 {
+                        let info = (urls as! NSArray)[index]
+                        if (info["name"] as! String == "defualt") {
+                            let url : String =  info["url"] as! String
+                            Config.saveUrl(url)
+                            self.sendFeedback(url, message: message, tag: tag)
+                        }
+                    }
+                }) { (operation, error) -> Void in
+                    if (self.delegate != nil) {
+                        self.delegate!.errorResult(error, tag: tag)
+                    }
+            }
+            return
         }
+        sendFeedback(urlString, message: message, tag: tag)
+    }
+    
+    /**反馈*/
+    func sendFeedback(urlString : String, message:String,tag:NSInteger) {
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
