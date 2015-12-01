@@ -32,8 +32,10 @@ class CalendarUtils: NSObject {
     static func getDate() -> String {
         let timeFormat = Config.getTimeFormat()
         let date = NSDate()
-//        let zone = Config.getTimeZone()
+        let zone = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: zone)
         let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = timeZone
         if (timeFormat == 0) {
             //24
             dateFormatter.dateFormat = "HH:mm"
@@ -48,7 +50,10 @@ class CalendarUtils: NSObject {
     
     static func getWeek() -> String {
         let date = NSDate()
+        let zone = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: zone)
         let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = timeZone
         dateFormatter.dateFormat = "EEE"
         return dateFormatter.stringFromDate(date)
     }

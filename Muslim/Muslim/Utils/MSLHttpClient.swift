@@ -134,7 +134,8 @@ class MSLHttpClient: NSObject {
     
     func searchLocationByName(cityName : String, tag : NSInteger) {
         var urlString : String = "http://where.yahooapis.com/v1/places.q(%22cityName%22%2A);count=10"
-        urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: cityName)
+        let city = cityName.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+        urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: city)
         
         let manager = AFHTTPRequestOperationManager()
         let params : NSMutableDictionary = NSMutableDictionary()

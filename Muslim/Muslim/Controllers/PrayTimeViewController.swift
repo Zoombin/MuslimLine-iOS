@@ -235,8 +235,10 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             tableView.reloadData()
             return
         }
-
-        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: 8) as NSMutableArray
+        let timeZoneString = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: timeZoneString)
+        let zone = Double((timeZone?.secondsFromGMT)! / 3600)
+        let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: zone) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
         if (prayTimes.count == 7) {
