@@ -133,7 +133,10 @@ class CalendarViewController: UIViewController {
         let startX : CGFloat = 20
         let offSetX =  (PhoneUtils.screenWidth - (startX * 2) -  CGFloat(rowCount) * CGFloat(buttonWidth)) / (rowCount - 1)
         
-        let weeks : [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        var weeks : [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        if (Config.getCalenderSelection() == 1) {
+            weeks = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
+        }
         for index in 0...6 {
             let weekLabel : UILabel = UILabel()
             weekLabel.frame = CGRectMake(startX + offSetX * CGFloat(index) + CGFloat(index) * buttonWidth, CGRectGetMinY(calendarView.frame) - buttonHeight, buttonWidth, buttonHeight)
@@ -185,6 +188,9 @@ class CalendarViewController: UIViewController {
         yearMonthLabel.text = String(format:"%@%d/%d", firstComponents.month > 9 ? "" : "0", mslMonth!, mslYear!)
         
         var day = firstComponents.day + firstComponents.weekday + 5
+        if (Config.getCalenderSelection() == 1) {
+            day = day + 2
+        }
         if (day > 7) {
             day = day - 7
         }

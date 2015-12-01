@@ -6,7 +6,7 @@
 //  Copyright © 2015年 ZoomBin. All rights reserved.
 //
 
-#import <AMapLocationKit/AMapLocationKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "AFNetworking.h"
 #import "PrayTime.h"
 #import "FMDB.h"
