@@ -12,6 +12,7 @@ class MainViewController: BaseViewController {
     var noticeView : NoticeView!
     var calendarLocationView : CalendarLocationView!
     let topSearchView : UIView = UIView()
+    var currentPrayTime : Int?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -51,7 +52,17 @@ class MainViewController: BaseViewController {
         calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
         CalendarUtils.getDate()
         noticeView.currentTimeLabel.text = CalendarUtils.getDate()
-        noticeView.currentProgress(0.7)
+        currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
+        let nextPrayTime :Int
+        if(currentPrayTime == 5){
+            //第一个
+            nextPrayTime = 0
+        }else{
+            nextPrayTime = currentPrayTime! + 1
+        }
+        noticeView.prayNameLabel.text = Config.PrayNameArray[nextPrayTime] as? String
+        //noticeView.currentProgress(0.7)
+        refrashTimeLeft()
         
         calendarLocationView.yearMonthLabel.text = String(format: "%d/%d", CalendarUtils.currentComponents().month, CalendarUtils.currentComponents().year)
         calendarLocationView.dayLabel.text = String(CalendarUtils.currentComponents().day)
@@ -157,6 +168,45 @@ class MainViewController: BaseViewController {
             titleLabel.text = titles[index]
             button.addSubview(titleLabel)
             position++
+        }
+    }
+    
+    var timer :NSTimer?
+    var timeLeft : Int = -1
+    var nextTotal :Int = -1
+    func refrashTimeLeft(){
+        timeLeft = PrayTimeUtil.getParyTimeLeft()
+        nextTotal = PrayTimeUtil.getNextTimeTotal()
+        noticeView.currentProgress(Double(timeLeft) / Double(nextTotal))
+        
+        if(timeLeft != -1){
+            if(timer != nil){
+            }else{
+                timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector.init("timerStep"), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    func timerStep() {
+        timeLeft--
+        if( timeLeft <= 0 ){
+            //重新计算下一个
+            refreshUserLocation()
+        }else{
+            let hour = timeLeft / 3600
+            let min = (timeLeft-(hour*3600))/60
+            let second = timeLeft - (hour*3600) - (min*60)
+            let hTxt : String = hour < 10 ? "0" + String(hour) : String(hour)
+            let mTxt : String = min < 10 ? "0" + String(min) : String(min)
+            let sTxt : String = second < 10 ? "0" + String(second) : String(second)
+            let leftTxt = "-" + hTxt + ":" + mTxt + ":" + sTxt
+            noticeView.leftTimeButton.setTitle(leftTxt, forState: UIControlState.Normal)
+            
+            
+            if(second == 0){
+                //一分钟再刷新一次
+                refreshUserLocation()
+            }
         }
     }
     
