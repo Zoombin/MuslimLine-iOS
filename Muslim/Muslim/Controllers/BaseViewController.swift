@@ -84,7 +84,7 @@ class BaseViewController: UIViewController, LocationSettingDelegate {
         }
         else if (tag == 1) {
             //设置
-            let settingsViewController = SettingsViewController()
+            let settingsViewController = SettingsViewController(nibName:"SettingsViewController", bundle: nil)
             self.pushViewController(settingsViewController)
         }
         else if (tag == 2) {

@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         self.window!.backgroundColor = UIColor.whiteColor()
-        let logoVC = LogoViewController(nibName:nil, bundle: nil)
+        let logoVC = LogoViewController(nibName:"LogoViewController", bundle: nil)
         self.window!.rootViewController = logoVC
         self.window!.makeKeyAndVisible()
         return true
     }
     
     func initMainVC() {
-        let vc = MainViewController(nibName:nil, bundle: nil)
+        let vc = MainViewController(nibName:"MainViewController", bundle: nil)
         //创建导航控制器
         let nvc = UINavigationController(rootViewController:vc)
         //设置根视图

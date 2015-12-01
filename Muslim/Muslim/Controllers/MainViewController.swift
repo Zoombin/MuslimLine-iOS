@@ -162,31 +162,31 @@ class MainViewController: BaseViewController {
     
     //古兰经
     func clickGuLj() {
-        let guLJViewController = GuLJViewController()
+        let guLJViewController = GuLJViewController(nibName:"GuLJViewController", bundle: nil)
         self.pushViewController(guLJViewController)
     }
     
     //天房方向
     func clickTianFFX() {
-        let houseLocationViewController = HouseLocationViewController()
+        let houseLocationViewController = HouseLocationViewController(nibName:"HouseLocationViewController", bundle: nil)
         self.pushViewController(houseLocationViewController)
     }
     
     //礼拜时间
     func clickLiBSJ() {
-        let prayTimeViewController : PrayTimeViewController = PrayTimeViewController()
+        let prayTimeViewController : PrayTimeViewController = PrayTimeViewController(nibName:"PrayTimeViewController", bundle: nil)
         self.pushViewController(prayTimeViewController)
     }
     
     //附近位置
     func clickFuJWZ() {
-        let nearbyViewController : NearbyViewController = NearbyViewController()
+        let nearbyViewController : NearbyViewController = NearbyViewController(nibName:"NearbyViewController", bundle: nil)
         self.pushViewController(nearbyViewController)
     }
     
     //日历
     func clickRiL() {
-        let calendarViewController : CalendarViewController = CalendarViewController()
+        let calendarViewController : CalendarViewController = CalendarViewController(nibName:"CalendarViewController", bundle: nil)
         self.pushViewController(calendarViewController)
     }
     
