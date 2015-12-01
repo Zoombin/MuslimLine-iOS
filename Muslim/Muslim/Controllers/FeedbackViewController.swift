@@ -27,6 +27,7 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
     func succssResult(result: NSObject, tag : NSInteger) {
         self.view.hideToastActivity()
         self.view.makeToast(message: "发送成功")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     func errorResult(error : NSError, tag : NSInteger) {
         self.view.hideToastActivity()

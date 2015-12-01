@@ -129,6 +129,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         readLeftView = nibsL.lastObject as? ReadLeftView
         readLeftView.ivBack.tag = bt_back
         readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        readLeftView.btBack.tag = bt_back
+        readLeftView.btBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftView)
     }
     

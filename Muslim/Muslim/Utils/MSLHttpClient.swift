@@ -216,11 +216,11 @@ class MSLHttpClient: NSObject {
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
         params["Action"] = "1003"
-        params["imsi"] = "" //获取设备IMSI
-        params["imei"] = "" //获取设备IMEI
-        params["model"] = "" //获取设备型号
-        params["display"] = "" //获取系统版本号
-        params["device"] = "" //获取设备名称
+        params["imsi"] = "13" //获取设备IMSI
+        params["imei"] = "434" //获取设备IMEI
+        params["model"] = "ios" //获取设备型号
+        params["display"] = "8.0" //获取系统版本号
+        params["device"] = "ios" //获取设备名称
         params["message"] = message
         manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in

@@ -10,6 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsDelegate {
     var popMenuView : UIView!
+    var fullPopView : UIView!
     var locationSettingView : LocationSettingView!
 
     override func viewDidLoad() {
@@ -43,14 +44,20 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     
     //通用的菜单弹出界面
     func initPopMenuView(){
+        fullPopView = UIView(frame: CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight))
+        fullPopView.backgroundColor = Colors.transparent
+        fullPopView.hidden = true;
+        let tagGestureLable : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("showOrHidePopView"))
+        fullPopView.addGestureRecognizer(tagGestureLable);
+        
         let itemHight:CGFloat = 40
         let menuWidth:CGFloat = 150
         let menuHight:CGFloat = itemHight * 4
         let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
-        let menuY :CGFloat = 64;
+        let menuY :CGFloat = 0;
         popMenuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
         popMenuView.backgroundColor = UIColor.whiteColor()
-        popMenuView.hidden = true;
+        
         
         let titles : [String] = [NSLocalizedString("share", comment:""),
             NSLocalizedString("settings_title", comment:""), NSLocalizedString("about", comment:""),
@@ -72,12 +79,13 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
             popMenuView.addSubview(button)
             item++
         }
-        self.view.addSubview(popMenuView)
+        fullPopView.addSubview(popMenuView)
+        self.view.addSubview(fullPopView)
     }
     
     //弹出菜单点击事件
     func popMenuClick(item : UIButton){
-        popMenuView.hidden = true;
+        showOrHidePopView()
         let tag : NSInteger = item.tag
         if (tag == 0) {
             //分享
@@ -102,8 +110,8 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     }
     
     func showOrHidePopView() {
-        popMenuView.hidden = !popMenuView.hidden
-        self.view.bringSubviewToFront(popMenuView)
+        fullPopView.hidden = !fullPopView.hidden
+        self.view.bringSubviewToFront(fullPopView)
     }
     
     func pushViewController(to : UIViewController) {

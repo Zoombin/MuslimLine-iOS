@@ -12,7 +12,7 @@ class MainViewController: BaseViewController {
     var noticeView : NoticeView!
     var calendarLocationView : CalendarLocationView!
     let topSearchView : UIView = UIView()
-    var currentPrayTime : Int?
+    var currentPrayTime : Int = 0
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -47,20 +47,24 @@ class MainViewController: BaseViewController {
         topSearchView.addGestureRecognizer(tapGesture)
     }
     
+    //PrayTimeUtil.getPrayTime() //获取默认礼拜时间
     override func refreshUserLocation() {
         let cityName = Config.getCityName()
         calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
         CalendarUtils.getDate()
         noticeView.currentTimeLabel.text = CalendarUtils.getDate()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
-        let nextPrayTime :Int
-        if(currentPrayTime == 5){
+        if(currentPrayTime == -1){
             //第一个
-            nextPrayTime = 0
-        }else{
-            nextPrayTime = currentPrayTime! + 1
+            currentPrayTime = 0
         }
-        noticeView.prayNameLabel.text = Config.PrayNameArray[nextPrayTime] as? String
+        noticeView.prayNameLabel.text = Config.PrayNameArray[currentPrayTime] as? String
+        let mediaStatu = getPrayMediaStatu(currentPrayTime)
+        if(0 == mediaStatu){
+            noticeView.voiceIconImageView.image =  UIImage(named: "no_voice")
+        }else{
+            noticeView.voiceIconImageView.image =  UIImage(named: "voice")
+        }
         //noticeView.currentProgress(0.7)
         refrashTimeLeft()
         
@@ -207,6 +211,16 @@ class MainViewController: BaseViewController {
                 //一分钟再刷新一次
                 refreshUserLocation()
             }
+        }
+    }
+    
+    func getPrayMediaStatu(mediaType:Int) ->Int{
+        if(Config.FACTION_SHIA == Config.getFaction()){
+            //什叶派
+            return Config.getShiaAlarm(mediaType)
+        }else{
+            //逊尼派
+            return Config.getSunniAlarm(mediaType)
         }
     }
     

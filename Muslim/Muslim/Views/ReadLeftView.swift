@@ -13,6 +13,7 @@ class ReadLeftView: UIView {
     @IBOutlet weak var ivBack: UIButton!
     @IBOutlet weak var suraTitle: UILabel!
     @IBOutlet weak var suraSubTitle: UILabel!
+    @IBOutlet weak var btBack: UIButton!
 
     /*
     // Only override drawRect: if you perform custom drawing.

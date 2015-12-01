@@ -34,5 +34,8 @@ class Colors: NSObject {
 
     //黑色半透明
     static let trans : UIColor = UIColor(colorLiteralRed: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.4)
+    
+    //透明
+    static let transparent : UIColor = UIColor(colorLiteralRed: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
 
 }
