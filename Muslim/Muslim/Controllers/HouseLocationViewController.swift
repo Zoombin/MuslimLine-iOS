@@ -31,8 +31,6 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     
     var locationButton : UIButton!
     var kabahLocation : CLLocation?
-    var latitude  : Double?
-    var longitude : Double?
     var distanceFromKabah : Double?
     
     let locationManger = CLLocationManager()
@@ -58,8 +56,6 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
             // Fallback on earlier versions
         }
         
-        self.locationManger.startUpdatingHeading()
-        
         initView()
         refreshLocation()
     }
@@ -76,9 +72,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         if (Config.getLat() == 0 && Config.getLng() == 0) {
             return;
         }
-        self.latitude = location.coordinate.latitude
-        self.longitude = location.coordinate.longitude
-        self.locationManger.startUpdatingLocation()
+        self.locationManger.startUpdatingHeading()
         needleAngle = self.setLatLonForDistanceAndAngle(location)
     }
     
@@ -136,6 +130,12 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         
         let needleDirection   = -newHeading.trueHeading;
         let compassDirection  = -newHeading.magneticHeading;
+        
+        let location = CLLocation(latitude: Config.getLat().doubleValue, longitude: Config.getLng().doubleValue)
+        if (Config.getLat() == 0 && Config.getLng() == 0) {
+            return;
+        }
+        needleAngle = self.setLatLonForDistanceAndAngle(location)
         
         self.needle.transform = CGAffineTransformMakeRotation(CGFloat(((Double(needleDirection) * M_PI) / 180.0) + needleAngle!))
         self.composs.transform = CGAffineTransformMakeRotation(CGFloat((Double(compassDirection) * M_PI) / 180.0))
