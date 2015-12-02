@@ -21,7 +21,7 @@
                     <rect key="frame" x="85" y="2" width="45" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                     <animations/>
-                    <state key="normal" image="chinese"/>
+                    <state key="normal" image="ic_global"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dcE-it-CKS">
                     <rect key="frame" x="49" y="8" width="30" height="30"/>
@@ -50,7 +50,7 @@
         </view>
     </objects>
     <resources>
-        <image name="chinese" width="34" height="23"/>
+        <image name="ic_global" width="36" height="36"/>
         <image name="ic_next" width="28" height="28"/>
         <image name="ic_previous" width="28" height="28"/>
         <image name="shahriar_parhizgar" width="90" height="90"/>

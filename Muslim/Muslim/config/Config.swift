@@ -262,7 +262,7 @@
         /**当前语言**/
         static func getCurrentLanguage() ->String{
             let currentLanguageIndex = getCurrentLanguageIndex()
-            if(0 == currentLanguageIndex){
+            if(-1 == currentLanguageIndex){
                 return ""
             }else{
                 return QuranTranslationValues[currentLanguageIndex] as! String
@@ -270,7 +270,12 @@
         }
         /**当前国家图标*/
         static func getCurrentCountryIcon() ->String{
-              return QuranTranslationCountryIcon[getCurrentLanguageIndex()] as! String
+            let currentLanguageIndex = getCurrentLanguageIndex()
+            if(-1 == currentLanguageIndex){
+                return "ic_global"
+            }else{
+                return QuranTranslationCountryIcon[getCurrentLanguageIndex()] as! String
+            }
         }
         
         static func saveCurrentLanguageIndex(pos :Int){
@@ -278,7 +283,7 @@
         }
         
         static func getCurrentLanguageIndex()->Int{
-            return UserDefaultsUtil.getInt("CurrentCountry",defalt: 0)
+            return UserDefaultsUtil.getInt("CurrentCountry",defalt: -1)
         }
         
         /**当前阅读的古兰经**/

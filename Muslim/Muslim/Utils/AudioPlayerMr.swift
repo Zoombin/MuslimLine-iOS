@@ -195,6 +195,9 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     }
     
     func loadNewHeadAudio(){
+        if(delegate != nil){
+            delegate?.loading(position)
+        }
         let fileName:String = AudioPlayerMr.getFirstAudioUrl() + AudioPlayerMr.getFirstAudioName()
         let url = Constants.downloadBaseUri + fileName.stringByReplacingOccurrencesOfString(" ", withString: "%20")
         let outPath :String = AudioPlayerMr.getFirstAudioPath()
