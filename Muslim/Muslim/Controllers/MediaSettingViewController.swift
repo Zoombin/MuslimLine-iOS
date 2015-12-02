@@ -38,6 +38,10 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         getData()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+          AlarmMediaMr.getInstance().stop()
+    }
+    
     func getData(){
         if(Config.FACTION_SHIA == Config.getFaction()){
             //什叶派

@@ -307,7 +307,13 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         cell.ivPro.hidden = true
         let quran :Quran = quranArray[indexPath.row] as! Quran
         cell.textQuran.text = String(format: "%d. %@", quran.aya!,quran.text == nil ?"":quran.text!)
-        cell.textCn.text = String(format: "%d. %@", quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+        let text_zh = quran.text_zh! as NSString
+        if(text_zh.length == 0){
+            cell.textCn.text = " "
+        }else{
+            cell.textCn.text = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+        }
+        
         cell.calculateHeight(quran)
         if(quran.isSelected == true){
             cell.OptionsView.hidden = false

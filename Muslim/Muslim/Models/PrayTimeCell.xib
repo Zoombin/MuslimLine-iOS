@@ -50,8 +50,8 @@
                         <rect key="frame" x="80" y="16" width="8" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
-                        <state key="normal" image="time_no_Selected"/>
-                        <state key="selected" image="time_no_Selected"/>
+                        <state key="normal" image="time_no_selected"/>
+                        <state key="selected" image="time_no_selected"/>
                     </button>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prayer_sun" id="8xU-Hy-7Bm">
                         <rect key="frame" x="171" y="17" width="20" height="20"/>
@@ -74,7 +74,7 @@
     </objects>
     <resources>
         <image name="prayer_sun" width="18" height="18"/>
-        <image name="time_no_Selected" width="8" height="8"/>
+        <image name="time_no_selected" width="8" height="8"/>
         <image name="voice_off" width="17" height="18"/>
         <image name="voice_on" width="16" height="18"/>
     </resources>
