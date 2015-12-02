@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate ,UIScrollViewDelegate{
 
     var dataArray : NSMutableArray = NSMutableArray()
     let cellIdentifier = "guLJSearchCell"
@@ -16,13 +16,12 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var mSearchStr: String?
     var mSearchChapterSectionNumber: NSMutableArray = NSMutableArray()
+    let searBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("main_quran_search_label", comment:"")
         self.view.backgroundColor = UIColor.whiteColor()
-        
-        let searBar = UISearchBar()
         
         let width : CGFloat = UIScreen.mainScreen().bounds.width
         let height : CGFloat = UIScreen.mainScreen().bounds.height
@@ -58,6 +57,12 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         listView.reloadData()
     }
     
+    //tableview  滚动
+    func scrollViewDidScroll(scrollView: UIScrollView){
+        searBar.resignFirstResponder()
+        //searBar.becomeFirstResponder()
+    }
+    
     //计算
     func analyzeSectionNumber(searchStr : NSString)->Bool{
         // 默认章节号为：-1
@@ -76,6 +81,7 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         var temp  = -1
         temp = Int(firstCharacter.intValue)
         if(temp == 0){
+            //转换异常
             return bSuccess
         }
 
@@ -95,18 +101,26 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
             strs = searchStr.componentsSeparatedByString(":")
         }
         let len = strs.count
-        for i in 0...len-1 {
-            let kk : NSString = strs[i]
-            var gg :Int = -1
-            gg = Int(kk.intValue)
-            if(gg == 0){
-                gg = -1
+        if(len <= 2){
+            for i in 0...len-1 {
+                let kk : NSString = strs[i]
+                var gg :Int = -1
+                gg = Int(kk.intValue)
+                if(gg == 0){
+                    //转换异常
+                    gg = -2
+                }
+                mSearchChapterSectionNumber[i] = gg
             }
-            mSearchChapterSectionNumber[i] = gg
         }
         
-        if(mSearchChapterSectionNumber[0] as! Int != -1){
+        if(mSearchChapterSectionNumber[0] as! Int != -1 && mSearchChapterSectionNumber[0] as! Int != -2){
             bSuccess = true;
+        }
+        
+        if(!bSuccess){
+            mSearchChapterSectionNumber[0] = -1;
+            mSearchChapterSectionNumber[1] = -1;
         }
         
         return bSuccess;

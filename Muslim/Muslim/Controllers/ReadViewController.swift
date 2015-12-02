@@ -42,7 +42,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var select:Int = 0
     var isHead:Bool = false
     
-    var slider : UISlider?
+    var slider : UISlider!
+    var isScolling :Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if(EXTRA_SURA != nil){
@@ -72,35 +74,26 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.dataSource = self
         mTableView.estimatedRowHeight = 100
         mTableView.rowHeight = UITableViewAutomaticDimension
-        mTableView.showsVerticalScrollIndicator = false
         self.view.addSubview(mTableView)
         
         slider = UISlider()
-        slider?.addTarget(self, action: Selector.init("sliderValueChanged"), forControlEvents: UIControlEvents.ValueChanged)
-        slider?.autoresizingMask = UIViewAutoresizing.FlexibleHeight
-        slider?.setThumbImage(UIImage(named: "fast_scoll_bar"), forState: UIControlState.Normal)
-        slider?.minimumTrackTintColor = UIColor.clearColor()
-        slider?.maximumTrackTintColor = UIColor.clearColor()
-        slider?.layer.borderColor = UIColor.clearColor().CGColor
-        slider?.minimumValue = 0
-        slider?.maximumValue = 100
-        self.view.addSubview(slider!)
+        slider.addTarget(self, action: Selector.init("sliderValueChanged"), forControlEvents: UIControlEvents.ValueChanged)
+        slider.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+        slider.setThumbImage(UIImage(named: "fast_scoll_bar"), forState: UIControlState.Normal)
+        slider.minimumTrackTintColor = UIColor.clearColor()
+        slider.maximumTrackTintColor = UIColor.clearColor()
+        slider.layer.borderColor = UIColor.clearColor().CGColor
+        slider.minimumValue = 0
+        slider.maximumValue = 100
+        slider.hidden = true
+        self.view.addSubview(slider)
         
         let rotationValue : CGFloat = CGFloat(M_PI * -1.5)
         let rotation : CGAffineTransform = CGAffineTransformMakeRotation(rotationValue)
-        slider?.transform = rotation
-        slider?.frame = CGRectMake(CGRectGetMaxX(mTableView.bounds) - 15, 64, 20, mTableView.bounds.size.height)
+        slider.transform = rotation
+        slider.frame = CGRectMake(CGRectGetMaxX(mTableView.bounds) - 15, 64, 20, mTableView.bounds.size.height)
+        
         setTitleBar() //设置titlebar
-    }
-    
-    func sliderValueChanged() {
-        let offsetY : CGFloat = CGFloat(slider!.value / 100.0) * CGFloat(mTableView.contentSize.height - 460);
-        mTableView.contentOffset = CGPointMake(0, offsetY)
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        mTableView.contentOffset = CGPointMake(0, mTableView.contentOffset.y)
-        slider!.value = Float(100.0 * mTableView.contentOffset.y) / Float(mTableView.contentSize.height - 460)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -131,6 +124,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             //滚动到顶部
              scrollViewToTop()
         }
+        refreshFastSscollBar()//刷新快速滚动条
     }
     
     func setTitleBar(){
@@ -208,6 +202,43 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             readRightView.btCountry.setImage(UIImage(named: Config.getCurrentCountryIcon()), forState: UIControlState.Normal)
             readRightView.btReader.setImage(UIImage(named: Config.getCurrentReader().stringByReplacingOccurrencesOfString(" ", withString: "_").lowercaseString), forState: UIControlState.Normal)
         }
+    }
+    
+    //scollview
+    func scrollViewWillBeginDragging(scrollView: UIScrollView){
+        refreshFastSscollBar()
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.performSelector(Selector.init("hideFastSscollBar"), withObject: nil, afterDelay: 3.0)
+    }
+    
+    func sliderValueChanged() {
+        isScolling = true
+        let offsetY : CGFloat = CGFloat(slider.value / 100.0) * CGFloat(mTableView.contentSize.height - 460);
+        mTableView.contentOffset = CGPointMake(0, offsetY)
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        isScolling = true
+        mTableView.contentOffset = CGPointMake(0, mTableView.contentOffset.y)
+        slider.value = Float(100.0 * mTableView.contentOffset.y) / Float(mTableView.contentSize.height - 460)
+    }
+    
+    /**更新快速滚动条状态*/
+    func refreshFastSscollBar(){
+        if(quranArray.count > 12){
+            mTableView.showsVerticalScrollIndicator = false
+            slider.hidden = false
+        }else{
+            mTableView.showsVerticalScrollIndicator = true
+            slider.hidden = true
+        }
+    }
+    
+    func hideFastSscollBar(){
+        slider.hidden = true
+        isScolling = false
     }
     
     /***滚动到某个位置*/

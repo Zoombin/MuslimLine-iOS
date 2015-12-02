@@ -117,6 +117,7 @@ class FMDBHelper: NSObject {
         
         var sql : String!
         if( chapterNum != -1 && sectionNum == -1){
+            // 显示全部小节
              if(curLanguage.length == 0){
                 sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
@@ -126,7 +127,8 @@ class FMDBHelper: NSObject {
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
                     "where a.sura  =" + String(chapterNum)
             }
-        }else if(chapterNum != -1 && sectionNum != -1){
+        }else if(chapterNum != -1 && sectionNum != -2){
+            // 不显示全部
             if(curLanguage.length == 0){
                 sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
@@ -136,7 +138,19 @@ class FMDBHelper: NSObject {
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
                     "where a.sura  =" + String(chapterNum) + " and a.aya = " + String(sectionNum)
             }
-        }else{
+        }else if(chapterNum != -1 && sectionNum >= 1){
+            // 正常搜索小节
+            if(curLanguage.length == 0){
+                sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.sura  =" + String(chapterNum) + " and a.aya = " + String(sectionNum)
+            }else{
+                sql = "select a.aya, a.sura, a.text, b.[text] as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a left join " + String(curLanguage) + " b on a.[sura]=b.sura and a.aya=b.aya " +
+                    " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
+                    "where a.sura  =" + String(chapterNum) + " and a.aya = " + String(sectionNum)
+            }
+        }else if(chapterNum == -1 && sectionNum == -1){
+            // 正常搜索全部字符
             if(curLanguage.length == 0){
                 sql = "select a.aya, a.sura, a.text, '' as text, case when c.id >0 then 1 else 0 end  as abc from quran_simple a " +
                     " left join bookmark c on a.[sura]=c.[sura] and a.aya=c.aya " +
@@ -147,6 +161,7 @@ class FMDBHelper: NSObject {
                     "where a.text  like '%" + replaceStr + "%' or b.text like '%" + replaceStr + "%'";
             }
         }
+        
         dbBase.open()
         let rs = try? dbBase.executeQuery(sql, values: nil)
         let array : NSMutableArray = NSMutableArray()
