@@ -28,7 +28,7 @@ class ReadViewCell: UITableViewCell {
 //                textQuran.frame =  CGRectMake(PhoneUtils.screenWidth - 17 - textQuran.frame.origin.x - textQuran.frame.size.width, textQuran.frame.origin.y, textQuran.frame.size.width, textQuran.frame.size.height)
                 
                 textCn.frame = CGRectMake(textCn.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, textCn.frame.size.width, textCn.frame.size.height)
-                OptionsView.frame = CGRectMake(textCn.frame.origin.x, CGRectGetMaxY(textCn.frame) + 10, OptionsView.frame.size.width, OptionsView.frame.size.height)
+                OptionsView.frame = CGRectMake(0, CGRectGetMaxY(textCn.frame) + 10, OptionsView.frame.size.width, OptionsView.frame.size.height)
                 
                 quran.unSelectedHeight = CGRectGetMaxY(textCn.frame) + 10
                 quran.selectedHeight = CGRectGetMaxY(OptionsView.frame)
