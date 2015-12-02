@@ -11,7 +11,7 @@
 
 import UIKit
 
-class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate,mAudioPlayerDelegate{
+class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate,mAudioPlayerDelegate, UIScrollViewDelegate{
     //常量
     let bt_back = 100
     let bt_previous = 200
@@ -42,7 +42,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var select:Int = 0
     var isHead:Bool = false
     
-    
+    var slider : UISlider?
     override func viewDidLoad() {
         super.viewDidLoad()
         if(EXTRA_SURA != nil){
@@ -72,9 +72,35 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.dataSource = self
         mTableView.estimatedRowHeight = 100
         mTableView.rowHeight = UITableViewAutomaticDimension
+        mTableView.showsVerticalScrollIndicator = false
         self.view.addSubview(mTableView)
         
+        slider = UISlider()
+        slider?.addTarget(self, action: Selector.init("sliderValueChanged"), forControlEvents: UIControlEvents.ValueChanged)
+        slider?.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+        slider?.setThumbImage(UIImage(named: "fast_scoll_bar"), forState: UIControlState.Normal)
+        slider?.minimumTrackTintColor = UIColor.clearColor()
+        slider?.maximumTrackTintColor = UIColor.clearColor()
+        slider?.layer.borderColor = UIColor.clearColor().CGColor
+        slider?.minimumValue = 0
+        slider?.maximumValue = 100
+        self.view.addSubview(slider!)
+        
+        let rotationValue : CGFloat = CGFloat(M_PI * -1.5)
+        let rotation : CGAffineTransform = CGAffineTransformMakeRotation(rotationValue)
+        slider?.transform = rotation
+        slider?.frame = CGRectMake(CGRectGetMaxX(mTableView.bounds) - 15, 64, 20, mTableView.bounds.size.height)
         setTitleBar() //设置titlebar
+    }
+    
+    func sliderValueChanged() {
+        let offsetY : CGFloat = CGFloat(slider!.value / 100.0) * CGFloat(mTableView.contentSize.height - 460);
+        mTableView.contentOffset = CGPointMake(0, offsetY)
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        mTableView.contentOffset = CGPointMake(0, mTableView.contentOffset.y)
+        slider!.value = Float(100.0 * mTableView.contentOffset.y) / Float(mTableView.contentSize.height - 460)
     }
     
     override func viewDidAppear(animated: Bool) {
