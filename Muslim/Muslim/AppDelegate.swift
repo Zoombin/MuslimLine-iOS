@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Config.initData()  //获取设置的数据
+        if ((UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0) {
+            if #available(iOS 8.0, *) {
+                UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes:[.Badge, .Alert, .Sound], categories: nil))
+                UIApplication.sharedApplication().registerForRemoteNotifications()
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        else {
+            UIApplication.sharedApplication().registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
+        }
         application.applicationIconBadgeNumber = 0
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -48,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        LocalNoticationUtils.showLocalNotification()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
