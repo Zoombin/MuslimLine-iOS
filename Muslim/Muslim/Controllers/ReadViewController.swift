@@ -43,7 +43,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var isHead:Bool = false
     
     var slider : UISlider!
-    var isScolling :Bool!
+    var isScolling :Bool = false
+    var isToach :Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         self.view.addSubview(mTableView)
         
         slider = UISlider()
-        slider.addTarget(self, action: Selector.init("sliderValueChanged"), forControlEvents: UIControlEvents.ValueChanged)
+        slider.addTarget(self, action: Selector.init("sliderValueChanged"), forControlEvents: UIControlEvents.AllTouchEvents)
+        slider.addTarget(self, action: Selector.init("touchCancel"), forControlEvents: UIControlEvents.TouchUpInside)
+        slider.addTarget(self, action: Selector.init(), forControlEvents: UIControlEvents.TouchUpInside)
         slider.autoresizingMask = UIViewAutoresizing.FlexibleHeight
         slider.setThumbImage(UIImage(named: "fast_scoll_bar"), forState: UIControlState.Normal)
         slider.minimumTrackTintColor = UIColor.clearColor()
@@ -85,7 +88,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         slider.layer.borderColor = UIColor.clearColor().CGColor
         slider.minimumValue = 0
         slider.maximumValue = 100
-        slider.hidden = true
         self.view.addSubview(slider)
         
         let rotationValue : CGFloat = CGFloat(M_PI * -1.5)
@@ -124,7 +126,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             //滚动到顶部
              scrollViewToTop()
         }
-        refreshFastSscollBar()//刷新快速滚动条
+        touchCancel() //隐藏
     }
     
     func setTitleBar(){
@@ -204,23 +206,28 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         }
     }
     
-    //scollview
-    func scrollViewWillBeginDragging(scrollView: UIScrollView){
-        refreshFastSscollBar()
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if(!isToach){
+             self.performSelector(Selector.init("hideFastSscollBar"), withObject: nil, afterDelay: 2.0)
+        }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        self.performSelector(Selector.init("hideFastSscollBar"), withObject: nil, afterDelay: 3.0)
+    func touchCancel(){
+        isToach = false
+        self.performSelector(Selector.init("hideFastSscollBar"), withObject: nil, afterDelay: 2.0)
     }
     
     func sliderValueChanged() {
-        isScolling = true
+        isToach = true
         let offsetY : CGFloat = CGFloat(slider.value / 100.0) * CGFloat(mTableView.contentSize.height - 460);
         mTableView.contentOffset = CGPointMake(0, offsetY)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        isScolling = true
+        if(!isScolling){
+            isScolling = true
+            refreshFastSscollBar()
+        }
         mTableView.contentOffset = CGPointMake(0, mTableView.contentOffset.y)
         slider.value = Float(100.0 * mTableView.contentOffset.y) / Float(mTableView.contentSize.height - 460)
     }
@@ -237,8 +244,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     }
     
     func hideFastSscollBar(){
+        if(isToach){
+            return
+        }
         slider.hidden = true
         isScolling = false
+        isToach = false
     }
     
     /***滚动到某个位置*/
