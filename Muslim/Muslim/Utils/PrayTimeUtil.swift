@@ -23,6 +23,17 @@ class PrayTimeUtil: NSObject {
         return dataArray
     }
     
+    /**获取需要提醒的状态*/
+    func getPrayMediaStatu(mediaType:Int) ->Int{
+        if(Config.FACTION_SHIA == Config.getFaction()){
+            //什叶派
+            return Config.getShiaAlarm(mediaType)
+        }else{
+            //逊尼派
+            return Config.getSunniAlarm(mediaType)
+        }
+    }
+    
     static func getParyTimeLeft()->Int{
         var leftTime = -1
         let current = getCurrentPrayTime()
