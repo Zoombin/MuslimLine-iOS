@@ -60,6 +60,11 @@ class AlarmMediaMr: NSObject ,httpClientDelegate{
         }
     }
     
+    func play(path:String){
+        play(0, path: path)
+    }
+    
+    
     func play(mediaIndex:Int,path:String){
         self.mediaIndex = mediaIndex
         //指定音乐路径
