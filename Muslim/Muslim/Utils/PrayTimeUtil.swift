@@ -24,7 +24,7 @@ class PrayTimeUtil: NSObject {
     }
     
     /**获取需要提醒的状态*/
-    func getPrayMediaStatu(mediaType:Int) ->Int{
+    static func getPrayMediaStatu(mediaType:Int) ->Int{
         if(Config.FACTION_SHIA == Config.getFaction()){
             //什叶派
             return Config.getShiaAlarm(mediaType)
@@ -33,6 +33,35 @@ class PrayTimeUtil: NSObject {
             return Config.getSunniAlarm(mediaType)
         }
     }
+    
+    /***获取选择的闹钟音乐*/
+    static func getPrayMedia(mediaType:Int)->String{
+        if(Config.FACTION_SHIA == Config.getFaction()){
+            //什叶派
+            let select = Config.getShiaAlarm(mediaType)
+            if(select == 0){
+                return "0" //静音
+            }else if(select == 1){
+                return "1" //默认
+            }else if(select == 2){
+                return "2" //aghtai.mm3
+            }else{
+                Config.alarm_type_files_shia[select]
+            }
+        }else{
+            //逊尼派
+            let select = Config.getSunniAlarm(mediaType)
+            if(select == 0){
+                return "0"
+            }else if(select == 1){
+                return "1"
+            }else{
+                return Config.alarm_type_files_sunni[select] as! String
+            }
+        }
+        return "0"
+    }
+    
     
     static func getParyTimeLeft()->Int{
         var leftTime = -1
