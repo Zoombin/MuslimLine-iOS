@@ -17,6 +17,9 @@ class AllahNamesViewController: BaseViewController , UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("main_names_label", comment:"");
+        //title右边菜单
+        let rightImage : UIImage =  UIImage(named: "top_menu")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("showOrHidePopView"))
         
         loadData()
         setupView()
