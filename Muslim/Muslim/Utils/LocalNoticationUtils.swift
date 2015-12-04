@@ -16,17 +16,54 @@ class LocalNoticationUtils: NSObject {
             Log.printLog("没定位，无法提醒!")
             return;
         }
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         for (var i = 0; i < Config.PrayerNameArray.count; i++) {
             if (PrayTimeUtil.getPrayMediaStatu(i) == 0) {
                 continue
             }
+            var prayTime = Config.getPrayTime(i)
+            let timeFormat = Config.getTimeFormat()
+            let timeZone = NSTimeZone.init(name: Config.getTimeZone())
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.timeZone = timeZone
+            if (timeFormat == 0) {
+                //24
+                dateFormatter.dateFormat = "HH:mm"
+            } else {
+                //12
+                let isAfternoon = prayTime.containsString("PM")
+                prayTime = prayTime.stringByReplacingOccurrencesOfString(" AM", withString: "")
+                prayTime = prayTime.stringByReplacingOccurrencesOfString(" PM", withString: "")
+                var hour = prayTime.componentsSeparatedByString(":").first! as NSString
+                if (isAfternoon && hour.integerValue < 12) {
+                    hour = String(format: "%@", hour.integerValue + 12)
+                }
+                let minute = prayTime.componentsSeparatedByString(":").last! as NSString
+                prayTime = String(format: "%@:%@", hour, minute)
+                dateFormatter.dateFormat = "HH:mm"
+            }
+            let fireDate = dateFormatter.dateFromString(prayTime)
             let localNotification = UILocalNotification()
-            localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+            localNotification.fireDate = fireDate
             localNotification.alertBody = self.getPrayNoticContent(i)
-            localNotification.timeZone = NSTimeZone.defaultTimeZone()
+            localNotification.timeZone = timeZone
+            localNotification.soundName = getSoundName(i)
+            localNotification.repeatInterval = NSCalendarUnit.Day
             localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         }
+    }
+    static func getSoundName(index : Int) -> String {
+        var soundName = PrayTimeUtil.getPrayMedia(index)
+        if (soundName == "0") {
+            soundName = UILocalNotificationDefaultSoundName
+        }
+        else if (soundName == "1") {
+            soundName = UILocalNotificationDefaultSoundName //默认
+        } else if (soundName == "2") {
+            soundName = "aghtai.mp3"
+        }
+        return soundName
     }
     
     static func getPrayNoticContent(index : Int) -> String{

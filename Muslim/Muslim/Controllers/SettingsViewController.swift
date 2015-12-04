@@ -21,7 +21,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocalNoticationUtils.showLocalNotification()
         title = NSLocalizedString("settings_title", comment:"");
         //注册ListView的adapter findview
         listview!.registerNib(UINib(nibName: "SettingCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)

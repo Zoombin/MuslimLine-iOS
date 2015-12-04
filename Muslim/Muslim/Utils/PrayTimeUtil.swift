@@ -46,9 +46,9 @@ class PrayTimeUtil: NSObject {
             }else if(select == 2){
                 return "2" //aghtai.mm3
             }else{
-                Config.alarm_type_files_shia[select]
+                return Config.alarm_type_files_shia[select] as! String
             }
-        }else{
+        } else{
             //逊尼派
             let select = Config.getSunniAlarm(mediaType)
             if(select == 0){
@@ -59,7 +59,6 @@ class PrayTimeUtil: NSObject {
                 return Config.alarm_type_files_sunni[select] as! String
             }
         }
-        return "0"
     }
     
     
