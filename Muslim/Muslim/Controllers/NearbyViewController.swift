@@ -146,9 +146,13 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     
     func errorResult(error: NSError, tag: NSInteger) {
         self.view.hideToastActivity()
+        self.view.makeToast(message: NSLocalizedString("net_err", comment: ""))
     }
     
     func searchBYType(type : String) {
+        if (Config.getLat() == 0 && Config.getLng() == 0) {
+            return;
+        }
         self.view.makeToastActivity()
         //如果在两伊就用ForService接口，否则用谷歌的
         if (Config.getcountryName() == Config.COUNTRY_IRAN || Config.getcountryName() == Config.COUNTRY_IRAQ) {

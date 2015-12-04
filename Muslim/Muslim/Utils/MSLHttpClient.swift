@@ -14,6 +14,7 @@ protocol httpClientDelegate : NSObjectProtocol {
 }
 
 class MSLHttpClient: NSObject {
+    let timeout : Double = 10
     let defalturl:String = "http://www.muslimsline.com/config/website.json"
     
     static var httpClient : MSLHttpClient!
@@ -28,6 +29,7 @@ class MSLHttpClient: NSObject {
         params["key"] = "AIzaSyChdMgSqJNgAZCrGmP_9UhkGFW9f7FOVCs"
         params["keyword"] = keyword
         let manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer.timeoutInterval = timeout
         manager.GET(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
@@ -46,6 +48,7 @@ class MSLHttpClient: NSObject {
         if (urlString.isEmpty) {
             let urlString : String = "http://www.muslimsline.com/config/website.json"
             let manager = AFHTTPRequestOperationManager()
+            manager.requestSerializer.timeoutInterval = timeout
             manager.GET(urlString, parameters: nil, success:
                 { (operation, responseObject) -> Void in
                     let urls = (responseObject as! NSDictionary)["urls"]
@@ -73,7 +76,7 @@ class MSLHttpClient: NSObject {
     
     func getNear(urlString : String, lat : Double, lng : Double, keyword : NSString, tag : NSInteger) {
         let manager = AFHTTPRequestOperationManager()
-        
+        manager.requestSerializer.timeoutInterval = timeout
         //TODO: 下面这句话一定要加，不然会失败
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
@@ -103,6 +106,7 @@ class MSLHttpClient: NSObject {
         if (urlString.isEmpty) {
             let urlString : String = "http://www.muslimsline.com/config/website.json"
             let manager = AFHTTPRequestOperationManager()
+            manager.requestSerializer.timeoutInterval = timeout
             manager.GET(urlString, parameters: nil, success:
                 { (operation, responseObject) -> Void in
                     let urls = (responseObject as! NSDictionary)["urls"]
@@ -130,7 +134,7 @@ class MSLHttpClient: NSObject {
     
     func getFeedBack(urlString : String, tag : NSInteger) {
         let manager = AFHTTPRequestOperationManager()
-        
+        manager.requestSerializer.timeoutInterval = timeout
         //TODO: 下面这句话一定要加，不然会失败
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
@@ -152,6 +156,7 @@ class MSLHttpClient: NSObject {
     func getTimezoneAndCountryName(lat : Double, lng : Double, tag : NSInteger) {
         let urlString : String = String(format:"http://api.geonames.org/timezoneJSON?lat=%f&lng=%f&username=daiye", lat, lng)
         let manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer.timeoutInterval = timeout
         manager.GET(urlString, parameters: nil, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
@@ -171,6 +176,7 @@ class MSLHttpClient: NSObject {
         params["q"] = String(format: "select city from geo.placefinder where text=\"%f,%f\"  and gflags=\"R\"", lat, lng)
         
         let manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer.timeoutInterval = timeout
         manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
                 if (self.delegate != nil) {
@@ -189,6 +195,7 @@ class MSLHttpClient: NSObject {
         urlString = urlString.stringByReplacingOccurrencesOfString("cityName", withString: city)
         
         let manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer.timeoutInterval = timeout
         let params : NSMutableDictionary = NSMutableDictionary()
         params["format"] = "json"
         params["lang"] = "en-US"
@@ -211,6 +218,7 @@ class MSLHttpClient: NSObject {
         if (urlString.isEmpty) {
             let urlString : String = "http://www.muslimsline.com/config/website.json"
             let manager = AFHTTPRequestOperationManager()
+            manager.requestSerializer.timeoutInterval = timeout
             manager.GET(urlString, parameters: nil, success:
                 { (operation, responseObject) -> Void in
                     let urls = (responseObject as! NSDictionary)["urls"]
@@ -239,6 +247,7 @@ class MSLHttpClient: NSObject {
     /**反馈*/
     func sendFeedback(urlString : String, message:String,tag:NSInteger) {
         let manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer.timeoutInterval = timeout
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
         params["Action"] = "1003"
