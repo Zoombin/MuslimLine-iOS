@@ -108,6 +108,12 @@ class AlarmMediaMr: NSObject ,httpClientDelegate{
         return folderPath
     }
     
+    static func getAlarmMediaLocalPath(name:String)->String {
+        let path = NSBundle.mainBundle().pathForResource(name, ofType: "")
+        return path!
+    }
+
+    
     func getMp3Data()->NSArray{
         if(Config.FACTION_SHIA == Config.getFaction()){
             //什叶派

@@ -55,11 +55,18 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
             dataArray = Config.alarm_type_sunni
         }
         for index in 0...mp3Array.count-1 {
-            let path = AlarmMediaMr.getAlarmMediaPath() + (mp3Array[index] as! String)
-            if(NSFileManager.defaultManager().fileExistsAtPath (path)){
-                statusArray[index] = 1   //1: 存在， 0不存在， -1真正下载
+            let name = mp3Array[index] as! String
+            var path :String = ""
+            if(!name.isEmpty){
+                path = AlarmMediaMr.getAlarmMediaLocalPath(name)
+                if(NSFileManager.defaultManager().fileExistsAtPath (path)){
+                    statusArray[index] = 1   //1: 存在， 0不存在， -1真正下载
+                }else{
+                    statusArray[index] = 0
+                }
             }else{
-                statusArray[index] = 0
+                //默认铃声和静音
+                statusArray[index] = 1
             }
         }
         mTableView.reloadData()
@@ -72,7 +79,10 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
     func loadingfinish(position:Int){
         select = position
         let mp3Name = mp3Array[position] as! String
-        let path = AlarmMediaMr.getAlarmMediaPath() + mp3Name
+        var path = ""
+        if(!mp3Name.isEmpty){
+            path = AlarmMediaMr.getAlarmMediaLocalPath(mp3Name)
+        }
         AlarmMediaMr.getInstance().stop()
         AlarmMediaMr.getInstance().play(position,path:path)
         saveSelect(position)
@@ -155,7 +165,7 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
             AlarmMediaMr.getInstance().play(row,path:defalt!)
             return
         }else{
-            let path = AlarmMediaMr.getAlarmMediaPath() + mp3Name
+            let path = AlarmMediaMr.getAlarmMediaLocalPath(mp3Name)
             if(NSFileManager.defaultManager().fileExistsAtPath (path)){
                 saveSelect(row)
                 AlarmMediaMr.getInstance().stop()

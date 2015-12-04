@@ -144,6 +144,29 @@
 		45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */; };
 		45EAF8461C11730B00E7956E /* translated_sura_titles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8481C11730B00E7956E /* translated_sura_titles.plist */; };
 		45EAF8521C117B0400E7956E /* allah_names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8541C117B0400E7956E /* allah_names.plist */; };
+		45EAF8721C11859700E7956E /* adhan_1_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF85B1C11859700E7956E /* adhan_1_ios.mp3 */; };
+		45EAF8731C11859700E7956E /* adhan_abdul_baset_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF85C1C11859700E7956E /* adhan_abdul_baset_ios.mp3 */; };
+		45EAF8741C11859700E7956E /* adhan_egypt_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF85D1C11859700E7956E /* adhan_egypt_ios.mp3 */; };
+		45EAF8751C11859700E7956E /* adhan_entezar_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF85E1C11859700E7956E /* adhan_entezar_ios.mp3 */; };
+		45EAF8761C11859700E7956E /* adhan_fajr_madina_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF85F1C11859700E7956E /* adhan_fajr_madina_ios.mp3 */; };
+		45EAF8771C11859700E7956E /* adhan_fajr_mansour_zahrani_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8601C11859700E7956E /* adhan_fajr_mansour_zahrani_ios.mp3 */; };
+		45EAF8781C11859700E7956E /* adhan_halab_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8611C11859700E7956E /* adhan_halab_ios.mp3 */; };
+		45EAF8791C11859700E7956E /* adhan_madina_1952_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8621C11859700E7956E /* adhan_madina_1952_ios.mp3 */; };
+		45EAF87A1C11859700E7956E /* adhan_makkah_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8631C11859700E7956E /* adhan_makkah_ios.mp3 */; };
+		45EAF87B1C11859700E7956E /* adhan_nasser_al_qatami_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8641C11859700E7956E /* adhan_nasser_al_qatami_ios.mp3 */; };
+		45EAF87C1C11859700E7956E /* adhan_salimi_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8651C11859700E7956E /* adhan_salimi_ios.mp3 */; };
+		45EAF87D1C11859700E7956E /* adhan_sharif_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8661C11859700E7956E /* adhan_sharif_ios.mp3 */; };
+		45EAF87E1C11859700E7956E /* aghati_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8671C11859700E7956E /* aghati_ios.mp3 */; };
+		45EAF87F1C11859700E7956E /* aghati.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8681C11859700E7956E /* aghati.mp3 */; };
+		45EAF8801C11859700E7956E /* hazin_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8691C11859700E7956E /* hazin_ios.mp3 */; };
+		45EAF8811C11859700E7956E /* karami_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86A1C11859700E7956E /* karami_ios.mp3 */; };
+		45EAF8821C11859700E7956E /* rahim_moazenzadeh_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86B1C11859700E7956E /* rahim_moazenzadeh_ios.mp3 */; };
+		45EAF8831C11859700E7956E /* saeidyan_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86C1C11859700E7956E /* saeidyan_ios.mp3 */; };
+		45EAF8841C11859700E7956E /* salim-moazenzadeh_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86D1C11859700E7956E /* salim-moazenzadeh_ios.mp3 */; };
+		45EAF8851C11859700E7956E /* seyed_abas_mirdamad_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86E1C11859700E7956E /* seyed_abas_mirdamad_ios.mp3 */; };
+		45EAF8861C11859700E7956E /* sobhdel_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86F1C11859700E7956E /* sobhdel_ios.mp3 */; };
+		45EAF8871C11859700E7956E /* tasvieh_chi_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8701C11859700E7956E /* tasvieh_chi_ios.mp3 */; };
+		45EAF8881C11859700E7956E /* tukhi_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8711C11859700E7956E /* tukhi_ios.mp3 */; };
 		45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B661BFC3B8A008B01EE /* allahnames.json */; };
 		45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B671BFC3B8A008B01EE /* Config.swift */; };
 		45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */; };
@@ -346,7 +369,7 @@
 		45C23D421C056216008DCCEA /* MediaSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSettingCell.swift; sourceTree = "<group>"; };
 		45C23D431C056216008DCCEA /* MediaSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaSettingCell.xib; sourceTree = "<group>"; };
 		45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmMediaMr.swift; sourceTree = "<group>"; };
-		45C23D481C05A4BC008DCCEA /* aghati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aghati.mp3; sourceTree = "<group>"; };
+		45C23D481C05A4BC008DCCEA /* aghati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = aghati.mp3; path = ../Config/aghati.mp3; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45C836671BF9A4B300069723 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		45C836E61BF9D20300069723 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -375,6 +398,29 @@
 		45EAF8561C117B0C00E7956E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fa; path = fa.lproj/allah_names.plist; sourceTree = "<group>"; };
 		45EAF8571C117B0E00E7956E /* ar-DZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ar-DZ"; path = "ar-DZ.lproj/allah_names.plist"; sourceTree = "<group>"; };
 		45EAF8581C117B0F00E7956E /* hi-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "hi-IN"; path = "hi-IN.lproj/allah_names.plist"; sourceTree = "<group>"; };
+		45EAF85B1C11859700E7956E /* adhan_1_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_1_ios.mp3; sourceTree = "<group>"; };
+		45EAF85C1C11859700E7956E /* adhan_abdul_baset_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_abdul_baset_ios.mp3; sourceTree = "<group>"; };
+		45EAF85D1C11859700E7956E /* adhan_egypt_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_egypt_ios.mp3; sourceTree = "<group>"; };
+		45EAF85E1C11859700E7956E /* adhan_entezar_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_entezar_ios.mp3; sourceTree = "<group>"; };
+		45EAF85F1C11859700E7956E /* adhan_fajr_madina_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_fajr_madina_ios.mp3; sourceTree = "<group>"; };
+		45EAF8601C11859700E7956E /* adhan_fajr_mansour_zahrani_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_fajr_mansour_zahrani_ios.mp3; sourceTree = "<group>"; };
+		45EAF8611C11859700E7956E /* adhan_halab_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_halab_ios.mp3; sourceTree = "<group>"; };
+		45EAF8621C11859700E7956E /* adhan_madina_1952_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_madina_1952_ios.mp3; sourceTree = "<group>"; };
+		45EAF8631C11859700E7956E /* adhan_makkah_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_makkah_ios.mp3; sourceTree = "<group>"; };
+		45EAF8641C11859700E7956E /* adhan_nasser_al_qatami_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_nasser_al_qatami_ios.mp3; sourceTree = "<group>"; };
+		45EAF8651C11859700E7956E /* adhan_salimi_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_salimi_ios.mp3; sourceTree = "<group>"; };
+		45EAF8661C11859700E7956E /* adhan_sharif_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan_sharif_ios.mp3; sourceTree = "<group>"; };
+		45EAF8671C11859700E7956E /* aghati_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aghati_ios.mp3; sourceTree = "<group>"; };
+		45EAF8681C11859700E7956E /* aghati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aghati.mp3; sourceTree = "<group>"; };
+		45EAF8691C11859700E7956E /* hazin_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hazin_ios.mp3; sourceTree = "<group>"; };
+		45EAF86A1C11859700E7956E /* karami_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = karami_ios.mp3; sourceTree = "<group>"; };
+		45EAF86B1C11859700E7956E /* rahim_moazenzadeh_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rahim_moazenzadeh_ios.mp3; sourceTree = "<group>"; };
+		45EAF86C1C11859700E7956E /* saeidyan_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = saeidyan_ios.mp3; sourceTree = "<group>"; };
+		45EAF86D1C11859700E7956E /* salim-moazenzadeh_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "salim-moazenzadeh_ios.mp3"; sourceTree = "<group>"; };
+		45EAF86E1C11859700E7956E /* seyed_abas_mirdamad_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = seyed_abas_mirdamad_ios.mp3; sourceTree = "<group>"; };
+		45EAF86F1C11859700E7956E /* sobhdel_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sobhdel_ios.mp3; sourceTree = "<group>"; };
+		45EAF8701C11859700E7956E /* tasvieh_chi_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tasvieh_chi_ios.mp3; sourceTree = "<group>"; };
+		45EAF8711C11859700E7956E /* tukhi_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tukhi_ios.mp3; sourceTree = "<group>"; };
 		45EF2B661BFC3B8A008B01EE /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 		45EF2B671BFC3B8A008B01EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = holidayTimes.plist; sourceTree = "<group>"; };
@@ -738,6 +784,7 @@
 		1887FD011BD7387400CB83D5 /* Muslim */ = {
 			isa = PBXGroup;
 			children = (
+				45EAF8591C11849C00E7956E /* Resource */,
 				45EF2B641BFC3B8A008B01EE /* Config */,
 				45EF2B6C1BFC3B8A008B01EE /* Db */,
 				1843569B1BE9E51F00194744 /* Submodules */,
@@ -838,10 +885,48 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
-		45EF2B641BFC3B8A008B01EE /* Config */ = {
+		45EAF8591C11849C00E7956E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				45C23D481C05A4BC008DCCEA /* aghati.mp3 */,
+				45EAF85B1C11859700E7956E /* adhan_1_ios.mp3 */,
+				45EAF85C1C11859700E7956E /* adhan_abdul_baset_ios.mp3 */,
+				45EAF85D1C11859700E7956E /* adhan_egypt_ios.mp3 */,
+				45EAF85E1C11859700E7956E /* adhan_entezar_ios.mp3 */,
+				45EAF85F1C11859700E7956E /* adhan_fajr_madina_ios.mp3 */,
+				45EAF8601C11859700E7956E /* adhan_fajr_mansour_zahrani_ios.mp3 */,
+				45EAF8611C11859700E7956E /* adhan_halab_ios.mp3 */,
+				45EAF8621C11859700E7956E /* adhan_madina_1952_ios.mp3 */,
+				45EAF8631C11859700E7956E /* adhan_makkah_ios.mp3 */,
+				45EAF8641C11859700E7956E /* adhan_nasser_al_qatami_ios.mp3 */,
+				45EAF8651C11859700E7956E /* adhan_salimi_ios.mp3 */,
+				45EAF8661C11859700E7956E /* adhan_sharif_ios.mp3 */,
+				45EAF8671C11859700E7956E /* aghati_ios.mp3 */,
+				45EAF8681C11859700E7956E /* aghati.mp3 */,
+				45EAF8691C11859700E7956E /* hazin_ios.mp3 */,
+				45EAF86A1C11859700E7956E /* karami_ios.mp3 */,
+				45EAF86B1C11859700E7956E /* rahim_moazenzadeh_ios.mp3 */,
+				45EAF86C1C11859700E7956E /* saeidyan_ios.mp3 */,
+				45EAF86D1C11859700E7956E /* salim-moazenzadeh_ios.mp3 */,
+				45EAF86E1C11859700E7956E /* seyed_abas_mirdamad_ios.mp3 */,
+				45EAF86F1C11859700E7956E /* sobhdel_ios.mp3 */,
+				45EAF8701C11859700E7956E /* tasvieh_chi_ios.mp3 */,
+				45EAF8711C11859700E7956E /* tukhi_ios.mp3 */,
+				45EAF85A1C11854300E7956E /* PrayNoticeMedia */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		45EAF85A1C11854300E7956E /* PrayNoticeMedia */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PrayNoticeMedia;
+			sourceTree = "<group>";
+		};
+		45EF2B641BFC3B8A008B01EE /* Config */ = {
+			isa = PBXGroup;
+			children = (
 				451A2C781C040B76006BB000 /* quran_v3.zip */,
 				45EAF8541C117B0400E7956E /* allah_names.plist */,
 				45EF2B661BFC3B8A008B01EE /* allahnames.json */,
@@ -971,27 +1056,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */,
+				45EAF87F1C11859700E7956E /* aghati.mp3 in Resources */,
+				45EAF8791C11859700E7956E /* adhan_madina_1952_ios.mp3 in Resources */,
 				45EF2B731BFC3B8A008B01EE /* settings.json in Resources */,
+				45EAF87D1C11859700E7956E /* adhan_sharif_ios.mp3 in Resources */,
+				45EAF87B1C11859700E7956E /* adhan_nasser_al_qatami_ios.mp3 in Resources */,
 				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
 				183271FE1C01ECF6005078B6 /* CalendarLocationView.xib in Resources */,
 				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
+				45EAF8751C11859700E7956E /* adhan_entezar_ios.mp3 in Resources */,
 				18F52F7A1C0C3556005F26E8 /* PrayTimeViewController.xib in Resources */,
+				45EAF8821C11859700E7956E /* rahim_moazenzadeh_ios.mp3 in Resources */,
+				45EAF8851C11859700E7956E /* seyed_abas_mirdamad_ios.mp3 in Resources */,
 				45EF2B7D1BFC5913008B01EE /* ReadRightView.xib in Resources */,
 				183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */,
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
+				45EAF8871C11859700E7956E /* tasvieh_chi_ios.mp3 in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
 				45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */,
+				45EAF8721C11859700E7956E /* adhan_1_ios.mp3 in Resources */,
 				18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */,
+				45EAF8781C11859700E7956E /* adhan_halab_ios.mp3 in Resources */,
+				45EAF8811C11859700E7956E /* karami_ios.mp3 in Resources */,
+				45EAF8761C11859700E7956E /* adhan_fajr_madina_ios.mp3 in Resources */,
 				45C23D491C05A4BC008DCCEA /* aghati.mp3 in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
+				45EAF8881C11859700E7956E /* tukhi_ios.mp3 in Resources */,
+				45EAF8731C11859700E7956E /* adhan_abdul_baset_ios.mp3 in Resources */,
+				45EAF8801C11859700E7956E /* hazin_ios.mp3 in Resources */,
+				45EAF8841C11859700E7956E /* salim-moazenzadeh_ios.mp3 in Resources */,
+				45EAF8861C11859700E7956E /* sobhdel_ios.mp3 in Resources */,
 				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45542E5D1BFF0AB300F3A3A5 /* guLJViewHead.xib in Resources */,
+				45EAF8741C11859700E7956E /* adhan_egypt_ios.mp3 in Resources */,
 				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
+				45EAF87C1C11859700E7956E /* adhan_salimi_ios.mp3 in Resources */,
 				451A2C791C040B77006BB000 /* quran_v3.zip in Resources */,
 				45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */,
+				45EAF8771C11859700E7956E /* adhan_fajr_mansour_zahrani_ios.mp3 in Resources */,
 				183271C91C01C47A005078B6 /* NoticeView.xib in Resources */,
+				45EAF87E1C11859700E7956E /* aghati_ios.mp3 in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
+				45EAF8831C11859700E7956E /* saeidyan_ios.mp3 in Resources */,
 				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
 				183ECFD01BF9D350003FB90C /* CalendarCell.xib in Resources */,
 				18F52F7C1C0C3D60005F26E8 /* NearbyViewController.xib in Resources */,
@@ -1008,6 +1115,7 @@
 				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
+				45EAF87A1C11859700E7956E /* adhan_makkah_ios.mp3 in Resources */,
 				18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */,
 				45EAF8461C11730B00E7956E /* translated_sura_titles.plist in Resources */,
 				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,

@@ -434,7 +434,7 @@
          static let alarm_type_files_shia : NSArray  = [
             "",
             "",
-            "",
+            "aghati.mp3",
             "adhan_entezar_ios.mp3",
             "hazin_ios.mp3",
             "karami_ios.mp3",
