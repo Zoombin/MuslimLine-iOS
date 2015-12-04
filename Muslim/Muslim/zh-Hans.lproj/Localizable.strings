@@ -9,7 +9,6 @@
 
 "app_name" = "Muslim Line";
 "app_string" = "Muslim Line";
-"NSLocationAlwaysUsageDescription" = "Muslim Line 需要使用您的地理位置";
 "SETTINGS_ASR_JURISTIC_HANAFI" = "哈纳菲";
 "SETTINGS_ASR_JURISTIC_STANDARD" = "标准";
 "SETTINGS_CALCULATION_CUSTOM" = "定制设定";
@@ -33,7 +32,6 @@
 "SETTINGS_PRAYER_ALARM_AMFIVE" = "麦地那1952";
 "SETTINGS_PRAYER_ALARM_ANAQ" = "纳塞尔.阿尔.曲塔米";
 "about" = "关于";
-"common_google_play_install_text_phone" = "您的手机中没有 Google Play 服务，您必须先安装该服务才能运行此应用。";
 "about_copyright_text" = "© 2015 Muslim Line\n版权所有";
 "about_update_text" = "更新";
 "about_us" = "关于";
@@ -60,11 +58,6 @@
 "finish" = "完成";
 "frag_first" = "章节";
 "frag_second" = "书签";
-"google_direct_unselected" = "请选择一座清真寺作为目的地";
-"google_last_location" = "你最后一个记录的位置";
-"google_map_current_location" = "这是您当前的位置";
-"google_you_are_here" = "你在这里";
-"islamic_calendar" = "伊斯兰日历";
 "islamic_day_1" = "Aḥad";
 "islamic_day_2" = "Ithnayn";
 "islamic_day_3" = "Thulaathaaʼ";
@@ -89,7 +82,6 @@
 "main_dashboard_from_next" = "剩余时间:";
 "main_dashboard_next_time" = "即将:";
 "main_dashboard_no_prayer" = "----";
-"main_famaus_person_label" = "真主尊名";
 "main_holiday_label" = "日历";
 "main_location_set" = "设置位置";
 "main_names_label" = "真主尊名";
@@ -101,10 +93,6 @@
 "nearby_location_failure" = "定位失败";
 "nearby_location_failure_tip" = "请切换网络或 GPS，然后再试一次。";
 "nearby_location_failure_try_again" = "设置位置";
-"nearby_map_hybrid" = "混合";
-"nearby_map_normal" = "正常";
-"nearby_map_terrain" = "地形";
-"nearby_mosque_not_exist" = "未找到清真寺";
 "net_err" = "请确保网络连接正常";
 "network_is_not_available" = "无网络连接";
 "never" = "从不";
@@ -190,20 +178,114 @@
 "settings_day_light_save_hour_plus" = "+1 小时";
 "settings_day_light_save_hour_mins" = "-1 小时";
 "noti_prayer_time" = "祈祷时间";
+
 "calendar_selection" = "日历选择";
 "persian_calendar" = "波斯日历";
+
 "backtoast" = "再按一次退出程序";
 "nobookmark" = "无书签";
+
+
 "keyword_mosque" = "清真寺";
 "keyword_restaurant" = "餐馆";
 "keyword_store" = "商店";
+
+
 "main_quran_search_label" = "古兰经搜索";
-"keywords" = "搜索单词或引用。(例如:\"2:14\")";
+"keywords" = "搜索单词或引用。(例如:2:14)";
+
 "setting_faction_label" = "选择穆斯林派别";
 "setting_faction_shia" = "什叶派";
 "setting_faction_suni" = "逊尼派";
+
 "setting_slient_mode" = "静默模式下播放礼拜提示音";
+
 "setting_auto_choose" = "自动设置";
+
 "setting_auto_choose_stop" = "不可用于当前城市";
+
 "toast_sd_enough" = "SD卡空间不足!";
-"back" = "返回";
+
+"user_register" = "用户注册";
+"user_login" = "用户登录";
+"password_retrieve" = "密码找回";
+"password_change" = "修改密码";
+"identifying_code" = "验证码";
+"user_modify" = "用户信息修改";
+
+"original_password" = "原密码";
+"original_password_tips" = "填写您的旧密码";
+"new_password" = "新密码";
+"new_password_tips" = "填写您的新登录密码";
+"new_password_confirm" = "密码确认";
+"new_password_confirm_tips" = "确认您的新登录密码";
+"confirmation" = "确认修改";
+"password_change_tips" = "注意：密码重置成功后将自动置为123456";
+"password_empty_tips" = "密码不能为空";
+"password_weak_tips" = "密码必须至少为6位";
+"password_not_consistent_tips" = "两次密码输入不一致";
+
+"email" = "邮箱";
+"email_tips" = "填写密码找回用的邮箱";
+"verification_code" = "验证码";
+"verification_code_tips" = "验证码";
+"send_verification_code" = "发送验证码";
+"password_reset" = "重置密码";
+"mailbox_empty_tips" = "邮箱不能为空";
+"mailbox_error_tips" = "邮箱不合法";
+"verification_code_empty_tips" = "验证码不能为空";
+
+"user_name" = "用户名";
+"user_name_tips" = "填写您的登录名";
+"password" = "密码";
+"password_tips" = "填写您的登录密码";
+"sign_in" = "登录";
+"password_forget" = "忘记密码";
+"registered_account" = "注册帐号";
+"username_empty_tips" = "用户名不能为空";
+
+"nickname" = "昵称";
+"nickname_tips" = "填写您的昵称";
+"modify" = "修改";
+"nickname_empty_tips" = "昵称不能为空";
+
+"password_confirm" = "密码确认";
+"password_confirm_tips" = "再输入您的登录密码";
+"agree_muslim_empty_tips" = "请先同意用户协议";
+"agree_muslim" = "同意Muslim line相关协议";
+
+"image_from_album" = "从相册选择";
+"image_from_camera" = "拍照";
+"avatar_select" = "头像选择";
+
+"user_panel" = "个人中心";
+"user_collection" = "我的收藏";
+"event_center" = "活动中心";
+"system_notification" = "系统通知";
+
+"no_notification" = "暂无通知";
+"no_collection" = "暂无收藏";
+"no_events" = "无近期活动";
+
+"news_related" = "相关新闻";
+"news_comment" = "评论";
+"no_news_related" = "无相关新闻";
+"no_news" = "无该新闻";
+"no_news_comment" = "无评论";
+"write_comments" = "写评论";
+"add_collect" = "已加入收藏";
+"commit_comment" = "评论已发表";
+"commit_comment_tips" = "发表评论";
+"publish_comment_tips" = "发表";
+"commit_comment_content_tips" = "写下您的评论";
+"no_comment_tips" = "评论不能为空";
+"up_comment_tips" = "您已顶过该评论";
+"no_more_comment" = "无更多评论";
+"has_add_collect_tips" = "该新闻已经在您的收藏列表中";
+"has_remove_collect_tips" = "该新闻不在您的收藏列表中";
+"remove_collect_tips" = "已取消收藏";
+
+"guide_understand_tips" = "知道了";
+"guide_click_enter_tips" = "点击进入";
+"guide_get_more_news_tips" = "进入获取更多资讯!";
+"guide_check_profile_tips" = "检查我的个人资料";

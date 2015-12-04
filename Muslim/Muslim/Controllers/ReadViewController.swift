@@ -96,7 +96,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         slider.frame = CGRectMake(CGRectGetMaxX(mTableView.bounds) - 15, 64, 20, mTableView.bounds.size.height)
         
         setTitleBar() //设置titlebar
+        
+        self.view.makeToastActivity()
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         getQurans(sura)

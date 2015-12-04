@@ -142,12 +142,12 @@
 		45C8372E1BF9D20300069723 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836EF1BF9D20300069723 /* zip.c */; };
 		45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C836F21BF9D20300069723 /* SSZipArchive.m */; };
 		45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */; };
-		45EF2B6E1BFC3B8A008B01EE /* allah_names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B651BFC3B8A008B01EE /* allah_names.plist */; };
+		45EAF8461C11730B00E7956E /* translated_sura_titles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8481C11730B00E7956E /* translated_sura_titles.plist */; };
+		45EAF8521C117B0400E7956E /* allah_names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8541C117B0400E7956E /* allah_names.plist */; };
 		45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B661BFC3B8A008B01EE /* allahnames.json */; };
 		45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B671BFC3B8A008B01EE /* Config.swift */; };
 		45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */; };
 		45EF2B731BFC3B8A008B01EE /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B6A1BFC3B8A008B01EE /* settings.json */; };
-		45EF2B741BFC3B8A008B01EE /* translated_sura_titles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */; };
 		45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */; };
 		45EF2B771BFC3D12008B01EE /* FMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */; };
 		45EF2B791BFC4E8B008B01EE /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */; };
@@ -362,12 +362,23 @@
 		45C836F11BF9D20300069723 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		45C836F21BF9D20300069723 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerMr.swift; sourceTree = "<group>"; };
-		45EF2B651BFC3B8A008B01EE /* allah_names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allah_names.plist; sourceTree = "<group>"; };
+		45EAF8471C11730B00E7956E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
+		45EAF84A1C11732700E7956E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/translated_sura_titles.plist"; sourceTree = "<group>"; };
+		45EAF84B1C11764500E7956E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fa; path = fa.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
+		45EAF84C1C11764500E7956E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45EAF84E1C11785200E7956E /* ar-DZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ar-DZ"; path = "ar-DZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		45EAF84F1C1178BC00E7956E /* ar-DZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ar-DZ"; path = "ar-DZ.lproj/translated_sura_titles.plist"; sourceTree = "<group>"; };
+		45EAF8501C117A6900E7956E /* hi-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "hi-IN"; path = "hi-IN.lproj/translated_sura_titles.plist"; sourceTree = "<group>"; };
+		45EAF8511C117A6900E7956E /* hi-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hi-IN"; path = "hi-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		45EAF8531C117B0400E7956E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/allah_names.plist; sourceTree = "<group>"; };
+		45EAF8551C117B0B00E7956E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/allah_names.plist"; sourceTree = "<group>"; };
+		45EAF8561C117B0C00E7956E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fa; path = fa.lproj/allah_names.plist; sourceTree = "<group>"; };
+		45EAF8571C117B0E00E7956E /* ar-DZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ar-DZ"; path = "ar-DZ.lproj/allah_names.plist"; sourceTree = "<group>"; };
+		45EAF8581C117B0F00E7956E /* hi-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "hi-IN"; path = "hi-IN.lproj/allah_names.plist"; sourceTree = "<group>"; };
 		45EF2B661BFC3B8A008B01EE /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 		45EF2B671BFC3B8A008B01EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = holidayTimes.plist; sourceTree = "<group>"; };
 		45EF2B6A1BFC3B8A008B01EE /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
-		45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = translated_sura_titles.plist; sourceTree = "<group>"; };
 		45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
 		45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBHelper.swift; sourceTree = "<group>"; };
 		45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
@@ -832,12 +843,12 @@
 			children = (
 				45C23D481C05A4BC008DCCEA /* aghati.mp3 */,
 				451A2C781C040B76006BB000 /* quran_v3.zip */,
-				45EF2B651BFC3B8A008B01EE /* allah_names.plist */,
+				45EAF8541C117B0400E7956E /* allah_names.plist */,
 				45EF2B661BFC3B8A008B01EE /* allahnames.json */,
 				45EF2B671BFC3B8A008B01EE /* Config.swift */,
 				45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */,
 				45EF2B6A1BFC3B8A008B01EE /* settings.json */,
-				45EF2B6B1BFC3B8A008B01EE /* translated_sura_titles.plist */,
+				45EAF8481C11730B00E7956E /* translated_sura_titles.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -938,6 +949,9 @@
 				en,
 				Base,
 				"zh-Hans",
+				fa,
+				"ar-DZ",
+				"hi-IN",
 			);
 			mainGroup = 1887FCF61BD7387400CB83D5;
 			productRefGroup = 1887FD001BD7387400CB83D5 /* Products */;
@@ -985,7 +999,7 @@
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
-				45EF2B6E1BFC3B8A008B01EE /* allah_names.plist in Resources */,
+				45EAF8521C117B0400E7956E /* allah_names.plist in Resources */,
 				45EF2B811BFC5FA3008B01EE /* ReadLeftView.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
 				456408E11BFDC853007A217B /* ReadViewCell.xib in Resources */,
@@ -995,7 +1009,7 @@
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
 				18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */,
-				45EF2B741BFC3B8A008B01EE /* translated_sura_titles.plist in Resources */,
+				45EAF8461C11730B00E7956E /* translated_sura_titles.plist in Resources */,
 				18ADB8D71BE34F6300FA387E /* GuLJCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1166,8 +1180,35 @@
 			children = (
 				18ADB8DF1BE374C200FA387E /* en */,
 				18ADB8E11BE374CD00FA387E /* zh-Hans */,
+				45EAF84C1C11764500E7956E /* fa */,
+				45EAF84E1C11785200E7956E /* ar-DZ */,
+				45EAF8511C117A6900E7956E /* hi-IN */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		45EAF8481C11730B00E7956E /* translated_sura_titles.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45EAF8471C11730B00E7956E /* en */,
+				45EAF84A1C11732700E7956E /* zh-Hans */,
+				45EAF84B1C11764500E7956E /* fa */,
+				45EAF84F1C1178BC00E7956E /* ar-DZ */,
+				45EAF8501C117A6900E7956E /* hi-IN */,
+			);
+			name = translated_sura_titles.plist;
+			sourceTree = "<group>";
+		};
+		45EAF8541C117B0400E7956E /* allah_names.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45EAF8531C117B0400E7956E /* en */,
+				45EAF8551C117B0B00E7956E /* zh-Hans */,
+				45EAF8561C117B0C00E7956E /* fa */,
+				45EAF8571C117B0E00E7956E /* ar-DZ */,
+				45EAF8581C117B0F00E7956E /* hi-IN */,
+			);
+			name = allah_names.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

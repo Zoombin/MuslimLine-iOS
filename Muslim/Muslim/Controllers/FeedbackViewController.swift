@@ -27,11 +27,15 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
     func succssResult(result: NSObject, tag : NSInteger) {
         self.view.hideToastActivity()
         self.view.makeToast(message: "发送成功")
-        self.navigationController?.popViewControllerAnimated(true)
+        self.performSelector(Selector.init("back"), withObject: nil, afterDelay: 1.0)
     }
     func errorResult(error : NSError, tag : NSInteger) {
         self.view.hideToastActivity()
         self.view.makeToast(message: "发送失败")
+    }
+    
+    func back(){
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

@@ -142,6 +142,8 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         }
         if(row == 1){
             saveSelect(row)
+            AlarmMediaMr.getInstance().stop()
+            //AlarmMediaMr.getInstance().play(row, path: UILocalNotificationDefaultSoundName)
             return
         }
         let mp3Name = mp3Array[row] as! String
