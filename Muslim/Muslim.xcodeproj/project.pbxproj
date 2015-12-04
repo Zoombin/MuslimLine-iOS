@@ -133,7 +133,6 @@
 		45C23D441C056216008DCCEA /* MediaSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D421C056216008DCCEA /* MediaSettingCell.swift */; };
 		45C23D451C056216008DCCEA /* MediaSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C23D431C056216008DCCEA /* MediaSettingCell.xib */; };
 		45C23D471C0581DA008DCCEA /* AlarmMediaMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */; };
-		45C23D491C05A4BC008DCCEA /* aghati.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45C23D481C05A4BC008DCCEA /* aghati.mp3 */; };
 		45C7D0791BE5A9870086D39E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7D0781BE5A9870086D39E /* Colors.swift */; };
 		45C836681BF9A4B300069723 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C836671BF9A4B300069723 /* FileUtils.swift */; };
 		45C8372B1BF9D20300069723 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836E91BF9D20300069723 /* ioapi.c */; };
@@ -369,7 +368,6 @@
 		45C23D421C056216008DCCEA /* MediaSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSettingCell.swift; sourceTree = "<group>"; };
 		45C23D431C056216008DCCEA /* MediaSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaSettingCell.xib; sourceTree = "<group>"; };
 		45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmMediaMr.swift; sourceTree = "<group>"; };
-		45C23D481C05A4BC008DCCEA /* aghati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = aghati.mp3; path = ../Config/aghati.mp3; sourceTree = "<group>"; };
 		45C7D0781BE5A9870086D39E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		45C836671BF9A4B300069723 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		45C836E61BF9D20300069723 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -888,7 +886,6 @@
 		45EAF8591C11849C00E7956E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				45C23D481C05A4BC008DCCEA /* aghati.mp3 */,
 				45EAF85B1C11859700E7956E /* adhan_1_ios.mp3 */,
 				45EAF85C1C11859700E7956E /* adhan_abdul_baset_ios.mp3 */,
 				45EAF85D1C11859700E7956E /* adhan_egypt_ios.mp3 */,
@@ -1079,7 +1076,6 @@
 				45EAF8781C11859700E7956E /* adhan_halab_ios.mp3 in Resources */,
 				45EAF8811C11859700E7956E /* karami_ios.mp3 in Resources */,
 				45EAF8761C11859700E7956E /* adhan_fajr_madina_ios.mp3 in Resources */,
-				45C23D491C05A4BC008DCCEA /* aghati.mp3 in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				45EAF8881C11859700E7956E /* tukhi_ios.mp3 in Resources */,
 				45EAF8731C11859700E7956E /* adhan_abdul_baset_ios.mp3 in Resources */,

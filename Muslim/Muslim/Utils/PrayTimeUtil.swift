@@ -44,7 +44,7 @@ class PrayTimeUtil: NSObject {
             }else if(select == 1){
                 return "1" //默认
             }else if(select == 2){
-                return "2" //aghtai.mm3
+                return "2" //aghati_ios.mp3
             }else{
                 return Config.alarm_type_files_shia[select] as! String
             }

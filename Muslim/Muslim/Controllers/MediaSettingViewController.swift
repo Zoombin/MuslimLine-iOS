@@ -159,7 +159,7 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         let mp3Name = mp3Array[row] as! String
         if(mp3Name.isEmpty){
             //2 默认
-            let defalt = NSBundle.mainBundle().pathForResource("aghati", ofType: "mp3")
+            let defalt = NSBundle.mainBundle().pathForResource("aghati_ios", ofType: "mp3")
             saveSelect(row)
             AlarmMediaMr.getInstance().stop()
             AlarmMediaMr.getInstance().play(row,path:defalt!)

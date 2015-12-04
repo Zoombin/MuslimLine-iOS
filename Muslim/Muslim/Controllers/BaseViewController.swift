@@ -116,7 +116,7 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     
     func pushViewController(to : UIViewController) {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("back", comment: ""), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("", comment: ""), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
         self.navigationController?.pushViewController(to, animated: true)
     }
     
