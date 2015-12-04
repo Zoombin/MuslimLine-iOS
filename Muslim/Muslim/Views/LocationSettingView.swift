@@ -223,15 +223,14 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         
         let cityName : NSString = info["name"] as! NSString
         let timeZone : NSString = info["timezone"] as! NSString
-        let countryInfo : NSDictionary = info["country attrs"] as! NSDictionary
-        let countryCode : NSString = countryInfo["code"] as! NSString
+        let country : NSString = info["country"] as! NSString
         let centroid : NSDictionary = info["centroid"] as! NSDictionary
         let latitude : NSNumber = centroid["latitude"] as! NSNumber
         let longitude : NSNumber = centroid["longitude"] as! NSNumber
         
         Config.saveTimeZone(timeZone as String)
         Config.saveLat(latitude)
-        Config.savecountryName(countryCode as String)
+        Config.savecountryName(country as String)
         Config.saveLng(longitude)
         Config.saveCityName(cityName as String)
         self.hidden = true
@@ -239,8 +238,6 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
             PrayTimeUtil.getPrayTime() //获取默认礼拜时间
             self.delegate?.refreshUserLocation()
         }
-        print(cityName, countryCode, latitude, longitude)
-
     }
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()

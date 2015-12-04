@@ -51,6 +51,7 @@ class LocalNoticationUtils: NSObject {
             localNotification.repeatInterval = NSCalendarUnit.Day
             localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+            return
         }
     }
     static func getSoundName(index : Int) -> String {
@@ -67,7 +68,7 @@ class LocalNoticationUtils: NSObject {
     }
     
     static func getPrayNoticContent(index : Int) -> String{
-        let names : [String] = Config.PrayNameArray as! [String]
+        let names : [String] = Config.PrayerNameArray as! [String]
         let prayTime = Config.getPrayTime(index)
         let alertBody = String(format: "%@ %@ %@", NSLocalizedString("noti_prayer_time", comment: ""), names[index], prayTime)
         return alertBody

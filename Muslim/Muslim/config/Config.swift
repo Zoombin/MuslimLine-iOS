@@ -52,7 +52,7 @@
         /**删除首页的数据*/
         static func clearHomeValues() {
             UserDefaultsUtil.removeForKey("Timezone")
-            UserDefaultsUtil.removeForKey("countryCode")
+            UserDefaultsUtil.removeForKey("countryName")
             UserDefaultsUtil.removeForKey("cityName")
             UserDefaultsUtil.removeForKey("latValue")
             UserDefaultsUtil.removeForKey("lngValue")
@@ -402,17 +402,17 @@
          static let alarm_type_files_sunni : NSArray  = [
             "",
             "",
-            "adhan_fajr_madina.mp3",
-            "adhan_1.mp3",
-            "adhan_abdul_baset.mp3",
-            "adhan_egypt.mp3",
-            "adhan_fajr_mansour_zahrani.mp3",
-            "adhan_halab.mp3",
-            "adhan_madina_1952.mp3",
-            "adhan_makkah.mp3",
-            "adhan_nasser_al_qatami.mp3",
-            "adhan_salimi.mp3",
-            "adhan_sharif.mp3"
+            "adhan_fajr_madina_ios.mp3",
+            "adhan_1_ios.mp3",
+            "adhan_abdul_baset_ios.mp3",
+            "adhan_egypt_ios.mp3",
+            "adhan_fajr_mansour_zahrani_ios.mp3",
+            "adhan_halab_ios.mp3",
+            "adhan_madina_1952_ios.mp3",
+            "adhan_makkah_ios.mp3",
+            "adhan_nasser_al_qatami_ios.mp3",
+            "adhan_salimi_ios.mp3",
+            "adhan_sharif_ios.mp3"
         ]
         
         /**什叶派闹钟*/
@@ -435,16 +435,16 @@
             "",
             "",
             "",
-            "adhan_entezar.mp3",
-            "hazin.mp3",
-            "karami.mp3",
-            "rahim_moazenzadeh.mp3",
-            "saeidyan.mp3",
-            "salim-moazenzadeh.mp3",
-            "seyed_abas_mirdamad.mp3",
-            "sobhdel.mp3",
-            "tasvieh_chi.mp3",
-            "tukhi.mp3"
+            "adhan_entezar_ios.mp3",
+            "hazin_ios.mp3",
+            "karami_ios.mp3",
+            "rahim_moazenzadeh_ios.mp3",
+            "saeidyan_ios.mp3",
+            "salim-moazenzadeh_ios.mp3",
+            "seyed_abas_mirdamad_ios.mp3",
+            "sobhdel_ios.mp3",
+            "tasvieh_chi_ios.mp3",
+            "tukhi_ios.mp3"
         ]
         
         

@@ -74,8 +74,6 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         locationTableView!.registerNib(UINib(nibName: "NearbyCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         httpClient.delegate = self
         
-        searchBYType(KEYWORD_MOSQUE)
-        
         let rightImage : UIImage =  UIImage(named: "mosque")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("menuButtonClicked"))
         
