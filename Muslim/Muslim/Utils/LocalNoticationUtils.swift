@@ -17,7 +17,7 @@ class LocalNoticationUtils: NSObject {
             return;
         }
         UIApplication.sharedApplication().cancelAllLocalNotifications()
-        for (var i = 0; i < Config.PrayerNameArray.count; i++) {
+        for (var i = 0; i < Config.PrayNameArray.count; i++) {
             var prayTime = Config.getPrayTime(i)
             let timeFormat = Config.getTimeFormat()
             let timeZone = NSTimeZone.init(name: Config.getTimeZone())
@@ -46,12 +46,11 @@ class LocalNoticationUtils: NSObject {
             localNotification.timeZone = timeZone
             //TODO: 提醒但是没提示音
             if (PrayTimeUtil.getPrayMediaStatu(i) != 0) {
-                localNotification.soundName = getSoundName(i)
+                localNotification.soundName = "aghati.mp3"
             }
             localNotification.repeatInterval = NSCalendarUnit.Day
             localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-            return
         }
     }
     static func getSoundName(index : Int) -> String {
@@ -68,7 +67,7 @@ class LocalNoticationUtils: NSObject {
     }
     
     static func getPrayNoticContent(index : Int) -> String{
-        let names : [String] = Config.PrayerNameArray as! [String]
+        let names : [String] = Config.PrayNameArray as! [String]
         let prayTime = Config.getPrayTime(index)
         let alertBody = String(format: "%@ %@ %@", NSLocalizedString("noti_prayer_time", comment: ""), names[index], prayTime)
         return alertBody
