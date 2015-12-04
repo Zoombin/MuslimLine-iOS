@@ -195,6 +195,26 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        let tag = tableView.tag
+        if(100 == tag){
+            return
+        }else{
+            let bookmark = bookmarkArray[indexPath.row] as! Bookmark
+            FMDBHelper.getInstance().deleteBookmark(bookmark.suraId!, aya:bookmark.ayaId!)
+            loadBookMarkData()
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let tag = tableView.tag
+        if(100 == tag){
+            return false
+        }else{
+            return true
+        }
+    }
+    
     //上一次阅读位置
     func headViewClick(){
         let readVC : ReadViewController = ReadViewController()

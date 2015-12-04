@@ -76,8 +76,9 @@ class PrayTimeUtil: NSObject {
             if(nextTime.rangeOfString("PM").location != NSNotFound){
                 nextTime = nextTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 let arr = nextTime.componentsSeparatedByString(":")
-                let hour = Int(arr[0])!+12
-                nextTime = String(hour)+":"+arr[1]
+                let hourValue = Int(arr[0])
+                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
+                nextTime = String(format: "%d:%@", hour!,arr[1])
             }
             if(nextTime.rangeOfString("AM").location != NSNotFound){
                 nextTime = nextTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -117,8 +118,9 @@ class PrayTimeUtil: NSObject {
             if(currentTime.rangeOfString("PM").location != NSNotFound){
                 currentTime = currentTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 let arr = currentTime.componentsSeparatedByString(":")
-                let hour = Int(arr[0])!+12
-                currentTime = String(hour)+":"+arr[1]
+                let hourValue = Int(arr[0])
+                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
+                currentTime = String(format: "%d:%@", hour!,arr[1])
             }
             if(currentTime.rangeOfString("AM").location != NSNotFound){
                 currentTime = currentTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -130,8 +132,9 @@ class PrayTimeUtil: NSObject {
             if(nextTime.rangeOfString("PM").location != NSNotFound){
                 nextTime = nextTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 let arr = nextTime.componentsSeparatedByString(":")
-                let hour = Int(arr[0])!+12
-                nextTime = String(hour)+":"+arr[1]
+                let hourValue = Int(arr[0])
+                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
+                nextTime = String(format: "%d:%@", hour!,arr[1])
             }
             if(nextTime.rangeOfString("AM").location != NSNotFound){
                 nextTime = nextTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -171,8 +174,9 @@ class PrayTimeUtil: NSObject {
                 if(date.rangeOfString("PM").location != NSNotFound){
                     date = date.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                     let arr = date.componentsSeparatedByString(":")
-                    let hour = Int(arr[0])!+12
-                    date = String(hour)+":"+arr[1]
+                    let hourValue = Int(arr[0])
+                    let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
+                    date = String(format: "%d:%@", hour!,arr[1])
                 }
                 if(date.rangeOfString("AM").location != NSNotFound){
                     date = date.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -244,8 +248,9 @@ class PrayTimeUtil: NSObject {
                 replaceType = 1
                 pray = pray.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 let arr = pray.componentsSeparatedByString(":")
-                let hour = Int(arr[0])!+12
-                pray = String(hour)+":"+arr[1]
+                let hourValue = Int(arr[0])
+                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
+                pray = String(format: "%d:%@", hour!,arr[1])
             }
             if(pray.rangeOfString("AM").location != NSNotFound){
                 replaceType = 3
@@ -257,11 +262,15 @@ class PrayTimeUtil: NSObject {
             var newPray = dateFormat.stringFromDate(newDate)
             if(replaceType == 1){
                 let arr = newPray.componentsSeparatedByString(":")
-                let hour = Int(arr[0])!-12
-                newPray = String(hour)+":"+arr[1]+" PM"
+                let hourValue = Int(arr[0])
+                let hour = hourValue! > 12 ? hourValue! - 12 : hourValue
+                newPray = String(format: "%d:%@ PM", hour!,arr[1])
             }
             if(replaceType == 3){
-                newPray = newPray + " AM"
+                let arr = newPray.componentsSeparatedByString(":")
+                let hourValue = Int(arr[0])
+                let ty = hourValue! == 12 ? "PM" : "AM"
+                newPray = String(format: "%@:%@ %@", arr[0],arr[1],ty)
             }
             Config.savePrayTime(index, time: newPray)//保存最终设置的礼拜时间
             adjustArray.addObject(newPray)

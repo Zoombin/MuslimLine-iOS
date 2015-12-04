@@ -187,10 +187,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     /**获取古兰经*/
     func getQurans(sura:Int){
         self.sura = sura
+        self.view.makeToastActivity()
         chapter = FMDBHelper.getInstance().getChapter(sura)
         setTitelBarData()
         
         quranArray = FMDBHelper.getInstance().getQurans(sura)
+        self.view.hideToastActivity()
     }
     
     
