@@ -18,9 +18,6 @@ class LocalNoticationUtils: NSObject {
         }
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         for (var i = 0; i < Config.PrayerNameArray.count; i++) {
-            if (PrayTimeUtil.getPrayMediaStatu(i) == 0) {
-                continue
-            }
             var prayTime = Config.getPrayTime(i)
             let timeFormat = Config.getTimeFormat()
             let timeZone = NSTimeZone.init(name: Config.getTimeZone())
@@ -47,7 +44,10 @@ class LocalNoticationUtils: NSObject {
             localNotification.fireDate = fireDate
             localNotification.alertBody = self.getPrayNoticContent(i)
             localNotification.timeZone = timeZone
-            localNotification.soundName = getSoundName(i)
+            //TODO: 提醒但是没提示音
+            if (PrayTimeUtil.getPrayMediaStatu(i) != 0) {
+                localNotification.soundName = getSoundName(i)
+            }
             localNotification.repeatInterval = NSCalendarUnit.Day
             localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
