@@ -18,6 +18,7 @@ class Quran: NSObject {
     var unSelectedHeight : CGFloat = 180
     var selectedHeight : CGFloat = 230
     var hasCalulateHeight = false
+    var alignmentToRight = Config.getTextShouldToRight()
     
     /**** 界面需要的额外参数**/
     //选中 - 需要变换高度
