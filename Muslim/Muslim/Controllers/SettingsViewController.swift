@@ -287,7 +287,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let foot:UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(itemCount+1),contentViewWidth,itemHight))
             foot.backgroundColor = UIColor.whiteColor()
             contentView.addSubview(foot)
-            let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-50,itemHight * CGFloat(itemCount+1),50,itemHight))
+            let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-90,itemHight * CGFloat(itemCount+1),90,itemHight))
             cancelLable.text = NSLocalizedString("cancel", comment:"")
             cancelLable.textColor = UIColor.lightGrayColor()
             contentView.addSubview(cancelLable)
