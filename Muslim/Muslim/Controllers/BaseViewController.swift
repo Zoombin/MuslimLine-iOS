@@ -22,6 +22,9 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
         //设置背景颜色
         self.view.backgroundColor = UIColor.whiteColor()
         
+        let navigationBar = self.navigationController!.navigationBar
+        navigationBar.hideBottomHairline()
+        
         initPopMenuView()
         
         let nibs = NSBundle.mainBundle().loadNibNamed("LocationSettingView", owner: nil, options: nil)
