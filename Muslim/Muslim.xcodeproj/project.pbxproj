@@ -83,6 +83,8 @@
 		18BED7681BE8931600418054 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BED7671BE8931600418054 /* MainViewController.xib */; };
 		18C320371BFF27A80087E359 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C320361BFF27A80087E359 /* Log.swift */; };
 		18CA675E1C1544D600E4D2AD /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA675D1C1544D600E4D2AD /* UINavigationBar+Addition.m */; };
+		18CA67671C155E2800E4D2AD /* Kefa.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 18CA67651C155E2800E4D2AD /* Kefa.ttc */; };
+		18CA67691C155E5B00E4D2AD /* Kefa.ttc in Sources */ = {isa = PBXBuildFile; fileRef = 18CA67651C155E2800E4D2AD /* Kefa.ttc */; };
 		18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */; };
 		18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */; };
 		18F52F7A1C0C3556005F26E8 /* PrayTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F52F791C0C3556005F26E8 /* PrayTimeViewController.xib */; };
@@ -320,6 +322,7 @@
 		18C320361BFF27A80087E359 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		18CA675C1C1544D600E4D2AD /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Addition.h"; path = "Library/UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		18CA675D1C1544D600E4D2AD /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Addition.m"; path = "Library/UINavigationBar+Addition.m"; sourceTree = "<group>"; };
+		18CA67651C155E2800E4D2AD /* Kefa.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kefa.ttc; sourceTree = "<group>"; };
 		18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchViewController.swift; sourceTree = "<group>"; };
 		18F52F791C0C3556005F26E8 /* PrayTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayTimeViewController.xib; sourceTree = "<group>"; };
@@ -786,6 +789,7 @@
 		1887FD011BD7387400CB83D5 /* Muslim */ = {
 			isa = PBXGroup;
 			children = (
+				18CA67631C155E2800E4D2AD /* Font */,
 				45EAF8591C11849C00E7956E /* Resource */,
 				45EF2B641BFC3B8A008B01EE /* Config */,
 				45EF2B6C1BFC3B8A008B01EE /* Db */,
@@ -851,6 +855,14 @@
 				18CA675D1C1544D600E4D2AD /* UINavigationBar+Addition.m */,
 			);
 			path = "UINavigationBar-Addition";
+			sourceTree = "<group>";
+		};
+		18CA67631C155E2800E4D2AD /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				18CA67651C155E2800E4D2AD /* Kefa.ttc */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		18F9EB6A1BF447640096D021 /* Toast */ = {
@@ -1115,6 +1127,7 @@
 				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
+				18CA67671C155E2800E4D2AD /* Kefa.ttc in Resources */,
 				45EAF8521C117B0400E7956E /* allah_names.plist in Resources */,
 				45EF2B811BFC5FA3008B01EE /* ReadLeftView.xib in Resources */,
 				1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */,
@@ -1152,6 +1165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CA67691C155E5B00E4D2AD /* Kefa.ttc in Sources */,
 				18C320371BFF27A80087E359 /* Log.swift in Sources */,
 				185556591BF0734E00A29B49 /* PrayTimeCell.swift in Sources */,
 				45C23D471C0581DA008DCCEA /* AlarmMediaMr.swift in Sources */,
