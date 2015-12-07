@@ -57,6 +57,8 @@ class MainViewController: BaseViewController {
     override func refreshUserLocation() {
         let cityName = Config.getCityName()
         calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
+        calendarLocationView.locationButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        calendarLocationView.locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 16, 0, 16)
         CalendarUtils.getDate()
         noticeView.currentTimeLabel.text = CalendarUtils.getDate()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
