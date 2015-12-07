@@ -478,7 +478,7 @@
             "Ahmed Raza Khan",
             "Arberry",
             "Daryabadi",
-            "Hilali &amp; Khan",
+            "Hilali & Khan",
             "Itani",
             "Maududi",
             "Mubarakpuri",
