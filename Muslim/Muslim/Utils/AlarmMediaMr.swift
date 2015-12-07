@@ -79,6 +79,19 @@ class AlarmMediaMr: NSObject ,httpClientDelegate{
         isPlaying = true
     }
     
+    func playSystemSound() {
+        //建立的SystemSoundID对象
+        var soundID:SystemSoundID = 1007
+        //获取声音地址
+        let path = "/System/Library/Audio/UISounds/sms-received1.caf"
+        //地址转换
+        let baseURL = NSURL(fileURLWithPath: path)
+        //赋值
+        AudioServicesCreateSystemSoundID(baseURL, &soundID)
+        //播放声音
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
     func stop(){
         isPlaying = false
         if(audioPlayer != nil && audioPlayer.playing){

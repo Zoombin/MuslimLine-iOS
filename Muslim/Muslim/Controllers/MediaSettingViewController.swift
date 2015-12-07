@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource,mAlarmMediaDelegate{
     var AlarmType :Int = 0 //哪种时段的闹钟
@@ -153,7 +154,7 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         if(row == 1){
             saveSelect(row)
             AlarmMediaMr.getInstance().stop()
-            //AlarmMediaMr.getInstance().play(row, path: UILocalNotificationDefaultSoundName)
+            AlarmMediaMr.getInstance().playSystemSound()
             return
         }
         let mp3Name = mp3Array[row] as! String

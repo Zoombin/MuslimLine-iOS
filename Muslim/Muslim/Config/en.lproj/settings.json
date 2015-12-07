@@ -1,0 +1,130 @@
+ [
+  {
+  "name": "PRAYER TIMES",
+  "set": [
+          {
+          "title": "Muslim Faction",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "Shia",
+                     "Sunni"
+                     ]
+          },
+          {
+          "title": "Manual Corrections",
+          "subtitle": "",
+          "right_type": "2",
+          "right_txt": "",
+          "subset": []
+          },
+          {
+          "title": "Automatic Settings",
+          "subtitle": "Not available for current city",
+          "right_type": "3",
+          "right_txt": "",
+          "subset": []
+          },
+          {
+          "title": "Asr Calculation-Juristic Method",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "Standard",
+                     "Hanafi"
+                     ]
+          },
+          {
+          "title": "Prayer Time Conventions",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "Ithna Ashari",
+                     "Islamic University,Karachi",
+                     "North America(ISNA)",
+                     "Muslim World League(MWL)",
+                     "Umm AI-Qura,Makkah",
+                     "Egyptian General Authority",
+                     "University of Tehran"
+                     ]
+          },
+          {
+          "title": "High Latitude Adjustment",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "None",
+                     "Middle of the night",
+                     "1/7 of the night",
+                     "Angle-based method"
+                     ]
+          },
+          {
+          "title": "Daylight Saving Time",
+          "subtitle": "",
+          "right_type": "1",
+          "right_txt": "",
+          "subset": [
+                     "Auto",
+                     "+1hour",
+                     "-1hour"
+                     ]
+          },
+          {
+          "title": "Time Format",
+          "subtitle": "",
+          "right_type": "4",
+          "right_txt": "24 Format",
+          "subset": [
+                     "24 Format",
+                     "12 Format"
+                     ]
+          },
+          {
+          "title": "Play Adhan In Silent Mode",
+          "subtitle": "",
+          "right_type": "3",
+          "right_txt": "",
+          "subset": []
+          }
+          ]
+  },
+  {
+  "name": "QURAN",
+  "set": [
+          {
+          "title": "Text & Translations",
+          "subtitle": "",
+          "right_type": "2",
+          "right_txt": "",
+          "subset": []
+          },
+          {
+          "title": "Audio Recitations",
+          "subtitle": "",
+          "right_type": "2",
+          "right_txt": "",
+          "subset": []
+          }
+          ]
+  },
+  {
+  "name": "Calendar",
+  "set": [
+          {
+          "title": "Calendar Selection",
+          "subtitle": "",
+          "right_type": "4",
+          "right_txt": "Islamic Calendar",
+          "subset": [
+                     "Islamic Calendar",
+                     "Persian Calendar"
+                     ]
+          }
+          ]
+  }
+  ]
