@@ -11,3 +11,4 @@
 #import "PrayTime.h"
 #import "FMDB.h"
 #import "SSZipArchive.h"
+#import "UINavigationBar+Addition.h"

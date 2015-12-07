@@ -27,7 +27,13 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //注: 设置title
-        title = NSLocalizedString("app_name", comment:"");
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, (240 / 320) * PhoneUtils.screenWidth, 44))
+        titleLabel.text = NSLocalizedString("app_name", comment:"")
+        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.font = UIFont.boldSystemFontOfSize(20)
+        titleLabel.textColor = UIColor.whiteColor()
+        self.navigationItem.titleView = titleLabel
+        
         //设置标题栏颜色
         self.navigationController!.navigationBar.barTintColor = Colors.greenColor
         //设置标题的字的颜色

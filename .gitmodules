@@ -13,3 +13,6 @@
 [submodule "Muslim/Muslim/Submodules/CNPPopupController"]
 	path = Muslim/Muslim/Submodules/CNPPopupController
 	url = https://github.com/carsonperrotti/CNPPopupController.git
+[submodule "Muslim/Muslim/Submodules/UINavigationBar-Addition"]
+	path = Muslim/Muslim/Submodules/UINavigationBar-Addition
+	url = https://github.com/samwize/UINavigationBar-Addition.git
