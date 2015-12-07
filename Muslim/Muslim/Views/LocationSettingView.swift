@@ -89,6 +89,13 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         //获取地址失败
         Log.printLog("获取地址失败")
+        locationFailedToast()
+    }
+    
+    func locationFailedToast() {
+        loadingView.stopAnimating()
+        loadingView.hidden = true
+        self.makeToast(message: NSLocalizedString("location_fail", comment: ""))
     }
     
     @IBAction func okButtonClicked() {
@@ -177,11 +184,9 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
             self.makeToast(message: NSLocalizedString("dlg_prayer_search_none", comment: ""))
             clearPreResults()
         } else if (tag == auto) {
-            Log.printLog(error)
-            Config.clearHomeValues()
+            locationFailedToast()
         } else if (tag == city) {
-            Log.printLog(error)
-            Config.clearHomeValues()
+            locationFailedToast()
         }
     }
     
