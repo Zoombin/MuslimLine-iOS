@@ -26,16 +26,21 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
     ////网络请求回调
     func succssResult(result: NSObject, tag : NSInteger) {
         self.view.hideToastActivity()
-        self.view.makeToast(message: "发送成功")
-        self.performSelector(Selector.init("back"), withObject: nil, afterDelay: 1.0)
+        self.view.makeToast(message: NSLocalizedString("thanks_for_feedback", comment:""))
+        self.performSelector(Selector.init("back"), withObject: nil, afterDelay: 1.5)
     }
     func errorResult(error : NSError, tag : NSInteger) {
         self.view.hideToastActivity()
-        self.view.makeToast(message: "发送失败")
+        self.view.makeToast(message: error.description)
     }
     
     func back(){
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func hideKeyboard(){
+        textview.resignFirstResponder()
+        //searBar.becomeFirstResponder()
     }
     
     
@@ -47,6 +52,10 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
         let textHight:CGFloat = (PhoneUtils.screenHeight-64)/3*0.9
         let textIndexX :CGFloat = margin
         let textIndexY :CGFloat = 64 + margin
+        
+        let invisibleBtn :UIButton = UIButton(frame: CGRectMake(0, 64, PhoneUtils.screenWidth, PhoneUtils.screenHeight))
+        invisibleBtn.addTarget(self, action: Selector.init("hideKeyboard"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(invisibleBtn)
         
         //输入框
         textview = UITextView(frame: CGRectMake(textIndexX, textIndexY, textWidth, textHight))
@@ -92,8 +101,14 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
     //发送反馈
     func sendFeedback(){
         //反馈
-        self.view.makeToastActivityWithMessage(message: "正在发送")
+        hideKeyboard()
+        self.view.makeToastActivityWithMessage(message: NSLocalizedString("sending", comment: ""))
         let message : String = textview.text as String
+        if(message.isEmpty){
+            self.view.hideToastActivity()
+            self.view.makeToast(message: NSLocalizedString("feedback_can_not_be_empty", comment: ""))
+            return
+        }
         httpClient.sendFeedback(message, tag: 0)
     }
     

@@ -104,6 +104,7 @@
 		451BD58E1BECA428008D98C2 /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */; };
 		4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD881BE883B90075A1FB /* BaseViewController.swift */; };
 		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
+		4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4526E1831C1514700054D405 /* AudioToolbox.framework */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
 		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
@@ -166,10 +167,10 @@
 		45EAF8861C11859700E7956E /* sobhdel_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF86F1C11859700E7956E /* sobhdel_ios.mp3 */; };
 		45EAF8871C11859700E7956E /* tasvieh_chi_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8701C11859700E7956E /* tasvieh_chi_ios.mp3 */; };
 		45EAF8881C11859700E7956E /* tukhi_ios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF8711C11859700E7956E /* tukhi_ios.mp3 */; };
+		45EAF8891C1193C800E7956E /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF88B1C1193C800E7956E /* settings.json */; };
 		45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B661BFC3B8A008B01EE /* allahnames.json */; };
 		45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B671BFC3B8A008B01EE /* Config.swift */; };
 		45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */; };
-		45EF2B731BFC3B8A008B01EE /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B6A1BFC3B8A008B01EE /* settings.json */; };
 		45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */; };
 		45EF2B771BFC3D12008B01EE /* FMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */; };
 		45EF2B791BFC4E8B008B01EE /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */; };
@@ -339,6 +340,7 @@
 		451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
 		4521DD881BE883B90075A1FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
+		4526E1831C1514700054D405 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
 		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
@@ -419,10 +421,14 @@
 		45EAF86F1C11859700E7956E /* sobhdel_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sobhdel_ios.mp3; sourceTree = "<group>"; };
 		45EAF8701C11859700E7956E /* tasvieh_chi_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tasvieh_chi_ios.mp3; sourceTree = "<group>"; };
 		45EAF8711C11859700E7956E /* tukhi_ios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tukhi_ios.mp3; sourceTree = "<group>"; };
+		45EAF88A1C1193C800E7956E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "zh-Hans"; path = "zh-Hans.lproj/settings.json"; sourceTree = "<group>"; };
+		45EAF88C1C1193CC00E7956E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/settings.json; sourceTree = "<group>"; };
+		45EAF88D1C1193CE00E7956E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fa; path = fa.lproj/settings.json; sourceTree = "<group>"; };
+		45EAF88E1C1193CF00E7956E /* ar-DZ */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "ar-DZ"; path = "ar-DZ.lproj/settings.json"; sourceTree = "<group>"; };
+		45EAF88F1C1193D000E7956E /* hi-IN */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "hi-IN"; path = "hi-IN.lproj/settings.json"; sourceTree = "<group>"; };
 		45EF2B661BFC3B8A008B01EE /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 		45EF2B671BFC3B8A008B01EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = holidayTimes.plist; sourceTree = "<group>"; };
-		45EF2B6A1BFC3B8A008B01EE /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 		45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
 		45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBHelper.swift; sourceTree = "<group>"; };
 		45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
@@ -442,6 +448,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */,
 				183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */,
 				18BED75E1BE8560000418054 /* libz.tbd in Frameworks */,
 				18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */,
@@ -831,6 +838,7 @@
 		18BED73A1BE84F2600418054 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				4526E1831C1514700054D405 /* AudioToolbox.framework */,
 				183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */,
 				18BED75D1BE8560000418054 /* libz.tbd */,
 				18BED75B1BE855F300418054 /* CoreLocation.framework */,
@@ -929,7 +937,7 @@
 				45EF2B661BFC3B8A008B01EE /* allahnames.json */,
 				45EF2B671BFC3B8A008B01EE /* Config.swift */,
 				45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */,
-				45EF2B6A1BFC3B8A008B01EE /* settings.json */,
+				45EAF88B1C1193C800E7956E /* settings.json */,
 				45EAF8481C11730B00E7956E /* translated_sura_titles.plist */,
 			);
 			path = Config;
@@ -1055,7 +1063,7 @@
 				45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */,
 				45EAF87F1C11859700E7956E /* aghati.mp3 in Resources */,
 				45EAF8791C11859700E7956E /* adhan_madina_1952_ios.mp3 in Resources */,
-				45EF2B731BFC3B8A008B01EE /* settings.json in Resources */,
+				45EAF8891C1193C800E7956E /* settings.json in Resources */,
 				45EAF87D1C11859700E7956E /* adhan_sharif_ios.mp3 in Resources */,
 				45EAF87B1C11859700E7956E /* adhan_nasser_al_qatami_ios.mp3 in Resources */,
 				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
@@ -1313,6 +1321,18 @@
 				45EAF8581C117B0F00E7956E /* hi-IN */,
 			);
 			name = allah_names.plist;
+			sourceTree = "<group>";
+		};
+		45EAF88B1C1193C800E7956E /* settings.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45EAF88A1C1193C800E7956E /* zh-Hans */,
+				45EAF88C1C1193CC00E7956E /* en */,
+				45EAF88D1C1193CE00E7956E /* fa */,
+				45EAF88E1C1193CF00E7956E /* ar-DZ */,
+				45EAF88F1C1193D000E7956E /* hi-IN */,
+			);
+			name = settings.json;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

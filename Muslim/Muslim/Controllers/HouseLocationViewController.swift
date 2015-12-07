@@ -121,7 +121,12 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
             radiansBearing += 2*M_PI;
         }
 
-        housePostion.text = String(format: "%@:%.0f°", NSLocalizedString("main_qibla_label", comment: ""), radiansBearing*180/M_PI)
+        let textLeft =  (NSLocalizedString("main_qibla_label", comment: "")) as NSString
+        let textAll = String(format: "%@:%.0f°",textLeft, radiansBearing*180/M_PI)
+        let attributeString = NSMutableAttributedString(string:textAll)
+        attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(),
+            range: NSMakeRange(0, textLeft.length))
+        housePostion.attributedText = attributeString
         return radiansBearing
         
     }

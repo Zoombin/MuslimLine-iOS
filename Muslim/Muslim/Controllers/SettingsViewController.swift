@@ -131,11 +131,11 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let select = getItemSelect(section, row: row)
             if(2 == select){
                 //不可用
-                settingCell.my_switch.enabled = false
+                //settingCell.my_switch.enabled = false
                 settingCell.my_switch.setOn(false, animated: true)
                 
-                settingCell.sub_title.hidden = false
-                settingCell.title.hidden = false
+                //settingCell.sub_title.hidden = false
+                //settingCell.title.hidden = false
             }else{
                 settingCell.title2.hidden = false
                 if(0 == select){
