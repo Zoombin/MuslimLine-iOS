@@ -81,7 +81,7 @@
                                         <outlet property="delegate" destination="20u-zW-fGj" id="K00-Sq-3w8"/>
                                     </connections>
                                 </searchBar>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iIG-0i-imj">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iIG-0i-imj">
                                     <rect key="frame" x="0.0" y="44" width="300" height="239"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <animations/>

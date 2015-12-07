@@ -107,9 +107,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
     //获取用户位置
     func getUserLocation() {
         searchBar.text = ""
-        manlResultArray.removeAllObjects()
-        tableView.reloadData()
-        
+        clearPreResults()
         rightButtonClicked()
         cityNameLabel.text = ""
         loadingView.hidden = false
@@ -126,12 +124,18 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
             let manlResult : ManlResult = ManlResult()
             manlResult.initValues(result as! NSDictionary)
             if (manlResult.places == nil) {
+                self.makeToast(message: NSLocalizedString("dlg_prayer_search_none", comment: ""))
+                clearPreResults()
                 return
             }
             if (manlResult.places!.count!.integerValue > 0) {
                 manlResultArray.removeAllObjects()
                 manlResultArray.addObjectsFromArray(manlResult.places?.place as! [AnyObject])
+                tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
                 tableView.reloadData()
+            } else {
+                self.makeToast(message: NSLocalizedString("dlg_prayer_search_none", comment: ""))
+                clearPreResults()
             }
         } else if (tag == auto) {
             Log.printLog(result)
@@ -161,10 +165,17 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         }
     }
     
+    func clearPreResults() {
+        manlResultArray.removeAllObjects()
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.reloadData()
+    }
+    
     func errorResult(error : NSError, tag : NSInteger) {
         self.hideToastActivity()
         if (tag == manl) {
-            
+            self.makeToast(message: NSLocalizedString("dlg_prayer_search_none", comment: ""))
+            clearPreResults()
         } else if (tag == auto) {
             Log.printLog(error)
             Config.clearHomeValues()
