@@ -27,6 +27,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         initView()
         refreshLocation()
+        self.view.makeToastActivity()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -99,26 +100,32 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         } else {
             currentTime = currentTime - (60 * 60 * 24)
         }
+        self.view.makeToastActivity()
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
+        self.view.hideToastActivity()
     }
     
     func beforeDayClicked() {
+        self.view.makeToastActivity()
         currentTime = currentTime - (60 * 60 * 24)
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
+        self.view.hideToastActivity()
     }
     
     func nextDayClicked() {
+        self.view.makeToastActivity()
         currentTime = currentTime + (60 * 60 * 24)
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
+        self.view.hideToastActivity()
     }
     
     func checkIsToday() {
@@ -156,19 +163,23 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.view.makeToastActivity()
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
+        self.view.hideToastActivity()
     }
     
     override func refreshUserLocation() {
         //刷新名称
+        self.view.makeToastActivity()
         refreshLocation()
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
         tableView.reloadData()
+        self.view.hideToastActivity()
     }
     
     func refreshLocation() {
