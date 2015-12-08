@@ -108,6 +108,7 @@
 		4521DD891BE883B90075A1FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD881BE883B90075A1FB /* BaseViewController.swift */; };
 		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
 		4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4526E1831C1514700054D405 /* AudioToolbox.framework */; };
+		4526E1861C158E570054D405 /* CountryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4526E1851C158E570054D405 /* CountryDefault.swift */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
 		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
@@ -347,6 +348,7 @@
 		4521DD881BE883B90075A1FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		4526E1831C1514700054D405 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4526E1851C158E570054D405 /* CountryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDefault.swift; sourceTree = "<group>"; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
 		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 				45C23D461C0581DA008DCCEA /* AlarmMediaMr.swift */,
 				1864E0401C0D50D800D634E8 /* ShareUtils.swift */,
 				1864E0421C0D763A00D634E8 /* LocalNoticationUtils.swift */,
+				4526E1851C158E570054D405 /* CountryDefault.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1257,6 +1260,7 @@
 				45542E571BFEF64600F3A3A5 /* ReadViewHead.swift in Sources */,
 				451242C31BEE2E7700AE3545 /* FeedbackViewController.swift in Sources */,
 				45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */,
+				4526E1861C158E570054D405 /* CountryDefault.swift in Sources */,
 				184357511BE9E88D00194744 /* AFSecurityPolicy.m in Sources */,
 				18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */,
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,

@@ -102,6 +102,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         Config.saveTimeZone(timeZone)
         Config.saveLat(lat)
         Config.savecountryName(countryName)
+        CountryDefault.saveDefaultMethod(countryName)
         Config.saveLng(lng)
         Config.saveCityName(currentCity)
         self.hidden = true
@@ -247,6 +248,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         Config.saveTimeZone(timeZone as String)
         Config.saveLat(latitude)
         Config.savecountryName(country as String)
+        CountryDefault.saveDefaultMethod(country as String)
         Config.saveLng(longitude)
         Config.saveCityName(cityName as String)
         self.hidden = true

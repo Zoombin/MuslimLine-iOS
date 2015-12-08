@@ -287,8 +287,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let foot:UIView = UIView(frame: CGRectMake(0,itemHight * CGFloat(itemCount+1),contentViewWidth,itemHight))
             foot.backgroundColor = UIColor.whiteColor()
             contentView.addSubview(foot)
-            let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-90,itemHight * CGFloat(itemCount+1),90,itemHight))
+            let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-100,itemHight * CGFloat(itemCount+1),90,itemHight))
             cancelLable.text = NSLocalizedString("cancel", comment:"")
+            cancelLable.textAlignment = NSTextAlignment.Right
             cancelLable.textColor = UIColor.lightGrayColor()
             contentView.addSubview(cancelLable)
         }
@@ -301,6 +302,10 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             //自动设置
             if(sender.on){
                 Config.saveAutoSwitch(1)
+                Config.saveAsrCalculationjuristicMethod(0) //祈祷时间算法
+                Config.savePrayerTimeConventions(0) //礼拜时间约定
+                Config.saveHighLatitudeAdjustment(0) //高纬度调整
+                Config.saveDaylightSavingTime(0) //夏令日
             }else{
                 Config.saveAutoSwitch(0)
             }
@@ -337,7 +342,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 break
             case 4:
                 //礼拜时间约定
-                Config.savePrayerName(btSelect)
+                Config.savePrayerTimeConventions(btSelect)
                 break
             case 5:
                 //高纬度调整
@@ -391,7 +396,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 select = Config.CalculationMethods
                 break
             case 4:
-                select = Config.PrayerName
+                select = Config.PrayerTimeConvention
                 break
             case 5:
                 select = Config.HighLatitude

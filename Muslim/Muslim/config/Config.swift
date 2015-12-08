@@ -17,7 +17,7 @@
         static let FACTION_SUNI :NSInteger = 1;
         
         static var faction : Int = 0 //穆斯林派别
-        static var PrayerName :Int = 0 //礼拜时间约定
+        static var PrayerTimeConvention :Int = 0 //礼拜时间约定
         static var IsIslamicCalendar:Int = 0//日历选择
         static var CalculationMethods :Int = 0 //祈祷时间算法
         static var HighLatitude :Int = 0 //高纬度调整
@@ -36,7 +36,7 @@
         static func initData(){
             getFaction()
             getAsrCalculationjuristicMethod()
-            getPrayerName()
+            getPrayerTimeConventions()
             getHighLatitudeAdjustment()
             getDaylightSavingTime()
             getTimeFormat()
@@ -129,13 +129,13 @@
         }
         
         /**礼拜时间约定**/
-        static func savePrayerName(pos :Int) {
-            UserDefaultsUtil.saveInt("PrayerName", value: pos)
-            PrayerName = pos
+        static func savePrayerTimeConventions(pos :Int) {
+            UserDefaultsUtil.saveInt("PrayerTimeConventions", value: pos)
+            PrayerTimeConvention = pos
         }
-        static func getPrayerName()-> Int {
-            PrayerName = UserDefaultsUtil.getInt("PrayerName")
-            return PrayerName
+        static func getPrayerTimeConventions()-> Int {
+            PrayerTimeConvention = UserDefaultsUtil.getInt("PrayerTimeConventions")
+            return PrayerTimeConvention
         }
         
         /**高纬度调整*/
