@@ -63,6 +63,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
     }
     
     @IBAction func bkgButtonClicked() {
+        searchBar.resignFirstResponder()
         self.hidden = true
     }
     
@@ -203,6 +204,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
     }
     
     @IBAction func rightButtonClicked() {
+        searchBar.resignFirstResponder()
         manButton.backgroundColor = Colors.searchGray
         leftLineLabel.backgroundColor = Colors.searchGray
         

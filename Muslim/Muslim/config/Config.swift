@@ -286,6 +286,21 @@
             return UserDefaultsUtil.getInt("CurrentCountry",defalt: -1)
         }
         
+        static func getTextShouldToRight() -> Bool{
+            let tranlateIDS = [4, 5, 15, 53, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 79, 100, 101, 102, 103, 104, 105, 106, 107]
+            let currentId : Int = getCurrentLanguageIndex()
+            if (currentId == -1) {
+                return false
+            }
+            for (var i = 0; i < tranlateIDS.count; i++) {
+                let id = tranlateIDS[i]
+                if (id == currentId) {
+                    return true
+                }
+            }
+            return false
+        }
+        
         /**当前阅读的古兰经**/
         static func setCurrentRura(currentSura:Int) {
            UserDefaultsUtil.saveInt("CurrentRura", value: currentSura)
