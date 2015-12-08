@@ -181,6 +181,7 @@
 
 "calendar_selection" = "日历选择";
 "persian_calendar" = "波斯日历";
+"islamic_calendar" = "伊斯兰日历";
 
 "backtoast" = "再按一次退出程序";
 "nobookmark" = "无书签";
