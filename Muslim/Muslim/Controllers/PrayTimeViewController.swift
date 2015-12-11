@@ -215,9 +215,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         }
         let prayName : String = prayNames[indexPath.row] as! String
         prayCell.prayNameLabel.text = prayName
-        if (indexPath.row == 1) {
-            prayCell.praySunImg.hidden = false
-        }
+        prayCell.praySunImg.hidden = indexPath.row != 1
         if (prayTimes.count == 6) {
             var prayTime : String = (prayTimes[indexPath.row] as? String)!
             if (prayTime == "-----") {
