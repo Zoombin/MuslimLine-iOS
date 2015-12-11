@@ -22,19 +22,19 @@
                     <animations/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zL8-e2-Kht">
-                    <rect key="frame" x="29" y="132" width="103" height="21"/>
+                    <rect key="frame" x="29" y="132" width="103" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" backgroundImage="location_bg"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dowan_menu" id="14p-Ab-rcD">
-                    <rect key="frame" x="114" y="138" width="10" height="8"/>
+                    <rect key="frame" x="114" y="139" width="10" height="8"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" id="j1L-27-JMc">
-                    <rect key="frame" x="35" y="136" width="10" height="11"/>
+                    <rect key="frame" x="35" y="137" width="10" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                 </imageView>
@@ -68,6 +68,15 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yPr-Od-hCL">
+                    <rect key="frame" x="48" y="131" width="65" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -77,6 +86,7 @@
                 <outlet property="calendarButton" destination="Pto-pS-g3u" id="PEg-mU-eMc"/>
                 <outlet property="dayLabel" destination="e9K-oB-RRd" id="Bvz-Qa-Jx9"/>
                 <outlet property="locationButton" destination="zL8-e2-Kht" id="rvo-kk-Awm"/>
+                <outlet property="locationNameLabel" destination="yPr-Od-hCL" id="1Gj-7y-a1G"/>
                 <outlet property="weekLabel" destination="CrM-hi-gco" id="xES-T3-13m"/>
                 <outlet property="yearMonthLabel" destination="a4J-cb-0TQ" id="crE-Dm-Oem"/>
             </connections>
