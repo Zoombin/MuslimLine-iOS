@@ -73,7 +73,6 @@ class MainViewController: BaseViewController {
         }else{
             noticeView.voiceIconImageView.image =  UIImage(named: "voice")
         }
-        //noticeView.currentProgress(0.7)
         refrashTimeLeft()
         
         calendarLocationView.yearMonthLabel.text = String(format: "%d/%d", CalendarUtils.currentComponents().month, CalendarUtils.currentComponents().year)
@@ -189,7 +188,8 @@ class MainViewController: BaseViewController {
     func refrashTimeLeft(){
         timeLeft = PrayTimeUtil.getParyTimeLeft()
         nextTotal = PrayTimeUtil.getNextTimeTotal()
-        noticeView.currentProgress(Double(timeLeft) / Double(nextTotal))
+        let pro = Double(timeLeft) / Double(nextTotal)
+        noticeView.currentProgress(pro)
         
         if(timeLeft != -1){
             if(timer != nil){

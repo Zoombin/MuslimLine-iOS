@@ -106,8 +106,12 @@ class PrayTimeUtil: NSObject {
     
     static func getNextTimeTotal()->Int{
         var leftTime = -1
-        let current = getCurrentPrayTime()
+        var current = getCurrentPrayTime()
         let next : Int
+        if(current == -1){
+            //24点以后，晨礼之前
+            current = 5
+        }
         if(current  == 5){
             next = 0
         }else{

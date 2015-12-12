@@ -105,8 +105,9 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
             button.frame = CGRectMake(0, itemY, menuWidth, itemHight)
             button.backgroundColor = UIColor.whiteColor()
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            button.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0)
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, 55, 0, 0)
             button.layer.borderWidth = 0.5 //设置边框的宽度
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
             button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
             button.addTarget(self, action: Selector.init("menuClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             button.tag = index

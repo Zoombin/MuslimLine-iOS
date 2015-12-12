@@ -16,12 +16,6 @@ class CountryDefault: NSObject {
     static let KARACHI: NSArray = ["Pakistan", "Afghanistan", "Bangladesh", "India","Kuwait"]
     static let MAKKAH: NSArray = [ "Oman","Qatar", "Bahrain","Saudi Arabia", "United Arab Emirates"]
     
-    static func test() {
-        for name in TEHRAN {
-            print(name)
-        }
-    }
-    
     static func saveDefaultMethod(countryName : String) ->Int{
         let key :String = countryName;
         for str in TEHRAN {
@@ -32,6 +26,7 @@ class CountryDefault: NSObject {
                 Config.saveDaylightSavingTime(0);
                 Config.saveCalenderSelection(1);
                 Config.saveAutoSwitch(1);
+                Config.saveFaction(0)//什叶派
                 return 0;
             }
         }
@@ -99,6 +94,7 @@ class CountryDefault: NSObject {
         Config.savePrayerTimeConventions(3);
         Config.saveCalenderSelection(0);
         Config.saveAutoSwitch(0);
+        Config.saveFaction(1)
         return 0;
     }
 

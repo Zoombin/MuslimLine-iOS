@@ -165,14 +165,16 @@ class FMDBHelper: NSObject {
         dbBase.open()
         let rs = try? dbBase.executeQuery(sql, values: nil)
         let array : NSMutableArray = NSMutableArray()
-        while rs!.next() {
-            let quran : Quran = Quran()
-            quran.aya = Int(rs!.intForColumnIndex(0))
-            quran.sura = Int(rs!.intForColumnIndex(1))
-            quran.text = rs!.stringForColumnIndex(2)
-            quran.text_zh = rs!.stringForColumnIndex(3)
-            quran.isbookmark = rs!.intForColumnIndex(4) == 1 ? true : false
-            array.addObject(quran)
+        if(rs != nil){
+            while rs!.next() {
+                let quran : Quran = Quran()
+                quran.aya = Int(rs!.intForColumnIndex(0))
+                quran.sura = Int(rs!.intForColumnIndex(1))
+                quran.text = rs!.stringForColumnIndex(2)
+                quran.text_zh = rs!.stringForColumnIndex(3)
+                quran.isbookmark = rs!.intForColumnIndex(4) == 1 ? true : false
+                array.addObject(quran)
+            }
         }
         dbBase.close()
         return array

@@ -26,7 +26,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //传递的数据
     var EXTRA_BOOKMARK_JUMP : Bool = false
     var EXTRA_SURA : Int?
-    var EXTRA_AYA :Int?
+    var EXTRA_AYA :Int = 0
     var EXTRA_SCOLLPOSITION :Int = 0
     
     
@@ -52,7 +52,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             sura = EXTRA_SURA!
         }
         if(EXTRA_BOOKMARK_JUMP){
-            //阅读记录或者书签跳转
+            //阅读记录/或者书签跳转/或者搜索
             select = EXTRA_SCOLLPOSITION
             EXTRA_BOOKMARK_JUMP = false
         }
@@ -385,7 +385,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(text_zh.length == 0){
             cell.textCn.text = " "
         }else{
-            cell.textCn.text = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+            let srcText:String = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+            cell.textCn.text = srcText
         }
         
         cell.calculateHeight(quran)
@@ -502,12 +503,16 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         //已经存在
         if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
             if(AudioPlayerMr.getInstance().isPlayCurrent(select, sura: quran.sura!,isHead: false)){
-                //正在播放当前的 (停止)
-                AudioPlayerMr.getInstance().stop()
+                //正在播放当前的 (暂停)
+                AudioPlayerMr.getInstance().pause()
                 cell.btPlay.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             }else{
-                AudioPlayerMr.getInstance().stop()
-                AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: quran.sura!,isHead: false)
+                if(AudioPlayerMr.getInstance().isPause){
+                    AudioPlayerMr.getInstance().play()
+                }else{
+                    AudioPlayerMr.getInstance().stop()
+                    AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: select, sura: quran.sura!,isHead: false)
+                }
             }
         }else{
             AudioPlayerMr.getInstance().stop()
@@ -520,12 +525,16 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
             //已经存在
             if(AudioPlayerMr.getInstance().isPlayCurrent(-1, sura: sura,isHead: true)){
-                //正在播放当前的 (停止)
-                AudioPlayerMr.getInstance().stop()
+                //正在播放当前的 (暂停)
+                AudioPlayerMr.getInstance().pause()
                 readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             }else{
-                AudioPlayerMr.getInstance().stop()
-                AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: -1, sura: sura,isHead: true)
+                if(AudioPlayerMr.getInstance().isPause){
+                    AudioPlayerMr.getInstance().play()
+                }else{
+                    AudioPlayerMr.getInstance().stop()
+                    AudioPlayerMr.getInstance().setDataAndPlay(quranArray, position: -1, sura: sura,isHead: true)
+                }
             }
         }else{
             AudioPlayerMr.getInstance().stop()
@@ -608,13 +617,13 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     }
     
     func resetHeadView(){
-        if(readViewHead.btPlay1.hidden == false){
+        //if(readViewHead.btPlay1.hidden == false){
             readViewHead.backgroundColor = UIColor.whiteColor()
             readViewHead.btPlay1.hidden = true
             readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             readViewHead.ivPro.hidden = true
             readViewHead.ivPro.stopAnimating()
-        }
+        //}
     }
     
     //保存数据

@@ -75,6 +75,9 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     //初始化界面
     func setupView(){
+        segmentedControl.setTitle(NSLocalizedString("frag_first", comment:""), forSegmentAtIndex: 0)
+        segmentedControl.setTitle(NSLocalizedString("frag_second", comment:""), forSegmentAtIndex: 1)
+        nomarkLable.text = NSLocalizedString("nobookmark", comment:"")
         //注册ListView的adapter
         guLJlistView.tag = 100
         guLJlistView!.registerNib(UINib(nibName: "GuLJCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
@@ -203,6 +206,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             let bookmark = bookmarkArray[indexPath.row] as! Bookmark
             FMDBHelper.getInstance().deleteBookmark(bookmark.suraId!, aya:bookmark.ayaId!)
             loadBookMarkData()
+            segmentedControlSelect()
         }
     }
     

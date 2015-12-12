@@ -17,6 +17,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     
     var translationArray : NSMutableArray = NSMutableArray()
     var select = 0;
+    var dealData:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,28 +72,16 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     func succssResult(result : NSObject, tag : NSInteger) {
         var path = result as? String
         path = path!.stringByReplacingOccurrencesOfString("file://", withString: "")
-        let sql = ZipUtils.readZipFile(path!)//读zip文件
-        FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
-        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
-        
-        cell.probar.stopAnimating()
-        cell.probar.hidden = true
-        Config.saveCurrentLanguageIndex(indexPath.row)
-        let translation : Translation = translationArray[indexPath.row] as! Translation
-        translation.isdownload = 1
-        mTableView.reloadData()
+        NSThread.detachNewThreadSelector("saveDataToDB:", toTarget: self, withObject: path);
     }
     
     func errorResult(error : NSError, tag : NSInteger) {
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
-        let cell : QuranTextCell =  mTableView.cellForRowAtIndexPath(indexPath) as! QuranTextCell
-        
-        cell.ivSelected.hidden = true
-        cell.ivDownload.hidden = false
-        cell.probar.stopAnimating()
-        cell.probar.hidden = true
+        dealData = false
         self.view.makeToast(message: "下载失败")
+        self.view.hideToastActivity()
+        let translation : Translation = translationArray[select] as! Translation
+        translation.isdownload = 0
+        mTableView.reloadData()
     }
     
     
@@ -113,17 +102,21 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         cell.ivCountry.image = UIImage(named: (translation.quran_translation_country_icon as! String))
         cell.tvLanguage.text = (translation.quran_translation_entry as! String)
         cell.tvActor.text = (translation.quran_translation_actor as! String)
+        
         cell.probar.hidden = true
+        cell.probar.stopAnimating()
+        cell.ivDownload.hidden = true
+        cell.ivSelected.hidden = true
         
         if(1 == translation.isdownload){
             //文件存在
-            cell.ivDownload.hidden = true
-            cell.ivSelected.hidden = true
             if(select == indexPath.row){
                 cell.ivSelected.hidden = false
             }
+        }else if(-1 == translation.isdownload){
+            cell.probar.hidden = false
+            cell.probar.startAnimating()
         }else{
-            cell.ivSelected.hidden = true
             cell.ivDownload.hidden = false
         }
         return cell
@@ -132,6 +125,11 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
     //item点击
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if(dealData){
+            return
+        }
+        dealData = true
+        self.view.makeToastActivity()
         
         let row = indexPath.row
         let translation :Translation = translationArray[row] as! Translation
@@ -144,17 +142,13 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         if(1 == translation.isdownload){
             //文件存在
             let path = getQuranOutPath() + (translation.download_url as! String)
-            let sql = ZipUtils.readZipFile(path)//读zip文件
-            FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
-            
-            Config.saveCurrentLanguageIndex(indexPath.row)
-            cell.ivSelected.hidden = false
-            mTableView.reloadData()
+            NSThread.detachNewThreadSelector("saveDataToDB:", toTarget: self, withObject: path);
         }else{
+            translation.isdownload = -1
+            mTableView.reloadData()
+            
             //下载
             let url = Constants.downloadTranslationUri  + fileName
-            cell.probar.hidden = false
-            cell.probar.startAnimating()
             let outPath = getQuranOutPath()
             httpClient.downloadDocument(url,outPath: outPath)
         }
@@ -166,6 +160,22 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
             try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
         }
         return folderPath
+    }
+    
+    func saveDataToDB(path : String){
+        let sql = ZipUtils.readZipFile(path)//读zip文件
+        FMDBHelper.getInstance().executeSQLs(sql)//写入数据库
+        self.performSelectorOnMainThread("notifySaveDataComplete", withObject: nil, waitUntilDone: true)
+    }
+    
+    func notifySaveDataComplete(){
+        dealData = false
+        self.view.hideToastActivity()
+        
+        Config.saveCurrentLanguageIndex(select)
+        let translation : Translation = translationArray[select] as! Translation
+        translation.isdownload = 1
+        mTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

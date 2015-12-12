@@ -86,7 +86,7 @@
     </objects>
     <resources>
         <image name="round_bg" width="185" height="185"/>
-        <image name="time_bg" width="222" height="50"/>
+        <image name="time_bg" width="111" height="25"/>
         <image name="voice" width="17" height="18"/>
     </resources>
 </document>

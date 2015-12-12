@@ -17,6 +17,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     var listSection:Int = 0 //全局存储选择状态
     var listRow :Int = 0
     
+    var fullData : NSArray! //设置的数据
     var settingData : NSArray! //设置的数据
     
     override func viewDidLoad() {
@@ -26,8 +27,11 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         listview!.registerNib(UINib(nibName: "SettingCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
         
         listview!.registerNib(UINib(nibName: "SettingHead", bundle:nil), forCellReuseIdentifier: headCellIdentifier)
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         loadData()
+        listview.reloadData()
     }
     
     /**获取设置的json数据*/
@@ -35,7 +39,8 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let filePath = NSBundle.mainBundle().pathForResource("settings", ofType: "json")
         let txtString = try? NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
         let data = txtString?.dataUsingEncoding(NSUTF8StringEncoding)
-        settingData = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+        fullData = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+        dealSetData()
     }
     
     //设置list的分组
@@ -132,7 +137,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             if(2 == select){
                 //不可用
                 //settingCell.my_switch.enabled = false
-                settingCell.my_switch.setOn(false, animated: true)
+                settingCell.my_switch.setOn(false, animated: false)
                 
                 //settingCell.sub_title.hidden = false
                 //settingCell.title.hidden = false
@@ -140,11 +145,11 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 settingCell.title2.hidden = false
                 if(0 == select){
                     //关
-                    settingCell.my_switch.setOn(false, animated: true)
+                    settingCell.my_switch.setOn(false, animated: false)
                 }
                 if(1 == select){
                     // 开
-                    settingCell.my_switch.setOn(true, animated: true)
+                    settingCell.my_switch.setOn(true, animated: false)
                 }
             }
         }
@@ -213,6 +218,20 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         }
     }
     
+    
+    func dealSetData(){
+        if(Config.AutoSwitch == 1){
+            let tempData = fullData
+            let mDict : NSDictionary  =  tempData.objectAtIndex(0) as! NSDictionary
+            let setArr :NSMutableArray = mDict.objectForKey("set") as! NSMutableArray
+            for(var i=0;i<4;i++){
+                setArr.removeObjectAtIndex(3)
+            }
+            settingData = tempData
+        }else{
+            settingData = fullData
+        }
+    }
     
     /**选择弹窗*/
     var bkgView :UIView!
@@ -302,15 +321,16 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             //自动设置
             if(sender.on){
                 Config.saveAutoSwitch(1)
-                Config.saveAsrCalculationjuristicMethod(0) //祈祷时间算法
-                Config.savePrayerTimeConventions(0) //礼拜时间约定
-                Config.saveHighLatitudeAdjustment(0) //高纬度调整
-                Config.saveDaylightSavingTime(0) //夏令日
+                loadData()
+                listview.reloadData()
             }else{
                 Config.saveAutoSwitch(0)
+                loadData()
+                listview.reloadData()
             }
         }
-        if(8 == tag){
+        if(4 == tag || 8 == tag){
+            //自动设置的时候位置会变化
             //默认播放
             if(sender.on){
                 Config.saveSlientMode(1)
@@ -331,34 +351,50 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         switch(listSection){
         case 0:
             //第一组
-            switch(listRow){
-            case 0:
-                //穆斯林派别
-                Config.saveFaction(btSelect)
-                break
-            case 3:
-                //祈祷算法
-                Config.saveAsrCalculationjuristicMethod(btSelect)
-                break
-            case 4:
-                //礼拜时间约定
-                Config.savePrayerTimeConventions(btSelect)
-                break
-            case 5:
-                //高纬度调整
-                Config.saveHighLatitudeAdjustment(btSelect)
-                break
-            case 6:
-                //夏令日
-                Config.saveDaylightSavingTime(btSelect)
-                break
-            case 7:
-                //小时制
-                Config.saveTimeFormat(btSelect)
-                listview.reloadData()
-                break
-            default:
-                break
+            if(0 == Config.AutoSwitch){
+                switch(listRow){
+                case 0:
+                    //穆斯林派别
+                    Config.saveFaction(btSelect)
+                    break
+                case 3:
+                    //祈祷算法
+                    Config.saveAsrCalculationjuristicMethod(btSelect)
+                    break
+                case 4:
+                    //礼拜时间约定
+                    Config.savePrayerTimeConventions(btSelect)
+                    break
+                case 5:
+                    //高纬度调整
+                    Config.saveHighLatitudeAdjustment(btSelect)
+                    break
+                case 6:
+                    //夏令日
+                    Config.saveDaylightSavingTime(btSelect)
+                    break
+                case 7:
+                    //小时制
+                    Config.saveTimeFormat(btSelect)
+                    listview.reloadData()
+                    break
+                default:
+                    break
+                }
+            }else{
+                switch(listRow){
+                case 0:
+                    //穆斯林派别
+                    Config.saveFaction(btSelect)
+                    break
+                case 3:
+                    //小时制
+                    Config.saveTimeFormat(btSelect)
+                    listview.reloadData()
+                    break
+                default:
+                    break
+                }
             }
             break
         case 1:
@@ -385,33 +421,52 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         var select :Int = 0;
         switch(section){
         case 0:
-            switch(row){
-            case 0:
-                select = Config.faction
-                break
-            case 2:
-                select = Config.AutoSwitch
-                break
-            case 3:
-                select = Config.CalculationMethods
-                break
-            case 4:
-                select = Config.PrayerTimeConvention
-                break
-            case 5:
-                select = Config.HighLatitude
-                break
-            case 6:
-                select = Config.Daylight
-                break
-            case 7:
-                select = Config.TimeFormat
-                break
-            case 8:
-                select = Config.SlinetMode
-                break
-            default:
-                break
+            if(0 == Config.AutoSwitch){
+                switch(row){
+                case 0:
+                    select = Config.faction
+                    break
+                case 2:
+                    select = Config.AutoSwitch
+                    break
+                case 3:
+                    select = Config.CalculationMethods
+                    break
+                case 4:
+                    select = Config.PrayerTimeConvention
+                    break
+                case 5:
+                    select = Config.HighLatitude
+                    break
+                case 6:
+                    select = Config.Daylight
+                    break
+                case 7:
+                    select = Config.TimeFormat
+                    break
+                case 8:
+                    select = Config.SlinetMode
+                    break
+                default:
+                    break
+                }
+            }else{
+                switch(row){
+                case 0:
+                    select = Config.faction
+                    break
+                case 2:
+                    select = Config.AutoSwitch
+                    break
+                case 3:
+                    select = Config.TimeFormat
+                    break
+                case 4:
+                    select = Config.SlinetMode
+                    break
+                default:
+                    break
+                }
             }
             break
         case 2:

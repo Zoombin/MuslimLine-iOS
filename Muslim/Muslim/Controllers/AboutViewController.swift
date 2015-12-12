@@ -36,7 +36,7 @@ class AboutViewController: BaseViewController {
         
         //图标
         let logo :UIImageView = UIImageView(frame: CGRectMake(indexX, indexY, logoWidth, logoHight))
-        logo.image = UIImage(named:"templelogo")
+        logo.image = UIImage(named:"about_logo")
         self.view.addSubview(logo)
         
         

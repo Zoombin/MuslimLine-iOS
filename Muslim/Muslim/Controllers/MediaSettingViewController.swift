@@ -148,6 +148,7 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         }
         let row =  indexPath.row
         if(row == 0){
+            AlarmMediaMr.getInstance().stop()
             saveSelect(row)
             return
         }

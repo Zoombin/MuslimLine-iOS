@@ -11,6 +11,11 @@ import UIKit
 class guLJViewHead: UIView {
     @IBOutlet weak var arabicTitle: UILabel!
     @IBOutlet weak var arabicsubTitle: UILabel!
+    @IBOutlet weak var lastRead: UILabel!
+    
+    override func drawRect(rect: CGRect) {
+        lastRead.text = NSLocalizedString("last_read_position", comment:"")
+    }
 
     /*
     // Only override drawRect: if you perform custom drawing.

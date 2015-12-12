@@ -27,6 +27,7 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     var sura:Int?
     
     var isPlaying :Bool  = false //正在播放
+    var isPause :Bool = false
     var audioPlayer : AVAudioPlayer! //播放器
     
     var httpClient : MSLHttpClient =  MSLHttpClient() //网络请求
@@ -117,18 +118,31 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
         audioPlayer.volume = 1
         //设置音乐音量，可用范围为0~1
         audioPlayer.prepareToPlay()
-        audioPlayer.play()
-        isPlaying = true
-        if(delegate != nil){
-            delegate?.startPlaying(position)
-        }
+
+        play()
     }
     
     func stop(){
         isPlaying = false
+        isPause = false
         if(audioPlayer != nil && audioPlayer.playing){
             audioPlayer.stop()
         }
+    }
+    
+    func play(){
+        isPlaying = true
+        if(delegate != nil){
+            delegate?.startPlaying(position)
+        }
+        isPause = false
+        audioPlayer.play()
+    }
+    
+    func pause(){
+        isPlaying = false
+        isPause = true
+        audioPlayer.pause()
     }
     
     /**下一个*/
