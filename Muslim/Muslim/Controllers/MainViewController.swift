@@ -56,9 +56,7 @@ class MainViewController: BaseViewController {
     //PrayTimeUtil.getPrayTime() //获取默认礼拜时间
     override func refreshUserLocation() {
         let cityName = Config.getCityName()
-        calendarLocationView.locationButton.setTitle(cityName, forState: UIControlState.Normal)
-        calendarLocationView.locationButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        calendarLocationView.locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 16, 0, 16)
+        calendarLocationView.locationNameLabel.text = cityName
         CalendarUtils.getDate()
         noticeView.currentTimeLabel.text = CalendarUtils.getDate()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()

@@ -66,6 +66,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         locationTableView = UITableView.init(frame: CGRectMake(0, CGRectGetMaxY(settingLocationView.frame), PhoneUtils.screenWidth, PhoneUtils.screenHeight - 64 - settingLocationView.frame.size.height), style: UITableViewStyle.Plain)
         locationTableView.delegate = self;
         locationTableView.dataSource = self;
+        locationTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         locationTableView.layer.borderColor = UIColor.lightGrayColor().CGColor
         locationTableView.layer.borderWidth = 0.5
         self.view.addSubview(locationTableView)
@@ -140,11 +141,15 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         if (arr != nil) {
             resultArray.addObjectsFromArray(arr as! [AnyObject])
         }
+        locationTableView.separatorStyle = resultArray.count > 0 ? UITableViewCellSeparatorStyle.SingleLine : UITableViewCellSeparatorStyle.None
         locationTableView.reloadData()
     }
     
     func errorResult(error: NSError, tag: NSInteger) {
         self.view.hideToastActivity()
+        resultArray.removeAllObjects()
+        locationTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        locationTableView.reloadData()
         self.view.makeToast(message: NSLocalizedString("net_err", comment: ""))
     }
     

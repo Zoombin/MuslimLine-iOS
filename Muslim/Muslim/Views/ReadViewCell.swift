@@ -36,6 +36,12 @@ class ReadViewCell: UITableViewCell {
                     textCn.textAlignment = NSTextAlignment.Right
                 }
                 
+                if (Config.getCurrentLanguageIndex() == 6) {
+                    textCn.font = UIFont(name: "Kefa-Regular", size: 17)
+                } else {
+                    textCn.font = UIFont.systemFontOfSize(17)
+                }
+                
                 textCn.frame = CGRectMake(textQuran.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, width - offSetX * 2, textCn.frame.size.height)
                 
 //                textCn.frame = CGRectMake(textCn.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, textCn.frame.size.width, textCn.frame.size.height)

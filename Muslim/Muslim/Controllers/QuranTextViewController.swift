@@ -101,6 +101,11 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         let translation : Translation = translationArray[indexPath.row] as! Translation
         cell.ivCountry.image = UIImage(named: (translation.quran_translation_country_icon as! String))
         cell.tvLanguage.text = (translation.quran_translation_entry as! String)
+        if (Config.getCurrentLanguageIndex() == 6) {
+            cell.tvActor.font = UIFont(name: "Kefa-Regular", size: 13)
+        } else {
+            cell.tvActor.font = UIFont.systemFontOfSize(13)
+        }
         cell.tvActor.text = (translation.quran_translation_actor as! String)
         
         cell.probar.hidden = true
