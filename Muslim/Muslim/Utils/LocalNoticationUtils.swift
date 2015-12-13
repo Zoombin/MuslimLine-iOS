@@ -23,6 +23,7 @@ class LocalNoticationUtils: NSObject {
             let timeZone = NSTimeZone.init(name: Config.getTimeZone())
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeZone = timeZone
+            dateFormatter.locale = NSLocale.init(localeIdentifier: "en_US")
             if (timeFormat == 0) {
                 //24
                 dateFormatter.dateFormat = "HH:mm"
