@@ -133,7 +133,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     
     func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         
-        let needleDirection   = -newHeading.trueHeading;
+//        let needleDirection   = -newHeading.trueHeading;
         let compassDirection  = -newHeading.magneticHeading;
         
         let location = CLLocation(latitude: Config.getLat().doubleValue, longitude: Config.getLng().doubleValue)
@@ -142,7 +142,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         }
         needleAngle = self.setLatLonForDistanceAndAngle(location)
         
-        self.needle.transform = CGAffineTransformMakeRotation(CGFloat(((Double(needleDirection) * M_PI) / 180.0) + needleAngle!))
+        self.needle.transform = CGAffineTransformMakeRotation(CGFloat(((Double(compassDirection) * M_PI) / 180.0) + needleAngle!))
         self.composs.transform = CGAffineTransformMakeRotation(CGFloat((Double(compassDirection) * M_PI) / 180.0))
     }
     

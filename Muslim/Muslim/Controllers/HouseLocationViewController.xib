@@ -21,21 +21,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="BUR-0t-BBh">
-                    <rect key="frame" x="10" y="131" width="300" height="300"/>
+                    <rect key="frame" x="0.0" y="131" width="320" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="center_bg" id="wjd-iP-3d0">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass" id="AeX-wb-0PE">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="needle" id="9kq-kq-QRh">
-                            <rect key="frame" x="25" y="25" width="250" height="250"/>
+                            <rect key="frame" x="35" y="35" width="250" height="250"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <animations/>
                         </imageView>
