@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Config.initData()  //获取设置的数据
+        configAudio() //设置后台播放
+        
         if ((UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0) {
             if #available(iOS 8.0, *) {
                 UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes:[.Badge, .Alert, .Sound], categories: nil))
@@ -44,6 +47,89 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = nvc
         self.window!.makeKeyAndVisible()
     }
+    
+    //设置音频, 开启锁屏操作
+    func configAudio(){
+        let audio = AVAudioSession.sharedInstance()
+        do{
+            try audio.setActive(true)
+            try audio.setCategory(AVAudioSessionCategoryPlayback)
+        }catch let error as NSError{
+            print(error.localizedDescription)
+        }
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
+    }
+    
+    //MARK: 当收到远程控制:
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        /*
+        enum UIEventSubtype : Int {
+        // available in iPhone OS 3.0
+        case None
+        // for UIEventTypeMotion, available in iPhone OS 3.0
+        case MotionShake
+        // for UIEventTypeRemoteControl, available in iOS 4.0
+        case RemoteControlPlay
+        case RemoteControlPause
+        case RemoteControlStop
+        case RemoteControlTogglePlayPause
+        case RemoteControlNextTrack
+        case RemoteControlPreviousTrack
+        case RemoteControlBeginSeekingBackward
+        case RemoteControlEndSeekingBackward
+        case RemoteControlBeginSeekingForward
+        case RemoteControlEndSeekingForward
+        }
+        */
+        if event != nil{
+            Log.printLog("event !!")
+            switch event!.type{
+            case .RemoteControl:
+                switch event!.subtype{
+                case .RemoteControlPlay:
+                    Log.printLog("play")
+                    AudioPlayerMr.getInstance().play()
+                case .RemoteControlPause:
+                    Log.printLog("pause")
+                    AudioPlayerMr.getInstance().pause()
+                case .RemoteControlStop:
+                    Log.printLog("stop")
+                    AudioPlayerMr.getInstance().stop()
+                case .RemoteControlTogglePlayPause:
+                    Log.printLog("event subtype RemoteControlTogglePlayPause")
+                case .RemoteControlNextTrack:
+                    Log.printLog("event subtype RemoteControlNextTrack")
+                    AudioPlayerMr.getInstance().next(AudioPlayerMr.getInstance().position)
+                case .RemoteControlPreviousTrack:
+                    //上一个不操作
+                    Log.printLog("Previous")
+                case .RemoteControlBeginSeekingBackward:
+                    //快退不操作
+                    Log.printLog("BeginSeekingBackward")
+                case .RemoteControlEndSeekingBackward:
+                    Log.printLog("RemoteControlEndSeekingBackward")
+                case .RemoteControlBeginSeekingForward:
+                    //快进不操作
+                    Log.printLog("RemoteControlBeginSeekingForward")
+                case .RemoteControlEndSeekingForward:
+                    Log.printLog("RemoteControlEndSeekingForward")
+                case .MotionShake:
+                    Log.printLog("event subtype MotionShake")
+                case .None:
+                    Log.printLog("event subtype None")
+                }
+            case .Touches:
+                Log.printLog("Touches event")
+            case .Motion:
+                Log.printLog("Motion event")
+            default:
+                Log.printLog("event default")
+            }
+        }
+    }
+    
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

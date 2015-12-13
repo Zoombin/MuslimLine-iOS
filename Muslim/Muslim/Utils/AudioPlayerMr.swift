@@ -10,6 +10,8 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
+
 
 protocol mAudioPlayerDelegate : NSObjectProtocol {
     func finishPlaying()
@@ -21,6 +23,8 @@ protocol mAudioPlayerDelegate : NSObjectProtocol {
 
 class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     var delegate : mAudioPlayerDelegate?
+    var playingMusicInfoDic: [String : NSObject] = Dictionary()
+    var translated_sura_titles : NSArray = NSArray() //翻译列表
     
     var dataArray : NSMutableArray = NSMutableArray()
     var position:Int = 0
@@ -48,6 +52,9 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     override init() {
         super.init()
         httpClient.delegate = self
+        
+        let path = NSBundle.mainBundle().pathForResource("translated_sura_titles", ofType: "plist") //翻译
+        translated_sura_titles = NSArray(contentsOfFile: path!)!
     }
     
     /***  下载音频回调    ****/
@@ -90,8 +97,6 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     
     
     func setDataAndPlay(dataArray : NSMutableArray,position:Int,sura:Int,isHead:Bool){
-        //本地通知
-        
         //设置数据
         self.dataArray  = dataArray
         self.position = position
@@ -118,6 +123,38 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
         audioPlayer.volume = 1
         //设置音乐音量，可用范围为0~1
         audioPlayer.prepareToPlay()
+        
+        //设置背景播放信息
+        let duration = audioPlayer?.duration
+        let artWork = MPMediaItemArtwork(image: UIImage(named:"ic_audio_bk_bg")!)
+        playingMusicInfoDic[MPMediaItemPropertyTitle] = NSLocalizedString("main_quran_label", comment:"")
+        playingMusicInfoDic[MPMediaItemPropertyArtwork] = artWork
+        
+        var artist=""
+        if(position >= 0){
+            artist = String(format: "%d.%@  %@(%d)", sura!,(translated_sura_titles[sura!-1] as! String),NSLocalizedString("verse", comment:""),(position+1))
+        }else{
+            artist = String(format: "%d.%@", sura!,(translated_sura_titles[sura!-1] as! String))
+        }
+        playingMusicInfoDic[MPMediaItemPropertyArtist] = artist
+        playingMusicInfoDic[MPMediaItemPropertyPlaybackDuration] = NSNumber(double: duration!)
+        playingMusicInfoDic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = audioPlayer?.currentTime
+        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = playingMusicInfoDic
+        /*
+        // MPMediaItemPropertyAlbumTitle
+        // MPMediaItemPropertyAlbumTrackCount
+        // MPMediaItemPropertyAlbumTrackNumber
+        // MPMediaItemPropertyArtist
+        // MPMediaItemPropertyArtwork
+        // MPMediaItemPropertyComposer
+        // MPMediaItemPropertyDiscCount
+        // MPMediaItemPropertyDiscNumber
+        // MPMediaItemPropertyGenre
+        // MPMediaItemPropertyPersistentID
+        // MPMediaItemPropertyPlaybackDuration
+        // MPMediaItemPropertyTitle
+        */
+
 
         play()
     }
@@ -150,6 +187,7 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
         if(dataArray.count == 0){
             return
         }
+        stop()
         if(curentPosition < dataArray.count-1){
             position = curentPosition+1;
             

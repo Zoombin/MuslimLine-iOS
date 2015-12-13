@@ -109,6 +109,7 @@
 		4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521DD8A1BE885F00075A1FB /* Dimens.swift */; };
 		4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4526E1831C1514700054D405 /* AudioToolbox.framework */; };
 		4526E1861C158E570054D405 /* CountryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4526E1851C158E570054D405 /* CountryDefault.swift */; };
+		45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
 		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
@@ -349,6 +350,7 @@
 		4521DD8A1BE885F00075A1FB /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		4526E1831C1514700054D405 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4526E1851C158E570054D405 /* CountryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDefault.swift; sourceTree = "<group>"; };
+		45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
 		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */,
 				4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */,
 				183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */,
 				18BED75E1BE8560000418054 /* libz.tbd in Frameworks */,
@@ -849,6 +852,7 @@
 		18BED73A1BE84F2600418054 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */,
 				4526E1831C1514700054D405 /* AudioToolbox.framework */,
 				183ECFC71BF9BE8F003FB90C /* libsqlite3.tbd */,
 				18BED75D1BE8560000418054 /* libz.tbd */,

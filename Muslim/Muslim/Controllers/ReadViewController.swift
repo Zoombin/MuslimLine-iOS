@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource , UIActionSheetDelegate,mAudioPlayerDelegate, UIScrollViewDelegate{
     //常量
@@ -45,6 +46,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var slider : UISlider!
     var isScolling :Bool = false
     var isToach :Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +101,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         
         self.view.makeToastActivity()
     }
-    
-    
     
     override func viewDidAppear(animated: Bool) {
         getQurans(sura)
