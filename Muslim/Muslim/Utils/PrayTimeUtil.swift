@@ -91,6 +91,7 @@ class PrayTimeUtil: NSObject {
             let dateFormat = NSDateFormatter()
             dateFormat.dateFormat = "HH:mm"
             dateFormat.timeZone = timeZone
+            dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
             let cDate = dateFormat.stringFromDate(NSDate())
             let cDateArr = cDate.componentsSeparatedByString(":")
             
@@ -167,6 +168,7 @@ class PrayTimeUtil: NSObject {
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "HH:mm"
         dateFormat.timeZone = timeZone
+        dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
         let cDate = dateFormat.stringFromDate(NSDate())
         let cDateArr = cDate.componentsSeparatedByString(":")
         
@@ -244,6 +246,7 @@ class PrayTimeUtil: NSObject {
         //start
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "HH:mm"
+        dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
         let adjustArray : NSMutableArray = NSMutableArray()
         for index in 0...prayTimes.count-1 {
             var pray :NSString = (prayTimes[index].uppercaseString)  as NSString
