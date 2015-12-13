@@ -385,11 +385,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(text_zh.length == 0){
             cell.textCn.text = " "
         }else{
-            let textContent = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
-            let attrStr = try! NSAttributedString(
+            let textContent = NSString(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+            let attrStr = try! NSMutableAttributedString(
                 data: textContent.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
-                options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                 documentAttributes: nil)
+            attrStr.addAttribute(kCTFontAttributeName as String, value: cell.textCn.font, range: NSMakeRange(0,attrStr.length))
             cell.textCn.attributedText = attrStr
         }
         

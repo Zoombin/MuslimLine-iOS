@@ -28,13 +28,11 @@ class ReadViewCell: UITableViewCell {
                 let offSetX : CGFloat = 15
                 let width = self.contentView.frame.size.width
               
-//                textQuran.frame =  CGRectMake(PhoneUtils.screenWidth - 17 - textQuran.frame.origin.x - textQuran.frame.size.width, textQuran.frame.origin.y, textQuran.frame.size.width, textQuran.frame.size.height)
-                
                 textQuran.frame = CGRectMake(textQuran.frame.origin.x, textQuran.frame.origin.y, width - offSetX * 2, textQuran.frame.size.height)
                 
-                if (quran.alignmentToRight) {
-                    textCn.textAlignment = NSTextAlignment.Right
-                }
+//                if (quran.alignmentToRight) {
+//                    textCn.textAlignment = NSTextAlignment.Right
+//                }
                 
                 if (Config.getCurrentLanguageIndex() == 6) {
                     textCn.font = UIFont(name: "Kefa-Regular", size: 17)
@@ -43,8 +41,6 @@ class ReadViewCell: UITableViewCell {
                 }
                 
                 textCn.frame = CGRectMake(textQuran.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, width - offSetX * 2, textCn.frame.size.height)
-                
-//                textCn.frame = CGRectMake(textCn.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, textCn.frame.size.width, textCn.frame.size.height)
                 OptionsView.frame = CGRectMake(0, CGRectGetMaxY(textCn.frame) + 10, OptionsView.frame.size.width, OptionsView.frame.size.height)
                 
                 quran.unSelectedHeight = CGRectGetMaxY(textCn.frame) + 10
