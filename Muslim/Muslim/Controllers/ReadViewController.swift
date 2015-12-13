@@ -385,8 +385,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(text_zh.length == 0){
             cell.textCn.text = " "
         }else{
-            let srcText:String = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
-            cell.textCn.text = srcText
+            let textContent = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+            let attrStr = try! NSAttributedString(
+                data: textContent.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+                options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                documentAttributes: nil)
+            cell.textCn.attributedText = attrStr
         }
         
         cell.calculateHeight(quran)
