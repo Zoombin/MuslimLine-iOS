@@ -90,15 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 case .RemoteControlPlay:
                     Log.printLog("play")
                     AudioPlayerMr.getInstance().play()
-                    
-                    //let notification = NSNotificationCenter.defaultCenter()
-//                    notification.addObserver(<#T##observer: AnyObject##AnyObject#>, selector: <#T##Selector#>, name: <#T##String?#>, object: <#T##AnyObject?#>)
-//                    notification.postNotificationName(<#T##aName: String##String#>, object: <#T##AnyObject?#>)
                 case .RemoteControlPause:
                     Log.printLog("pause")
-                    if(AudioPlayerMr.getInstance().isPlaying){
-                        AudioPlayerMr.getInstance().pause()
-                    }
+                    AudioPlayerMr.getInstance().pause()
                 case .RemoteControlStop:
                     Log.printLog("stop")
                     AudioPlayerMr.getInstance().stop()

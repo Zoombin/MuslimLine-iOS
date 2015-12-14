@@ -75,8 +75,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.separatorColor = Colors.greenColor
         mTableView.delegate = self
         mTableView.dataSource = self
-        mTableView.estimatedRowHeight = 100
-        mTableView.rowHeight = UITableViewAutomaticDimension
         self.view.addSubview(mTableView)
         
         slider = UISlider()
@@ -299,6 +297,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //开始播放
     func startPlaying(position:Int){
         if(sura != AudioPlayerMr.getInstance().sura ){
+            //不是播放当前章节
             return
         }
         if(-1 == position){
@@ -316,6 +315,31 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         
         let quran :Quran = quranArray[select] as! Quran
         quran.audioStatus = 1
+        quran.isSelected = true
+        mTableView.reloadData()
+        scrollViewTo(select)
+    }
+    //暂停播放
+    func pausePlaying(position:Int){
+        if(sura != AudioPlayerMr.getInstance().sura ){
+            //不是播放当前章节
+            return
+        }
+        if(-1 == position){
+            //播放头部
+            readViewHead.btPlay1.hidden = false
+            readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
+            readViewHead.ivPro.hidden = true
+            readViewHead.ivPro.stopAnimating()
+            return
+        }
+        
+        self.select = position
+        cleanAudioStatus()
+        cleanSelect()
+        
+        let quran :Quran = quranArray[select] as! Quran
+        quran.audioStatus = 0
         quran.isSelected = true
         mTableView.reloadData()
         scrollViewTo(select)
@@ -344,7 +368,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(sura != AudioPlayerMr.getInstance().sura){
             return
         }
-        self.view.makeToast(message: "下载失败")
+        self.view.makeToast(message: NSLocalizedString("toast_download_failure", comment:""))
         cleanAudioStatus()
         resetHeadView()
         mTableView.reloadData()
@@ -446,13 +470,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         cell.btBookMark.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
         cell.btMore.tag = bt_more
         cell.btMore.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
-        
-        //自适应高度
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.preferredMaxLayoutWidth = CGRectGetWidth(tableView.bounds)
-        
         return cell
-        
     }
     
     //item点击
@@ -507,17 +525,13 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         let quran :Quran = quranArray[select] as! Quran
         let audioPath :String = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
         
-        let indexPath:NSIndexPath = NSIndexPath.init(forItem: select, inSection: 0)
-        let cell : ReadViewCell =  mTableView.cellForRowAtIndexPath(indexPath) as! ReadViewCell
-        
         //已经存在
         if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
             if(AudioPlayerMr.getInstance().isPlayCurrent(select, sura: quran.sura!,isHead: false)){
                 //正在播放当前的 (暂停)
                 AudioPlayerMr.getInstance().pause()
-                cell.btPlay.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             }else{
-                if(AudioPlayerMr.getInstance().isPause){
+                if(AudioPlayerMr.getInstance().isPause && AudioPlayerMr.getInstance().position == select){
                     AudioPlayerMr.getInstance().play()
                 }else{
                     AudioPlayerMr.getInstance().stop()
@@ -537,9 +551,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             if(AudioPlayerMr.getInstance().isPlayCurrent(-1, sura: sura,isHead: true)){
                 //正在播放当前的 (暂停)
                 AudioPlayerMr.getInstance().pause()
-                readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             }else{
-                if(AudioPlayerMr.getInstance().isPause){
+                if(AudioPlayerMr.getInstance().isPause && AudioPlayerMr.getInstance().position == -1){
                     AudioPlayerMr.getInstance().play()
                 }else{
                     AudioPlayerMr.getInstance().stop()

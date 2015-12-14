@@ -16,6 +16,7 @@ import MediaPlayer
 protocol mAudioPlayerDelegate : NSObjectProtocol {
     func finishPlaying()
     func startPlaying(position:Int)
+    func pausePlaying(position:Int)
     func loading(position:Int)
     func loadFail()
     func loadNext(sura:Int)
@@ -182,6 +183,9 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     func pause(){
         isPlaying = false
         isPause = true
+        if(delegate != nil){
+            delegate?.pausePlaying(position)
+        }
         audioPlayer.pause()
     }
     
