@@ -69,7 +69,7 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
         //解决光标的问题
         self.automaticallyAdjustsScrollViewInsets = false
         //提示文字
-        textHint = UILabel(frame: CGRectMake(textIndexX+padding,textIndexY,textWidth-(padding*2),80))
+        textHint = UILabel(frame: CGRectMake(textIndexX+padding+5,textIndexY,textWidth-(padding*2),80))
         textHint.text = NSLocalizedString("feedback_description_hint", comment: "")
         textHint.textColor = UIColor.lightGrayColor()
         textHint.font = UIFont.systemFontOfSize(18)
@@ -95,6 +95,11 @@ class FeedbackViewController: BaseViewController,UITextViewDelegate, httpClientD
         }else{
             textHint.hidden = true;
         }
+
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView){
+       textHint.hidden = true;
     }
     
 
