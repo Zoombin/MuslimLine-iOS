@@ -212,7 +212,7 @@ class PrayTimeUtil: NSObject {
     static func getPrayTime()->NSMutableArray{
         let prayTimes:NSMutableArray = NSMutableArray()
         let prayTime = PrayTime();
-        prayTime.setCalcMethod(Int32(3))
+        prayTime.setCalcMethod(Int32(Config.getPrayerTimeConventions()))
         prayTime.setAsrMethod(Int32(Config.getAsrCalculationjuristicMethod()))
         prayTime.setTimeFormat(Config.getTimeFormat() == 0 ? Int32(prayTime.Time24) : Int32(prayTime.Time12))
         prayTime.setHighLatsMethod(Int32(prayTime.AngleBased))
