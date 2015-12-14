@@ -48,6 +48,9 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         noticeLabel.text = NSLocalizedString("qibla_warning_text", comment: "")
         kabahLocation = CLLocation(latitude: 21.42 , longitude: 39.83)
         
+        let textAll = String(format: "%@:",NSLocalizedString("main_qibla_label", comment: ""))
+        housePostion.text = textAll as String
+        
         self.locationManger.delegate = self
         self.locationManger.desiredAccuracy = kCLLocationAccuracyBest
         if #available(iOS 8.0, *) {

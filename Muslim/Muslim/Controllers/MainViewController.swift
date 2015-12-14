@@ -115,6 +115,7 @@ class MainViewController: BaseViewController {
         Log.printLog(startY)
         noticeView.frame = CGRectMake(startX * 2, startY, noticeView.frame.size.width, noticeView.frame.size.height)
         noticeView.prayTimeButton.addTarget(self, action: Selector.init("clickLiBSJ"), forControlEvents: UIControlEvents.TouchUpInside)
+        noticeView.prayNameLabel.adjustsFontSizeToFitWidth = true
         self.view.addSubview(noticeView!)
         noticeView.hidden = true
         
