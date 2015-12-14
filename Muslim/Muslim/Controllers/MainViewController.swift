@@ -101,6 +101,7 @@ class MainViewController: BaseViewController {
         settingsButton.setImage(UIImage(named: "location"), forState: UIControlState.Normal)
         settingsButton.setTitle(NSLocalizedString("main_location_set", comment: ""), forState: UIControlState.Normal)
         settingsButton.addTarget(self, action: Selector.init("settingsBkgClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        settingsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         settingsButton.titleLabel?.font = UIFont.systemFontOfSize(14)
         settingsButton.backgroundColor = UIColor.clearColor()
         settingsButton.frame = CGRectMake((topSearchView.frame.size.width - 100) / 2, topSearchView.frame.size.height - topSearchView.frame.size.height / 4, 100, 20)
