@@ -168,6 +168,9 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
     }
     
     func play(){
+        if(audioPlayer == nil){
+            return
+        }
         isPlaying = true
         if(delegate != nil){
             delegate?.startPlaying(position)

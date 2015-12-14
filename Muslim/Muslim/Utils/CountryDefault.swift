@@ -93,7 +93,7 @@ class CountryDefault: NSObject {
         }
         Config.savePrayerTimeConventions(3);
         Config.saveCalenderSelection(0);
-        Config.saveAutoSwitch(0);
+        Config.saveAutoSwitch(2);
         Config.saveFaction(1)
         return 0;
     }

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <string>Surah Al-Fatihah (Pembukaan)</string>
+        <string>Surah Al-Baqarah (Lembu Betina)</string>
+        <string>Surah Ali\'Imran (Keluarga Imran)</string>
+        <string>Surah An-Nisaa\'(Wanita)</string>
+        <string>Surah Al-Maa\'idah (Hidangan)</string>
+        <string>Surah Al-An\'aam (Binatang Ternakan)</string>
+        <string>Surah Al-A\'raaf (Tempat Tertinggi)</string>
+        <string>Surah Al-Anfaal (Rampasan Perang)</string>
+        <string>Surah At-Taubah (Pengampunan)</string>
+        <string>Surah Yunus (Nabi Yunus a.s.)</string>
+        <string>Surah Hud (Nabi Hud a.s.)</string>
+        <string>Surah Yusuf (Nabi Yusuf a.s.)</string>
+        <string>Surah Ar-Ra\'d (Guruh)</string>
+        <string>Surah Ibrahim (Nabi Ibrahim a.s.)</string>
+        <string>Surah Al-Hijr (Kawasan Berbatu)</string>
+        <string>Surah An-Nahl (Lebah)</string>
+        <string>Surah Al-Israa\' (Perjalanan Malam)</string>
+        <string>Surah Al-Kahfi (Gua)</string>
+        <string>Surah Maryam (Siti Maryam)</string>
+        <string>Surah Taaha</string>
+        <string>Surah Al-Anbiyaa\' (Para Nabi)</string>
+        <string>Surah Al-Hajj (Haji)</string>
+        <string>Surah Al-Mu\'minun (Golongan yang Beriman)</string>
+        <string>Surah An-Nuur (Cahaya)</string>
+        <string>Surah Al-Furqaan (Pembeza Kebenaran dan Kebatilan)</string>
+        <string>Surah Asy-Syu\'araa (Para Penyair)</string>
+        <string>Surah An-Naml (Semut)</string>
+        <string>Surah Al-Qasas (Cerita-cerita)</string>
+        <string>Surah Al-\'Ankabut (Labah-labah)</string>
+        <string>Surah Ar-Rum (Bangsa Rom)</string>
+        <string>Surah Luqman (Luqman)</string>
+        <string>Surah As-Sajdah (Sujud)</string>
+        <string>Surah Al-Ahzab (Golongan yang Bersekutu)</string>
+        <string>Surah Saba\' (Kaum Saba\')</string>
+        <string>Surah Faatir (Pencipta)</string>
+        <string>Surah Yaasin</string>
+        <string>Surah As-Saaffat (Yang Teratur Berbaris)</string>
+        <string>Surah Saad</string>
+        <string>Surah Az-Zumar (Rombongan-rombongan)</string>
+        <string>Surah Az-Ghafir/Al-Mu\'min (Orang yang Beriman)</string>
+        <string>Surah Fussilat (Dijelaskan)</string>
+        <string>Surah Asy-syuraa (Permesyuaratan)</string>
+        <string>Surah Az-Zukhruf (Perhiasan Emas)</string>
+        <string>Surah Ad-Dukhaan (Kabut/Asap)</string>
+        <string>Surah Al-Jatsiyah (Yang Berlutut)</string>
+        <string>Surah Al-Ahqaaf (Bukit-bukit Pasir)</string>
+        <string>Surah Muhammad (Nabi Muhammad SAW)</string>
+        <string>Surah Al-Fath (Kemenangan)</string>
+        <string>Surah Al-Hujurat (Bilik-bilik)</string>
+        <string>Surah Qaaf</string>
+        <string>Surah Adz-Dzariyaat (Angin yang Menerbangkan)</string>
+        <string>Surah At-Tur (Bukit)</string>
+        <string>Surah An-Najm (Bintang)</string>
+        <string>Surah Al-Qamar (Bulan)</string>
+        <string>Surah Ar-Rahman (Yang Maha Pemurah)</string>
+        <string>Surah Al-Waqi\'ah (Peristiwa yang Tidak Dapat Dielakkan)</string>
+        <string>Surah Al-Hadid (Besi)</string>
+        <string>Surah Al-Mujadilah (Perempuan yang Merayu)</string>
+        <string>Surah Al-Hasyr (Pengusiran)</string>
+        <string>Surah Al-Mumtahanah (Perempuan yang Diuji)</string>
+        <string>Surah As-Saf (Barisan)</string>
+        <string>Surah Al-Jumu\'ah (Hari Jumaat)</string>
+        <string>Surah Al-Munafiquun (Golongan Munafik)</string>
+        <string>Surah At-Taghabun (Dinampakkan Kesalahan)</string>
+        <string>Surah At-Talaq (Cerai/Talak)</string>
+        <string>Surah At-Tahrim (Mengharamkan)</string>
+        <string>Surah Al-Mulk (Kerajaan)</string>
+        <string>Surah Al-Qalam (Pena/Kalam)</string>
+        <string>Surah Al-Haaqah (Keadaan Sebenar/Hari Kiamat)</string>
+        <string>Surah Al-Ma\'arij (Tempat-tempat Naik)</string>
+        <string>Surah Nuh (Nabi Nuh a.s.)</string>
+        <string>Surah A-Jin (Jin)</string>
+        <string>Surah Al-Muzammil (Yang Berselimut)</string>
+        <string>Surah Al-Muddathir (Yang Berselubung)</string>
+        <string>Surah Al-Qiyaamah (Hari Kebangkitan/Kiamat)</string>
+        <string>Surah Al-Insaan (Manusia)</string>
+        <string>Surah Al-Mursalat (Malaikat yang Diutus)</string>
+        <string>Surah An-Naba\' (Berita Besar)</string>
+        <string>Surah An-Naazi\'aat (Malaikat yang Mencabut)</string>
+        <string>Surah \'Abasa (Dia Bermasam Muka)</string>
+        <string>Surah At-Takwiir (Menggulung)</string>
+        <string>Surah Al-Infitar (Terpecah &amp; Terbelah)</string>
+        <string>Surah Al-Mutaffiffiin (Golongan yang Curang)</string>
+        <string>Surah Al-Insyiqaaq (Terbelah)</string>
+        <string>Surah Al-Buruj (Gugusan Bintang)</string>
+        <string>Surah At-Taariq (Pengunjung Malam)</string>
+        <string>Surah Al-A\'laa (Yang Tertinggi)</string>
+        <string>Surah Al-Ghaasyiah (Peristiwa Menggelisahkan/Hari Pembalasan)</string>
+        <string>Surah Al-Fajr (Fajar/Sinar Mentari)</string>
+        <string>Surah Al-Balad (Negeri)</string>
+        <string>Surah Asy-Syams (Matahari)</string>
+        <string>Surah Al-Lail (Malam)</string>
+        <string>Surah Adh-Dhuha (Pagi yang Cemerlang/Matahari Meninggi)</string>
+        <string>Surah Al-Insyirah/An-Nasyrah (Melapangkan)</string>
+        <string>Surah At-Tin (Buah Tin/Buah Ara)</string>
+        <string>Surah Al-\'Alaq (Segumpal Darah)</string>
+        <string>Surah Al-Qadr (Kemuliaan)</string>
+        <string>Surah Al-Baiyinah (Bukti yang Nyata)</string>
+        <string>Surah Al-Zalzalah (Kegoncangan)</string>
+        <string>Surah Al-\'Aadiyaat (Yang Berlari Kencang)</string>
+        <string>Surah Al-Qari\'ah (Hari Yang Hingar Bingar / Kiamat)</string>
+        <string>Surah At-Takathur (Bermegah-megah)</string>
+        <string>Surah Al-\'Asr (Masa)</string>
+        <string>Surah Al-Humazah (Pengumpat)</string>
+        <string>Surah Al-Fiil (Gajah)</string>
+        <string>Surah Quraisy (Kaum Quraisy)</string>
+        <string>Surah Al-Ma\'un (Barangan Berguna)</string>
+        <string>Surah Al-Kauthar (Sungai di Syurga)</string>
+        <string>Surah Al-Kafirun (Golongan Kafir)</string>
+        <string>Surah An-Nasr (Pertolongan)</string>
+        <string>Surah Al-Masad / Al-Lahab (Nyalaan Api)</string>
+        <string>Surah Al-Ikhlas (Tulus Ikhlas / Memurnikan Keesaan Allah)</string>
+        <string>Surah Al-Falaq (Waktu Subuh / Dinihari)</string>
+        <string>Surah An-Naas (Manusia)</string>
+    </array>
+</plist>

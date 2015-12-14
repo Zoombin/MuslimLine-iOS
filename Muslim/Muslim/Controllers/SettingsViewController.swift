@@ -20,6 +20,8 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     var fullData : NSArray! //设置的数据
     var settingData : NSArray! //设置的数据
     
+    var autoSetPray:String = "" //自动设置显示的礼拜时间
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("settings_title", comment:"");
@@ -41,6 +43,9 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let data = txtString?.dataUsingEncoding(NSUTF8StringEncoding)
         fullData = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
         dealSetData()
+        
+        let index = Config.getPrayerTimeConventions()
+        autoSetPray = Config.PrayerNameArray[index] as! String
     }
     
     //设置list的分组
@@ -136,11 +141,12 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let select = getItemSelect(section, row: row)
             if(2 == select){
                 //不可用
-                //settingCell.my_switch.enabled = false
+                settingCell.my_switch.enabled = false
                 settingCell.my_switch.setOn(false, animated: false)
                 
-                //settingCell.sub_title.hidden = false
-                //settingCell.title.hidden = false
+                settingCell.sub_title.hidden = false
+                settingCell.title.hidden = false
+                settingCell.sub_title.text = NSLocalizedString("setting_auto_choose_stop", comment:"")
             }else{
                 settingCell.title2.hidden = false
                 if(0 == select){
@@ -149,7 +155,18 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 }
                 if(1 == select){
                     // 开
-                    settingCell.my_switch.setOn(true, animated: false)
+                    if(row == 2){
+                        //自动设置开
+                        settingCell.my_switch.enabled = true
+                        settingCell.my_switch.setOn(true, animated: false)
+                        
+                        settingCell.sub_title.hidden = false
+                        settingCell.title2.hidden = true
+                        settingCell.title.hidden = false
+                        settingCell.sub_title.text = autoSetPray
+                    }else{
+                        settingCell.my_switch.setOn(true, animated: false)
+                    }
                 }
             }
         }
@@ -321,6 +338,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             //自动设置
             if(sender.on){
                 Config.saveAutoSwitch(1)
+                CountryDefault.saveDefaultMethod(Config.getcountryName())
                 loadData()
                 listview.reloadData()
             }else{

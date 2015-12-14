@@ -1,0 +1,130 @@
+[
+ {
+ "name": "waktu shalat",
+ "set": [
+         {
+         "title": "fraksi muslim",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Syiah",
+                    "Sunni"
+                    ]
+         },
+         {
+         "title": "koreksi manual",
+         "subtitle": "",
+         "right_type": "2",
+         "right_txt": "",
+         "subset": []
+         },
+         {
+         "title": "pengaturan otomatis",
+         "subtitle": "tidak bisa digunakan pada kota saat ini",
+         "right_type": "3",
+         "right_txt": "",
+         "subset": []
+         },
+         {
+         "title": "penghitungan shalat Ashar-metode hukum",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Standar/patokan",
+                    "Hanafi"
+                    ]
+         },
+         {
+         "title": "waktu shalat yang lazim",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Dua belas fraksi imam",
+                    "Universitas Islam,Karachi",
+                    "Asosiasi Islam Amerika utara",
+                    "Persatuan Muslim seluruh dunia",
+                    "Um AlQura,Mekkah",
+                    "Penelitian otoritas Mesir",
+                    ">Universitas Teheran institut Geofisika"
+                    ]
+         },
+         {
+         "title": "pengaturan garis lintang yang tinggi",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "tidak ada",
+                    "tengah malam",
+                    "1/7 malam",
+                    "metode yang didasarkan pada arah"
+                    ]
+         },
+         {
+         "title": "Daylight Saving Day",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "otomatis",
+                    "+1 jam",
+                    "-1 jam"
+                    ]
+         },
+         {
+         "title": "format waktu",
+         "subtitle": "",
+         "right_type": "4",
+         "right_txt": "sistem 24 jam",
+         "subset": [
+                    "sistem 24 jam",
+                    "sistem 12 jam"
+                    ]
+         },
+         {
+         "title": "putar nada peringatan Adzan pada mode silent",
+         "subtitle": "",
+         "right_type": "3",
+         "right_txt": "",
+         "subset": []
+         }
+         ]
+ },
+ {
+ "name": "Al Quran",
+ "set": [
+         {
+         "title": "teks dan terjemahan",
+         "subtitle": "",
+         "right_type": "2",
+         "right_txt": "",
+         "subset": []
+         },
+         {
+         "title": "audio pengajian",
+         "subtitle": "",
+         "right_type": "2",
+         "right_txt": "",
+         "subset": []
+         }
+         ]
+ },
+ {
+ "name": "Kalender",
+ "set": [
+         {
+         "title": "kalender",
+         "subtitle": "",
+         "right_type": "4",
+         "right_txt": "kalender muslim",
+         "subset": [
+                    "kalender muslim",
+                    "kalender Persia"
+                    ]
+         }
+         ]
+ }
+ ]

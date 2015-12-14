@@ -1,0 +1,289 @@
+/*
+ Localizable.strings
+ Muslim
+ 
+ Created by 颜超 on 15/10/30.
+ Copyright © 2015年 ZoomBin. All rights reserved.
+ */
+
+"app_name" = "Muslim Line";
+"app_string" = "Muslim Line";
+"SETTINGS_ASR_JURISTIC_HANAFI" = "الحنفي";
+"SETTINGS_ASR_JURISTIC_STANDARD" = "ستاندارد";
+"SETTINGS_CALCULATION_CUSTOM" = "إعداد مخصص";
+"SETTINGS_CALCULATION_EGAS" = "الهيئة العامة المصرية للمساحة";
+"SETTINGS_CALCULATION_IA" = "الاثني عشرية";
+"SETTINGS_CALCULATION_IGUT" = "اصل معهد الجيوفيزياء بجامعة طهران";
+"SETTINGS_CALCULATION_ISNA" = "الجمعية الإسلامية لأمريكا الشمالية(ISNA)";
+"SETTINGS_CALCULATION_UAQM" = "أم القرى، مكة المكرمة";
+"SETTINGS_CALCULATION_UISK" = "جامعة العلوم الإسلامية، كراتشي";
+"SETTINGS_CALCULATION_WML" = "رابطة العالم الإسلامي(MWL)";
+"SETTINGS_PRAYER_ALARM_AAB" = "أذان عبد الباسط";
+"SETTINGS_PRAYER_ALARM_ADHAN" = "أذان 1";
+"SETTINGS_PRAYER_ALARM_ADHAN_EGYPT" = "أذان مصر";
+"SETTINGS_PRAYER_ALARM_ADHAN_HALAB" = "أذان حلب";
+"SETTINGS_PRAYER_ALARM_ADHAN_MADINA" = "أذان المدينة المنورة";
+"SETTINGS_PRAYER_ALARM_ADHAN_MAKKAH" = "أذان مكة المكرمة";
+"SETTINGS_PRAYER_ALARM_ADHAN_SALIMI" = "أذان سليمي";
+"SETTINGS_PRAYER_ALARM_ADHAN_SHARIF" = "أذان الشريف";
+"SETTINGS_PRAYER_ALARM_AFMZ" = "أذان الفجر منصور الزهراني";
+"SETTINGS_PRAYER_ALARM_AMF" = "أذان المدينة المنورة (الفجر)";
+"SETTINGS_PRAYER_ALARM_AMFIVE" = "أذان المدينة المنورة 1952";
+"SETTINGS_PRAYER_ALARM_ANAQ" = "اذان ناصرالخاتمی";
+"about" = "حول";
+"about_copyright_text" = "حقوق الطبع والنشر\n © 2015 نسیم الوحي جميع الحقوق محفوظة";
+"about_update_text" = "التحديثات";
+"about_us" = "حول";
+"add_bookmark" = "إضافة إشارة مرجعية";
+"adhan_alarm_type_default" = "النغمة الافتراضية";
+"adhan_alarm_type_slient" = "صامت";
+"cancel" = "إلغاء";
+"check_try_refresh" = "يرجى مراجعة وتحديث";
+"copy_to_clipboard" = "نسخ إلى الحافظة";
+"data_load_fail" = "فشل على تحميل";
+"delete_bookmark" = "إزالة الإشارة المرجعية";
+"dlg_change_city" = "تغيير المدينة";
+"dlg_prayer_location_finder_none" = "الشبكة أو GPS لا يمكن الحصول على المعلومات يرجى التوجه إلى لوحة اليدوي";
+"dlg_prayer_location_menu_auto" = "التلقائي";
+"dlg_prayer_location_menu_manual" = "المختصر";
+"dlg_prayer_search_edit_text_hint" = "أدخل الأمة أو المدينة";
+"dlg_prayer_search_none" = "آسف، لم تجد أمة أو مدينة، من فضلك ادخل في اللغة الإنجليزية";
+"down_load" = "تحميل";
+"down_load_message" = "تحميله الآن؟";
+"feedback" = "ردود فعل";
+"feedback_can_not_be_empty" = "ردود فعل لا يمكن أن يكون فارغا";
+"feedback_description_hint" = "من فضلك قل للمشكلة أو اقتراح!";
+"feedback_submit" = "إرسال";
+"finish" = "الانتهاء";
+"frag_first" = "السورة";
+"frag_second" = "إرسال";
+"islamic_calendar" = "التقويم الإسلامي";
+"islamic_day_1" = "يوم الأحد";
+"islamic_day_2" = "الإثنين";
+"islamic_day_3" = "يوم الثلاثاء";
+"islamic_day_4" = "يوم الأربعاء";
+"islamic_day_5" = "يوم الخميس";
+"islamic_day_6" = "يوم الجمعة";
+"islamic_day_7" = "يوم السبت";
+"persain_day_1" = "Doshanbeh";
+"persain_day_2" = "Seshanbeh";
+"persain_day_3" = "Chaharshanbeh";
+"persain_day_4" = "Panjshanbeh";
+"persain_day_5" = "Jom`eh";
+"persain_day_6" = "Shanbeh";
+"persain_day_7" = "Yekshanbeh";
+"last_read_position" = "الموقف القراءة الأخير";
+"loading" = "تحميل &#8230;";
+"locating_text" = "تحديد موقع، يرجى الانتظار";
+"location_dialog_title" = "النصائح";
+"location_fail" = "الفشل الموقع";
+"location_providers_disabled" = "تم تعطيل كشف موقع على هذا الجهاز. يرجى التحقق من إعداداتك.";
+"main_dashboard_curis" = "الحالية:";
+"main_dashboard_from_next" = "الوقت المتبقي:";
+"main_dashboard_next_time" = "القادمة:";
+"main_dashboard_no_prayer" = "----";
+"main_holiday_label" = "تقويم";
+"main_location_set" = " تعيين الموقع";
+"main_names_label" = "اسماء الحسنی ";
+"main_nearby_label" = "بحوالی ";
+"main_pray_label" = "الصلاة";
+"main_qibla_label" = "القبلة";
+"main_quran_label" = "القرآن";
+"nearby_empty_tip" = "لا توجد معلومات ذات الصلة";
+"nearby_location_failure" = "الفشل الموقع";
+"nearby_location_failure_tip" = "يرجى تشغيل الشبكة أو GPS، ثم حاول مرة أخرى";
+"nearby_location_failure_try_again" = "تعیین الموقع ";
+"net_err" = "الرجاء التحقق من اتصالك الشبكة.";
+"network_is_not_available" = "لا اتصال إنترنت.";
+"never" = "أبدا";
+"no_data_promot" = "لا موارد ذات الصلة";
+"no_net_display" = "لایوجداتصال";
+"no_net_title" = "النصائح";
+"no_wifi_detected" = "اكتشاف لا واي فاي. استخدام البيانات الخلوية خدمة؟";
+"no_wifi_titile" = "لا الكشف واي فاي ";
+"ok" = "موافق ";
+"one_time" = " 1مرة";
+"play_sentence" = "إذاعة بهذا الآية";
+"prayer_adhan_settings" = "إعدادات اذان";
+"prayer_alarm_download_start" = "تحميل";
+"prayer_calendar_today" = "اليوم";
+"prayer_calendar_tomorrow" = "غدا";
+"prayer_location_finder_add" = "يرجى تعيين الموقع";
+"prayer_names_generic_1" = "صبح";
+"prayer_names_generic_2" = "شروق الشمس";
+"prayer_names_generic_3" = "الظهر";
+"prayer_names_generic_4" = "العصر";
+"prayer_names_generic_5" = "المغرب";
+"prayer_names_generic_6" = "العشاء";
+"prayer_place_none" = "يرجى تعيين الموقع";
+"qibla_bearing_angle" = "القبلة:%1$s";
+"qibla_warning_text" = "تحذير: الرجاء إبقاء هاتفك أفقيا والحالات معدنية أو إغلاق المغناطيسي  قد يسبب تداخلات";
+"qibla_warning_nosensor" = "تحذير: الهاتف لا يوجد لديه جهاز استشعار الدوران، يرجى تصحيح الاتجاه\'N\' إلى الشمال يدويا.";
+"quran_audio_recite_rule_title" = "تلاوات";
+"quran_audio_setting_title" = "تلاوة الصوتية";
+"retry" = "تحديث";
+"setting_calculation_method" = "اتفاقيات وقت الصلاة";
+"setting_daylignt_savtime" = "بالتوقيت الصيفي";
+"setting_higher_latitude" = "تعيين مناطق خطوط العرض العليا";
+"setting_higher_latitude_dlg_angle_based" = "طريقة القائم على زاوية";
+"setting_higher_latitude_dlg_middle_night" = "وسط الليل";
+"setting_higher_latitude_dlg_none" = "لا شيء";
+"setting_higher_latitude_dlg_seven" = "1/7 من ليلة";
+"setting_hijri_adjuest" = "التصحيح الهجرية ";
+"setting_juristic_method" = "أسلوب للعصر";
+"setting_manual_corr" = "الإصلاحيات المختصر";
+"setting_manual_corr_dlg" = "الإصلاحيات المختصر";
+"setting_pray_adjuest_time_min" = "دقيقة";
+"setting_time_format" = "شكل الوقت";
+"setting_time_format_Twenty_four" = "24 ساعة";
+"setting_time_format_twelve" = "12 ساعة";
+"setting_translation_item_title" = "النص والترجمة";
+"settings_day_light_save_auto" = "التلقائي";
+"settings_hijri_adjuest_day" = "يوم";
+"settings_hijri_adjuest_days" = "أيام";
+"settings_menu_adjuest" = "الإصلاحيات المختصر";
+"settings_menu_faction" = "الفصائل الإسلامية";
+"settings_menu_prayer_time" = "اوقات الصلاه";
+"settings_menu_quran" = "القرآن";
+"settings_title" = "الإعدادات";
+"share" = "حصة";
+"share_dialog_title" = "حصة :";
+"share_text" = "نسیم الوحي هو تطبيق متكامل يفي بمتطلبات الحياة اليومية للمسلمين. وظائف رئيسية هي: القرآن، القبلة، مواقيت الصلاة، السياحية القريبة، والتقويم، وأسماء آل حسنة الخ";
+"share_downloadtext" = "تحميل الرابط:";
+"thanks_for_feedback" = "أرسلت بنجاح، شكرا لملاحظاتك";
+"toast_add_bookmark_succ" = "المضافة الإشارة المرجعية";
+"toast_copy_succ" = "نسخة إكمال";
+"toast_download_failure" = "الفشل تحميل";
+"toast_download_succ" = "تحميل الانتهاء";
+"toast_location_keyword_none" = "يرجى الدخول  المدينة أو أمة";
+"toast_sd_none" = "بطاقة SD غير متوفرة";
+"toast_wallpaper_download_error" = "الخطأ تحميل ، الرجاء إعادة المحاولة";
+"upgrade" = "ترقية";
+"upgrade_checking" = "التحقق من وجود التحديث، يرجى الانتظار &#8230;";
+"upgrade_dialog_title" = "ترقية";
+"upgrade_downloading_apk" = "تحميل، الرجاء الانتظار &#8230;";
+"upgrade_enable_cancel" = "إلغاء";
+"upgrade_enable_cb_text" = "تجاهل";
+"upgrade_enable_title" = "نسخة جديدة";
+"upgrade_enable_upgrade" = "ترقية";
+"upgrade_enable_versiontag" = "تم العثور على النسخة الجديدة.";
+"upgrade_enable_versionvalue" = "نسخة";
+"upgrade_no_necessary" = "هذا هو أحدث نسخة";
+"verse" = "الآية";
+"verse1" = "الآية:%d";
+"verse2" = "الآية %d";
+"networkerror" = "خطأ في الشبكة!";
+"dataerror" = "خطأ في البيانات";
+"sending" = "إرسال الآن";
+"settings_day_light_save_hour_plus" = "+1 ساعة";
+"settings_day_light_save_hour_mins" = "1-ساعة ";
+"noti_prayer_time" = "اوقات الصلاه";
+
+"calendar_selection" = "اختيار التقويم";
+"persian_calendar" = "التقويم الفارسي";
+
+"backtoast" = "اضغط مفتاح العودة مرة أخرى للخروج";
+"nobookmark" = "لا العناوين";
+
+"keyword_mosque" = "مسجد";
+"keyword_restaurant" = "مطعم";
+"keyword_store" = "متجر";
+
+
+"main_quran_search_label" = "القرآن البحث";
+"keywords" = "كلمات البحث أو مراجع (مثلا: 02:14).";
+
+
+"setting_faction_label" = "اختيار الفصائل مسلم";
+"setting_faction_shia" = "الشيعة";
+"setting_faction_suni" = "سني";
+"setting_slient_mode" = "تشغيل صوت في الوضع الصامت";
+
+"setting_auto_choose" = "الإعدادات التلقائية";
+
+"setting_auto_choose_stop" = "لا تتوفر للمدينة الحالية";
+
+"toast_sd_enough" = "مساحة بطاقة SD لا يكفي";
+
+"user_register" = "User Register";
+"user_login" = "User Login";
+"password_retrieve" = "Password Retrieve";
+"password_change" = "Password Change";
+"user_modify" = "User Modify";
+
+"original_password" = "Original password";
+"original_password_tips" = "Enter your old password";
+"new_password" = "New password";
+"new_password_tips" = "Enter your new password";
+"new_password_confirm" = "Repeat";
+"new_password_confirm_tips" = "Repeat password";
+"confirmation" = "Confirmation";
+"password_change_tips" = "Note: after the password reset is successful, it will automatically be set to 123456";
+"password_empty_tips" = "Password can not be empty";
+"password_weak_tips" = "Passwords must be at least 6 bits";
+"password_not_consistent_tips" = "Two password is not consistent";
+
+"email" = "Email";
+"email_tips" = "Email for password retrieve";
+"verification_code" = "Verification";
+"verification_code_tips" = "Code";
+"send_verification_code" = "Send";
+"password_reset" = "Reset password";
+"mailbox_empty_tips" = "Mailbox cannot be empty";
+"mailbox_error_tips" = "Email is not legal";
+"verification_code_empty_tips" = "Verification code can not be empty";
+
+"user_name" = "Username";
+"user_name_tips" = "Enter your login name";
+"password" = "Password";
+"password_tips" = "Enter your password";
+"password_forget" = "Forget password";
+"sign_in" = "Sign in";
+"registered_account" = "Registered account";
+"username_empty_tips" = "User name can not be empty";
+
+"nickname" = "Nickname";
+"nickname_tips" = "Enter your nickname";
+"modify" = "Modify";
+"nickname_empty_tips" = "Nickname can not be empty";
+
+"password_confirm" = "Repeat";
+"password_confirm_tips" = "Repeat password";
+"agree_muslim_empty_tips" = "Please agree with the user agreement";
+"agree_muslim" = "Agree the agreement of Muslim line";
+
+"image_from_album" = "From album selection";
+"image_from_camera" = "Photograph";
+"avatar_select" = "Avatar selection";
+
+"user_panel" = "Personal Center";
+"user_collection" = "My collection";
+"event_center" = "Event center";
+"system_notification" = "System notification";
+
+"no_notification" = "No notification";
+"no_collection" = "No collection";
+"no_events" = "No upcoming events";
+
+"news_related" = "Related News";
+"news_comment" = "Comment";
+"no_news_related" = "No Related News";
+"no_news" = "No news";
+"no_news_comment" = "No Comment";
+"write_comments" = "Write comments";
+"add_collect" = "Added to the collection";
+"commit_comment" = "Comments have been submitted";
+"commit_comment_tips" = "Make comments on";
+"publish_comment_tips" = "Publish";
+"commit_comment_content_tips" = "Write down your comments";
+"no_comment_tips" = "Comment can not be empty";
+"up_comment_tips" = "You have already had this comment";
+"no_more_comment" = "No more comments";
+"has_add_collect_tips" = "The news is already in your Favorites list";
+"has_remove_collect_tips" = "The news is not on your list of favorites";
+"remove_collect_tips" = "Cancelled collection";
+
+"guide_understand_tips" = "Understand";
+"guide_click_enter_tips" = "Click to enter";
+"guide_get_more_news_tips" = "Enter for getting more news!";
+"guide_check_profile_tips" = "Check my profile";
