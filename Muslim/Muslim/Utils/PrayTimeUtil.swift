@@ -215,7 +215,43 @@ class PrayTimeUtil: NSObject {
         prayTime.setCalcMethod(Int32(Config.getPrayerTimeConventions()))
         prayTime.setAsrMethod(Int32(Config.getAsrCalculationjuristicMethod()))
         prayTime.setTimeFormat(Config.getTimeFormat() == 0 ? Int32(prayTime.Time24) : Int32(prayTime.Time12))
-        prayTime.setHighLatsMethod(Int32(prayTime.AngleBased))
+        prayTime.setHighLatsMethod(Int32(Config.getHighLatitudeAdjustment()))
+        
+        //手动调整
+        if(Config.Daylight == 0){
+            let offsets : NSMutableDictionary = NSMutableDictionary()
+            offsets.setObject(Config.getAdjustPray(0) - 60, forKey: "fajr")
+            offsets.setObject(Config.getAdjustPray(1) - 60, forKey: "sunrise")
+            offsets.setObject(Config.getAdjustPray(2) - 60, forKey: "dhuhr")
+            offsets.setObject(Config.getAdjustPray(3) - 60, forKey: "asr")
+            offsets.setObject(0, forKey: "sunset")
+            offsets.setObject(Config.getAdjustPray(4) - 60, forKey: "maghrib")
+            offsets.setObject(Config.getAdjustPray(5) - 60, forKey: "isha")
+            prayTime.tune(offsets)
+        }
+        if(Config.Daylight == 1){
+            let offsets : NSMutableDictionary = NSMutableDictionary()
+            offsets.setObject(Config.getAdjustPray(0), forKey: "fajr")
+            offsets.setObject(Config.getAdjustPray(1), forKey: "sunrise")
+            offsets.setObject(Config.getAdjustPray(2), forKey: "dhuhr")
+            offsets.setObject(Config.getAdjustPray(3), forKey: "asr")
+            offsets.setObject(0, forKey: "sunset")
+            offsets.setObject(Config.getAdjustPray(4), forKey: "maghrib")
+            offsets.setObject(Config.getAdjustPray(5), forKey: "isha")
+            prayTime.tune(offsets)
+        }
+        if(Config.Daylight == 2){
+            let offsets : NSMutableDictionary = NSMutableDictionary()
+            offsets.setObject(Config.getAdjustPray(0) - 120, forKey: "fajr")
+            offsets.setObject(Config.getAdjustPray(1) - 120, forKey: "sunrise")
+            offsets.setObject(Config.getAdjustPray(2) - 120, forKey: "dhuhr")
+            offsets.setObject(Config.getAdjustPray(3) - 120, forKey: "asr")
+            offsets.setObject(0, forKey: "sunset")
+            offsets.setObject(Config.getAdjustPray(4) - 120, forKey: "maghrib")
+            offsets.setObject(Config.getAdjustPray(5) - 120, forKey: "isha")
+            prayTime.tune(offsets)
+        }
+        
         
         let currentTime : Double = NSDate().timeIntervalSince1970
         let date = NSDate(timeIntervalSince1970: currentTime)
@@ -233,7 +269,7 @@ class PrayTimeUtil: NSObject {
         }
         let timeZoneString = Config.getTimeZone()
         let timeZone = NSTimeZone.init(name: timeZoneString)
-        let zone = Double((timeZone?.secondsFromGMT)! / 3600)
+        let zone = Double((timeZone?.secondsFromGMT)!) / Double(3600)
         let times : NSMutableArray = prayTime.getPrayerTimes(components, andLatitude: lat, andLongitude: lng, andtimeZone: zone) as NSMutableArray
         prayTimes.removeAllObjects()
         prayTimes.addObjectsFromArray(times as [AnyObject])
@@ -241,51 +277,6 @@ class PrayTimeUtil: NSObject {
             //TODO:删除sunset
             prayTimes.removeObjectAtIndex(4)
         }
-        
-        //手动调整
-        //start
-        let dateFormat = NSDateFormatter()
-        dateFormat.dateFormat = "HH:mm"
-        dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
-        let adjustArray : NSMutableArray = NSMutableArray()
-        for index in 0...prayTimes.count-1 {
-            var pray :NSString = (prayTimes[index].uppercaseString)  as NSString
-            var replaceType = 0
-            if(pray.rangeOfString("PM").location != NSNotFound){
-                replaceType = 1
-                pray = pray.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                let arr = pray.componentsSeparatedByString(":")
-                let hourValue = Int(arr[0])
-                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
-                pray = String(format: "%d:%@", hour!,arr[1])
-            }
-            if(pray.rangeOfString("AM").location != NSNotFound){
-                replaceType = 3
-                pray = pray.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            }
-            let date : NSDate = dateFormat.dateFromString(pray as String)!
-            let adjust = Config.getAdjustPray(index) //获取手动调整时间
-            let newDate =  NSDate(timeInterval: Double(( adjust - 60 ) * 60), sinceDate: date)//保存的是位置，时间要减去60
-            var newPray = dateFormat.stringFromDate(newDate)
-            if(replaceType == 1){
-                let arr = newPray.componentsSeparatedByString(":")
-                let hourValue = Int(arr[0])
-                let hour = hourValue! > 12 ? hourValue! - 12 : hourValue
-                newPray = String(format: "%d:%@ PM", hour!,arr[1])
-            }
-            if(replaceType == 3){
-                let arr = newPray.componentsSeparatedByString(":")
-                let hourValue = Int(arr[0])
-                let ty = hourValue! == 12 ? "PM" : "AM"
-                newPray = String(format: "%@:%@ %@", arr[0],arr[1],ty)
-            }
-            Config.savePrayTime(index, time: newPray)//保存最终设置的礼拜时间
-            adjustArray.addObject(newPray)
-        }
-        prayTimes.removeAllObjects()
-        prayTimes.addObjectsFromArray(adjustArray as [AnyObject])
-        //end
-        
         return prayTimes
     }
 
