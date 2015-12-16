@@ -58,6 +58,10 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         manButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_manual", comment: ""), forState: UIControlState.Normal)
         autoButton.setTitle(NSLocalizedString("dlg_prayer_location_menu_auto", comment: ""), forState: UIControlState.Normal)
         
+        let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("hideKeyboard"))
+        tagGesture.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(tagGesture)
+        
         http.delegate = self;
         configLocationManager()
     }
@@ -259,6 +263,12 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
             self.delegate?.refreshUserLocation()
         }
     }
+    
+    func hideKeyboard(){
+        searchBar.resignFirstResponder()
+        //searBar.becomeFirstResponder()
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         self.makeToastActivity()

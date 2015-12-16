@@ -40,7 +40,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var chapter:Chapter?
     var sura:Int = 0
     var quranArray : NSMutableArray = NSMutableArray()
-    var select:Int = 0
+    var select:Int = -1
     var isHead:Bool = false
     
     var slider : UISlider!
@@ -108,21 +108,30 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(AudioPlayerMr.getInstance().isPlaying && AudioPlayerMr.getInstance().sura == sura){
             select = AudioPlayerMr.getInstance().position
         }else{
-            if (sura == 1 || sura == 9) {
-                //没有头部 - 设置第一个选中
-                let quran :Quran = quranArray[0] as! Quran
-                quran.isSelected = true
+            if(select > 0){
+                //外面进来的选中位置
+            }else{
+                if (sura == 1 || sura == 9) {
+                    //没有头部 - 设置第一个选中
+                    select = 0
+                }else{
+                    select = -1
+                }
             }
         }
         //准备滚动的位置的选中状态
-        if(select>0){
+        if(select >= 0){
+            resetHeadView()
+            
             let quran :Quran = quranArray[select] as! Quran
             quran.isSelected = true
+        }else{
+            selectHeadView()
         }
         //刷新界面
         mTableView.reloadData()
         //滚动到相应的位置
-        if(select>0){
+        if(select > 0){
             scrollViewTo(select) //滚动到正在阅读的位置
         }else{
             //滚动到顶部
@@ -168,12 +177,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         readViewHead.btPlay1.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
         let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("headViewClick"))
         readViewHead.addGestureRecognizer(tagGesture)
-        // 除1,9章，其他章最前面加一句话
+        // 除1,9章，tableView增加一个头部
         if (sura != 1 && sura != 9) {
-            let quran:Quran  = Quran()
-            quran.sura = sura
-            quran.aya = 0
-            //tableView增加一个头部
             if(!AudioPlayerMr.getInstance().isPlaying || AudioPlayerMr.getInstance().sura != sura){
                 readViewHead.btPlay1.hidden = false
                 readViewHead.ivPro.hidden = true
@@ -257,8 +262,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     }
     
     /***滚动到某个位置*/
-    func scrollViewTo(position: NSNumber) {
-        let IndexPath :NSIndexPath = NSIndexPath.init(forItem: position.integerValue, inSection: 0)
+    func scrollViewTo(position: Int) {
+        let IndexPath :NSIndexPath = NSIndexPath.init(forItem: position, inSection: 0)
         mTableView.scrollToRowAtIndexPath(IndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
     }
     
@@ -303,7 +308,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(-1 == position){
             //播放头部
             readViewHead.btPlay1.hidden = false
-            readViewHead.btPlay1.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
+            readViewHead.btPlay1.setBackgroundImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
             readViewHead.ivPro.hidden = true
             readViewHead.ivPro.stopAnimating()
             return
@@ -328,7 +333,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         if(-1 == position){
             //播放头部
             readViewHead.btPlay1.hidden = false
-            readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
+            readViewHead.btPlay1.setBackgroundImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             readViewHead.ivPro.hidden = true
             readViewHead.ivPro.stopAnimating()
             return
@@ -431,9 +436,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             //收藏状态
             let isbookmark :Bool = FMDBHelper.getInstance().isBookmark(quran.sura!, aya: quran.aya!)//原方法这样操作太耗资源  -- 要改进
             if (isbookmark) {
-                cell.btBookMark.setImage(UIImage(named: "ic_bookmarks_selected"), forState: UIControlState.Normal)
+                cell.btBookMark.setBackgroundImage(UIImage(named: "ic_bookmarks_selected"), forState: UIControlState.Normal)
             } else {
-                cell.btBookMark.setImage(UIImage(named: "ic_bookmarks_no_selected"), forState: UIControlState.Normal)
+                cell.btBookMark.setBackgroundImage(UIImage(named: "ic_bookmarks_no_selected"), forState: UIControlState.Normal)
             }
             
             //加载状态
@@ -445,7 +450,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
                 //播放当前
                 cell.btPlay.hidden = false
                 cell.ivPro.hidden = true
-                cell.btPlay.setImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
+                cell.btPlay.setBackgroundImage(UIImage(named:"ic_pause"), forState: UIControlState.Normal)
             }else{
                 if(quran.audioStatus == -1){
                     //加载中
@@ -455,7 +460,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
                 }else{
                     cell.btPlay.hidden = false
                     cell.ivPro.hidden = true
-                    cell.btPlay.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
+                    cell.btPlay.setBackgroundImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
                 }
             }
         }else{
@@ -577,7 +582,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             if(sura > FMDBHelper.getInstance().getMinSura()){
                 sura = sura - 1
                 //清除上次位置
-                select = 0
+                select = -1
                 viewDidAppear(false)
             }
             break
@@ -585,7 +590,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             if(sura < FMDBHelper.getInstance().getMaxSura()){
                 sura = sura + 1
                 //清除上次位置
-                select = 0
+                select = -1
                 viewDidAppear(false)
             }
             break
@@ -639,14 +644,23 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.reloadData()
     }
     
+    //恢复头部
     func resetHeadView(){
         //if(readViewHead.btPlay1.hidden == false){
             readViewHead.backgroundColor = UIColor.whiteColor()
             readViewHead.btPlay1.hidden = true
-            readViewHead.btPlay1.setImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
+            readViewHead.btPlay1.setBackgroundImage(UIImage(named:"ic_play"), forState: UIControlState.Normal)
             readViewHead.ivPro.hidden = true
             readViewHead.ivPro.stopAnimating()
         //}
+    }
+    
+    //选中头部
+    func selectHeadView(){
+        readViewHead.btPlay1.hidden = false
+        readViewHead.ivPro.hidden = true
+        readViewHead.ivPro.stopAnimating()
+        readViewHead.backgroundColor = Colors.lightGray
     }
     
     //保存数据

@@ -16,6 +16,7 @@ class MainViewController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        PrayTimeUtil.getPrayTime() //刷新默认礼拜时间
         if (Config.getLat() != 0) {
             refreshUserLocation()
         }
@@ -26,6 +27,7 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshUserLocation", name: "ViewBecomeActive", object: nil)
         //注: 设置title
         let titleLabel = UILabel(frame: CGRectMake(0, 0, (240 / 320) * PhoneUtils.screenWidth, 44))
         titleLabel.text = NSLocalizedString("app_name", comment:"")
@@ -53,7 +55,6 @@ class MainViewController: BaseViewController {
         topSearchView.addGestureRecognizer(tapGesture)
     }
     
-    //PrayTimeUtil.getPrayTime() //获取默认礼拜时间
     override func refreshUserLocation() {
         let cityName = Config.getCityName()
         calendarLocationView.locationNameLabel.text = cityName

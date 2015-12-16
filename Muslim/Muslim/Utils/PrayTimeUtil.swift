@@ -89,16 +89,30 @@ class PrayTimeUtil: NSObject {
             let zone = Config.getTimeZone()
             let timeZone = NSTimeZone.init(name: zone)
             let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "HH:mm"
+            dateFormat.dateFormat = "HH:mm:ss"
             dateFormat.timeZone = timeZone
             dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
             let cDate = dateFormat.stringFromDate(NSDate())
             let cDateArr = cDate.componentsSeparatedByString(":")
             
             if(current == 5){
-                leftTime = (23 - Int(cDateArr[0])!) * 3600 + (60 - Int(cDateArr[1])!) * 60 + Int(nextTimeArr[0])! * 3600 + Int(nextTimeArr[1])! * 60
+                let HourMs = (23 - Int(cDateArr[0])!) * 3600 + Int(nextTimeArr[0])! * 3600
+                let Min = 60 - Int(cDateArr[1])! + Int(nextTimeArr[1])!
+                var MinMs = 0
+                if(Min > 0 ){
+                    MinMs = (Min - 1)*60
+                }
+                let Ms = 60 - Int(cDateArr[2])!
+                leftTime =  HourMs + MinMs + Ms
             }else{
-                leftTime = (Int(nextTimeArr[0])! - Int(cDateArr[0])!) * 3600 + (Int(nextTimeArr[1])! - Int(cDateArr[1])!) * 60
+                let HourMs = (Int(nextTimeArr[0])! - Int(cDateArr[0])!) * 3600
+                let Min = (Int(nextTimeArr[1])! - Int(cDateArr[1])!)
+                var MinMs = 0
+                if(Min > 0 ){
+                    MinMs = (Min - 1)*60
+                }
+                let Ms = 60 - Int(cDateArr[2])!
+                leftTime =  HourMs + MinMs + Ms
             }
         }
         return leftTime
@@ -149,7 +163,7 @@ class PrayTimeUtil: NSObject {
             if(current == 5){
                 leftTime = (23 - Int(currentTimeArr[0])!) * 3600 + (60 - Int(currentTimeArr[1])!) * 60 + Int(nextTimeArr[0])! * 3600 + Int(nextTimeArr[1])!*60
             }else{
-                leftTime = (Int(nextTimeArr[0])! - Int(currentTimeArr[0])!) * 3600 + (Int(nextTimeArr[1])! - Int(currentTimeArr[1])!) * 60
+                leftTime = (Int(nextTimeArr[0])! - Int(currentTimeArr[0])!) * 3600 + (Int(nextTimeArr[1])! - Int(currentTimeArr[1])!)
             }
             
         }
@@ -276,6 +290,10 @@ class PrayTimeUtil: NSObject {
         if (prayTimes.count == 7) {
             //TODO:删除sunset
             prayTimes.removeObjectAtIndex(4)
+        }
+        //保存最终数据
+        for index in 0...5{
+            Config.savePrayTime(index, time: prayTimes[index] as! String)
         }
         return prayTimes
     }
