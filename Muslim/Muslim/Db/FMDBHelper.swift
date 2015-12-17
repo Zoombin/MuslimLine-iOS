@@ -115,7 +115,7 @@ class FMDBHelper: NSObject {
         let replaceStr:String = str.stringByReplacingOccurrencesOfString("\'", withString: "")
         let curLanguage :NSString = Config.getCurrentLanguage()
         
-        var sql : String!
+        var sql : String = ""
         if( chapterNum != -1 && sectionNum == -1){
             // 显示全部小节
              if(curLanguage.length == 0){
