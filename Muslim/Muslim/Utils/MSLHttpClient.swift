@@ -250,12 +250,13 @@ class MSLHttpClient: NSObject {
         manager.requestSerializer.timeoutInterval = timeout
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
+        let device = UIDevice()
         params["Action"] = "1003"
-        params["imsi"] = "13" //获取设备IMSI
-        params["imei"] = "434" //获取设备IMEI
-        params["model"] = "ios" //获取设备型号
-        params["display"] = "8.0" //获取系统版本号
-        params["device"] = "ios" //获取设备名称
+        params["imsi"] = device.identifierForVendor //获取设备IMSI
+        params["imei"] = device.identifierForVendor //获取设备IMEI
+        params["model"] = device.systemName; //获取设备型号
+        params["display"] = device.systemVersion //获取系统版本号
+        params["device"] = device.name //获取设备名称
         params["message"] = message
         manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in

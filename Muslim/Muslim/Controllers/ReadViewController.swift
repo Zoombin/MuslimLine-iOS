@@ -77,6 +77,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.separatorColor = Colors.greenColor
         mTableView.delegate = self
         mTableView.dataSource = self
+        //mTableView.estimatedRowHeight = 100
+        //mTableView.rowHeight = UITableViewAutomaticDimension
+
         self.view.addSubview(mTableView)
         
         slider = UISlider()
@@ -200,7 +203,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     /**获取古兰经*/
     func getQurans(sura:Int){
         self.sura = sura
-        self.view.makeToastActivity()
         chapter = FMDBHelper.getInstance().getChapter(sura)
         setTitelBarData()
         
@@ -481,6 +483,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         cell.btBookMark.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
         cell.btMore.tag = bt_more
         cell.btMore.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        //自适应高度
+        //cell.textLabel?.numberOfLines = 0
+        //cell.textLabel?.preferredMaxLayoutWidth = CGRectGetWidth(tableView.bounds)
         return cell
     }
     
