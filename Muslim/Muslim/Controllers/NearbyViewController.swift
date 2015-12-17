@@ -31,6 +31,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
         initView()
         refreshLocation()
+        shouldShowLocationView()
     }
     
     override func refreshUserLocation() {

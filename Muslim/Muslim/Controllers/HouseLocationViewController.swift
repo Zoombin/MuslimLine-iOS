@@ -61,6 +61,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         
         initView()
         refreshLocation()
+        shouldShowLocationView()
     }
     
     override func refreshUserLocation() {

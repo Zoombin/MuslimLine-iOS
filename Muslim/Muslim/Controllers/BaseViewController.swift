@@ -35,6 +35,19 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
         self.view.addSubview(locationSettingView)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (locationSettingView.hidden == false) {
+            locationSettingView.hidden = true
+        }
+    }
+    
+    func shouldShowLocationView() {
+        if (Config.getLat() == 0 && Config.getLng() == 0) {
+            showLocationView()
+        }
+    }
+    
     func refreshUserLocation() {
         
     }
