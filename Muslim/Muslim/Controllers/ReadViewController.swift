@@ -50,6 +50,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioSessionInterruption", name: AVAudioSessionInterruptionNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioSessionRouteChange:", name: AVAudioSessionRouteChangeNotification, object: nil)
         if(EXTRA_SURA != nil){
             sura = EXTRA_SURA!
         }
@@ -97,6 +99,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         
         setTitleBar() //设置titlebar
         
+        self.view.makeToastActivity()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         self.view.makeToastActivity()
     }
     
@@ -668,6 +674,15 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         //保存正在阅读的位置
         Config.setCurrentRura(sura)
         Config.setCurrentPosition(select)
+    }
+    
+    //后边播放音乐中断
+    func audioSessionInterruption(){
+        AudioPlayerMr.getInstance().pause()
+    }
+    
+    func audioSessionRouteChange(notifi : NSNotification){
+        AudioPlayerMr.getInstance().pause()
     }
     
     override func didReceiveMemoryWarning() {

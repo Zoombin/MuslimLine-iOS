@@ -62,7 +62,7 @@ class LocalNoticationUtils: NSObject {
         else if (soundName == "1") {
             soundName = UILocalNotificationDefaultSoundName //默认
         } else if (soundName == "2") {
-            soundName = "aghati_ios.mp3"
+            soundName = "aghati_ios.m4r"
         }
         return soundName
     }

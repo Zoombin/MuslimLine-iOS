@@ -417,17 +417,17 @@
          static let alarm_type_files_sunni : NSArray  = [
             "",
             "",
-            "adhan_fajr_madina_ios.mp3",
-            "adhan_1_ios.mp3",
-            "adhan_abdul_baset_ios.mp3",
-            "adhan_egypt_ios.mp3",
-            "adhan_fajr_mansour_zahrani_ios.mp3",
-            "adhan_halab_ios.mp3",
-            "adhan_madina_1952_ios.mp3",
-            "adhan_makkah_ios.mp3",
-            "adhan_nasser_al_qatami_ios.mp3",
-            "adhan_salimi_ios.mp3",
-            "adhan_sharif_ios.mp3"
+            "adhan_fajr_madina_ios.m4r",
+            "adhan_1_ios.m4r",
+            "adhan_abdul_baset_ios.m4r",
+            "adhan_egypt_ios.m4r",
+            "adhan_fajr_mansour_zahrani_ios.m4r",
+            "adhan_halab_ios.m4r",
+            "adhan_madina_1952_ios.m4r",
+            "adhan_makkah_ios.m4r",
+            "adhan_nasser_al_qatami_ios.m4r",
+            "adhan_salimi_ios.m4r",
+            "adhan_sharif_ios.m4r"
         ]
         
         /**什叶派闹钟*/
@@ -449,17 +449,17 @@
          static let alarm_type_files_shia : NSArray  = [
             "",
             "",
-            "aghati_ios.mp3",
-            "adhan_entezar_ios.mp3",
-            "hazin_ios.mp3",
-            "karami_ios.mp3",
-            "rahim_moazenzadeh_ios.mp3",
-            "saeidyan_ios.mp3",
-            "salim-moazenzadeh_ios.mp3",
-            "seyed_abas_mirdamad_ios.mp3",
-            "sobhdel_ios.mp3",
-            "tasvieh_chi_ios.mp3",
-            "tukhi_ios.mp3"
+            "aghati_ios.m4r",
+            "adhan_entezar_ios.m4r",
+            "hazin_ios.m4r",
+            "karami_ios.m4r",
+            "rahim_moazenzadeh_ios.m4r",
+            "saeidyan_ios.m4r",
+            "salim-moazenzadeh_ios.m4r",
+            "seyed_abas_mirdamad_ios.m4r",
+            "sobhdel_ios.m4r",
+            "tasvieh_chi_ios.m4r",
+            "tukhi_ios.m4r"
         ]
         
         
