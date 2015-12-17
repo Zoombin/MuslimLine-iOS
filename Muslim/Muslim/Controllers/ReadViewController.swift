@@ -394,10 +394,16 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //行高
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let quran :Quran = quranArray[indexPath.row] as! Quran
+        let content1 = String(format: "%d. %@", quran.aya!,quran.text == nil ?"":quran.text!)
+        let content2 = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+        let labelWidth : Int32 = Int32(PhoneUtils.screenWidth - (15 * 2))
+        let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 17, width: labelWidth)
+        let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 17, width: labelWidth)
+        print("==>1" ,height1, height2, indexPath.row)
         if(quran.isSelected == true) {
-            return quran.selectedHeight
+            return CGFloat(height1 + height2 + 20 + 50);
         } else {
-            return quran.unSelectedHeight
+            return CGFloat(height1 + height2 + 10);
         }
     }
     

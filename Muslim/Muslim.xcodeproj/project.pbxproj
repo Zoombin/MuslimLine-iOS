@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18044D3B1C2259B200C820F2 /* MSLFrameUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */; };
 		18190BAE1C05912800708D35 /* LocationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18190BAD1C05912800708D35 /* LocationSettingView.swift */; };
 		18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18190BAF1C05914100708D35 /* LocationSettingView.xib */; };
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
@@ -208,6 +209,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18044D391C2259B200C820F2 /* MSLFrameUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLFrameUtil.h; sourceTree = "<group>"; };
+		18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLFrameUtil.m; sourceTree = "<group>"; };
 		18190BAD1C05912800708D35 /* LocationSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingView.swift; sourceTree = "<group>"; };
 		18190BAF1C05914100708D35 /* LocationSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSettingView.xib; sourceTree = "<group>"; };
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
@@ -485,6 +488,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18044D381C2259B200C820F2 /* CellHeightTool */ = {
+			isa = PBXGroup;
+			children = (
+				18044D391C2259B200C820F2 /* MSLFrameUtil.h */,
+				18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */,
+			);
+			path = CellHeightTool;
+			sourceTree = "<group>";
+		};
 		183271CA1C01EBD2005078B6 /* CNPPopupController */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +856,7 @@
 		18BED7361BE84A2800418054 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				18044D381C2259B200C820F2 /* CellHeightTool */,
 				1855564F1BF03F5900A29B49 /* PrayTimes */,
 			);
 			path = Library;
@@ -1270,6 +1283,7 @@
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
 				45EF2B7B1BFC58DF008B01EE /* ReadRightView.swift in Sources */,
 				45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */,
+				18044D3B1C2259B200C820F2 /* MSLFrameUtil.m in Sources */,
 				183ECFC31BF9BE4C003FB90C /* FMDatabaseAdditions.m in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				183ECFC11BF9BE4C003FB90C /* FMDatabaseVariadic.swift in Sources */,
