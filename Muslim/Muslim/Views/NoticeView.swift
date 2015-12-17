@@ -26,6 +26,7 @@ class NoticeView: UIView {
         // Drawing code
         Log.printLog("------------")
         Log.printLog(currentPertage)
+        drawBackCircle()//背景圆
         let currentEnd = ((end - start) * currentPertage) + start
         let color = Colors.progressGreenColor
         color.set()
@@ -44,6 +45,18 @@ class NoticeView: UIView {
             return
         }
         self.setNeedsDisplay()
+    }
+    
+    func drawBackCircle(){
+        let currentEnd = ((end - start) * 1) + start
+        let color = Colors.bgGreenColor
+        color.set()
+        let bPath = UIBezierPath()
+        bPath.addArcWithCenter(CGPointMake(80, 80), radius: 77, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
+        bPath.lineWidth = 3.0
+        bPath.lineCapStyle = CGLineCap.Round
+        bPath.lineJoinStyle = CGLineJoin.Round
+        bPath.stroke()
     }
 
 
