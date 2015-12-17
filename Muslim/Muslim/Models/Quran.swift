@@ -15,8 +15,8 @@ class Quran: NSObject {
     var text_zh:String?
     var progress:Int?
     var isbookmark:Bool?
-    var unSelectedHeight : CGFloat = 180
-    var selectedHeight : CGFloat = 230
+    var unSelectedHeight : CGFloat = 0
+    var selectedHeight : CGFloat = 0
     var hasCalulateHeight = false
     var alignmentToRight = Config.getTextShouldToRight()
     

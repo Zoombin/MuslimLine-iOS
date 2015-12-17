@@ -398,14 +398,18 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         let quran :Quran = quranArray[indexPath.row] as! Quran
         let content1 = String(format: "%d. %@", quran.aya!,quran.text == nil ?"":quran.text!)
         let content2 = String(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
-        let labelWidth : Int32 = Int32(PhoneUtils.screenWidth - (15 * 2))
-        let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 17, width: labelWidth)
-        let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 17, width: labelWidth)
-        print("==>1" ,height1, height2, indexPath.row)
+        let labelWidth : Int32 = Int32(mTableView.frame.size.width - (15 * 2))
+        if (quran.unSelectedHeight == 0 && quran.selectedHeight == 0) {
+            let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 17, width: labelWidth)
+            let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 17, width: labelWidth)
+            quran.selectedHeight = CGFloat(height1 + height2 + 30 + 50)
+            quran.unSelectedHeight = CGFloat(height1 + height2 + 20)
+        }
+        
         if(quran.isSelected == true) {
-            return CGFloat(height1 + height2 + 30 + 50);
+            return quran.selectedHeight
         } else {
-            return CGFloat(height1 + height2 + 20);
+            return quran.unSelectedHeight
         }
     }
     
