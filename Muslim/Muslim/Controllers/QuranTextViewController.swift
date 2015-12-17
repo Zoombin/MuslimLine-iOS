@@ -82,6 +82,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         let translation : Translation = translationArray[select] as! Translation
         translation.isdownload = 0
         mTableView.reloadData()
+        self.navigationController?.navigationBar.userInteractionEnabled = true
     }
     
     
@@ -146,9 +147,11 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         
         if(1 == translation.isdownload){
             //文件存在
+            self.navigationController?.navigationBar.userInteractionEnabled = false
             let path = getQuranOutPath() + (translation.download_url as! String)
             NSThread.detachNewThreadSelector("saveDataToDB:", toTarget: self, withObject: path);
         }else{
+            self.navigationController?.navigationBar.userInteractionEnabled = false
             translation.isdownload = -1
             mTableView.reloadData()
             
@@ -181,6 +184,7 @@ class QuranTextViewController: BaseViewController , UITableViewDelegate, UITable
         let translation : Translation = translationArray[select] as! Translation
         translation.isdownload = 1
         mTableView.reloadData()
+        self.navigationController?.navigationBar.userInteractionEnabled = true
     }
     
     override func didReceiveMemoryWarning() {

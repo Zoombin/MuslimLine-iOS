@@ -22,17 +22,16 @@ class ReadViewCell: UITableViewCell {
     func calculateHeight(quran :Quran) {
             if (quran.hasCalulateHeight == false) {
                 quran.hasCalulateHeight = true
-                textQuran.sizeToFit()
-                textCn.sizeToFit()
+                let content1 = textQuran.text
+                let content2 = textCn.text
                 
                 let offSetX : CGFloat = 15
                 let width = self.contentView.frame.size.width
-              
-                textQuran.frame = CGRectMake(textQuran.frame.origin.x, textQuran.frame.origin.y, width - offSetX * 2, textQuran.frame.size.height)
+                let labelWidth = Int32(width - offSetX * 2)
+                let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 17, width: labelWidth)
+                let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 17, width: labelWidth)
                 
-//                if (quran.alignmentToRight) {
-//                    textCn.textAlignment = NSTextAlignment.Right
-//                }
+                textQuran.frame = CGRectMake(textQuran.frame.origin.x, textQuran.frame.origin.y, width - offSetX * 2, CGFloat(height1))
                 
                 if (Config.getCurrentLanguageIndex() == 6) {
                     textCn.font = UIFont(name: "Kefa-Regular", size: 17)
@@ -40,11 +39,14 @@ class ReadViewCell: UITableViewCell {
                     textCn.font = UIFont.systemFontOfSize(17)
                 }
                 
-                textCn.frame = CGRectMake(textQuran.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, width - offSetX * 2, textCn.frame.size.height)
-                OptionsView.frame = CGRectMake(0, CGRectGetMaxY(textCn.frame) + 10, OptionsView.frame.size.width, OptionsView.frame.size.height)
+                if (Config.getTextShouldToRight()) {
+                    textCn.textAlignment = NSTextAlignment.Right
+                } else {
+                    textCn.textAlignment = NSTextAlignment.Left
+                }
                 
-                quran.unSelectedHeight = CGRectGetMaxY(textCn.frame) + 10
-                quran.selectedHeight = CGRectGetMaxY(OptionsView.frame)
+                textCn.frame = CGRectMake(textQuran.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, width - offSetX * 2, CGFloat(height2))
+                OptionsView.frame = CGRectMake(0, CGRectGetMaxY(textCn.frame) + 10, OptionsView.frame.size.width, OptionsView.frame.size.height)
         }
     }
     

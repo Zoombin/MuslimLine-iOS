@@ -28,6 +28,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         initView()
         refreshLocation()
         self.view.makeToastActivity()
+        shouldShowLocationView()
     }
     
     override func viewDidDisappear(animated: Bool) {

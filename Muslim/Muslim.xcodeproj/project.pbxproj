@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18044D3B1C2259B200C820F2 /* MSLFrameUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */; };
+		18044D3F1C2262AF00C820F2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18044D3D1C2262AF00C820F2 /* libMobClickLibrary.a */; };
+		180FE9CF1C2310F900465E46 /* AllahNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180FE9D11C2310F900465E46 /* AllahNameCell.xib */; };
 		18190BAE1C05912800708D35 /* LocationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18190BAD1C05912800708D35 /* LocationSettingView.swift */; };
 		18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18190BAF1C05914100708D35 /* LocationSettingView.xib */; };
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
@@ -94,7 +97,6 @@
 		18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */; };
 		18F8FE831BF5D5A200AC1888 /* AllahNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE821BF5D5A200AC1888 /* AllahNamesViewController.swift */; };
 		18F8FE881BF5D5AC00AC1888 /* AllahNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE841BF5D5AC00AC1888 /* AllahNameCell.swift */; };
-		18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F8FE851BF5D5AC00AC1888 /* AllahNameCell.xib */; };
 		18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */; };
 		18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */; };
 		18F9EB9E1BF447BC0096D021 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9EB9D1BF447BC0096D021 /* HRToast+UIView.swift */; };
@@ -110,7 +112,6 @@
 		4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4526E1831C1514700054D405 /* AudioToolbox.framework */; };
 		4526E1861C158E570054D405 /* CountryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4526E1851C158E570054D405 /* CountryDefault.swift */; };
 		45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */; };
-		454241771C22581A000E7682 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 454241751C22581A000E7682 /* libMobClickLibrary.a */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
 		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
@@ -209,6 +210,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18044D391C2259B200C820F2 /* MSLFrameUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLFrameUtil.h; sourceTree = "<group>"; };
+		18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLFrameUtil.m; sourceTree = "<group>"; };
+		18044D3D1C2262AF00C820F2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		18044D3E1C2262AF00C820F2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		180FE9D01C2310F900465E46 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/AllahNameCell.xib; sourceTree = "<group>"; };
+		180FE9D21C23110700465E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AllahNameCell.xib; sourceTree = "<group>"; };
 		18190BAD1C05912800708D35 /* LocationSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingView.swift; sourceTree = "<group>"; };
 		18190BAF1C05914100708D35 /* LocationSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSettingView.xib; sourceTree = "<group>"; };
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
@@ -336,7 +343,6 @@
 		18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyCell.xib; sourceTree = "<group>"; };
 		18F8FE821BF5D5A200AC1888 /* AllahNamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllahNamesViewController.swift; sourceTree = "<group>"; };
 		18F8FE841BF5D5AC00AC1888 /* AllahNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllahNameCell.swift; sourceTree = "<group>"; };
-		18F8FE851BF5D5AC00AC1888 /* AllahNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllahNameCell.xib; sourceTree = "<group>"; };
 		18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderItemView.swift; sourceTree = "<group>"; };
 		18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReaderItemView.xib; sourceTree = "<group>"; };
 		18F9EB9D1BF447BC0096D021 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HRToast+UIView.swift"; path = "Toast/HRToast+UIView.swift"; sourceTree = "<group>"; };
@@ -356,8 +362,6 @@
 		4526E1831C1514700054D405 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4526E1851C158E570054D405 /* CountryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDefault.swift; sourceTree = "<group>"; };
 		45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		454241751C22581A000E7682 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		454241761C22581A000E7682 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
 		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
@@ -461,11 +465,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BED75E1BE8560000418054 /* libz.tbd in Frameworks */,
 				45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */,
 				4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */,
-				454241771C22581A000E7682 /* libMobClickLibrary.a in Frameworks */,
 				183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */,
+				18044D3F1C2262AF00C820F2 /* libMobClickLibrary.a in Frameworks */,
+				18BED75E1BE8560000418054 /* libz.tbd in Frameworks */,
 				18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */,
 				18BED75A1BE855EC00418054 /* SystemConfiguration.framework in Frameworks */,
 				18BED7581BE855E300418054 /* CoreTelephony.framework in Frameworks */,
@@ -489,6 +493,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18044D381C2259B200C820F2 /* CellHeightTool */ = {
+			isa = PBXGroup;
+			children = (
+				18044D391C2259B200C820F2 /* MSLFrameUtil.h */,
+				18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */,
+			);
+			path = CellHeightTool;
+			sourceTree = "<group>";
+		};
+		18044D3C1C2262AF00C820F2 /* UMeng */ = {
+			isa = PBXGroup;
+			children = (
+				18044D3D1C2262AF00C820F2 /* libMobClickLibrary.a */,
+				18044D3E1C2262AF00C820F2 /* MobClick.h */,
+			);
+			path = UMeng;
+			sourceTree = "<group>";
+		};
 		183271CA1C01EBD2005078B6 /* CNPPopupController */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,7 +755,7 @@
 			isa = PBXGroup;
 			children = (
 				18F8FE841BF5D5AC00AC1888 /* AllahNameCell.swift */,
-				18F8FE851BF5D5AC00AC1888 /* AllahNameCell.xib */,
+				180FE9D11C2310F900465E46 /* AllahNameCell.xib */,
 				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
 				18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */,
 				455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */,
@@ -848,7 +870,8 @@
 		18BED7361BE84A2800418054 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				454241741C22581A000E7682 /* UMeng */,
+				18044D3C1C2262AF00C820F2 /* UMeng */,
+				18044D381C2259B200C820F2 /* CellHeightTool */,
 				1855564F1BF03F5900A29B49 /* PrayTimes */,
 			);
 			path = Library;
@@ -891,15 +914,6 @@
 				18F9EB9D1BF447BC0096D021 /* HRToast+UIView.swift */,
 			);
 			path = Toast;
-			sourceTree = "<group>";
-		};
-		454241741C22581A000E7682 /* UMeng */ = {
-			isa = PBXGroup;
-			children = (
-				454241751C22581A000E7682 /* libMobClickLibrary.a */,
-				454241761C22581A000E7682 /* MobClick.h */,
-			);
-			path = UMeng;
 			sourceTree = "<group>";
 		};
 		45C836B71BF9D20300069723 /* ZipArchive */ = {
@@ -1128,7 +1142,7 @@
 				18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */,
 				45E8B2CB1C2141CF00631781 /* karami_ios.m4r in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
-				18F8FE891BF5D5AC00AC1888 /* AllahNameCell.xib in Resources */,
+				180FE9CF1C2310F900465E46 /* AllahNameCell.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45E8B2D51C2141CF00631781 /* adhan_fajr_madina_ios.m4r in Resources */,
 				45E8B2CF1C2141CF00631781 /* adhan_sharif_ios.m4r in Resources */,
@@ -1284,6 +1298,7 @@
 				18ADB8DB1BE3651A00FA387E /* Constants.swift in Sources */,
 				45EF2B7B1BFC58DF008B01EE /* ReadRightView.swift in Sources */,
 				45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */,
+				18044D3B1C2259B200C820F2 /* MSLFrameUtil.m in Sources */,
 				183ECFC31BF9BE4C003FB90C /* FMDatabaseAdditions.m in Sources */,
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				183ECFC11BF9BE4C003FB90C /* FMDatabaseVariadic.swift in Sources */,
@@ -1337,6 +1352,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		180FE9D11C2310F900465E46 /* AllahNameCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				180FE9D01C2310F900465E46 /* ar */,
+				180FE9D21C23110700465E46 /* Base */,
+			);
+			name = AllahNameCell.xib;
+			sourceTree = "<group>";
+		};
 		18ADB8E01BE374C200FA387E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1487,7 +1511,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Muslim/UMeng",
 					"$(PROJECT_DIR)/Muslim/Library/UMeng",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -1516,7 +1539,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Muslim/UMeng",
 					"$(PROJECT_DIR)/Muslim/Library/UMeng",
 				);
 				OTHER_LDFLAGS = "-ObjC";

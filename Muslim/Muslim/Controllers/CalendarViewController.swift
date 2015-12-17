@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: BaseViewController {
     
     @IBOutlet weak var customYearLabel: UILabel!
     @IBOutlet weak var yearMonthLabel: UILabel!
@@ -57,6 +57,7 @@ class CalendarViewController: UIViewController {
         loadHolidays()
         currentDate = NSDate()
         initCalendarView()
+        shouldShowLocationView()
     }
     
     func datePickerValueChanged() {

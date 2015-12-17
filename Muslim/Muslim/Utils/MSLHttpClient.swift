@@ -14,7 +14,7 @@ protocol httpClientDelegate : NSObjectProtocol {
 }
 
 class MSLHttpClient: NSObject {
-    let timeout : Double = 10
+    let timeout : Double = 5
     let defalturl:String = "http://www.muslimsline.com/config/website.json"
     
     static var httpClient : MSLHttpClient!
