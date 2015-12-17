@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18044D3B1C2259B200C820F2 /* MSLFrameUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */; };
+		18044D3F1C2262AF00C820F2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18044D3D1C2262AF00C820F2 /* libMobClickLibrary.a */; };
 		18190BAE1C05912800708D35 /* LocationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18190BAD1C05912800708D35 /* LocationSettingView.swift */; };
 		18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18190BAF1C05914100708D35 /* LocationSettingView.xib */; };
 		182FA9C21BE764CD00A4338A /* HouseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */; };
@@ -211,6 +212,8 @@
 /* Begin PBXFileReference section */
 		18044D391C2259B200C820F2 /* MSLFrameUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLFrameUtil.h; sourceTree = "<group>"; };
 		18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLFrameUtil.m; sourceTree = "<group>"; };
+		18044D3D1C2262AF00C820F2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		18044D3E1C2262AF00C820F2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		18190BAD1C05912800708D35 /* LocationSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingView.swift; sourceTree = "<group>"; };
 		18190BAF1C05914100708D35 /* LocationSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSettingView.xib; sourceTree = "<group>"; };
 		182FA9C11BE764CD00A4338A /* HouseLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseLocationViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +467,7 @@
 				45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */,
 				4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */,
 				183ECFC81BF9BE8F003FB90C /* libsqlite3.tbd in Frameworks */,
+				18044D3F1C2262AF00C820F2 /* libMobClickLibrary.a in Frameworks */,
 				18BED75E1BE8560000418054 /* libz.tbd in Frameworks */,
 				18BED75C1BE855F300418054 /* CoreLocation.framework in Frameworks */,
 				18BED75A1BE855EC00418054 /* SystemConfiguration.framework in Frameworks */,
@@ -495,6 +499,15 @@
 				18044D3A1C2259B200C820F2 /* MSLFrameUtil.m */,
 			);
 			path = CellHeightTool;
+			sourceTree = "<group>";
+		};
+		18044D3C1C2262AF00C820F2 /* UMeng */ = {
+			isa = PBXGroup;
+			children = (
+				18044D3D1C2262AF00C820F2 /* libMobClickLibrary.a */,
+				18044D3E1C2262AF00C820F2 /* MobClick.h */,
+			);
+			path = UMeng;
 			sourceTree = "<group>";
 		};
 		183271CA1C01EBD2005078B6 /* CNPPopupController */ = {
@@ -856,6 +869,7 @@
 		18BED7361BE84A2800418054 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				18044D3C1C2262AF00C820F2 /* UMeng */,
 				18044D381C2259B200C820F2 /* CellHeightTool */,
 				1855564F1BF03F5900A29B49 /* PrayTimes */,
 			);
@@ -1485,6 +1499,10 @@
 				INFOPLIST_FILE = Muslim/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Muslim/Library/UMeng",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sfd.muslimlines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1509,6 +1527,10 @@
 				INFOPLIST_FILE = Muslim/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Muslim/Library/UMeng",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sfd.muslimlines;
 				PRODUCT_NAME = "$(TARGET_NAME)";

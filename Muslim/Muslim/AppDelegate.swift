@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Config.initData()  //获取设置的数据
         configAudio() //设置后台播放
+        MobClick.startWithAppkey("56720f23e0f55a884b00838f", reportPolicy: BATCH, channelId: "")//友盟统计
         
         if ((UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0) {
             if #available(iOS 8.0, *) {
