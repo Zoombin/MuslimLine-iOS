@@ -543,7 +543,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         let quran :Quran = quranArray[select] as! Quran
         
         let board = UIPasteboard.generalPasteboard()
-        board.string = String(quran.text)+"\n"+String(quran.text_zh)
+        board.string = String(format: "%@\n%@", quran.text!, quran.text_zh!)
         self.view.makeToast(message: "已复制到剪切板")
     }
     
