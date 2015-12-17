@@ -46,6 +46,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     var slider : UISlider!
     var isScolling :Bool = false
     var isToach :Bool = false
+    var loading : Bool = false
     
     
     override func viewDidLoad() {
@@ -110,6 +111,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     }
     
     override func viewDidAppear(animated: Bool) {
+        loading = true //加载数据
         getQurans(sura)
         
         addHeadView() //tableviewHead
@@ -147,6 +149,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
              scrollViewToTop()
         }
         touchCancel() //隐藏
+        loading = false //加载数据完成
     }
     
     func setTitleBar(){
@@ -591,6 +594,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             self.navigationController?.popViewControllerAnimated(true)
             break
         case bt_previous:
+            if(loading){
+                return
+            }
             if(sura > FMDBHelper.getInstance().getMinSura()){
                 sura = sura - 1
                 //清除上次位置
@@ -599,6 +605,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             }
             break
         case bt_next:
+            if(loading){
+                return
+            }
             if(sura < FMDBHelper.getInstance().getMaxSura()){
                 sura = sura + 1
                 //清除上次位置
