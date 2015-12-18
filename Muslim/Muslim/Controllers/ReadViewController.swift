@@ -429,12 +429,12 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         //设置界面
         cell.ivPro.hidden = true
         let quran :Quran = quranArray[indexPath.row] as! Quran
-        cell.textQuran.text = String(format: "%d. %@", quran.aya!,quran.text == nil ?"":quran.text!)
+        cell.textQuran.text = String(format: "%d.%@", quran.aya!,quran.text == nil ?"":quran.text!)
         let text_zh = quran.text_zh! as NSString
         if(text_zh.length == 0){
             cell.textCn.text = " "
         }else{
-            let textContent = NSString(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
+            let textContent = NSString(format: "%d.%@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
             cell.textCn.text = textContent as String
            
         }
