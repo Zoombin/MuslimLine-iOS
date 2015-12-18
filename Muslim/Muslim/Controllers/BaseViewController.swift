@@ -13,6 +13,12 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     var fullPopView : UIView!
     var locationSettingView : LocationSettingView!
 
+    override func viewDidDisappear(animated: Bool) {
+        MobClick.beginLogPageView(title)
+    }
+    override func viewDidAppear(animated: Bool) {
+        MobClick.endLogPageView(title)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let greenColor : UIColor = Colors.greenColor        //设置标题栏颜色

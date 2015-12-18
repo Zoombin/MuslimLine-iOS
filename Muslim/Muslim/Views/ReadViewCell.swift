@@ -32,13 +32,7 @@ class ReadViewCell: UITableViewCell {
                 let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 17, width: labelWidth)
                 
                 textQuran.frame = CGRectMake(textQuran.frame.origin.x, textQuran.frame.origin.y, width - offSetX * 2, CGFloat(height1))
-                
-                if (Config.getCurrentLanguageIndex() == 6) {
-                    textCn.font = UIFont(name: "Kefa-Regular", size: 17)
-                } else {
-                    textCn.font = UIFont.systemFontOfSize(17)
-                }
-                
+               
                 if (Config.getTextShouldToRight()) {
                     textCn.textAlignment = NSTextAlignment.Right
                 } else {

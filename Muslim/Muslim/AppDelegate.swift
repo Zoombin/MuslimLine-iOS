@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+         //Override point for customization after application launch.
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioSessionRouteChange:", name: AVAudioSessionRouteChangeNotification, object: nil)
+        
         Config.initData()  //获取设置的数据
         configAudio() //设置后台播放
         MobClick.startWithAppkey("56720f23e0f55a884b00838f", reportPolicy: BATCH, channelId: "")//友盟统计
@@ -160,6 +162,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         LocalNoticationUtils.showLocalNotification()
+    }
+    
+    //拔出耳机
+    func audioSessionRouteChange(notifi : NSNotification){
+        let dict = notifi.userInfo
+        let routeDesc : AVAudioSessionRouteDescription = dict![AVAudioSessionRouteChangePreviousRouteKey] as! AVAudioSessionRouteDescription
+        let prePort = routeDesc.outputs.first
+        if (prePort?.portType == AVAudioSessionPortHeadphones) {
+            if(AudioPlayerMr.getInstance().isPlaying){
+                AudioPlayerMr.getInstance().pause()
+            }
+        }
     }
 
 

@@ -193,7 +193,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             let bookmark = bookmarkArray[indexPath.row] as! Bookmark
             readVC.EXTRA_SURA = bookmark.suraId
             readVC.EXTRA_BOOKMARK_JUMP = true
-            readVC.EXTRA_SCOLLPOSITION = bookmark.ayaId! - 1
+            readVC.EXTRA_SCOLLPOSITION = bookmark.ayaId! - 1 //这里算位置时要减 1
             self.pushViewController(readVC)
         }
     }
@@ -224,7 +224,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let readVC : ReadViewController = ReadViewController()
         readVC.EXTRA_SURA = firstbookmark.suraId
         readVC.EXTRA_BOOKMARK_JUMP = true
-        readVC.EXTRA_SCOLLPOSITION = firstbookmark.ayaId!
+        readVC.EXTRA_SCOLLPOSITION = firstbookmark.ayaId! //保存的是position
         self.pushViewController(readVC)
     }
     

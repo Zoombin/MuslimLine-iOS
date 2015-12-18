@@ -52,7 +52,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioSessionInterruption", name: AVAudioSessionInterruptionNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioSessionRouteChange:", name: AVAudioSessionRouteChangeNotification, object: nil)
         if(EXTRA_SURA != nil){
             sura = EXTRA_SURA!
         }
@@ -436,17 +435,8 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
             cell.textCn.text = " "
         }else{
             let textContent = NSString(format: "%d. %@",quran.aya!,quran.text_zh == nil ?"":quran.text_zh!)
-            if(Config.getCurrentLanguageIndex() == 36){
-                //需要转换html
-                let attrStr = try! NSMutableAttributedString(
-                    data: textContent.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
-                    options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-                    documentAttributes: nil)
-                attrStr.addAttribute(kCTFontAttributeName as String, value: cell.textCn.font, range: NSMakeRange(0,attrStr.length))
-                cell.textCn.attributedText = attrStr
-            }else{
-                cell.textCn.text = textContent as String
-            }
+            cell.textCn.text = textContent as String
+           
         }
         
         cell.calculateHeight(quran)
@@ -703,11 +693,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     //后边播放音乐中断
     func audioSessionInterruption(){
-        AudioPlayerMr.getInstance().pause()
-    }
-    
-    func audioSessionRouteChange(notifi : NSNotification){
-        AudioPlayerMr.getInstance().pause()
+        if(AudioPlayerMr.getInstance().isPlaying){
+            AudioPlayerMr.getInstance().pause()
+        }
     }
     
     override func didReceiveMemoryWarning() {

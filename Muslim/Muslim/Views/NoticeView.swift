@@ -44,6 +44,10 @@ class NoticeView: UIView {
             currentPertage = 0
             return
         }
+        if (currentPertage > 1) {
+            currentPertage = 1
+            return
+        }
         self.setNeedsDisplay()
     }
     
