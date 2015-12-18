@@ -1,11 +1,11 @@
  [
   {
   "arabic": "الرحمن",
-  "transliteration": "Ar-Raḥmān"
+  "transliteration": "Ar-Rahman"
   },
   {
   "arabic": "الرحيم",
-  "transliteration": "Ar-Raḥīm"
+  "transliteration": "Ar-Rahim"
   },
   {
   "arabic": "الملك",
@@ -13,15 +13,15 @@
   },
   {
   "arabic": "القدوس",
-  "transliteration": "Al-Quddūs"
+  "transliteration": "Al-Quddus"
   },
   {
   "arabic": "السلام",
-  "transliteration": "As-Salām"
+  "transliteration": "As-Salam"
   },
   {
   "arabic": "المؤمن",
-  "transliteration": "Al-Mu'min"
+  "transliteration": "Al-Mumin"
   },
   {
   "arabic": "المهيمن",
@@ -29,11 +29,11 @@
   },
   {
   "arabic": "العزيز",
-  "transliteration": "Al-‘Azīz"
+  "transliteration": "Al-Aziz"
   },
   {
   "arabic": "الجبار",
-  "transliteration": "Al-Jabbār"
+  "transliteration": "Al-Jabbar"
   },
   {
   "arabic": "المتكبر",
@@ -41,59 +41,59 @@
   },
   {
   "arabic": "الخالق",
-  "transliteration": "Al-Khāliq"
+  "transliteration": "Al-Khaliq"
   },
   {
   "arabic": "البارئ",
-  "transliteration": "Al-Bāri'"
+  "transliteration": "Al-Bari"
   },
   {
   "arabic": "المصور",
-  "transliteration": "Al-Muṣawwir"
+  "transliteration": "Al-Musawwir"
   },
   {
   "arabic": "الغفار",
-  "transliteration": "Al-Ghaffār"
+  "transliteration": "Al-Ghaffar"
   },
   {
   "arabic": "القهار",
-  "transliteration": "Al-Qahhār"
+  "transliteration": "Al-Qahhar"
   },
   {
   "arabic": "الوهاب",
-  "transliteration": "Al-Wahhāb"
+  "transliteration": "Al-Wahhab"
   },
   {
   "arabic": "الرزاق",
-  "transliteration": "Ar-Razzāq"
+  "transliteration": "Ar-Razzaq"
   },
   {
   "arabic": "الفتاح",
-  "transliteration": "Al-Fattāḥ"
+  "transliteration": "Al-Fattah"
   },
   {
   "arabic": "العليم",
-  "transliteration": "Al-'Aleem"
+  "transliteration": "Al-Aleem"
   },
   {
   "arabic": "القابض",
-  "transliteration": "Al-Qābiḍ"
+  "transliteration": "Al-Qabid"
   },
   {
   "arabic": "الباسط",
-  "transliteration": "Al-Bāsiṭ"
+  "transliteration": "Al-Basit"
   },
   {
   "arabic": "الخافض",
-  "transliteration": "Al-Khāfiḍ"
+  "transliteration": "Al-Khafid"
   },
   {
   "arabic": "الرافع",
-  "transliteration": "Ar-Rāfi'"
+  "transliteration": "Ar-Rafi"
   },
   {
   "arabic": "المعز",
-  "transliteration": "Al-Mu'izz"
+  "transliteration": "Al-Muizz"
   },
   {
   "arabic": "المذل",
@@ -101,23 +101,23 @@
   },
   {
   "arabic": "السميع",
-  "transliteration": "As-Samī'"
+  "transliteration": "As-Sami"
   },
   {
   "arabic": "البصير",
-  "transliteration": "Al-Baṣīr"
+  "transliteration": "Al-Basir"
   },
   {
   "arabic": "الحكم",
-  "transliteration": "Al-Ḥakam"
+  "transliteration": "Al-hakam"
   },
   {
   "arabic": "العدل",
-  "transliteration": "Al-'Adl"
+  "transliteration": "Al-Adl"
   },
   {
   "arabic": "اللطيف",
-  "transliteration": "Al-Laṭīf"
+  "transliteration": "Al-Latif"
   },
   {
   "arabic": "الخبير",
@@ -129,27 +129,27 @@
   },
   {
   "arabic": "العظيم",
-  "transliteration": "Al-'Aẓeem"
+  "transliteration": "Al-Azeem"
   },
   {
   "arabic": "الغفور",
-  "transliteration": "Al Ghafūr"
+  "transliteration": "Al Ghafur"
   },
   {
   "arabic": "الشكور",
-  "transliteration": "Ash-Shakūr"
+  "transliteration": "Ash-Shakur"
   },
   {
   "arabic": "العلي",
-  "transliteration": "Al-'Alīy"
+  "transliteration": "Al-Aliy"
   },
   {
   "arabic": "الكبير",
-  "transliteration": "Al-Kabīr"
+  "transliteration": "Al-Kabir"
   },
   {
   "arabic": "الحفيظ",
-  "transliteration": "Al-Ḥafeeẓ"
+  "transliteration": "Al-hafeez"
   },
   {
   "arabic": "المقيت",
@@ -157,123 +157,123 @@
   },
   {
   "arabic": "الحسيب",
-  "transliteration": "Al-Ḥaseeb"
+  "transliteration": "Al-haseeb"
   },
   {
   "arabic": "الجليل",
-  "transliteration": "Al-Jalīl"
+  "transliteration": "Al-Jalil"
   },
   {
   "arabic": "الكريم",
-  "transliteration": "Al-Karīm"
+  "transliteration": "Al-Karim"
   },
   {
   "arabic": "الرقيب",
-  "transliteration": "Ar-Raqīb"
+  "transliteration": "Ar-Raqib"
   },
   {
   "arabic": "المجيب",
-  "transliteration": "Al-Mujīb"
+  "transliteration": "Al-Mujib"
   },
   {
   "arabic": "الواسع",
-  "transliteration": "Al-Wāsi'"
+  "transliteration": "Al-Wasi"
   },
   {
   "arabic": "الحكيم",
-  "transliteration": "Al-Ḥakīm"
+  "transliteration": "Al-hakim"
   },
   {
   "arabic": "الودود",
-  "transliteration": "Al-Wadūd"
+  "transliteration": "Al-Wadud"
   },
   {
   "arabic": "المجيد",
-  "transliteration": "Al-Majīd"
+  "transliteration": "Al-Majid"
   },
   {
   "arabic": "الباعث",
-  "transliteration": "Al-Bā'ith"
+  "transliteration": "Al-Baith"
   },
   {
   "arabic": "الشهيد",
-  "transliteration": "Ash-Shahīd"
+  "transliteration": "Ash-Shahid"
   },
   {
   "arabic": "الحق",
-  "transliteration": "Al-Ḥaqq"
+  "transliteration": "Al-haqq"
   },
   {
   "arabic": "الوكيل",
-  "transliteration": "Al-Wakīl"
+  "transliteration": "Al-Wakil"
   },
   {
   "arabic": "القوي",
-  "transliteration": "Al-Qawwīy"
+  "transliteration": "Al-Qawwiy"
   },
   {
   "arabic": "المتين",
-  "transliteration": "Al-Matīn"
+  "transliteration": "Al-Matin"
   },
   {
   "arabic": "الولي",
-  "transliteration": "Al-Walīy"
+  "transliteration": "Al-Waliy"
   },
   {
   "arabic": "الحميد",
-  "transliteration": "Al-Ḥamīd"
+  "transliteration": "Al-hamid"
   },
   {
   "arabic": "المحصي",
-  "transliteration": "Al-Muḥṣīy"
+  "transliteration": "Al-Muhsiy"
   },
   {
   "arabic": "المبدئ",
-  "transliteration": "Al-Mubdi'"
+  "transliteration": "Al-Mubdi"
   },
   {
   "arabic": "المعيد",
-  "transliteration": "Al-Mu'īd"
+  "transliteration": "Al-Muid"
   },
   {
   "arabic": "المحيي",
-  "transliteration": "Al-Muḥyīy"
+  "transliteration": "Al-Muhyiy"
   },
   {
   "arabic": "المميت",
-  "transliteration": "Al-Mumīt"
+  "transliteration": "Al-Mumit"
   },
   {
   "arabic": "الحي",
-  "transliteration": "Al-Ḥayy"
+  "transliteration": "Al-hayy"
   },
   {
   "arabic": "القيوم",
-  "transliteration": "Al-Qayyūm"
+  "transliteration": "Al-Qayyum"
   },
   {
   "arabic": "الواجد",
-  "transliteration": "Al-Wājid"
+  "transliteration": "Al-Wajid"
   },
   {
   "arabic": "الماجد",
-  "transliteration": "Al-Mājid"
+  "transliteration": "Al-Majid"
   },
   {
   "arabic": "الواحد",
-  "transliteration": "Al-Wāḥid"
+  "transliteration": "Al-Wahid"
   },
   {
   "arabic": "الاحد",
-  "transliteration": "Al-'Aḥad"
+  "transliteration": "Al-Ahad"
   },
   {
   "arabic": "الصمد",
-  "transliteration": "Aṣ-Ṣamad"
+  "transliteration": "As-samad"
   },
   {
   "arabic": "القادر",
-  "transliteration": "Al-Qādir"
+  "transliteration": "Al-Qadir"
   },
   {
   "arabic": "المقتدر",
@@ -285,31 +285,31 @@
   },
   {
   "arabic": "المؤخر",
-  "transliteration": "Al-Mu'akhkhir"
+  "transliteration": "Al-MuAkhkhir"
   },
   {
   "arabic": "الأول",
-  "transliteration": "Al-'Awwal"
+  "transliteration": "Al-Awwal"
   },
   {
   "arabic": "الأخر",
-  "transliteration": "Al-'Akhir"
+  "transliteration": "Al-Akhir"
   },
   {
   "arabic": "الظاهر",
-  "transliteration": "Aẓ-Ẓāhir"
+  "transliteration": "Az-zahir"
   },
   {
   "arabic": "الباطن",
-  "transliteration": "Al-Bāṭin"
+  "transliteration": "Al-Batin"
   },
   {
   "arabic": "الوالي",
-  "transliteration": "Al-Wālīy"
+  "transliteration": "Al-Waliy"
   },
   {
   "arabic": "المتعالي",
-  "transliteration": "Al-Muta'ālīy"
+  "transliteration": "Al-Muta'aliy"
   },
   {
   "arabic": "البر",
@@ -317,7 +317,7 @@
   },
   {
   "arabic": "التواب",
-  "transliteration": "At-Tawwāb"
+  "transliteration": "At-Tawwab"
   },
   {
   "arabic": "المنتقم",
@@ -325,74 +325,74 @@
   },
   {
   "arabic": "العفو",
-  "transliteration": "Al-'Afūw"
+  "transliteration": "Al-Afuw"
   },
   {
   "arabic": "الرؤوف",
-  "transliteration": "Ar-Ra'ūf"
+  "transliteration": "Ar-Ra'uf"
   },
   {
   "arabic": "مالك الملك",
-  "transliteration": "Mālik-ul-Mulk"
+  "transliteration": "Malik-ul-Mulk"
   },
   {
   "arabic": "ذو الجلال والإكرام",
-  "transliteration": "Dhū-l-Jalāli wa-l-'ikrām"
+  "transliteration": "Dhu-l-Jalali wa-l-ikram"
   },
   {
   "arabic": "المقسط",
-  "transliteration": "Al-Muqsiţ"
+  "transliteration": "Al-Muqsit"
   },
   {
   "arabic": "الجامع",
-  "transliteration": "Al-Jāmi'"
+  "transliteration": "Al-Jami"
   },
   {
   "arabic": "الغني",
-  "transliteration": "Al-Ghanīy"
+  "transliteration": "Al-Ghaniy"
   },
   {
   "arabic": "المغني",
-  "transliteration": "Al-Mughnīy"
+  "transliteration": "Al-Mughniy"
   },
   {
   "arabic": "المانع",
-  "transliteration": "Al-Māni'"
+  "transliteration": "Al-Mani"
   },
   {
   "arabic": "الضار",
-  "transliteration": "Aḍ-Ḍārr"
+  "transliteration": "Ad-darr"
   },
   {
   "arabic": "النافع",
-  "transliteration": "An-Nāfi'"
+  "transliteration": "An-Nafi"
   },
   {
   "arabic": "النور",
-  "transliteration": "An-Nūr"
+  "transliteration": "An-Nur"
   },
   {
   "arabic": "الهادي",
-  "transliteration": "Al-Hādīy"
+  "transliteration": "Al-Hadiy"
   },
   {
   "arabic": "البديع",
-  "transliteration": "Al-Badī'"
+  "transliteration": "Al-Badi"
   },
   {
   "arabic": "الباقي",
-  "transliteration": "Al-Bāqīy"
+  "transliteration": "Al-Baqiy"
   },
   {
   "arabic": "الوارث",
-  "transliteration": "Al-Wārith"
+  "transliteration": "Al-Warith"
   },
   {
   "arabic": "الرشيد",
-  "transliteration": "Ar-Rashīd"
+  "transliteration": "Ar-Rashid"
   },
   {
   "arabic": "الصبور",
-  "transliteration": "Aṣ-Ṣabūr"
+  "transliteration": "As-sabur"
   }
   ]
