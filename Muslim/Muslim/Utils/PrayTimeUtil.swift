@@ -61,66 +61,35 @@ class PrayTimeUtil: NSObject {
         }
     }
     
-    
-    static func getParyTimeLeft()->Int{
-        var leftTime = -1
+    static func getParyTimeLeft()->Double{
+        var leftTime :Double = -1
         let current = getCurrentPrayTime()
-        let next :Int
+        var next :Int = 0
         if(current  == 5){
             next = 0
         }else{
             next = current + 1
         }
-        var nextTime = Config.getPrayTime(next) as NSString
-        if(!nextTime.isEqualToString("")){
-            if(nextTime.rangeOfString("PM").location != NSNotFound){
-                nextTime = nextTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                let arr = nextTime.componentsSeparatedByString(":")
-                let hourValue = Int(arr[0])
-                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
-                nextTime = String(format: "%d:%@", hour!,arr[1])
-            }
-            if(nextTime.rangeOfString("AM").location != NSNotFound){
-                nextTime = nextTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            }
-            let nextTimeArr = nextTime.componentsSeparatedByString(":")
-            
-            
-            let zone = Config.getTimeZone()
-            let timeZone = NSTimeZone.init(name: zone)
-            let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "HH:mm:ss"
-            dateFormat.timeZone = timeZone
-            dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
-            let cDate = dateFormat.stringFromDate(NSDate())
-            let cDateArr = cDate.componentsSeparatedByString(":")
-            
-            if(current == 5){
-                let HourMs = (23 - Int(cDateArr[0])!) * 3600 + Int(nextTimeArr[0])! * 3600
-                let Min = 60 - Int(cDateArr[1])! + Int(nextTimeArr[1])!
-                var MinMs = 0
-                if(Min > 0 ){
-                    MinMs = (Min - 1)*60
-                }
-                let Ms = 60 - Int(cDateArr[2])!
-                leftTime =  HourMs + MinMs + Ms
-            }else{
-                let HourMs = (Int(nextTimeArr[0])! - Int(cDateArr[0])!) * 3600
-                let Min = (Int(nextTimeArr[1])! - Int(cDateArr[1])!)
-                var MinMs = 0
-                if(Min > 0 ){
-                    MinMs = (Min - 1)*60
-                }
-                let Ms = 60 - Int(cDateArr[2])!
-                leftTime =  HourMs + MinMs + Ms
-            }
+        
+        let currentTime = getSimpleDateFormat2().stringFromDate(NSDate()) as String
+        let nextTime = Config.getPrayTime(next) as String
+        
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "YYYY-MM-dd"
+        let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
+        
+        let dateCurrent : NSDate = getSimpleDateFormat2().dateFromString(currentTime)! as NSDate
+        let dateNext : NSDate = getSimpleDateFormat1().dateFromString(currentYearMonthDay + " " + nextTime)! as NSDate
+        
+        leftTime = dateNext.timeIntervalSince1970 - dateCurrent.timeIntervalSince1970
+        if(leftTime < 0){
+            leftTime = leftTime + (24 * 3600)
         }
         return leftTime
     }
     
-    
-    static func getNextTimeTotal()->Int{
-        var leftTime = -1
+    static func getNextTimeTotal()->Double{
+        var totalTime : Double = -1
         var current = getCurrentPrayTime()
         let next : Int
         if(current == -1){
@@ -132,49 +101,61 @@ class PrayTimeUtil: NSObject {
         }else{
             next = current+1
         }
-        var currentTime = Config.getPrayTime(current) as NSString
-        if(!currentTime.isEqualToString("")){
-            if(currentTime.rangeOfString("PM").location != NSNotFound){
-                currentTime = currentTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                let arr = currentTime.componentsSeparatedByString(":")
-                let hourValue = Int(arr[0])
-                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
-                currentTime = String(format: "%d:%@", hour!,arr[1])
-            }
-            if(currentTime.rangeOfString("AM").location != NSNotFound){
-                currentTime = currentTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            }
-            let currentTimeArr = currentTime.componentsSeparatedByString(":")
-            
-            
-            var nextTime = Config.getPrayTime(next) as NSString
-            if(nextTime.rangeOfString("PM").location != NSNotFound){
-                nextTime = nextTime.stringByReplacingOccurrencesOfString("PM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                let arr = nextTime.componentsSeparatedByString(":")
-                let hourValue = Int(arr[0])
-                let hour = hourValue! == 12 ? hourValue : hourValue!+12 //要处理下PM 12的情况
-                nextTime = String(format: "%d:%@", hour!,arr[1])
-            }
-            if(nextTime.rangeOfString("AM").location != NSNotFound){
-                nextTime = nextTime.stringByReplacingOccurrencesOfString("AM", withString: "").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            }
-            let nextTimeArr = nextTime.componentsSeparatedByString(":")
-            
-            if(current == 5){
-                leftTime = (23 - Int(currentTimeArr[0])!) * 3600 + (60 - Int(currentTimeArr[1])!) * 60 + Int(nextTimeArr[0])! * 3600 + Int(nextTimeArr[1])!*60
-            }else{
-                leftTime = (Int(nextTimeArr[0])! - Int(currentTimeArr[0])!) * 3600 + (Int(nextTimeArr[1])! - Int(currentTimeArr[1])!)
-            }
-            
+        let currentTime = Config.getPrayTime(current) as String
+        let nextTime = Config.getPrayTime(next) as String
+        
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "YYYY-MM-dd"
+        let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
+        
+        let dateFormatter  = getSimpleDateFormat1()
+        let dateCurrent : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + currentTime)! as NSDate
+        let dateNext : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + nextTime)! as NSDate
+        
+        totalTime = dateNext.timeIntervalSince1970 - dateCurrent.timeIntervalSince1970
+        if(totalTime < 0){
+            totalTime = totalTime + (24 * 3600)
         }
-        return leftTime
+        return totalTime
     }
-
-    
-    
-    
+        
     /**获取当前礼拜时间*/
     static func getCurrentPrayTime() ->Int{
+        let dataArray:NSMutableArray = getPrayTimes()
+        let df : NSDateFormatter  = getSimpleDateFormat()
+        let  now :String = df.stringFromDate(NSDate())
+        if(dataArray.count <= 0){
+            return -1
+        }
+        for var i=0 ; i < dataArray.count ; i++ {
+            if (i < dataArray.count - 1) {
+                let beforetime : String = dataArray[i] as! String
+                let nexttime : String = dataArray[i+1] as! String
+                
+                let dateFormat = NSDateFormatter()
+                dateFormat.dateFormat = "YYYY-MM-dd"
+                let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
+                
+                let dateFormatter  = getSimpleDateFormat1()
+                let dateNow : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + now)! as NSDate
+                let dateBefore : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + beforetime)! as NSDate
+                let dateNext : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + nexttime)! as NSDate
+                
+                if (dateNow.timeIntervalSince1970 < dateBefore.timeIntervalSince1970 && i == 0) {
+                    return -1
+                }
+                
+                if (dateNow.timeIntervalSince1970 >= dateBefore.timeIntervalSince1970 && dateNow.timeIntervalSince1970 < dateNext.timeIntervalSince1970) {
+                    return i
+                }
+            }else{
+                return -1
+            }
+        }
+        return -1
+    }
+    
+    static func getCurrentPrayTime1() ->Int{
         let dataArray:NSMutableArray = getPrayTimes()
         var index  = -1
         let zone = Config.getTimeZone()
@@ -296,6 +277,54 @@ class PrayTimeUtil: NSObject {
             Config.savePrayTime(index, time: prayTimes[index] as! String)
         }
         return prayTimes
+    }
+    
+    
+    static func getSimpleDateFormat() -> NSDateFormatter {
+        let dateFormat = NSDateFormatter()
+        
+        if (Config.TimeFormat == 0) {
+            dateFormat.dateFormat = "HH:mm"
+        }else{
+            dateFormat.dateFormat = "HH:mm a"
+        }
+        let zone = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: zone)
+        dateFormat.timeZone  = timeZone
+        dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
+        return dateFormat
+    }
+    
+    static func getSimpleDateFormat1() -> NSDateFormatter {
+        let dateFormat = NSDateFormatter()
+        
+        if (Config.TimeFormat == 0) {
+            dateFormat.dateFormat = "YYYY-MM-dd HH:mm"
+        }else{
+            dateFormat.dateFormat = "YYYY-MM-dd HH:mm a"
+        }
+        
+        let zone = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: zone)
+        dateFormat.timeZone  = timeZone
+        dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
+        return dateFormat
+    }
+    
+    static func getSimpleDateFormat2() -> NSDateFormatter {
+        let dateFormat = NSDateFormatter()
+        
+        if (Config.TimeFormat == 0) {
+            dateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        }else{
+            dateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss a"
+        }
+        
+        let zone = Config.getTimeZone()
+        let timeZone = NSTimeZone.init(name: zone)
+        dateFormat.timeZone  = timeZone
+        dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
+        return dateFormat
     }
 
 }

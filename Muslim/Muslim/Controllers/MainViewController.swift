@@ -184,12 +184,12 @@ class MainViewController: BaseViewController {
     }
     
     var timer :NSTimer?
-    var timeLeft : Int = -1
-    var nextTotal :Int = -1
+    var timeLeft : Double = -1
+    var nextTotal :Double = -1
     func refrashTimeLeft(){
         timeLeft = PrayTimeUtil.getParyTimeLeft()
         nextTotal = PrayTimeUtil.getNextTimeTotal()
-        let pro = Double(timeLeft) / Double(nextTotal)
+        let pro = timeLeft / nextTotal
         noticeView.currentProgress(pro)
         
         if(timeLeft != -1){
@@ -206,9 +206,9 @@ class MainViewController: BaseViewController {
             //重新计算下一个
             refreshUserLocation()
         }else{
-            let hour = timeLeft / 3600
-            let min = (timeLeft-(hour*3600))/60
-            let second = timeLeft - (hour*3600) - (min*60)
+            let hour = Int(timeLeft) / 3600
+            let min = (Int(timeLeft)-(hour*3600))/60
+            let second = Int(timeLeft) - (hour*3600) - (min*60)
             let hTxt : String = hour < 10 ? "0" + String(hour) : String(hour)
             let mTxt : String = min < 10 ? "0" + String(min) : String(min)
             let sTxt : String = second < 10 ? "0" + String(second) : String(second)
