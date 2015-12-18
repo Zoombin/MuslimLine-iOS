@@ -46,10 +46,16 @@ class FMDBHelper: NSObject {
     //执行SQL语句
     func executeSQLs(sql:String) {
         dbBase.open()
-        let sqlArray : [String] = sql.componentsSeparatedByString(";\n")
-        for em in sqlArray {
-            dbBase.executeStatements(em)
+        dbBase.beginTransaction()
+        do{
+            let sqlArray : [String] = sql.componentsSeparatedByString(";\n")
+            for em in sqlArray {
+                try dbBase.executeStatements(em)
+            }
+        } catch {
+            dbBase.rollback()
         }
+        dbBase.commit()
         dbBase.close()
     }
     
