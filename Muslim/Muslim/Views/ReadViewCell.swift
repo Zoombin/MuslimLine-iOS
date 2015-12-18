@@ -22,16 +22,16 @@ class ReadViewCell: UITableViewCell {
     func calculateHeight(quran :Quran) {
             if (quran.hasCalulateHeight == false) {
                 quran.hasCalulateHeight = true
-                let content1 = textQuran.text
-                let content2 = textCn.text
+                let content1 = String(format: "%d.%@", quran.aya!,quran.text == nil ? "":quran.text!)
+                let content2 = String(format: "%d.%@",quran.aya!,quran.text_zh == nil ? "":quran.text_zh!)
                 
-                let offSetX : CGFloat = 15
-                let width = self.contentView.frame.size.width
-                let labelWidth = Int32(width - offSetX * 2)
-                let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 17, width: labelWidth)
-                let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 17, width: labelWidth)
+                let offSetX : CGFloat = 0
+                let width = self.frame.size.width - offSetX * 2
+                let labelWidth = Int32(width)
+                let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 16, width: labelWidth)
+                let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 16, width: labelWidth)
                 
-                textQuran.frame = CGRectMake(textQuran.frame.origin.x, textQuran.frame.origin.y, width - offSetX * 2, CGFloat(height1))
+                textQuran.frame = CGRectMake(offSetX, textQuran.frame.origin.y, width, CGFloat(height1))
                
                 if (Config.getTextShouldToRight()) {
                     textCn.textAlignment = NSTextAlignment.Right
@@ -39,7 +39,7 @@ class ReadViewCell: UITableViewCell {
                     textCn.textAlignment = NSTextAlignment.Left
                 }
                 
-                textCn.frame = CGRectMake(textQuran.frame.origin.x, CGRectGetMaxY(textQuran.frame) + 10, width - offSetX * 2, CGFloat(height2))
+                textCn.frame = CGRectMake(offSetX, CGRectGetMaxY(textQuran.frame) + 10, width, CGFloat(height2))
                 OptionsView.frame = CGRectMake(0, CGRectGetMaxY(textCn.frame) + 10, OptionsView.frame.size.width, OptionsView.frame.size.height)
         }
     }
