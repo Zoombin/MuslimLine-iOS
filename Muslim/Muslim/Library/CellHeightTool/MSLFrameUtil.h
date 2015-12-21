@@ -15,6 +15,7 @@
 + (int)setHeight:(int)height UI:(UIView *)view;
 + (int)setWidth:(int)width UI:(UIView *)view;
 + (int)getLabHeight:(NSString *)text FontSize:(int)size Width:(int)width;
++ (int)getLabHeight:(NSString *)text Font:(UIFont *)font Width:(int)width;
 + (void)setCornerRadius:(int)width UI:(UIView *)view;
 + (void)setBorder:(int)width Color:(UIColor *)color UI:(UIView *)view;
 + (CGPoint)getViewCenter:(UIView *)view;

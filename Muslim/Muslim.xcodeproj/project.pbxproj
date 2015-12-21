@@ -86,6 +86,7 @@
 		18BED7681BE8931600418054 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BED7671BE8931600418054 /* MainViewController.xib */; };
 		18C320371BFF27A80087E359 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C320361BFF27A80087E359 /* Log.swift */; };
 		18CA675E1C1544D600E4D2AD /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA675D1C1544D600E4D2AD /* UINavigationBar+Addition.m */; };
+		18CAC35C1C27D651008AE9DE /* me_quran.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18CAC35B1C27D651008AE9DE /* me_quran.ttf */; };
 		18DBF66B1BE3B45600C3FD26 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */; };
 		18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */; };
 		18F52F7A1C0C3556005F26E8 /* PrayTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F52F791C0C3556005F26E8 /* PrayTimeViewController.xib */; };
@@ -331,6 +332,7 @@
 		18C320361BFF27A80087E359 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		18CA675C1C1544D600E4D2AD /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Addition.h"; path = "Library/UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		18CA675D1C1544D600E4D2AD /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Addition.m"; path = "Library/UINavigationBar+Addition.m"; sourceTree = "<group>"; };
+		18CAC35B1C27D651008AE9DE /* me_quran.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = me_quran.ttf; sourceTree = "<group>"; };
 		18DBF66A1BE3B45600C3FD26 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchViewController.swift; sourceTree = "<group>"; };
 		18F52F791C0C3556005F26E8 /* PrayTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayTimeViewController.xib; sourceTree = "<group>"; };
@@ -825,6 +827,7 @@
 		1887FD011BD7387400CB83D5 /* Muslim */ = {
 			isa = PBXGroup;
 			children = (
+				18CAC35A1C27D651008AE9DE /* Font */,
 				45EAF8591C11849C00E7956E /* Resource */,
 				45EF2B641BFC3B8A008B01EE /* Config */,
 				45EF2B6C1BFC3B8A008B01EE /* Db */,
@@ -894,6 +897,14 @@
 				18CA675D1C1544D600E4D2AD /* UINavigationBar+Addition.m */,
 			);
 			path = "UINavigationBar-Addition";
+			sourceTree = "<group>";
+		};
+		18CAC35A1C27D651008AE9DE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				18CAC35B1C27D651008AE9DE /* me_quran.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		18F9EB6A1BF447640096D021 /* Toast */ = {
@@ -1140,6 +1151,7 @@
 				45E8B2C31C2141CF00631781 /* saeidyan_ios.m4r in Resources */,
 				451A2C791C040B77006BB000 /* quran_v3.zip in Resources */,
 				45E8B2D81C2141CF00631781 /* adhan_abdul_baset_ios.m4r in Resources */,
+				18CAC35C1C27D651008AE9DE /* me_quran.ttf in Resources */,
 				45E8B2D01C2141CF00631781 /* adhan_salimi_ios.m4r in Resources */,
 				45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */,
 				183271C91C01C47A005078B6 /* NoticeView.xib in Resources */,

@@ -25,10 +25,11 @@ class ReadViewCell: UITableViewCell {
                 let content1 = String(format: "%d.%@", quran.aya!,quran.text == nil ? "":quran.text!)
                 let content2 = String(format: "%d.%@",quran.aya!,quran.text_zh == nil ? "":quran.text_zh!)
                 
-                let offSetX : CGFloat = 0
+                let offSetX : CGFloat = 7.5
                 let width = self.frame.size.width - offSetX * 2
                 let labelWidth = Int32(width)
-                let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 16, width: labelWidth)
+                let font = UIFont(name: "me_quran", size: 16)
+                let height1 = MSLFrameUtil.getLabHeight(content1, font: font, width: labelWidth)
                 let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 16, width: labelWidth)
                 
                 textQuran.frame = CGRectMake(offSetX, textQuran.frame.origin.y, width, CGFloat(height1))

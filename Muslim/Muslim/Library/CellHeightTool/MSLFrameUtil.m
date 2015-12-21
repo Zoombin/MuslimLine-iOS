@@ -47,8 +47,13 @@
 }
 
 + (int)getLabHeight:(NSString *)text FontSize:(int)size Width:(int)width {
-    CGSize titleSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:size]} context:nil].size;
+    CGSize titleSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:size]} context:nil].size;
     return titleSize.height + 5;
+}
+
++ (int)getLabHeight:(NSString *)text Font:(UIFont *)font Width:(int)width {
+    CGSize titleSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size;
+    return titleSize.height + 20;
 }
 
 + (void)setCornerRadius:(int)width UI:(UIView *)view{

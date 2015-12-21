@@ -400,9 +400,10 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         let quran :Quran = quranArray[indexPath.row] as! Quran
         let content1 = String(format: "%d.%@", quran.aya!,quran.text == nil ? "" : quran.text!)
         let content2 = String(format: "%d.%@",quran.aya!,quran.text_zh == nil ? "" : quran.text_zh!)
-        let labelWidth : Int32 = Int32(mTableView.frame.size.width)
+        let labelWidth : Int32 = Int32(mTableView.frame.size.width - 15)
         if (quran.unSelectedHeight == 0 && quran.selectedHeight == 0) {
-            let height1 = MSLFrameUtil.getLabHeight(content1, fontSize: 16, width: labelWidth)
+            let font = UIFont(name: "me_quran", size: 16)
+            let height1 = MSLFrameUtil.getLabHeight(content1, font: font, width: labelWidth)
             let height2 = MSLFrameUtil.getLabHeight(content2, fontSize: 16, width: labelWidth)
             quran.selectedHeight = CGFloat(height1 + height2 + 30 + 50)
             quran.unSelectedHeight = CGFloat(height1 + height2 + 20)
@@ -429,6 +430,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         //设置界面
         cell.ivPro.hidden = true
         let quran :Quran = quranArray[indexPath.row] as! Quran
+        cell.textQuran.font = UIFont(name: "me_quran", size: 16)
         cell.textQuran.text = String(format: "%d.%@", quran.aya!,quran.text == nil ?"":quran.text!)
         let text_zh = quran.text_zh! as NSString
         if(text_zh.length == 0){
