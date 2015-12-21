@@ -351,6 +351,11 @@
 		451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranTextViewController.swift; sourceTree = "<group>"; };
 		451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranAudioViewController.swift; sourceTree = "<group>"; };
 		451242C21BEE2E7700AE3545 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		4512C07C1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AllahNameCell.strings; sourceTree = "<group>"; };
+		4512C07D1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/allah_names.plist; sourceTree = "<group>"; };
+		4512C07E1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/settings.json; sourceTree = "<group>"; };
+		4512C07F1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
+		4512C0801C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45184AF71BE3B2FA007D3088 /* GuLJCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJCell.swift; sourceTree = "<group>"; };
 		451A2C781C040B76006BB000 /* quran_v3.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = quran_v3.zip; sourceTree = "<group>"; };
 		451BD58D1BECA428008D98C2 /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
@@ -1090,6 +1095,7 @@
 				fa,
 				ar,
 				id,
+				fr,
 			);
 			mainGroup = 1887FCF61BD7387400CB83D5;
 			productRefGroup = 1887FD001BD7387400CB83D5 /* Products */;
@@ -1343,6 +1349,7 @@
 			children = (
 				180FE9D01C2310F900465E46 /* ar */,
 				180FE9D21C23110700465E46 /* Base */,
+				4512C07C1C27BF7700E2F204 /* fr */,
 			);
 			name = AllahNameCell.xib;
 			sourceTree = "<group>";
@@ -1355,6 +1362,7 @@
 				45EAF84C1C11764500E7956E /* fa */,
 				451137DD1C1EB9BA00FF4093 /* ar */,
 				456516BF1C1EF7CF0026F664 /* id */,
+				4512C0801C27BF7700E2F204 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1367,6 +1375,7 @@
 				45EAF84B1C11764500E7956E /* fa */,
 				451137DC1C1EB9BA00FF4093 /* ar */,
 				456516BE1C1EF7CF0026F664 /* id */,
+				4512C07F1C27BF7700E2F204 /* fr */,
 			);
 			name = translated_sura_titles.plist;
 			sourceTree = "<group>";
@@ -1379,6 +1388,7 @@
 				45EAF8561C117B0C00E7956E /* fa */,
 				451137DA1C1EB9BA00FF4093 /* ar */,
 				456516BC1C1EF7CF0026F664 /* id */,
+				4512C07D1C27BF7700E2F204 /* fr */,
 			);
 			name = allah_names.plist;
 			sourceTree = "<group>";
@@ -1391,6 +1401,7 @@
 				45EAF88D1C1193CE00E7956E /* fa */,
 				451137DB1C1EB9BA00FF4093 /* ar */,
 				456516BD1C1EF7CF0026F664 /* id */,
+				4512C07E1C27BF7700E2F204 /* fr */,
 			);
 			name = settings.json;
 			sourceTree = "<group>";

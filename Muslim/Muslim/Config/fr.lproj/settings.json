@@ -1,0 +1,130 @@
+[
+ {
+ "name": "Horaires de la salât",
+ "set": [
+         {
+         "title": "Branche de l\'islam",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Chiisme",
+                    "Sunnisme"
+                    ]
+         },
+         {
+         "title": "Correction manuelle",
+         "subtitle": "",
+         "right_type": "2",
+         "right_txt": "",
+         "subset": []
+         },
+         {
+         "title": "Paramètres automatiques",
+         "subtitle": "Indisponible pour la ville actuelle",
+         "right_type": "3",
+         "right_txt": "",
+         "subset": []
+         },
+         {
+         "title": "Méthode de calcul de la prière de l\'après-midi (al-\'asr)",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Standard",
+                    "Hanafi"
+                    ]
+         },
+         {
+         "title": "Réserver le temps de la salât",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Chiisme duodécimain",
+                    "Université islamique, Karachi",
+                    "Société islamique de l\'Amérique du Nord",
+                    "Ligue islamique mondiale (LIM)",
+                    "Université Oumm al-Qura, La Mecque",
+                    "Autorités générales égyptiennes",
+                    "Institut de Géophysique de l\'Université de Téhéran"
+                    ]
+         },
+         {
+         "title": "Réglage de la haute altitude",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Rien",
+                    "Minuit",
+                    "1/7 de la soirée",
+                    "Méthode fondée sur la direction"
+                    ]
+         },
+         {
+         "title": "Heure d\'été",
+         "subtitle": "",
+         "right_type": "1",
+         "right_txt": "",
+         "subset": [
+                    "Automatique",
+                    "+1 heure",
+                    "-1 heure"
+                    ]
+         },
+         {
+         "title": "Système horaire",
+         "subtitle": "",
+         "right_type": "4",
+         "right_txt": "Système horaire de 24 heures",
+         "subset": [
+                    "Système horaire de 24 heures",
+                    "Système horaire de 12 heures"
+                    ]
+         },
+         {
+         "title": "Lire la sonnerie de l\'adhan sous le mode de silence",
+         "subtitle": "",
+         "right_type": "3",
+         "right_txt": "",
+         "subset": []
+         }
+         ]
+ },
+ {
+ "name": "Coran",
+ "set": [
+         {
+         "title": "Texte & Traduction",
+         "subtitle": "",
+         "right_type": "2",
+         "right_txt": "",
+         "subset": []
+         },
+         {
+         "title": "Audio récitation",
+         "subtitle": "",
+         "right_type": "2",
+         "right_txt": "",
+         "subset": []
+         }
+         ]
+ },
+ {
+ "name": "Calendrier",
+ "set": [
+         {
+         "title": "Sélection du calendrier",
+         "subtitle": "",
+         "right_type": "4",
+         "right_txt": "Islamic Calendar",
+         "subset": [
+                    "Islamic Calendar",
+                    "Calendrier persan"
+                    ]
+         }
+         ]
+ }
+ ]
