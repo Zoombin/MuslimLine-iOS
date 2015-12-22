@@ -112,7 +112,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         Config.saveCityName(currentCity)
         self.hidden = true
         if (self.delegate != nil) {
-            PrayTimeUtil.getPrayTime() //获取默认礼拜时间
+            PrayTimeUtil.getPrayTime(0) //获取默认礼拜时间
             self.delegate!.refreshUserLocation()
         }
     }
@@ -259,7 +259,7 @@ class LocationSettingView: UIView, UITableViewDelegate, UITableViewDataSource, h
         Config.saveCityName(cityName as String)
         self.hidden = true
         if (self.delegate != nil) {
-            PrayTimeUtil.getPrayTime() //获取默认礼拜时间
+            PrayTimeUtil.getPrayTime(0) //获取默认礼拜时间
             self.delegate?.refreshUserLocation()
         }
     }

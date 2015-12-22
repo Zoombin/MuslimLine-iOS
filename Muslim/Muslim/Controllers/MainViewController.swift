@@ -16,7 +16,7 @@ class MainViewController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PrayTimeUtil.getPrayTime() //刷新默认礼拜时间
+        PrayTimeUtil.getPrayTime(0) //刷新默认礼拜时间
         if (Config.getLat() != 0) {
             refreshUserLocation()
         }
