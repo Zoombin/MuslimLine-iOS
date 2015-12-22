@@ -204,7 +204,7 @@ class PrayTimeUtil: NSObject {
     }
     
     /**获取礼拜时间算法*/
-    static func getPrayTime()->NSMutableArray{
+    static func getPrayTime(curTime : Double)->NSMutableArray{
         let prayTimes:NSMutableArray = NSMutableArray()
         let prayTime = PrayTime();
         prayTime.setCalcMethod(Int32(Config.getPrayerTimeConventions()))
@@ -247,8 +247,12 @@ class PrayTimeUtil: NSObject {
             prayTime.tune(offsets)
         }
         
-        
-        let currentTime : Double = NSDate().timeIntervalSince1970
+        var currentTime : Double = 0
+        if(curTime <= 0){
+            currentTime = NSDate().timeIntervalSince1970
+        }else{
+            currentTime = curTime
+        }
         let date = NSDate(timeIntervalSince1970: currentTime)
         let calendar = NSCalendar.currentCalendar()
         
