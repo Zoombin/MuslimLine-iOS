@@ -76,8 +76,7 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
         let menuWidth:CGFloat = 150
         let menuHight:CGFloat = itemHight * 4
         var menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
-        let language = PhoneUtils.getSystemLanguage() as NSString
-        if(language.rangeOfString("ar").location != NSNotFound){
+        if(PhoneUtils.rightThemeStyle()){
             menuX = 0
         }
         let menuY :CGFloat = 0;

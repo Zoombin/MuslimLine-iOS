@@ -26,4 +26,18 @@ class PhoneUtils: NSObject {
         let allLanguages : NSArray = userDefault.objectForKey("AppleLanguages") as! NSArray
         return allLanguages[0] as! String
     }
+    
+    //向右的布局
+    static func rightThemeStyle()->Bool{
+        var isRightStyle = false
+        let language = PhoneUtils.getSystemLanguage() as NSString
+        Log.printLog(language)
+        if(language.rangeOfString("ar").location != NSNotFound){
+            isRightStyle = true
+        }
+        if(language.rangeOfString("fa").location != NSNotFound){
+            isRightStyle = true
+        }
+        return isRightStyle
+    }
 }
