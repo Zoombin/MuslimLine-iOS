@@ -75,7 +75,11 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
         let itemHight:CGFloat = 40
         let menuWidth:CGFloat = 150
         let menuHight:CGFloat = itemHight * 4
-        let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
+        var menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
+        let language = PhoneUtils.getSystemLanguage() as NSString
+        if(language.rangeOfString("ar").location != NSNotFound){
+            menuX = 0
+        }
         let menuY :CGFloat = 0;
         popMenuView = UIView(frame: CGRectMake(menuX, menuY, menuWidth, menuHight))
         popMenuView.backgroundColor = UIColor.whiteColor()

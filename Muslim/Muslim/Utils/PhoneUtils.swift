@@ -18,5 +18,12 @@ class PhoneUtils: NSObject {
         let majorVersion : AnyObject? = infoDictionary! ["CFBundleShortVersionString"]
         let appversion = majorVersion as! String
         return appversion
-    } 
+    }
+    
+    //获取当前系统语言
+    static func getSystemLanguage()-> String{
+        let userDefault : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let allLanguages : NSArray = userDefault.objectForKey("AppleLanguages") as! NSArray
+        return allLanguages[0] as! String
+    }
 }

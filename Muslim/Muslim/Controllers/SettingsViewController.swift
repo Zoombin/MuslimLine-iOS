@@ -305,7 +305,12 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             line.backgroundColor = UIColor.lightGrayColor()
             contentView.addSubview(line)
             
-            let button:UIButton = UIButton(frame: CGRectMake(contentViewWidth - 50, itemHight * CGFloat(index+1) , 50, 50))
+            var btX = contentViewWidth - 50
+            let language = PhoneUtils.getSystemLanguage() as NSString
+            if(language.rangeOfString("ar").location != NSNotFound){
+                btX = 10
+            }
+            let button:UIButton = UIButton(frame: CGRectMake(btX, itemHight * CGFloat(index+1) , 50, 50))
             button.setImage(UIImage(named: "Selected"), forState: UIControlState.Selected)
             button.setImage(UIImage(named: "noSelected"), forState: UIControlState.Normal)
             button.tag = index
