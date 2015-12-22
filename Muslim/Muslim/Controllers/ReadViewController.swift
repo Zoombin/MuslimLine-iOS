@@ -539,7 +539,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         
         let board = UIPasteboard.generalPasteboard()
         board.string = String(format: "%@\n%@", quran.text!, quran.text_zh!)
-        self.view.makeToast(message: "已复制到剪切板")
+        self.view.makeToast(message: NSLocalizedString("toast_copy_succ", comment:""))
     }
     
     //播放音频
@@ -644,11 +644,11 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         case bt_more:
             let actionSheet = UIActionSheet()
             actionSheet.tag = 201
-            actionSheet.title = "更多操作"
+            actionSheet.title = NSLocalizedString("no_net_title", comment:"")
             actionSheet.delegate = self
-            actionSheet.addButtonWithTitle("分享")
-            actionSheet.addButtonWithTitle("复制到剪切板")
-            actionSheet.addButtonWithTitle("取消")
+            actionSheet.addButtonWithTitle(NSLocalizedString("share", comment:""))
+            actionSheet.addButtonWithTitle(NSLocalizedString("copy_to_clipboard", comment:""))
+            actionSheet.addButtonWithTitle(NSLocalizedString("cancel", comment:""))
             actionSheet.cancelButtonIndex = 2
             actionSheet.showInView(self.view)
             break
