@@ -3,7 +3,7 @@
  "name": "Horaires de la salât",
  "set": [
          {
-         "title": "Branche de l\'islam",
+         "title": "Branche de lislam",
          "subtitle": "",
          "right_type": "1",
          "right_txt": "",
@@ -27,7 +27,7 @@
          "subset": []
          },
          {
-         "title": "Méthode de calcul de la prière de l\'après-midi (al-\'asr)",
+         "title": "Méthode de calcul de la prière de laprès-midi (al-asr)",
          "subtitle": "",
          "right_type": "1",
          "right_txt": "",
@@ -44,11 +44,11 @@
          "subset": [
                     "Chiisme duodécimain",
                     "Université islamique, Karachi",
-                    "Société islamique de l\'Amérique du Nord",
+                    "Société islamique de lAmérique du Nord",
                     "Ligue islamique mondiale (LIM)",
                     "Université Oumm al-Qura, La Mecque",
                     "Autorités générales égyptiennes",
-                    "Institut de Géophysique de l\'Université de Téhéran"
+                    "Institut de Géophysique de lUniversité de Téhéran"
                     ]
          },
          {
@@ -64,7 +64,7 @@
                     ]
          },
          {
-         "title": "Heure d\'été",
+         "title": "Heure dété",
          "subtitle": "",
          "right_type": "1",
          "right_txt": "",
@@ -85,7 +85,7 @@
                     ]
          },
          {
-         "title": "Lire la sonnerie de l\'adhan sous le mode de silence",
+         "title": "Lire la sonnerie de ladhan sous le mode de silence",
          "subtitle": "",
          "right_type": "3",
          "right_txt": "",
