@@ -167,7 +167,7 @@ class MainViewController: BaseViewController {
             button.backgroundColor = UIColor.whiteColor()
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.layer.borderWidth = 0.5 //设置边框的宽度
-            button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
+            button.layer.borderColor = UIColor.blackColor().CGColor //设置边框的颜色
             button.setImage(UIImage(named: imageNames[index]), forState: UIControlState.Normal)
             button.tag = index + 1
             button.addTarget(self, action: Selector.init(actions[index]), forControlEvents: UIControlEvents.TouchUpInside)
@@ -175,7 +175,8 @@ class MainViewController: BaseViewController {
             
             let titleLabel : UILabel = UILabel()
             titleLabel.frame = CGRectMake(0, buttonHeight - (buttonHeight / 4), buttonWidth, 20);
-            titleLabel.font = UIFont.boldSystemFontOfSize(14)
+            titleLabel.font = UIFont.systemFontOfSize(14)
+            titleLabel.adjustsFontSizeToFitWidth = true
             titleLabel.textAlignment = NSTextAlignment.Center
             titleLabel.text = titles[index]
             button.addSubview(titleLabel)
