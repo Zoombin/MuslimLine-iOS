@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>islamic</key>
+	<array>
+		<dict>
+			<key>time</key>
+			<string>1/1/</string>
+			<key>name</key>
+			<string>希吉拉</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>1/10/</string>
+			<key>name</key>
+			<string>阿舒拉节</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>3/12/</string>
+			<key>name</key>
+			<string>圣纪节</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>7/27/</string>
+			<key>name</key>
+			<string>阿曼节</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>9/1/</string>
+			<key>name</key>
+			<string>斋月 (开始)</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>9/26/</string>
+			<key>name</key>
+			<string>盖德尔夜</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>10/1/</string>
+			<key>name</key>
+			<string>开斋节(肉孜节)</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>12/9/</string>
+			<key>name</key>
+			<string>阿拉法日</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>12/10/</string>
+			<key>name</key>
+			<string>古尔邦节</string>
+		</dict>
+	</array>
+	<key>persain</key>
+	<array>
+		<dict>
+			<key>time</key>
+			<string>1/1/</string>
+			<key>name</key>
+			<string>Eid Noroz</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>1/2/</string>
+			<key>name</key>
+			<string>Eid Noroz</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>1/3/</string>
+			<key>name</key>
+			<string>Eid Noroz</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>1/4/</string>
+			<key>name</key>
+			<string>Eid Noroz</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>1/12/</string>
+			<key>name</key>
+			<string>Islamic Republic Day</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>1/13/</string>
+			<key>name</key>
+			<string>Nature Day</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>3/14/</string>
+			<key>name</key>
+			<string>The demise of Imam Khomeini</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>3/15/</string>
+			<key>name</key>
+			<string>Bloody uprising of 15 Khordad</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>11/22/</string>
+			<key>name</key>
+			<string>The Islamic Revolution of Iran</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>12/29/</string>
+			<key>name</key>
+			<string>National Day of the oil industry</string>
+		</dict>
+	</array>
+</dict>
+</plist>

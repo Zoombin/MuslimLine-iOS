@@ -64,6 +64,7 @@
 		1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185556581BF0734E00A29B49 /* PrayTimeCell.xib */; };
 		1855565C1BF08F6000A29B49 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855565B1BF08F6000A29B49 /* CalendarView.swift */; };
 		1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1855565D1BF097C200A29B49 /* CalendarView.xib */; };
+		185F4DCC1C2932E2002DA025 /* holidayTimes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185F4DCE1C2932E2002DA025 /* holidayTimes.plist */; };
 		1864E0411C0D50D800D634E8 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864E0401C0D50D800D634E8 /* ShareUtils.swift */; };
 		1864E0431C0D763A00D634E8 /* LocalNoticationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864E0421C0D763A00D634E8 /* LocalNoticationUtils.swift */; };
 		1875BF901BFAD95500A4EEA3 /* CalendarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */; };
@@ -177,7 +178,6 @@
 		45EAF8891C1193C800E7956E /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EAF88B1C1193C800E7956E /* settings.json */; };
 		45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B661BFC3B8A008B01EE /* allahnames.json */; };
 		45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B671BFC3B8A008B01EE /* Config.swift */; };
-		45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */; };
 		45EF2B751BFC3B8A008B01EE /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */; };
 		45EF2B771BFC3D12008B01EE /* FMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */; };
 		45EF2B791BFC4E8B008B01EE /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */; };
@@ -301,6 +301,12 @@
 		185556581BF0734E00A29B49 /* PrayTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrayTimeCell.xib; path = ../Models/PrayTimeCell.xib; sourceTree = "<group>"; };
 		1855565B1BF08F6000A29B49 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		1855565D1BF097C200A29B49 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
+		185F4DCD1C2932E2002DA025 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/holidayTimes.plist; sourceTree = "<group>"; };
+		185F4DCF1C2932E4002DA025 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/holidayTimes.plist"; sourceTree = "<group>"; };
+		185F4DD01C2932E6002DA025 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fa; path = fa.lproj/holidayTimes.plist; sourceTree = "<group>"; };
+		185F4DD11C2932E7002DA025 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/holidayTimes.plist; sourceTree = "<group>"; };
+		185F4DD21C2932E7002DA025 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id; path = id.lproj/holidayTimes.plist; sourceTree = "<group>"; };
+		185F4DD31C2932E8002DA025 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/holidayTimes.plist; sourceTree = "<group>"; };
 		1864E0401C0D50D800D634E8 /* ShareUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtils.swift; sourceTree = "<group>"; };
 		1864E0421C0D763A00D634E8 /* LocalNoticationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNoticationUtils.swift; sourceTree = "<group>"; };
 		1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarButton.swift; sourceTree = "<group>"; };
@@ -455,7 +461,6 @@
 		45EAF88D1C1193CE00E7956E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fa; path = fa.lproj/settings.json; sourceTree = "<group>"; };
 		45EF2B661BFC3B8A008B01EE /* allahnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allahnames.json; sourceTree = "<group>"; };
 		45EF2B671BFC3B8A008B01EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = holidayTimes.plist; sourceTree = "<group>"; };
 		45EF2B6D1BFC3B8A008B01EE /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
 		45EF2B761BFC3D12008B01EE /* FMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBHelper.swift; sourceTree = "<group>"; };
 		45EF2B781BFC4E8B008B01EE /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
@@ -1005,7 +1010,7 @@
 				45EAF8541C117B0400E7956E /* allah_names.plist */,
 				45EF2B661BFC3B8A008B01EE /* allahnames.json */,
 				45EF2B671BFC3B8A008B01EE /* Config.swift */,
-				45EF2B681BFC3B8A008B01EE /* holidayTimes.plist */,
+				185F4DCE1C2932E2002DA025 /* holidayTimes.plist */,
 				45EAF88B1C1193C800E7956E /* settings.json */,
 				45EAF8481C11730B00E7956E /* translated_sura_titles.plist */,
 			);
@@ -1164,7 +1169,7 @@
 				45E8B2D81C2141CF00631781 /* adhan_abdul_baset_ios.m4r in Resources */,
 				18CAC35C1C27D651008AE9DE /* me_quran.ttf in Resources */,
 				45E8B2D01C2141CF00631781 /* adhan_salimi_ios.m4r in Resources */,
-				45EF2B711BFC3B8A008B01EE /* holidayTimes.plist in Resources */,
+				185F4DCC1C2932E2002DA025 /* holidayTimes.plist in Resources */,
 				183271C91C01C47A005078B6 /* NoticeView.xib in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
@@ -1369,6 +1374,19 @@
 				4512C07C1C27BF7700E2F204 /* fr */,
 			);
 			name = AllahNameCell.xib;
+			sourceTree = "<group>";
+		};
+		185F4DCE1C2932E2002DA025 /* holidayTimes.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185F4DCD1C2932E2002DA025 /* en */,
+				185F4DCF1C2932E4002DA025 /* zh-Hans */,
+				185F4DD01C2932E6002DA025 /* fa */,
+				185F4DD11C2932E7002DA025 /* ar */,
+				185F4DD21C2932E7002DA025 /* id */,
+				185F4DD31C2932E8002DA025 /* fr */,
+			);
+			name = holidayTimes.plist;
 			sourceTree = "<group>";
 		};
 		18ADB8E01BE374C200FA387E /* Localizable.strings */ = {
