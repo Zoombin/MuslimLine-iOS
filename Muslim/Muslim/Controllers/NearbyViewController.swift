@@ -61,6 +61,10 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
         locationButton.titleLabel?.font = UIFont.systemFontOfSize(14)
         locationButton.setTitleColor(Colors.greenColor, forState: UIControlState.Normal)
         locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
+        let language = PhoneUtils.getSystemLanguage() as NSString
+        if(language.rangeOfString("ar").location != NSNotFound){
+            locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5)
+        }
         locationButton.addTarget(self, action: Selector.init("locationSet"), forControlEvents: UIControlEvents.TouchUpInside)
         settingLocationView.addSubview(locationButton)
         
