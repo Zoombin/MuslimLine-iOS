@@ -181,8 +181,7 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         foot.addGestureRecognizer(tagGesture)
         contentView.addSubview(foot)
         var cancelX = contentViewWidth-50
-        let language = PhoneUtils.getSystemLanguage() as NSString
-        if(language.rangeOfString("ar").location != NSNotFound){
+        if(PhoneUtils.rightThemeStyle()){
             cancelX = 0
         }
         let cancelLable :UILabel = UILabel(frame: CGRectMake(cancelX,contentViewHight-50,50,50))

@@ -306,8 +306,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             contentView.addSubview(line)
             
             var btX = contentViewWidth - 50
-            let language = PhoneUtils.getSystemLanguage() as NSString
-            if(language.rangeOfString("ar").location != NSNotFound){
+            if(PhoneUtils.rightThemeStyle()){
                 btX = 0
             }
             let button:UIButton = UIButton(frame: CGRectMake(btX, itemHight * CGFloat(index+1) , 50, 50))
@@ -329,14 +328,13 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             foot.backgroundColor = UIColor.whiteColor()
             contentView.addSubview(foot)
             var cancelX = contentViewWidth-100
-            let language = PhoneUtils.getSystemLanguage() as NSString
-            if(language.rangeOfString("ar").location != NSNotFound){
+            if(PhoneUtils.rightThemeStyle()){
                 cancelX = 10
             }
             let cancelLable :UILabel = UILabel(frame: CGRectMake(cancelX,itemHight * CGFloat(itemCount+1),90,itemHight))
             cancelLable.text = NSLocalizedString("cancel", comment:"")
             cancelLable.textAlignment = NSTextAlignment.Right
-            if(language.rangeOfString("ar").location != NSNotFound){
+            if(PhoneUtils.rightThemeStyle()){
                 cancelLable.textAlignment = NSTextAlignment.Left
             }
             cancelLable.textColor = UIColor.lightGrayColor()

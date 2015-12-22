@@ -49,8 +49,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         locationButton.titleLabel?.font = UIFont.systemFontOfSize(14)
         locationButton.setTitleColor(Colors.greenColor, forState: UIControlState.Normal)
         locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
-        let language = PhoneUtils.getSystemLanguage() as NSString
-        if(language.rangeOfString("ar").location != NSNotFound){
+        if(PhoneUtils.rightThemeStyle()){
             locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5)
         }
         locationButton.addTarget(self, action: Selector.init("locationSet"), forControlEvents: UIControlEvents.TouchUpInside)
@@ -212,7 +211,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let prayCell : PrayTimeCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PrayTimeCell
-        let status = getPrayMediaStatu(indexPath.row)
+        let status = PrayTimeUtil.getPrayMediaStatu(indexPath.row)
         if(0 == status){
             prayCell.voiceButton.setImage(UIImage(named: "voice_off"), forState: UIControlState.Normal)
         }else{
@@ -241,17 +240,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         let mdVC = MediaSettingViewController()
         mdVC.AlarmType = indexPath.row
         self.pushViewController(mdVC)
-    }
-    
-
-    func getPrayMediaStatu(mediaType:Int) ->Int{
-        if(Config.FACTION_SHIA == Config.getFaction()){
-            //什叶派
-            return Config.getShiaAlarm(mediaType)
-        }else{
-            //逊尼派
-            return Config.getSunniAlarm(mediaType)
-        }
     }
 
 }

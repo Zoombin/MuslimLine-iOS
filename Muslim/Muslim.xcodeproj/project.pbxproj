@@ -358,7 +358,6 @@
 		451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranTextViewController.swift; sourceTree = "<group>"; };
 		451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranAudioViewController.swift; sourceTree = "<group>"; };
 		451242C21BEE2E7700AE3545 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		4512C07C1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AllahNameCell.strings; sourceTree = "<group>"; };
 		4512C07D1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/allah_names.plist; sourceTree = "<group>"; };
 		4512C07E1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/settings.json; sourceTree = "<group>"; };
 		4512C07F1C27BF7700E2F204 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
@@ -410,6 +409,16 @@
 		45AC9BDE1C29318300D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReadLeftView.xib; sourceTree = "<group>"; };
 		45AC9BE01C2933D500D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/ReadRightView.xib; sourceTree = "<group>"; };
 		45AC9BE21C2933D700D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReadRightView.xib; sourceTree = "<group>"; };
+		45AC9BE71C2940AC00D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/AllahNameCell.xib; sourceTree = "<group>"; };
+		45AC9BEA1C29410A00D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
+		45AC9BED1C29414200D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/SettingAdjustCell.xib; sourceTree = "<group>"; };
+		45AC9BF01C29416700D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/SettingCell.xib; sourceTree = "<group>"; };
+		45AC9BF31C29418800D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/SettingHead.xib; sourceTree = "<group>"; };
+		45AC9BF61C2941AA00D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/GuLJCell.xib; sourceTree = "<group>"; };
+		45AC9BF91C2941CB00D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/QuranTextCell.xib; sourceTree = "<group>"; };
+		45AC9BFC1C2941ED00D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/ReadRightView.xib; sourceTree = "<group>"; };
+		45AC9BFF1C29420600D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/ReadLeftView.xib; sourceTree = "<group>"; };
+		45AC9C021C29422200D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/guLJViewHead.xib; sourceTree = "<group>"; };
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
@@ -1375,7 +1384,7 @@
 			children = (
 				180FE9D01C2310F900465E46 /* ar */,
 				180FE9D21C23110700465E46 /* Base */,
-				4512C07C1C27BF7700E2F204 /* fr */,
+				45AC9BE71C2940AC00D2A5EC /* fa */,
 			);
 			name = AllahNameCell.xib;
 			sourceTree = "<group>";
@@ -1411,6 +1420,7 @@
 			children = (
 				45AC9BC01C2922F000D2A5EC /* ar */,
 				45AC9BC21C2922FC00D2A5EC /* Base */,
+				45AC9BF91C2941CB00D2A5EC /* fa */,
 			);
 			name = QuranTextCell.xib;
 			sourceTree = "<group>";
@@ -1420,6 +1430,7 @@
 			children = (
 				45AC9BC41C29248300D2A5EC /* ar */,
 				45AC9BC61C29248600D2A5EC /* Base */,
+				45AC9BF01C29416700D2A5EC /* fa */,
 			);
 			name = SettingCell.xib;
 			sourceTree = "<group>";
@@ -1429,6 +1440,7 @@
 			children = (
 				45AC9BC81C2925A600D2A5EC /* ar */,
 				45AC9BCA1C2925A900D2A5EC /* Base */,
+				45AC9BF31C29418800D2A5EC /* fa */,
 			);
 			name = SettingHead.xib;
 			sourceTree = "<group>";
@@ -1438,6 +1450,7 @@
 			children = (
 				45AC9BCC1C29280B00D2A5EC /* ar */,
 				45AC9BCE1C29280D00D2A5EC /* Base */,
+				45AC9BED1C29414200D2A5EC /* fa */,
 			);
 			name = SettingAdjustCell.xib;
 			sourceTree = "<group>";
@@ -1447,6 +1460,7 @@
 			children = (
 				45AC9BD01C2928F200D2A5EC /* ar */,
 				45AC9BD21C2928F400D2A5EC /* Base */,
+				45AC9BEA1C29410A00D2A5EC /* fa */,
 			);
 			name = SettingAdjustAlertCell.xib;
 			sourceTree = "<group>";
@@ -1456,6 +1470,7 @@
 			children = (
 				45AC9BD41C292F8A00D2A5EC /* ar */,
 				45AC9BD61C292F8C00D2A5EC /* Base */,
+				45AC9BF61C2941AA00D2A5EC /* fa */,
 			);
 			name = GuLJCell.xib;
 			sourceTree = "<group>";
@@ -1465,6 +1480,7 @@
 			children = (
 				45AC9BD81C2930F500D2A5EC /* ar */,
 				45AC9BDA1C2930F700D2A5EC /* Base */,
+				45AC9C021C29422200D2A5EC /* fa */,
 			);
 			name = guLJViewHead.xib;
 			sourceTree = "<group>";
@@ -1474,6 +1490,7 @@
 			children = (
 				45AC9BDC1C29318100D2A5EC /* ar */,
 				45AC9BDE1C29318300D2A5EC /* Base */,
+				45AC9BFF1C29420600D2A5EC /* fa */,
 			);
 			name = ReadLeftView.xib;
 			sourceTree = "<group>";
@@ -1483,6 +1500,7 @@
 			children = (
 				45AC9BE01C2933D500D2A5EC /* ar */,
 				45AC9BE21C2933D700D2A5EC /* Base */,
+				45AC9BFC1C2941ED00D2A5EC /* fa */,
 			);
 			name = ReadRightView.xib;
 			sourceTree = "<group>";

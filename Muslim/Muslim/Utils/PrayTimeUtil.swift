@@ -27,10 +27,33 @@ class PrayTimeUtil: NSObject {
     static func getPrayMediaStatu(mediaType:Int) ->Int{
         if(Config.FACTION_SHIA == Config.getFaction()){
             //什叶派
-            return Config.getShiaAlarm(mediaType)
+            var config = Config.getShiaAlarm(mediaType)
+            if(0 == config){
+                //默认时处理
+                if(mediaType == 0){
+                    config = 1 //默认铃声
+                }else if(mediaType == 1){
+                    config = 1 //默认铃声
+                }else if(mediaType == 3){
+                    config = 1 //默认铃声
+                }else{
+                    config = 2
+                }
+            }
+            return config
         }else{
-            //逊尼派
-            return Config.getSunniAlarm(mediaType)
+            //逊尼派 sunni
+            var config = Config.getSunniAlarm(mediaType)
+            if(0 == config){
+                //默认时处理
+                if(mediaType == 1){
+                    //sunrise
+                    config = 0 //静音
+                }else{
+                    config = 1 //默认铃声
+                }
+            }
+            return config
         }
     }
     
