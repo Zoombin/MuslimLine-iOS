@@ -131,6 +131,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(),
             range: NSMakeRange(0, textLeft.length))
         housePostion.attributedText = attributeString
+        housePostion.adjustsFontSizeToFitWidth = true
         return radiansBearing
         
     }
