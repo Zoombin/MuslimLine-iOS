@@ -128,11 +128,12 @@
 		457CB5071BFB0EB7009BFAC3 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */; };
 		4592734D1C0C8AFA008145DB /* PrayTimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4592734C1C0C8AFA008145DB /* PrayTimeUtil.swift */; };
 		45AB3B361BEB24F2005B91BA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B321BEB24F2005B91BA /* SettingCell.swift */; };
-		45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B331BEB24F2005B91BA /* SettingCell.xib */; };
 		45AB3B381BEB24F2005B91BA /* SettingHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B341BEB24F2005B91BA /* SettingHead.swift */; };
-		45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B351BEB24F2005B91BA /* SettingHead.xib */; };
 		45AB3B3C1BEB2505005B91BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */; };
 		45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */; };
+		45AC9BBF1C2922F000D2A5EC /* QuranTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */; };
+		45AC9BC31C29248300D2A5EC /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BC51C29248300D2A5EC /* SettingCell.xib */; };
+		45AC9BC71C2925A600D2A5EC /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BC91C2925A600D2A5EC /* SettingHead.xib */; };
 		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741631BFB7177000A67D5 /* BookMarkCell.swift */; };
 		45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B741641BFB7177000A67D5 /* BookMarkCell.xib */; };
@@ -188,7 +189,6 @@
 		45F7E1301BE36F1000FE79AB /* PhoneUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */; };
 		45FBBDA51BF7221400BA35F9 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA41BF7221400BA35F9 /* Translation.swift */; };
 		45FBBDA81BF72C9300BA35F9 /* QuranTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */; };
-		45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,11 +387,15 @@
 		457CB5061BFB0EB7009BFAC3 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		4592734C1C0C8AFA008145DB /* PrayTimeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayTimeUtil.swift; sourceTree = "<group>"; };
 		45AB3B321BEB24F2005B91BA /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
-		45AB3B331BEB24F2005B91BA /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		45AB3B341BEB24F2005B91BA /* SettingHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHead.swift; sourceTree = "<group>"; };
-		45AB3B351BEB24F2005B91BA /* SettingHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingHead.xib; sourceTree = "<group>"; };
 		45AB3B3A1BEB2505005B91BA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		45AB3B3B1BEB2505005B91BA /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		45AC9BC01C2922F000D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/QuranTextCell.xib; sourceTree = "<group>"; };
+		45AC9BC21C2922FC00D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/QuranTextCell.xib; sourceTree = "<group>"; };
+		45AC9BC41C29248300D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/SettingCell.xib; sourceTree = "<group>"; };
+		45AC9BC61C29248600D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingCell.xib; sourceTree = "<group>"; };
+		45AC9BC81C2925A600D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/SettingHead.xib; sourceTree = "<group>"; };
+		45AC9BCA1C2925A900D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingHead.xib; sourceTree = "<group>"; };
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
@@ -461,7 +465,6 @@
 		45F7E12F1BE36F1000FE79AB /* PhoneUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneUtils.swift; sourceTree = "<group>"; };
 		45FBBDA41BF7221400BA35F9 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranTextCell.swift; sourceTree = "<group>"; };
-		45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuranTextCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -769,9 +772,9 @@
 				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
 				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
-				45AB3B331BEB24F2005B91BA /* SettingCell.xib */,
+				45AC9BC51C29248300D2A5EC /* SettingCell.xib */,
 				45AB3B341BEB24F2005B91BA /* SettingHead.swift */,
-				45AB3B351BEB24F2005B91BA /* SettingHead.xib */,
+				45AC9BC91C2925A600D2A5EC /* SettingHead.xib */,
 				45184AF71BE3B2FA007D3088 /* GuLJCell.swift */,
 				18ADB8D51BE34F6300FA387E /* GuLJCell.xib */,
 				1855565B1BF08F6000A29B49 /* CalendarView.swift */,
@@ -779,7 +782,7 @@
 				18F8FE7E1BF5C17F00AC1888 /* NearbyCell.swift */,
 				18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */,
 				45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */,
-				45FBBDA71BF72C9300BA35F9 /* QuranTextCell.xib */,
+				45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */,
 				183ECFCD1BF9D350003FB90C /* CalendarCell.swift */,
 				183ECFCE1BF9D350003FB90C /* CalendarCell.xib */,
 				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
@@ -1152,7 +1155,7 @@
 				45E8B2D51C2141CF00631781 /* adhan_fajr_madina_ios.m4r in Resources */,
 				45E8B2CF1C2141CF00631781 /* adhan_sharif_ios.m4r in Resources */,
 				45542E5D1BFF0AB300F3A3A5 /* guLJViewHead.xib in Resources */,
-				45AB3B391BEB24F2005B91BA /* SettingHead.xib in Resources */,
+				45AC9BC71C2925A600D2A5EC /* SettingHead.xib in Resources */,
 				45E8B2D11C2141CF00631781 /* adhan_nasser_al_qatami_ios.m4r in Resources */,
 				45E8B2C31C2141CF00631781 /* saeidyan_ios.m4r in Resources */,
 				451A2C791C040B77006BB000 /* quran_v3.zip in Resources */,
@@ -1167,7 +1170,7 @@
 				183ECFD01BF9D350003FB90C /* CalendarCell.xib in Resources */,
 				18F52F7C1C0C3D60005F26E8 /* NearbyViewController.xib in Resources */,
 				456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */,
-				45FBBDA91BF72C9300BA35F9 /* QuranTextCell.xib in Resources */,
+				45AC9BBF1C2922F000D2A5EC /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
 				45EAF8521C117B0400E7956E /* allah_names.plist in Resources */,
@@ -1182,7 +1185,7 @@
 				45E8B2C81C2141CF00631781 /* tasvieh_chi_ios.m4r in Resources */,
 				183ECFCC1BF9C932003FB90C /* CalendarViewController.xib in Resources */,
 				45E8B2D31C2141CF00631781 /* adhan_madina_1952_ios.m4r in Resources */,
-				45AB3B371BEB24F2005B91BA /* SettingCell.xib in Resources */,
+				45AC9BC31C29248300D2A5EC /* SettingCell.xib in Resources */,
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
 				18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */,
@@ -1377,6 +1380,33 @@
 				4512C0801C27BF7700E2F204 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45AC9BC01C2922F000D2A5EC /* ar */,
+				45AC9BC21C2922FC00D2A5EC /* Base */,
+			);
+			name = QuranTextCell.xib;
+			sourceTree = "<group>";
+		};
+		45AC9BC51C29248300D2A5EC /* SettingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45AC9BC41C29248300D2A5EC /* ar */,
+				45AC9BC61C29248600D2A5EC /* Base */,
+			);
+			name = SettingCell.xib;
+			sourceTree = "<group>";
+		};
+		45AC9BC91C2925A600D2A5EC /* SettingHead.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45AC9BC81C2925A600D2A5EC /* ar */,
+				45AC9BCA1C2925A900D2A5EC /* Base */,
+			);
+			name = SettingHead.xib;
 			sourceTree = "<group>";
 		};
 		45EAF8481C11730B00E7956E /* translated_sura_titles.plist */ = {
