@@ -180,7 +180,12 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
         foot.addGestureRecognizer(tagGesture)
         contentView.addSubview(foot)
-        let cancelLable :UILabel = UILabel(frame: CGRectMake(contentViewWidth-50,contentViewHight-50,50,50))
+        var cancelX = contentViewWidth-50
+        let language = PhoneUtils.getSystemLanguage() as NSString
+        if(language.rangeOfString("ar").location != NSNotFound){
+            cancelX = 0
+        }
+        let cancelLable :UILabel = UILabel(frame: CGRectMake(cancelX,contentViewHight-50,50,50))
         cancelLable.text = NSLocalizedString("cancel", comment:"")
         cancelLable.textColor = UIColor.lightGrayColor()
         contentView.addSubview(cancelLable)

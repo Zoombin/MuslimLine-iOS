@@ -112,9 +112,7 @@
 		4526E1861C158E570054D405 /* CountryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4526E1851C158E570054D405 /* CountryDefault.swift */; };
 		45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
-		455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
-		455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */; };
 		45542E571BFEF64600F3A3A5 /* ReadViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */; };
 		45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */; };
 		45542E5B1BFF0AA300F3A3A5 /* guLJViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */; };
@@ -134,6 +132,8 @@
 		45AC9BBF1C2922F000D2A5EC /* QuranTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */; };
 		45AC9BC31C29248300D2A5EC /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BC51C29248300D2A5EC /* SettingCell.xib */; };
 		45AC9BC71C2925A600D2A5EC /* SettingHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BC91C2925A600D2A5EC /* SettingHead.xib */; };
+		45AC9BCB1C29280B00D2A5EC /* SettingAdjustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BCD1C29280B00D2A5EC /* SettingAdjustCell.xib */; };
+		45AC9BCF1C2928F200D2A5EC /* SettingAdjustAlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BD11C2928F200D2A5EC /* SettingAdjustAlertCell.xib */; };
 		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741631BFB7177000A67D5 /* BookMarkCell.swift */; };
 		45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B741641BFB7177000A67D5 /* BookMarkCell.xib */; };
@@ -367,9 +367,7 @@
 		4526E1851C158E570054D405 /* CountryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDefault.swift; sourceTree = "<group>"; };
 		45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
-		455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
-		455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAdjustCell.xib; sourceTree = "<group>"; };
 		45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewHead.swift; sourceTree = "<group>"; };
 		45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadViewHead.xib; sourceTree = "<group>"; };
 		45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = guLJViewHead.swift; sourceTree = "<group>"; };
@@ -396,6 +394,10 @@
 		45AC9BC61C29248600D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingCell.xib; sourceTree = "<group>"; };
 		45AC9BC81C2925A600D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/SettingHead.xib; sourceTree = "<group>"; };
 		45AC9BCA1C2925A900D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingHead.xib; sourceTree = "<group>"; };
+		45AC9BCC1C29280B00D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/SettingAdjustCell.xib; sourceTree = "<group>"; };
+		45AC9BCE1C29280D00D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingAdjustCell.xib; sourceTree = "<group>"; };
+		45AC9BD01C2928F200D2A5EC /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
+		45AC9BD21C2928F400D2A5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingAdjustAlertCell.xib; sourceTree = "<group>"; };
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
@@ -766,9 +768,9 @@
 				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
 				18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */,
 				455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */,
-				455353AD1BF47E9A00A8427A /* SettingAdjustAlertCell.xib */,
+				45AC9BD11C2928F200D2A5EC /* SettingAdjustAlertCell.xib */,
 				455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */,
-				455353AF1BF47E9A00A8427A /* SettingAdjustCell.xib */,
+				45AC9BCD1C29280B00D2A5EC /* SettingAdjustCell.xib */,
 				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
 				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
 				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
@@ -1130,9 +1132,9 @@
 			files = (
 				45542E591BFEF65500F3A3A5 /* ReadViewHead.xib in Resources */,
 				45EAF8891C1193C800E7956E /* settings.json in Resources */,
-				455353B11BF47E9A00A8427A /* SettingAdjustAlertCell.xib in Resources */,
+				45AC9BCF1C2928F200D2A5EC /* SettingAdjustAlertCell.xib in Resources */,
 				183271FE1C01ECF6005078B6 /* CalendarLocationView.xib in Resources */,
-				455353B31BF47E9A00A8427A /* SettingAdjustCell.xib in Resources */,
+				45AC9BCB1C29280B00D2A5EC /* SettingAdjustCell.xib in Resources */,
 				45E8B2C41C2141CF00631781 /* rahim_moazenzadeh_ios.m4r in Resources */,
 				45E8B2D91C2141CF00631781 /* adhan_1_ios.m4r in Resources */,
 				18F52F7A1C0C3556005F26E8 /* PrayTimeViewController.xib in Resources */,
@@ -1407,6 +1409,24 @@
 				45AC9BCA1C2925A900D2A5EC /* Base */,
 			);
 			name = SettingHead.xib;
+			sourceTree = "<group>";
+		};
+		45AC9BCD1C29280B00D2A5EC /* SettingAdjustCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45AC9BCC1C29280B00D2A5EC /* ar */,
+				45AC9BCE1C29280D00D2A5EC /* Base */,
+			);
+			name = SettingAdjustCell.xib;
+			sourceTree = "<group>";
+		};
+		45AC9BD11C2928F200D2A5EC /* SettingAdjustAlertCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45AC9BD01C2928F200D2A5EC /* ar */,
+				45AC9BD21C2928F400D2A5EC /* Base */,
+			);
+			name = SettingAdjustAlertCell.xib;
 			sourceTree = "<group>";
 		};
 		45EAF8481C11730B00E7956E /* translated_sura_titles.plist */ = {
