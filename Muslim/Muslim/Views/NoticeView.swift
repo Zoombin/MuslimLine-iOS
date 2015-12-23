@@ -31,7 +31,7 @@ class NoticeView: UIView {
         let color = Colors.progressGreenColor
         color.set()
         aPath = UIBezierPath()
-        aPath!.addArcWithCenter(CGPointMake(80, 80), radius: 77, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
+        aPath!.addArcWithCenter(CGPointMake(80, 80), radius: 70, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
         aPath!.lineWidth = 3.0
         aPath!.lineCapStyle = CGLineCap.Round
         aPath!.lineJoinStyle = CGLineJoin.Round
@@ -56,7 +56,7 @@ class NoticeView: UIView {
         let color = Colors.bgGreenColor
         color.set()
         let bPath = UIBezierPath()
-        bPath.addArcWithCenter(CGPointMake(80, 80), radius: 77, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
+        bPath.addArcWithCenter(CGPointMake(80, 80), radius: 70, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
         bPath.lineWidth = 3.0
         bPath.lineCapStyle = CGLineCap.Round
         bPath.lineJoinStyle = CGLineJoin.Round

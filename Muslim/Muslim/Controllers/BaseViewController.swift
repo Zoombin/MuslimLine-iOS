@@ -140,9 +140,13 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     }
     
     func pushViewController(to : UIViewController) {
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("", comment: ""), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        let leftImage : UIImage =  UIImage(named: "ic_back")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        to.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: leftImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("backButtonClicked"))
         self.navigationController?.pushViewController(to, animated: true)
+    }
+    
+    func backButtonClicked() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func appShareContent(content : String) {
