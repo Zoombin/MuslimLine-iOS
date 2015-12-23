@@ -59,26 +59,17 @@ class PrayTimeUtil: NSObject {
     
     /***获取选择的闹钟音乐*/
     static func getPrayMedia(mediaType:Int)->String{
-        if(Config.FACTION_SHIA == Config.getFaction()){
-            //什叶派
-            let select = Config.getShiaAlarm(mediaType)
-            if(select == 0){
-                return "0" //静音
-            }else if(select == 1){
-                return "1" //默认
-            }else if(select == 2){
-                return "2" //aghati_ios.m4r
-            }else{
+        let select = getPrayMediaStatu(mediaType)
+        if(select == 0){
+            return "0" //静音
+        }else if(select == 1){
+            return "1" //默认
+        }else{
+            if(Config.FACTION_SHIA == Config.getFaction()){
+                //什叶派
                 return Config.alarm_type_files_shia[select] as! String
-            }
-        } else{
-            //逊尼派
-            let select = Config.getSunniAlarm(mediaType)
-            if(select == 0){
-                return "0"
-            }else if(select == 1){
-                return "1"
-            }else{
+            } else{
+                //逊尼派
                 return Config.alarm_type_files_sunni[select] as! String
             }
         }

@@ -44,14 +44,13 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
     }
     
     func getData(){
+        select = PrayTimeUtil.getPrayMediaStatu(AlarmType)
         if(Config.FACTION_SHIA == Config.getFaction()){
             //什叶派
-            select = Config.getShiaAlarm(AlarmType)
             mp3Array = Config.alarm_type_files_shia
             dataArray = Config.alarm_type_shia
         }else{
             //逊尼派
-            select = Config.getSunniAlarm(AlarmType)
             mp3Array = Config.alarm_type_files_sunni
             dataArray = Config.alarm_type_sunni
         }
