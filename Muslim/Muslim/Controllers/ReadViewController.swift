@@ -33,6 +33,9 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     var readLeftView : ReadLeftView!
     var readRightView : ReadRightView!
+    var readLeftViewV2 : ReadLeftViewV2!
+    var readRightViewV2 : ReadRightViewV2!
+
     let cellIdentifier = "cellIdentifier"
     var mTableView:UITableView!
     var readViewHead : ReadViewHead!
@@ -152,30 +155,57 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     }
     
     func setTitleBar(){
-        //头部右边的veiw
-        let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("ReadRightView", owner: nil, options: nil)
-        readRightView = nibs.lastObject as! ReadRightView
-        readRightView.btPrevious.tag = bt_previous
-        readRightView.btPrevious.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
-        
-        readRightView.btNext.tag = bt_next
-        readRightView.btNext.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
-        
-        readRightView.btCountry.tag = bt_contry
-        readRightView.btCountry.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
-        
-        readRightView.btReader.tag = bt_reader
-        readRightView.btReader.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: readRightView)
-        
-        //头部左边的View
-        let nibsL : NSArray = NSBundle.mainBundle().loadNibNamed("ReadLeftView", owner: nil, options: nil)
-        readLeftView = nibsL.lastObject as? ReadLeftView
-        readLeftView.ivBack.tag = bt_back
-        readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
-        readLeftView.btBack.tag = bt_back
-        readLeftView.btBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftView)
+        if(PhoneUtils.rightThemeStyle()){
+            //头部右边的veiw
+            let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("ReadRightView", owner: nil, options: nil)
+            readRightView = nibs.lastObject as! ReadRightView
+            readRightView.btPrevious.tag = bt_previous
+            readRightView.btPrevious.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            
+            readRightView.btNext.tag = bt_next
+            readRightView.btNext.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            
+            readRightView.btCountry.tag = bt_contry
+            readRightView.btCountry.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            
+            readRightView.btReader.tag = bt_reader
+            readRightView.btReader.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: readRightView)
+            
+            //头部左边的View
+            let nibsL : NSArray = NSBundle.mainBundle().loadNibNamed("ReadLeftView", owner: nil, options: nil)
+            readLeftView = nibsL.lastObject as? ReadLeftView
+            readLeftView.ivBack.tag = bt_back
+            readLeftView.ivBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            readLeftView.btBack.tag = bt_back
+            readLeftView.btBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftView)
+        }else{
+            //头部右边的veiw
+            let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("ReadRightViewV2", owner: nil, options: nil)
+            readRightViewV2 = nibs.lastObject as! ReadRightViewV2
+            readRightViewV2.btPrevious.tag = bt_previous
+            readRightViewV2.btPrevious.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            
+            readRightViewV2.btNext.tag = bt_next
+            readRightViewV2.btNext.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            
+            readRightViewV2.btCountry.tag = bt_contry
+            readRightViewV2.btCountry.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            
+            readRightViewV2.btReader.tag = bt_reader
+            readRightViewV2.btReader.addTarget(self,action:Selector("onBtnClick:"),forControlEvents:UIControlEvents.TouchUpInside)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: readRightViewV2)
+            
+            //头部左边的View
+            let nibsL : NSArray = NSBundle.mainBundle().loadNibNamed("ReadLeftViewV2", owner: nil, options: nil)
+            readLeftViewV2 = nibsL.lastObject as? ReadLeftViewV2
+            readLeftViewV2.ivBack.tag = bt_back
+            readLeftViewV2.ivBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            readLeftViewV2.btBack.tag = bt_back
+            readLeftViewV2.btBack.addTarget(self, action: Selector("onBtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: readLeftViewV2)
+        }
     }
     
     //添加头部
@@ -204,6 +234,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     
     /**获取古兰经*/
     func getQurans(sura:Int){
+        self.view.makeToastActivity()
         self.sura = sura
         chapter = FMDBHelper.getInstance().getChapter(sura)
         setTitelBarData()
@@ -216,12 +247,21 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     /**设置头部数据*/
     func setTitelBarData(){
         if(chapter != nil){
-            readLeftView.suraTitle.text = chapter?.name_arabic as? String
-            let subtext :String = String(format: "%d. %@", (chapter?.sura )!, (chapter?.name_transliteration as? String)!)
-            readLeftView.suraSubTitle.text = subtext
-            
-            readRightView.btCountry.setImage(UIImage(named: Config.getCurrentCountryIcon()), forState: UIControlState.Normal)
-            readRightView.btReader.setImage(UIImage(named: Config.getCurrentReader().stringByReplacingOccurrencesOfString(" ", withString: "_").lowercaseString), forState: UIControlState.Normal)
+            if(PhoneUtils.rightThemeStyle()){
+                readLeftView.suraTitle.text = chapter?.name_arabic as? String
+                let subtext :String = String(format: "%d. %@", (chapter?.sura )!, (chapter?.name_transliteration as? String)!)
+                readLeftView.suraSubTitle.text = subtext
+                
+                readRightView.btCountry.setImage(UIImage(named: Config.getCurrentCountryIcon()), forState: UIControlState.Normal)
+                readRightView.btReader.setImage(UIImage(named: Config.getCurrentReader().stringByReplacingOccurrencesOfString(" ", withString: "_").lowercaseString), forState: UIControlState.Normal)
+            }else{
+                readLeftViewV2.suraTitle.text = chapter?.name_arabic as? String
+                let subtext :String = String(format: "%d. %@", (chapter?.sura )!, (chapter?.name_transliteration as? String)!)
+                readLeftViewV2.suraSubTitle.text = subtext
+                
+                readRightViewV2.btCountry.setImage(UIImage(named: Config.getCurrentCountryIcon()), forState: UIControlState.Normal)
+                readRightViewV2.btReader.setImage(UIImage(named: Config.getCurrentReader().stringByReplacingOccurrencesOfString(" ", withString: "_").lowercaseString), forState: UIControlState.Normal)
+            }
         }
     }
     

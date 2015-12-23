@@ -7,26 +7,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReadLeftView" customModule="Muslim" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReadLeftViewV2" customModule="Muslim" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="140" height="42"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Eap-SM-b47">
-                    <rect key="frame" x="125" y="10" width="12" height="22"/>
+                    <rect key="frame" x="2" y="10" width="12" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                     <animations/>
-                    <state key="normal" image="ic_back1"/>
+                    <state key="normal" image="ic_back"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a24-4X-MK2">
-                    <rect key="frame" x="2" y="22" width="113" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a24-4X-MK2">
+                    <rect key="frame" x="26" y="22" width="113" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="axB-JA-FLL">
-                    <rect key="frame" x="2" y="5" width="113" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="axB-JA-FLL">
+                    <rect key="frame" x="26" y="5" width="113" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -34,8 +34,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KDx-42-NfJ">
-                    <rect key="frame" x="73" y="0.0" width="67" height="43"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <rect key="frame" x="0.0" y="0.0" width="74" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                 </button>
             </subviews>
@@ -53,6 +53,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_back1" width="11" height="21"/>
+        <image name="ic_back" width="11" height="21"/>
     </resources>
 </document>

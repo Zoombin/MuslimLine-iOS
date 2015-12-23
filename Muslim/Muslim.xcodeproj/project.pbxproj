@@ -140,6 +140,10 @@
 		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741631BFB7177000A67D5 /* BookMarkCell.swift */; };
 		45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B741641BFB7177000A67D5 /* BookMarkCell.xib */; };
+		45BC1D131C2A7A470033383E /* ReadRightViewV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */; };
+		45BC1D141C2A7A470033383E /* ReadRightViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */; };
+		45BC1D171C2A7B110033383E /* ReadLeftViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */; };
+		45BC1D181C2A7B110033383E /* ReadLeftViewV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BC1D161C2A7B110033383E /* ReadLeftViewV2.xib */; };
 		45C23D411C05604A008DCCEA /* MediaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D401C05604A008DCCEA /* MediaSettingViewController.swift */; };
 		45C23D441C056216008DCCEA /* MediaSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C23D421C056216008DCCEA /* MediaSettingCell.swift */; };
 		45C23D451C056216008DCCEA /* MediaSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C23D431C056216008DCCEA /* MediaSettingCell.xib */; };
@@ -422,6 +426,10 @@
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
+		45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadRightViewV2.xib; sourceTree = "<group>"; };
+		45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadRightViewV2.swift; sourceTree = "<group>"; };
+		45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadLeftViewV2.swift; sourceTree = "<group>"; };
+		45BC1D161C2A7B110033383E /* ReadLeftViewV2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadLeftViewV2.xib; sourceTree = "<group>"; };
 		45C23D401C05604A008DCCEA /* MediaSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSettingViewController.swift; sourceTree = "<group>"; };
 		45C23D421C056216008DCCEA /* MediaSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSettingCell.swift; sourceTree = "<group>"; };
 		45C23D431C056216008DCCEA /* MediaSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaSettingCell.xib; sourceTree = "<group>"; };
@@ -781,6 +789,10 @@
 		186B5EF51BE1B1E600212049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */,
+				45BC1D161C2A7B110033383E /* ReadLeftViewV2.xib */,
+				45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */,
+				45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */,
 				18F8FE841BF5D5AC00AC1888 /* AllahNameCell.swift */,
 				180FE9D11C2310F900465E46 /* AllahNameCell.xib */,
 				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
@@ -1171,11 +1183,13 @@
 				45E8B2CB1C2141CF00631781 /* karami_ios.m4r in Resources */,
 				18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */,
 				180FE9CF1C2310F900465E46 /* AllahNameCell.xib in Resources */,
+				45BC1D181C2A7B110033383E /* ReadLeftViewV2.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45E8B2D51C2141CF00631781 /* adhan_fajr_madina_ios.m4r in Resources */,
 				45E8B2CF1C2141CF00631781 /* adhan_sharif_ios.m4r in Resources */,
 				45AC9BD71C2930F500D2A5EC /* guLJViewHead.xib in Resources */,
 				45AC9BC71C2925A600D2A5EC /* SettingHead.xib in Resources */,
+				45BC1D131C2A7A470033383E /* ReadRightViewV2.xib in Resources */,
 				45E8B2D11C2141CF00631781 /* adhan_nasser_al_qatami_ios.m4r in Resources */,
 				45E8B2C31C2141CF00631781 /* saeidyan_ios.m4r in Resources */,
 				451A2C791C040B77006BB000 /* quran_v3.zip in Resources */,
@@ -1251,6 +1265,7 @@
 				184357A81BE9E88D00194744 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				184357AD1BE9E88D00194744 /* UIRefreshControl+AFNetworking.m in Sources */,
 				457CB5071BFB0EB7009BFAC3 /* Bookmark.swift in Sources */,
+				45BC1D171C2A7B110033383E /* ReadLeftViewV2.swift in Sources */,
 				1887FD031BD7387400CB83D5 /* AppDelegate.swift in Sources */,
 				451BD58E1BECA428008D98C2 /* UserDefaultsUtil.swift in Sources */,
 				1843574F1BE9E88D00194744 /* AFHTTPSessionManager.m in Sources */,
@@ -1302,6 +1317,7 @@
 				1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */,
 				45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */,
 				183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */,
+				45BC1D141C2A7A470033383E /* ReadRightViewV2.swift in Sources */,
 				18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */,
 				1864E0431C0D763A00D634E8 /* LocalNoticationUtils.swift in Sources */,
 				45C23D411C05604A008DCCEA /* MediaSettingViewController.swift in Sources */,

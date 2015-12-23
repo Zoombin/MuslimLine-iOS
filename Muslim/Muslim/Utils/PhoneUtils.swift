@@ -38,6 +38,10 @@ class PhoneUtils: NSObject {
         if(language.rangeOfString("fa").location != NSNotFound){
             isRightStyle = true
         }
+        let ver = UIDevice.currentDevice().systemVersion as NSString
+        if(ver.floatValue < 8){
+            isRightStyle = false
+        }
         return isRightStyle
     }
 }
