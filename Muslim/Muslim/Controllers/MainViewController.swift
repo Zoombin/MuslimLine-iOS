@@ -66,7 +66,7 @@ class MainViewController: BaseViewController {
             currentPrayTime = 0
         }
         noticeView.prayNameLabel.text = Config.PrayNameArray[currentPrayTime] as? String
-        let mediaStatu = getPrayMediaStatu(currentPrayTime)
+        let mediaStatu = PrayTimeUtil.getPrayMediaStatu(currentPrayTime)
         if(0 == mediaStatu){
             noticeView.voiceIconImageView.image =  UIImage(named: "no_voice")
         }else{
@@ -174,11 +174,10 @@ class MainViewController: BaseViewController {
             self.view.addSubview(button)
             
             let titleLabel : UILabel = UILabel()
-            titleLabel.frame = CGRectMake(0, buttonHeight - (buttonHeight / 4), buttonWidth, 30);
-            titleLabel.font = UIFont.systemFontOfSize(12)
+            titleLabel.frame = CGRectMake(5, buttonHeight - (buttonHeight / 4), buttonWidth - 10 , (buttonHeight / 4));
+            titleLabel.font = UIFont.systemFontOfSize(height <= 480 ? 12 : 14)
             titleLabel.numberOfLines = 0
             titleLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            titleLabel.adjustsFontSizeToFitWidth = true
             titleLabel.textAlignment = NSTextAlignment.Center
             titleLabel.text = titles[index]
             button.addSubview(titleLabel)
@@ -223,16 +222,6 @@ class MainViewController: BaseViewController {
                 //一分钟再刷新一次
                 refreshUserLocation()
             }
-        }
-    }
-    
-    func getPrayMediaStatu(mediaType:Int) ->Int{
-        if(Config.FACTION_SHIA == Config.getFaction()){
-            //什叶派
-            return Config.getShiaAlarm(mediaType)
-        }else{
-            //逊尼派
-            return Config.getSunniAlarm(mediaType)
         }
     }
     
