@@ -14,7 +14,6 @@ class guLJViewHead: UIView {
     @IBOutlet weak var lastRead: UILabel!
     
     override func drawRect(rect: CGRect) {
-        lastRead.text = NSLocalizedString("last_read_position", comment:"")
     }
 
     /*

@@ -100,6 +100,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func addHeadView(){
         let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("guLJViewHead", owner: nil, options: nil)
         let readViewHead = nibs.lastObject as! guLJViewHead
+        readViewHead.lastRead.text = NSLocalizedString("last_read_position", comment:"")
         let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("headViewClick"))
         readViewHead.addGestureRecognizer(tagGesture)
         
