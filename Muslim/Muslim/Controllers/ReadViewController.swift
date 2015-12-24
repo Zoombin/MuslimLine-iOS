@@ -80,8 +80,6 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
         mTableView.separatorColor = Colors.greenColor
         mTableView.delegate = self
         mTableView.dataSource = self
-        //mTableView.estimatedRowHeight = 100
-        //mTableView.rowHeight = UITableViewAutomaticDimension
 
         self.view.addSubview(mTableView)
         
@@ -431,6 +429,7 @@ class ReadViewController: BaseViewController , UITableViewDelegate, UITableViewD
     //下一章节
     func loadNext(sura:Int){
         self.sura = sura
+        select = -1
         viewDidAppear(false)
     }
     
