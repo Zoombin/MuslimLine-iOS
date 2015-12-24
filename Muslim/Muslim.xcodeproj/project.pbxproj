@@ -139,7 +139,6 @@
 		45AC9BDF1C2933D500D2A5EC /* ReadRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AC9BE11C2933D500D2A5EC /* ReadRightView.xib */; };
 		45AF985F1BFAB7AE004DB841 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */; };
 		45B741651BFB7177000A67D5 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B741631BFB7177000A67D5 /* BookMarkCell.swift */; };
-		45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B741641BFB7177000A67D5 /* BookMarkCell.xib */; };
 		45BC1D131C2A7A470033383E /* ReadRightViewV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */; };
 		45BC1D141C2A7A470033383E /* ReadRightViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */; };
 		45BC1D171C2A7B110033383E /* ReadLeftViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */; };
@@ -156,6 +155,7 @@
 		45C8372E1BF9D20300069723 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836EF1BF9D20300069723 /* zip.c */; };
 		45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C836F21BF9D20300069723 /* SSZipArchive.m */; };
 		45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */; };
+		45DEE6E51C2BE6F1004E6816 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DEE6E71C2BE6F1004E6816 /* BookMarkCell.xib */; };
 		45E8B2C31C2141CF00631781 /* saeidyan_ios.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 45E8B2AC1C2141CF00631781 /* saeidyan_ios.m4r */; };
 		45E8B2C41C2141CF00631781 /* rahim_moazenzadeh_ios.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 45E8B2AD1C2141CF00631781 /* rahim_moazenzadeh_ios.m4r */; };
 		45E8B2C51C2141CF00631781 /* adhan_fajr_mansour_zahrani_ios.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 45E8B2AE1C2141CF00631781 /* adhan_fajr_mansour_zahrani_ios.m4r */; };
@@ -425,7 +425,6 @@
 		45AC9C021C29422200D2A5EC /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/guLJViewHead.xib; sourceTree = "<group>"; };
 		45AF985E1BFAB7AE004DB841 /* ZipUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
 		45B741631BFB7177000A67D5 /* BookMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
-		45B741641BFB7177000A67D5 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
 		45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadRightViewV2.xib; sourceTree = "<group>"; };
 		45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadRightViewV2.swift; sourceTree = "<group>"; };
 		45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadLeftViewV2.swift; sourceTree = "<group>"; };
@@ -449,6 +448,9 @@
 		45C836F11BF9D20300069723 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		45C836F21BF9D20300069723 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerMr.swift; sourceTree = "<group>"; };
+		45DEE6E61C2BE6F1004E6816 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BookMarkCell.xib; sourceTree = "<group>"; };
+		45DEE6EA1C2BE70B004E6816 /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/BookMarkCell.xib; sourceTree = "<group>"; };
+		45DEE6ED1C2BE717004E6816 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/BookMarkCell.xib; sourceTree = "<group>"; };
 		45E8B2AC1C2141CF00631781 /* saeidyan_ios.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = saeidyan_ios.m4r; sourceTree = "<group>"; };
 		45E8B2AD1C2141CF00631781 /* rahim_moazenzadeh_ios.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = rahim_moazenzadeh_ios.m4r; sourceTree = "<group>"; };
 		45E8B2AE1C2141CF00631781 /* adhan_fajr_mansour_zahrani_ios.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = adhan_fajr_mansour_zahrani_ios.m4r; sourceTree = "<group>"; };
@@ -819,7 +821,7 @@
 				183ECFCE1BF9D350003FB90C /* CalendarCell.xib */,
 				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
 				45B741631BFB7177000A67D5 /* BookMarkCell.swift */,
-				45B741641BFB7177000A67D5 /* BookMarkCell.xib */,
+				45DEE6E71C2BE6F1004E6816 /* BookMarkCell.xib */,
 				45EF2B7A1BFC58DF008B01EE /* ReadRightView.swift */,
 				45AC9BE11C2933D500D2A5EC /* ReadRightView.xib */,
 				45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */,
@@ -1206,7 +1208,7 @@
 				456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */,
 				45AC9BBF1C2922F000D2A5EC /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
-				45B741661BFB7177000A67D5 /* BookMarkCell.xib in Resources */,
+				45DEE6E51C2BE6F1004E6816 /* BookMarkCell.xib in Resources */,
 				45EAF8521C117B0400E7956E /* allah_names.plist in Resources */,
 				45E8B2D71C2141CF00631781 /* adhan_egypt_ios.m4r in Resources */,
 				45AC9BDB1C29318100D2A5EC /* ReadLeftView.xib in Resources */,
@@ -1519,6 +1521,16 @@
 				45AC9BFC1C2941ED00D2A5EC /* fa */,
 			);
 			name = ReadRightView.xib;
+			sourceTree = "<group>";
+		};
+		45DEE6E71C2BE6F1004E6816 /* BookMarkCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45DEE6E61C2BE6F1004E6816 /* Base */,
+				45DEE6EA1C2BE70B004E6816 /* fa */,
+				45DEE6ED1C2BE717004E6816 /* ar */,
+			);
+			name = BookMarkCell.xib;
 			sourceTree = "<group>";
 		};
 		45EAF8481C11730B00E7956E /* translated_sura_titles.plist */ = {

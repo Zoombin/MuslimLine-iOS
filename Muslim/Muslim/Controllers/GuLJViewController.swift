@@ -8,10 +8,11 @@
 
 import UIKit
 
-class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource ,UIScrollViewDelegate{
     var tabIndex = 1
     
     let cellIdentifier = "myCell"
+    @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var guLJlistView: UITableView!//章节listview
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -48,24 +49,39 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func segmentedControlSelect() {
         if (segmentedControl.selectedSegmentIndex == 0) {
             tabIndex = 1
-            
-            guLJlistView.hidden = false
-            bmarkListview.hidden = true
+            scrollview.setContentOffset( CGPointMake(0, 0 ), animated: true)
             nomarkLable.hidden = true
         } else {
             tabIndex = 2
-            
-            guLJlistView.hidden = true
+             scrollview.setContentOffset( CGPointMake(PhoneUtils.screenWidth, 0 ), animated: true)
+        }
+        setMarkStatu()
+    }
+    
+    //scrollview 滚动完成
+    func scrollViewDidScroll(scrollView: UIScrollView){
+        let offset = scrollView.contentOffset
+        if(offset.x >= PhoneUtils.screenWidth){
+            tabIndex = 2
+            segmentedControl.selectedSegmentIndex = 1
+        }else{
+            tabIndex = 1
+            segmentedControl.selectedSegmentIndex = 0
+        }
+        setMarkStatu()
+    }
+    
+    func setMarkStatu(){
+        if(tabIndex == 2){
             if(bookmarkArray.count == 0){
                 //没有书签
-                bmarkListview.hidden = true
                 nomarkLable.hidden = false
             }else{
-                bmarkListview.hidden = false
                 nomarkLable.hidden = true
             }
         }
     }
+    
     /**搜索按钮*/
     func searchButtonClicked() {
         let guljSearchViewController = GuLJSearchViewController()
@@ -75,24 +91,29 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     //初始化界面
     func setupView(){
+        scrollview.contentSize = CGSizeMake(PhoneUtils.screenWidth*2, 0)
+        scrollview.pagingEnabled = true
+        scrollview.delegate = self
+        
         segmentedControl.setTitle(NSLocalizedString("frag_first", comment:""), forSegmentAtIndex: 0)
         segmentedControl.setTitle(NSLocalizedString("frag_second", comment:""), forSegmentAtIndex: 1)
         nomarkLable.text = NSLocalizedString("nobookmark", comment:"")
         //注册ListView的adapter
         guLJlistView.tag = 100
         guLJlistView!.registerNib(UINib(nibName: "GuLJCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        guLJlistView.frame = CGRectMake(0, 0, scrollview.frame.size.width, scrollview.frame.height)
         
         bmarkListview.tag = 200
         bmarkListview!.registerNib(UINib(nibName: "BookMarkCell", bundle:nil), forCellReuseIdentifier: markCellIdentifier)
+        bmarkListview.frame = CGRectMake(PhoneUtils.screenWidth, 0, scrollview.frame.size.width, scrollview.frame.height)
+        nomarkLable.frame = CGRectMake(PhoneUtils.screenWidth, 0, scrollview.frame.size.width, scrollview.frame.height)
         
         //这个方法是用来监听segmentedControl的值是否有变化，也就是说，有没有切换过所以用了 UIControlEvents.ValueChanged
         segmentedControl.addTarget(self, action: Selector.init("segmentedControlSelect"), forControlEvents: UIControlEvents.ValueChanged)
         SegmentedControlUtil.changeSegmentedControlColor(segmentedControl)
         
         tabIndex = 1
-        guLJlistView.hidden = false
-        nomarkLable.hidden = true
-        bmarkListview.hidden = true
+        setMarkStatu()
     }
     
     //添加头部
