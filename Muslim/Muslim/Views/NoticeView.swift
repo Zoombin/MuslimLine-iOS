@@ -10,7 +10,6 @@ import UIKit
 
 class NoticeView: UIView {
     
-    @IBOutlet weak var progressImageView : UIImageView!
     @IBOutlet weak var voiceIconImageView: UIImageView!
     @IBOutlet weak var leftTimeButton: UIButton!
     @IBOutlet weak var prayTimeButton: UIButton!
@@ -31,7 +30,8 @@ class NoticeView: UIView {
         let color = Colors.progressGreenColor
         color.set()
         aPath = UIBezierPath()
-        aPath!.addArcWithCenter(CGPointMake(80, 80), radius: 70, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
+        print(self.frame.size.width / 2)
+        aPath!.addArcWithCenter(CGPointMake(self.frame.size.width / 2, self.frame.size.width / 2), radius: self.frame.size.width / 2 == 80.0 ? 70 : 90, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
         aPath!.lineWidth = 3.0
         aPath!.lineCapStyle = CGLineCap.Round
         aPath!.lineJoinStyle = CGLineJoin.Round
@@ -56,7 +56,7 @@ class NoticeView: UIView {
         let color = Colors.bgGreenColor
         color.set()
         let bPath = UIBezierPath()
-        bPath.addArcWithCenter(CGPointMake(80, 80), radius: 70, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
+        bPath.addArcWithCenter(CGPointMake(self.frame.size.width / 2, self.frame.size.width / 2), radius: self.frame.size.width / 2 == 80.0 ? 70 : 90, startAngle: CGFloat((M_PI * start) / 180), endAngle: CGFloat((M_PI * currentEnd) / 180)  , clockwise: true)
         bPath.lineWidth = 3.0
         bPath.lineCapStyle = CGLineCap.Round
         bPath.lineJoinStyle = CGLineJoin.Round

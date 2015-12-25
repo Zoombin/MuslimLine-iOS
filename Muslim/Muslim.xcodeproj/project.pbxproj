@@ -91,6 +91,8 @@
 		18F3B28C1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */; };
 		18F52F7A1C0C3556005F26E8 /* PrayTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F52F791C0C3556005F26E8 /* PrayTimeViewController.xib */; };
 		18F52F7C1C0C3D60005F26E8 /* NearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F52F7B1C0C3D60005F26E8 /* NearbyViewController.xib */; };
+		18F617141C2D4B9600AC937F /* NoticeViewPlus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F617131C2D4B9600AC937F /* NoticeViewPlus.xib */; };
+		18F617161C2D53BE00AC937F /* CalendarLocationViewPlus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F617151C2D53BE00AC937F /* CalendarLocationViewPlus.xib */; };
 		18F8FE7C1BF5BDAC00AC1888 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE7A1BF5BDAC00AC1888 /* NearbyViewController.swift */; };
 		18F8FE801BF5C17F00AC1888 /* NearbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE7E1BF5C17F00AC1888 /* NearbyCell.swift */; };
 		18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */; };
@@ -346,6 +348,8 @@
 		18F3B28B1BE4ED7D009E5FC0 /* GuLJSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJSearchViewController.swift; sourceTree = "<group>"; };
 		18F52F791C0C3556005F26E8 /* PrayTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayTimeViewController.xib; sourceTree = "<group>"; };
 		18F52F7B1C0C3D60005F26E8 /* NearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyViewController.xib; sourceTree = "<group>"; };
+		18F617131C2D4B9600AC937F /* NoticeViewPlus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeViewPlus.xib; sourceTree = "<group>"; };
+		18F617151C2D53BE00AC937F /* CalendarLocationViewPlus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarLocationViewPlus.xib; sourceTree = "<group>"; };
 		18F8FE7A1BF5BDAC00AC1888 /* NearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		18F8FE7E1BF5C17F00AC1888 /* NearbyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCell.swift; sourceTree = "<group>"; };
 		18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyCell.xib; sourceTree = "<group>"; };
@@ -791,57 +795,59 @@
 		186B5EF51BE1B1E600212049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */,
-				45BC1D161C2A7B110033383E /* ReadLeftViewV2.xib */,
-				45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */,
-				45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */,
 				18F8FE841BF5D5AC00AC1888 /* AllahNameCell.swift */,
 				180FE9D11C2310F900465E46 /* AllahNameCell.xib */,
-				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
-				18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */,
-				455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */,
-				45AC9BD11C2928F200D2A5EC /* SettingAdjustAlertCell.xib */,
-				455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */,
-				45AC9BCD1C29280B00D2A5EC /* SettingAdjustCell.xib */,
-				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
-				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
-				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
-				45AC9BC51C29248300D2A5EC /* SettingCell.xib */,
-				45AB3B341BEB24F2005B91BA /* SettingHead.swift */,
-				45AC9BC91C2925A600D2A5EC /* SettingHead.xib */,
-				45184AF71BE3B2FA007D3088 /* GuLJCell.swift */,
-				45AC9BD51C292F8A00D2A5EC /* GuLJCell.xib */,
-				1855565B1BF08F6000A29B49 /* CalendarView.swift */,
-				1855565D1BF097C200A29B49 /* CalendarView.xib */,
-				18F8FE7E1BF5C17F00AC1888 /* NearbyCell.swift */,
-				18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */,
-				45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */,
-				45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */,
-				183ECFCD1BF9D350003FB90C /* CalendarCell.swift */,
-				183ECFCE1BF9D350003FB90C /* CalendarCell.xib */,
-				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
 				45B741631BFB7177000A67D5 /* BookMarkCell.swift */,
 				45DEE6E71C2BE6F1004E6816 /* BookMarkCell.xib */,
-				45EF2B7A1BFC58DF008B01EE /* ReadRightView.swift */,
-				45AC9BE11C2933D500D2A5EC /* ReadRightView.xib */,
-				45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */,
-				45AC9BDD1C29318100D2A5EC /* ReadLeftView.xib */,
-				456408D81BFD7609007A217B /* GuLJSearchCell.swift */,
-				456408D91BFD7609007A217B /* GuLJSearchCell.xib */,
-				456408DE1BFDC853007A217B /* ReadViewCell.swift */,
-				456408DF1BFDC853007A217B /* ReadViewCell.xib */,
-				45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */,
-				45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */,
-				45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */,
-				45AC9BD91C2930F500D2A5EC /* guLJViewHead.xib */,
-				183271C41C01C3A6005078B6 /* NoticeView.swift */,
-				183271C81C01C47A005078B6 /* NoticeView.xib */,
+				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
+				183ECFCD1BF9D350003FB90C /* CalendarCell.swift */,
+				183ECFCE1BF9D350003FB90C /* CalendarCell.xib */,
 				183271C61C01C3B8005078B6 /* CalendarLocationView.swift */,
 				183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */,
+				18F617151C2D53BE00AC937F /* CalendarLocationViewPlus.xib */,
+				1855565B1BF08F6000A29B49 /* CalendarView.swift */,
+				1855565D1BF097C200A29B49 /* CalendarView.xib */,
+				45184AF71BE3B2FA007D3088 /* GuLJCell.swift */,
+				45AC9BD51C292F8A00D2A5EC /* GuLJCell.xib */,
+				456408D81BFD7609007A217B /* GuLJSearchCell.swift */,
+				456408D91BFD7609007A217B /* GuLJSearchCell.xib */,
+				45542E5A1BFF0AA300F3A3A5 /* guLJViewHead.swift */,
+				45AC9BD91C2930F500D2A5EC /* guLJViewHead.xib */,
 				18190BAD1C05912800708D35 /* LocationSettingView.swift */,
 				18190BAF1C05914100708D35 /* LocationSettingView.xib */,
 				45C23D421C056216008DCCEA /* MediaSettingCell.swift */,
 				45C23D431C056216008DCCEA /* MediaSettingCell.xib */,
+				18F8FE7E1BF5C17F00AC1888 /* NearbyCell.swift */,
+				18F8FE7F1BF5C17F00AC1888 /* NearbyCell.xib */,
+				183271C41C01C3A6005078B6 /* NoticeView.swift */,
+				183271C81C01C47A005078B6 /* NoticeView.xib */,
+				18F617131C2D4B9600AC937F /* NoticeViewPlus.xib */,
+				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
+				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
+				45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */,
+				45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */,
+				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
+				18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */,
+				45EF2B7E1BFC5F7E008B01EE /* ReadLeftView.swift */,
+				45AC9BDD1C29318100D2A5EC /* ReadLeftView.xib */,
+				45BC1D151C2A7B110033383E /* ReadLeftViewV2.swift */,
+				45BC1D161C2A7B110033383E /* ReadLeftViewV2.xib */,
+				45EF2B7A1BFC58DF008B01EE /* ReadRightView.swift */,
+				45AC9BE11C2933D500D2A5EC /* ReadRightView.xib */,
+				45BC1D121C2A7A470033383E /* ReadRightViewV2.swift */,
+				45BC1D111C2A7A470033383E /* ReadRightViewV2.xib */,
+				456408DE1BFDC853007A217B /* ReadViewCell.swift */,
+				456408DF1BFDC853007A217B /* ReadViewCell.xib */,
+				45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */,
+				45542E581BFEF65500F3A3A5 /* ReadViewHead.xib */,
+				455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */,
+				45AC9BD11C2928F200D2A5EC /* SettingAdjustAlertCell.xib */,
+				455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */,
+				45AC9BCD1C29280B00D2A5EC /* SettingAdjustCell.xib */,
+				45AB3B321BEB24F2005B91BA /* SettingCell.swift */,
+				45AC9BC51C29248300D2A5EC /* SettingCell.xib */,
+				45AB3B341BEB24F2005B91BA /* SettingHead.swift */,
+				45AC9BC91C2925A600D2A5EC /* SettingHead.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1174,6 +1180,7 @@
 				45AC9BDF1C2933D500D2A5EC /* ReadRightView.xib in Resources */,
 				45E8B2D41C2141CF00631781 /* adhan_halab_ios.m4r in Resources */,
 				183ECF3F1BF9B05D003FB90C /* WebViewController.xib in Resources */,
+				18F617141C2D4B9600AC937F /* NoticeViewPlus.xib in Resources */,
 				18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */,
 				18F8FE811BF5C17F00AC1888 /* NearbyCell.xib in Resources */,
 				45E8B2D21C2141CF00631781 /* adhan_makkah_ios.m4r in Resources */,
@@ -1216,6 +1223,7 @@
 				45E8B2C61C2141CF00631781 /* salim-moazenzadeh_ios.m4r in Resources */,
 				456408E11BFDC853007A217B /* ReadViewCell.xib in Resources */,
 				45E8B2CC1C2141CF00631781 /* hazin_ios.m4r in Resources */,
+				18F617161C2D53BE00AC937F /* CalendarLocationViewPlus.xib in Resources */,
 				45E8B2CE1C2141CF00631781 /* aghati.m4r in Resources */,
 				45C23D451C056216008DCCEA /* MediaSettingCell.xib in Resources */,
 				45E8B2C81C2141CF00631781 /* tasvieh_chi_ios.m4r in Resources */,

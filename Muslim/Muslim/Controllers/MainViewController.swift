@@ -109,7 +109,8 @@ class MainViewController: BaseViewController {
         settingsButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
         topSearchView.addSubview(settingsButton)
         
-        let nibs1 = NSBundle.mainBundle().loadNibNamed("NoticeView", owner: nil, options: nil)
+        let nibs1Name = UIScreen.mainScreen().bounds.size.width > 400 ? "NoticeViewPlus" : "NoticeView"
+        let nibs1 = NSBundle.mainBundle().loadNibNamed(nibs1Name, owner: nil, options: nil)
         noticeView = nibs1.first as? NoticeView
         let startX = ((PhoneUtils.screenWidth / 2) - noticeView.frame.size.width) / 2
         let startY = 64 + ((PhoneUtils.screenHeight / 2) - 64 - noticeView.frame.size.height) / 2
@@ -120,7 +121,8 @@ class MainViewController: BaseViewController {
         self.view.addSubview(noticeView!)
         noticeView.hidden = true
         
-        let nibs2 = NSBundle.mainBundle().loadNibNamed("CalendarLocationView", owner: nil, options: nil)
+        let nibs2Name = UIScreen.mainScreen().bounds.size.width > 400 ? "CalendarLocationViewPlus" : "CalendarLocationView"
+        let nibs2 = NSBundle.mainBundle().loadNibNamed(nibs2Name, owner: nil, options: nil)
         calendarLocationView = nibs2.first as? CalendarLocationView
         calendarLocationView.frame = CGRectMake(startX + (PhoneUtils.screenWidth / 2), startY, calendarLocationView.frame.size.width, calendarLocationView.frame.size.height)
         self.view.addSubview(calendarLocationView!)
