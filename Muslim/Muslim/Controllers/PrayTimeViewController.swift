@@ -227,9 +227,9 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
             }
             prayCell.prayTimeLabel.text = prayTime.uppercaseString
             if(currentPrayTime == indexPath.row){
-                prayCell.timeSelectedButton.setImage(UIImage(named: "time_selected"), forState: UIControlState.Normal)
+                prayCell.timeSelectedButton.setImage(UIImage(named: "parytime_selected"), forState: UIControlState.Normal)
             }else{
-                prayCell.timeSelectedButton.setImage(UIImage(named: "time_no_selected"), forState: UIControlState.Normal)
+                prayCell.timeSelectedButton.setImage(UIImage(named: "praytime_no_selected"), forState: UIControlState.Normal)
             }
         }
         return prayCell
