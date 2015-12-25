@@ -109,12 +109,12 @@
 "prayer_calendar_today" = "اليوم";
 "prayer_calendar_tomorrow" = "غدا";
 "prayer_location_finder_add" = "يرجى تعيين الموقع";
-"prayer_names_generic_1" = "صبح";
+"prayer_names_generic_1" = "فجر";
 "prayer_names_generic_2" = "شروق الشمس";
-"prayer_names_generic_3" = "الظهر";
-"prayer_names_generic_4" = "العصر";
-"prayer_names_generic_5" = "المغرب";
-"prayer_names_generic_6" = "العشاء";
+"prayer_names_generic_3" = "ظهر";
+"prayer_names_generic_4" = "عصر";
+"prayer_names_generic_5" = "مغرب";
+"prayer_names_generic_6" = "عشاء";
 "prayer_place_none" = "يرجى تعيين الموقع";
 "qibla_bearing_angle" = "القبلة:%1$s";
 "qibla_warning_text" = "تحذير: الرجاء إبقاء هاتفك أفقيا والحالات معدنية أو إغلاق المغناطيسي  قد يسبب تداخلات";
