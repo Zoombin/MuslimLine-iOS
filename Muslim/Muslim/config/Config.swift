@@ -387,7 +387,7 @@
         
         /**逊尼派读者*/
         static let QuranAudioReader : NSArray  = [
-            "Shahriar Parhizgar","Alafasy","Abdelbasset Abdessamad","Abdul Rahman Al_Sudais","Abdullah Ibn Ali Basfar","Ahmed Nuinaa","Ali Hajjaj Souissi","Fares Abbad","Ai Al Hudhaify","Hani Al Rifai",
+            "Alafasy","Shahriar Parhizgar","Abdelbasset Abdessamad","Abdul Rahman Al_Sudais","Abdullah Ibn Ali Basfar","Ahmed Nuinaa","Ali Hajjaj Souissi","Fares Abbad","Ai Al Hudhaify","Hani Al Rifai",
             "Khalifa Al Tunaiji","Mahmoud Ali Al Banna","Mohammad Al Tablaway","Saad Al Ghamadi",
             "Saood ash Shuraym","Karim Masnsoori","Menshawi"
         ]

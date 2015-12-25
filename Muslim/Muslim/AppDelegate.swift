@@ -102,11 +102,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 case .RemoteControlTogglePlayPause:
                     Log.printLog("event subtype RemoteControlTogglePlayPause")
                 case .RemoteControlNextTrack:
+                    //下一个
                     Log.printLog("event subtype RemoteControlNextTrack")
                     AudioPlayerMr.getInstance().next(AudioPlayerMr.getInstance().position)
                 case .RemoteControlPreviousTrack:
-                    //上一个不操作
+                    //上一个
                     Log.printLog("Previous")
+                    AudioPlayerMr.getInstance().previous(AudioPlayerMr.getInstance().position)
                 case .RemoteControlBeginSeekingBackward:
                     //快退不操作
                     Log.printLog("BeginSeekingBackward")

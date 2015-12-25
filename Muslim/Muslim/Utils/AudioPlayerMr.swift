@@ -241,6 +241,62 @@ class AudioPlayerMr: NSObject,AVAudioPlayerDelegate,httpClientDelegate{
         }
     }
     
+    //上一个(有待完善)
+    func previous(curentPosition:Int){
+        if(dataArray.count == 0){
+            return
+        }
+        stop()
+        var minPosition = 0
+        if((sura) != 1 && (sura) != 9){
+            minPosition = -1
+        }else{
+            minPosition = 0
+        }
+        if(curentPosition > minPosition){
+            position = curentPosition-1;
+            var audioPath :String = ""
+            if(position == -1){
+                audioPath = AudioPlayerMr.getFirstAudioPath() + AudioPlayerMr.getFirstAudioName()
+            }else{
+                let quran :Quran = dataArray[position] as! Quran
+                audioPath  = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
+            }
+            //已经存在
+            if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
+                play(audioPath)
+            }else{
+                if(position == -1){
+                    loadNewHeadAudio()
+                }else{
+                    loadNewAudio((dataArray[position] as! Quran), position: position)
+                }
+            }
+        }else{
+            //上一章节
+            if(sura <= FMDBHelper.getInstance().getMinSura()){
+                return
+            }
+            let tempSura = sura!-1
+            let quranArray : NSMutableArray = FMDBHelper.getInstance().getQurans(tempSura)
+            if(quranArray.count>0){
+                if(delegate != nil){
+                    delegate?.loadNext(tempSura)
+                }
+                var audioPath :String = ""
+                let quran :Quran = quranArray[quranArray.count-1] as! Quran
+                audioPath  = AudioPlayerMr.getAudioPath(quran) + AudioPlayerMr.getAudioName(quran)
+                if(NSFileManager.defaultManager().fileExistsAtPath (audioPath)){
+                    setDataAndPlay(quranArray, position:quranArray.count-1, sura: tempSura, isHead: false)
+                }else{
+                    loadDataAndPlay(quranArray, position:quranArray.count-1, sura: tempSura, isHead: false)
+                }
+            }else{
+                //已经是第一个了
+            }
+        }
+    }
+    
     func loadNewAudio(quran:Quran,position:Int){
         if(delegate != nil){
             delegate?.loading(position)
