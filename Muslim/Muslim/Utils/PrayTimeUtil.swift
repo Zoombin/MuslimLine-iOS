@@ -62,8 +62,6 @@ class PrayTimeUtil: NSObject {
         let select = getPrayMediaStatu(mediaType)
         if(select == 0){
             return "0" //静音
-        }else if(select == 1){
-            return "1" //默认
         }else{
             if(Config.FACTION_SHIA == Config.getFaction()){
                 //什叶派

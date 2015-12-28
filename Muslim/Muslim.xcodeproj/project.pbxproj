@@ -116,6 +116,7 @@
 		45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */; };
 		454345E41C30D6AE00B62921 /* PrayTimeCell_plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454345E31C30D6AE00B62921 /* PrayTimeCell_plus.xib */; };
 		454345E61C30EA2100B62921 /* CalendarView_plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454345E51C30EA2100B62921 /* CalendarView_plus.xib */; };
+		454345ED1C31321800B62921 /* sms-received1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 454345EC1C31321800B62921 /* sms-received1.caf */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
 		45542E571BFEF64600F3A3A5 /* ReadViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */; };
@@ -390,6 +391,7 @@
 		454345E91C31171900B62921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/holidayTimes.plist; sourceTree = "<group>"; };
 		454345EA1C31174D00B62921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/settings.json; sourceTree = "<group>"; };
 		454345EB1C31175D00B62921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
+		454345EC1C31321800B62921 /* sms-received1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sms-received1.caf"; sourceTree = "<group>"; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
 		45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewHead.swift; sourceTree = "<group>"; };
@@ -1017,6 +1019,7 @@
 		45EAF8591C11849C00E7956E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				454345EC1C31321800B62921 /* sms-received1.caf */,
 				45E8B2AC1C2141CF00631781 /* saeidyan_ios.m4r */,
 				45E8B2AD1C2141CF00631781 /* rahim_moazenzadeh_ios.m4r */,
 				45E8B2AE1C2141CF00631781 /* adhan_fajr_mansour_zahrani_ios.m4r */,
@@ -1230,6 +1233,7 @@
 				183ECFD01BF9D350003FB90C /* CalendarCell.xib in Resources */,
 				18F52F7C1C0C3D60005F26E8 /* NearbyViewController.xib in Resources */,
 				456408DB1BFD7609007A217B /* GuLJSearchCell.xib in Resources */,
+				454345ED1C31321800B62921 /* sms-received1.caf in Resources */,
 				45AC9BBF1C2922F000D2A5EC /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
 				45DEE6E51C2BE6F1004E6816 /* BookMarkCell.xib in Resources */,
