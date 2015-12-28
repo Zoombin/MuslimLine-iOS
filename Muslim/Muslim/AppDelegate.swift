@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,UIAlertViewDelegate {
 
     var window: UIWindow?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -143,13 +143,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
     
+    //app通知
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         application.applicationIconBadgeNumber = 0
         let alterview  = UIAlertView()
         alterview.addButtonWithTitle(NSLocalizedString("ok", comment:""))
         alterview.message = notification.alertBody
-        alterview.cancelButtonIndex = 0
+        alterview.delegate = self
         alterview.show()
+        
+        let soundName = notification.soundName! as String
+        if(!soundName.isEmpty){
+            if(AudioPlayerMr.getInstance().isPlaying){
+                AudioPlayerMr.getInstance().pause()
+            }
+            AlarmMediaMr.getInstance().playL(soundName)
+        }
+    }
+    
+    //alertViewCancel
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if(AudioPlayerMr.getInstance().isPause){
+            AudioPlayerMr.getInstance().play()
+        }
+        AlarmMediaMr.getInstance().stop()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {

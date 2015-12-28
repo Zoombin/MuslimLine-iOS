@@ -64,6 +64,15 @@ class AlarmMediaMr: NSObject ,httpClientDelegate{
         play(0, path: path)
     }
     
+    func playL(fileName:String){
+        let path = AlarmMediaMr.getAlarmMediaLocalPath(fileName)
+        if(!path.isEmpty && NSFileManager.defaultManager().fileExistsAtPath (path)){
+            play(path)
+        }else{
+            playSystemSound()
+        }
+    }
+    
     
     func play(mediaIndex:Int,path:String){
         self.mediaIndex = mediaIndex
@@ -123,7 +132,10 @@ class AlarmMediaMr: NSObject ,httpClientDelegate{
     
     static func getAlarmMediaLocalPath(name:String)->String {
         let path = NSBundle.mainBundle().pathForResource(name, ofType: "")
-        return path!
+        if(path != nil){
+            return path!
+        }
+        return ""
     }
 
     
