@@ -87,13 +87,13 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         calendarBkgView.addSubview(calendarView)
         
         let leftButton : UIButton = UIButton.init(type: UIButtonType.Custom)
-        leftButton.frame = CGRectMake(CGRectGetMinX(calendarView.frame) - 70, calendarView.center.y, 11, 21)
+        leftButton.frame = CGRectMake(CGRectGetMinX(calendarView.frame) - 65, calendarView.center.y-40, 40, 80)
         leftButton.setImage(UIImage(named: "before_small"), forState: UIControlState.Normal)
         leftButton.addTarget(self, action: Selector.init("beforeDayClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarBkgView.addSubview(leftButton)
         
         let rightButton : UIButton = UIButton.init(type: UIButtonType.Custom)
-        rightButton.frame = CGRectMake(CGRectGetMaxX(calendarView.frame) + 60, calendarView.center.y, 11, 21)
+        rightButton.frame = CGRectMake(CGRectGetMaxX(calendarView.frame) + 25, calendarView.center.y-40, 40, 80)
         rightButton.setImage(UIImage(named: "nextday_small"), forState: UIControlState.Normal)
         rightButton.addTarget(self, action: Selector.init("nextDayClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         calendarBkgView.addSubview(rightButton)
@@ -176,7 +176,6 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.makeToastActivity()
         checkIsToday()
         prayTimes = PrayTimeUtil.getPrayTime(currentTime)
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()

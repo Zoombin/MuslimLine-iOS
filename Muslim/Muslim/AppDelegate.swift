@@ -145,6 +145,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         application.applicationIconBadgeNumber = 0
+        let alterview  = UIAlertView()
+        alterview.addButtonWithTitle(NSLocalizedString("ok", comment:""))
+        alterview.message = notification.alertBody
+        alterview.cancelButtonIndex = 0
+        alterview.show()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
