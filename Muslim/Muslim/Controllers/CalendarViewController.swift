@@ -67,6 +67,7 @@ class CalendarViewController: BaseViewController {
     
     func showPickViewButtonClicked() {
         pickBkgView.hidden = false
+        pickView.date = currentDate!
     }
     
     @IBAction func todayButtonClicked(sender : UIButton) {

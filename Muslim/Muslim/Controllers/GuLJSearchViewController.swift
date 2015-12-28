@@ -30,6 +30,12 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         searBar.placeholder = NSLocalizedString("keywords", comment:"")
         self.view.addSubview(searBar)
         
+        if #available(iOS 9.0, *) {
+            UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).font = UIFont.systemFontOfSize(10)
+        } else {
+            UITextField.my_appearanceWhenContainedIn(UISearchBar).font = UIFont.systemFontOfSize(10)
+        }
+        
         listView = UITableView()
         listView.frame = CGRectMake(0, CGRectGetMaxY(searBar.frame), width, height - CGRectGetMaxY(searBar.frame))
         listView.separatorColor = UIColor.whiteColor()

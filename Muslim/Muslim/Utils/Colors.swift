@@ -12,6 +12,9 @@ class Colors: NSObject {
     //进度条绿
     static let progressGreenColor : UIColor = UIColor(colorLiteralRed: 189/255.0, green: 235/255.0, blue: 35/255.0, alpha: 1.0)
     
+    //主界面底部按钮线颜色
+    static let bottomLineColor : UIColor = UIColor(colorLiteralRed: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 1.0)
+    
     //进度条背景
     static let bgGreenColor : UIColor = UIColor(colorLiteralRed: 21/255.0, green: 159/255.0, blue: 82/255.0, alpha: 1.0)
     

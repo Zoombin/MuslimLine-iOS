@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Config.initData()  //获取设置的数据
         configAudio() //设置后台播放
         MobClick.startWithAppkey("56720f23e0f55a884b00838f", reportPolicy: BATCH, channelId: "")//友盟统计
+        //TODO:statusbar 改为白色的方法 在plist里面设置View controller-based status bar appearance 为 NO;设置statusBarStyle
+        application.statusBarStyle = UIStatusBarStyle.LightContent
         
         if ((UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0) {
             if #available(iOS 8.0, *) {
