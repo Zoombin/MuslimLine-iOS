@@ -66,10 +66,19 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
         self.view.addSubview(tableView)
         
         //注册ListView的adapter
-        tableView!.registerNib(UINib(nibName: "PrayTimeCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        if(PhoneUtils.screenWidth > 400){
+            tableView!.registerNib(UINib(nibName: "PrayTimeCell_plus", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        }else{
+            tableView!.registerNib(UINib(nibName: "PrayTimeCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        }
         
-        let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("CalendarView", owner: nil, options: nil)
-        calendarView = nibs.lastObject as! CalendarView
+        if(PhoneUtils.screenWidth > 400){
+            let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("CalendarView_plus", owner: nil, options: nil)
+            calendarView = nibs.lastObject as! CalendarView
+        }else{
+            let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("CalendarView", owner: nil, options: nil)
+            calendarView = nibs.lastObject as! CalendarView
+        }
         
         let canlendarX : CGFloat = (calendarBkgView.frame.size.width - calendarView.frame.size.width) / 2
         let canlendarY : CGFloat = (calendarBkgView.frame.size.height - calendarView.frame.size.height) / 2
@@ -206,16 +215,20 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 55
+        if(PhoneUtils.screenWidth > 400){
+            return 90
+        }else{
+            return 55
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let prayCell : PrayTimeCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PrayTimeCell
         let status = PrayTimeUtil.getPrayMediaStatu(indexPath.row)
         if(0 == status){
-            prayCell.voiceButton.setImage(UIImage(named: "voice_off"), forState: UIControlState.Normal)
+            prayCell.voiceButton.setBackgroundImage(UIImage(named: "voice_off"), forState: UIControlState.Normal)
         }else{
-            prayCell.voiceButton.setImage(UIImage(named: "voice_on"), forState: UIControlState.Normal)
+            prayCell.voiceButton.setBackgroundImage(UIImage(named: "voice_on"), forState: UIControlState.Normal)
         }
         let prayName : String = prayNames[indexPath.row] as! String
         prayCell.prayNameLabel.text = prayName

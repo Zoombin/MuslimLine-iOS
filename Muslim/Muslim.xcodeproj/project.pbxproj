@@ -113,6 +113,8 @@
 		4526E1841C1514700054D405 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4526E1831C1514700054D405 /* AudioToolbox.framework */; };
 		4526E1861C158E570054D405 /* CountryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4526E1851C158E570054D405 /* CountryDefault.swift */; };
 		45371A6D1C1C622200C9CF95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */; };
+		454345E41C30D6AE00B62921 /* PrayTimeCell_plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454345E31C30D6AE00B62921 /* PrayTimeCell_plus.xib */; };
+		454345E61C30EA2100B62921 /* CalendarView_plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454345E51C30EA2100B62921 /* CalendarView_plus.xib */; };
 		455353B01BF47E9A00A8427A /* SettingAdjustAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */; };
 		455353B21BF47E9A00A8427A /* SettingAdjustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */; };
 		45542E571BFEF64600F3A3A5 /* ReadViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */; };
@@ -378,6 +380,8 @@
 		4526E1831C1514700054D405 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4526E1851C158E570054D405 /* CountryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDefault.swift; sourceTree = "<group>"; };
 		45371A6C1C1C622200C9CF95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		454345E31C30D6AE00B62921 /* PrayTimeCell_plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrayTimeCell_plus.xib; path = Muslim/Models/PrayTimeCell_plus.xib; sourceTree = SOURCE_ROOT; };
+		454345E51C30EA2100B62921 /* CalendarView_plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView_plus.xib; sourceTree = "<group>"; };
 		455353AC1BF47E9A00A8427A /* SettingAdjustAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustAlertCell.swift; sourceTree = "<group>"; };
 		455353AE1BF47E9A00A8427A /* SettingAdjustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAdjustCell.swift; sourceTree = "<group>"; };
 		45542E561BFEF64600F3A3A5 /* ReadViewHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewHead.swift; sourceTree = "<group>"; };
@@ -807,6 +811,7 @@
 				18F617151C2D53BE00AC937F /* CalendarLocationViewPlus.xib */,
 				1855565B1BF08F6000A29B49 /* CalendarView.swift */,
 				1855565D1BF097C200A29B49 /* CalendarView.xib */,
+				454345E51C30EA2100B62921 /* CalendarView_plus.xib */,
 				45184AF71BE3B2FA007D3088 /* GuLJCell.swift */,
 				45AC9BD51C292F8A00D2A5EC /* GuLJCell.xib */,
 				456408D81BFD7609007A217B /* GuLJSearchCell.swift */,
@@ -824,6 +829,7 @@
 				18F617131C2D4B9600AC937F /* NoticeViewPlus.xib */,
 				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
 				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
+				454345E31C30D6AE00B62921 /* PrayTimeCell_plus.xib */,
 				45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */,
 				45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */,
 				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
@@ -1206,6 +1212,7 @@
 				18CAC35C1C27D651008AE9DE /* me_quran.ttf in Resources */,
 				45E8B2D01C2141CF00631781 /* adhan_salimi_ios.m4r in Resources */,
 				185F4DCC1C2932E2002DA025 /* holidayTimes.plist in Resources */,
+				454345E41C30D6AE00B62921 /* PrayTimeCell_plus.xib in Resources */,
 				183271C91C01C47A005078B6 /* NoticeView.xib in Resources */,
 				45AB3B3D1BEB2505005B91BA /* SettingsViewController.xib in Resources */,
 				183ECF3B1BF97E98003FB90C /* LogoViewController.xib in Resources */,
@@ -1233,6 +1240,7 @@
 				1855565A1BF0734E00A29B49 /* PrayTimeCell.xib in Resources */,
 				1855565E1BF097C200A29B49 /* CalendarView.xib in Resources */,
 				18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */,
+				454345E61C30EA2100B62921 /* CalendarView_plus.xib in Resources */,
 				45E8B2D61C2141CF00631781 /* adhan_entezar_ios.m4r in Resources */,
 				45EAF8461C11730B00E7956E /* translated_sura_titles.plist in Resources */,
 				45AC9BD31C292F8A00D2A5EC /* GuLJCell.xib in Resources */,
