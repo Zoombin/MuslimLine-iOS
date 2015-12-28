@@ -101,6 +101,7 @@
 		18F8FE8A1BF5D5AC00AC1888 /* ReaderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */; };
 		18F8FE8B1BF5D5AC00AC1888 /* ReaderItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */; };
 		18F9EB9E1BF447BC0096D021 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9EB9D1BF447BC0096D021 /* HRToast+UIView.swift */; };
+		18FB62781C30E7DF005782EF /* UIView+UIAppearance_Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB62771C30E7DF005782EF /* UIView+UIAppearance_Swift.m */; };
 		451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242B61BEE231F00AE3545 /* SettingAdjustViewController.swift */; };
 		451242BB1BEE29B400AE3545 /* QuranTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242BA1BEE29B400AE3545 /* QuranTextViewController.swift */; };
 		451242BD1BEE2B0A00AE3545 /* QuranAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451242BC1BEE2B0A00AE3545 /* QuranAudioViewController.swift */; };
@@ -358,6 +359,8 @@
 		18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderItemView.swift; sourceTree = "<group>"; };
 		18F8FE871BF5D5AC00AC1888 /* ReaderItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReaderItemView.xib; sourceTree = "<group>"; };
 		18F9EB9D1BF447BC0096D021 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HRToast+UIView.swift"; path = "Toast/HRToast+UIView.swift"; sourceTree = "<group>"; };
+		18FB62761C30E7DF005782EF /* UIView+UIAppearance_Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIAppearance_Swift.h"; sourceTree = "<group>"; };
+		18FB62771C30E7DF005782EF /* UIView+UIAppearance_Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIAppearance_Swift.m"; sourceTree = "<group>"; };
 		451137DA1C1EB9BA00FF4093 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/allah_names.plist; sourceTree = "<group>"; };
 		451137DB1C1EB9BA00FF4093 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = ar; path = ar.lproj/settings.json; sourceTree = "<group>"; };
 		451137DC1C1EB9BA00FF4093 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/translated_sura_titles.plist; sourceTree = "<group>"; };
@@ -715,6 +718,8 @@
 		186B5EF11BE1B1E600212049 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				18FB62761C30E7DF005782EF /* UIView+UIAppearance_Swift.h */,
+				18FB62771C30E7DF005782EF /* UIView+UIAppearance_Swift.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1325,6 +1330,7 @@
 				183ECFC61BF9BE4C003FB90C /* FMResultSet.m in Sources */,
 				184357AA1BE9E88D00194744 /* UIButton+AFNetworking.m in Sources */,
 				1843569A1BE9DC2F00194744 /* MSLHttpClient.swift in Sources */,
+				18FB62781C30E7DF005782EF /* UIView+UIAppearance_Swift.m in Sources */,
 				45F7E12E1BE36EF800FE79AB /* AboutViewController.swift in Sources */,
 				183ECFC51BF9BE4C003FB90C /* FMDatabaseQueue.m in Sources */,
 				45BC1D141C2A7A470033383E /* ReadRightViewV2.swift in Sources */,
