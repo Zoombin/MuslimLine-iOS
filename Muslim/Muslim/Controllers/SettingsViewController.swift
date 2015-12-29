@@ -27,7 +27,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         title = NSLocalizedString("settings_title", comment:"");
         //注册ListView的adapter findview
         listview!.registerNib(UINib(nibName: "SettingCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
-        
         listview!.registerNib(UINib(nibName: "SettingHead", bundle:nil), forCellReuseIdentifier: headCellIdentifier)
     }
     
@@ -380,7 +379,21 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         switch(listSection){
         case 0:
             //第一组
-            if(0 == Config.AutoSwitch){
+            if(1 == Config.AutoSwitch){
+                switch(listRow){
+                case 0:
+                    //穆斯林派别
+                    Config.saveFaction(btSelect)
+                    break
+                case 3:
+                    //小时制
+                    Config.saveTimeFormat(btSelect)
+                    listview.reloadData()
+                    break
+                default:
+                    break
+                }
+            }else{
                 switch(listRow){
                 case 0:
                     //穆斯林派别
@@ -410,20 +423,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 default:
                     break
                 }
-            }else{
-                switch(listRow){
-                case 0:
-                    //穆斯林派别
-                    Config.saveFaction(btSelect)
-                    break
-                case 3:
-                    //小时制
-                    Config.saveTimeFormat(btSelect)
-                    listview.reloadData()
-                    break
-                default:
-                    break
-                }
+                
             }
             break
         case 1:
@@ -450,7 +450,24 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         var select :Int = 0;
         switch(section){
         case 0:
-            if(0 == Config.AutoSwitch){
+            if(1 == Config.AutoSwitch){
+                switch(row){
+                case 0:
+                    select = Config.faction
+                    break
+                case 2:
+                    select = Config.AutoSwitch
+                    break
+                case 3:
+                    select = Config.TimeFormat
+                    break
+                case 4:
+                    select = Config.SlinetMode
+                    break
+                default:
+                    break
+                }
+            }else{
                 switch(row){
                 case 0:
                     select = Config.faction
@@ -474,23 +491,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                     select = Config.TimeFormat
                     break
                 case 8:
-                    select = Config.SlinetMode
-                    break
-                default:
-                    break
-                }
-            }else{
-                switch(row){
-                case 0:
-                    select = Config.faction
-                    break
-                case 2:
-                    select = Config.AutoSwitch
-                    break
-                case 3:
-                    select = Config.TimeFormat
-                    break
-                case 4:
                     select = Config.SlinetMode
                     break
                 default:
