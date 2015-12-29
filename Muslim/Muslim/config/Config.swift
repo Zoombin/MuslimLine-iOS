@@ -43,7 +43,6 @@
             getCalenderSelection()
             getAutoSwitch()
             getSlientMode()
-            CountryDefault.saveDefaultMethod(Config.getcountryName()) //更新默认地区设置
         }
         /**清除配置数据*/
         static func cleanData(){

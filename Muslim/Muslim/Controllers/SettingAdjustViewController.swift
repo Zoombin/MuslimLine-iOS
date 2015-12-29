@@ -158,7 +158,7 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         let titleLable :UILabel = UILabel(frame: CGRectMake(20,0,contentViewWidth,50))
         titleLable.text = NSLocalizedString("setting_manual_corr_dlg", comment:"")
         titleLable.textColor = Colors.greenColor
-        titleLable.font = UIFont.systemFontOfSize(Dimens.text_size_larger)
+        titleLable.font = UIFont.systemFontOfSize(16)
         titleLable.textAlignment = NSTextAlignment.Left
         contentView.addSubview(titleLable)
         
@@ -182,7 +182,7 @@ class SettingAdjustViewController: BaseViewController , UITableViewDelegate, UIT
         contentView.addSubview(foot)
         var cancelX = contentViewWidth-100
         if(PhoneUtils.rightThemeStyle()){
-            cancelX = 0
+            cancelX = 10
         }
         let cancelLable :UILabel = UILabel(frame: CGRectMake(cancelX,contentViewHight-50,90,50))
         cancelLable.text = NSLocalizedString("cancel", comment:"")

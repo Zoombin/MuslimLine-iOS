@@ -267,7 +267,10 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         }
         
         
-        let itemHight :CGFloat = 50
+        var itemHight :CGFloat = 60
+        if(PhoneUtils.screenWidth <= 320){
+            itemHight = 41
+        }
         let contentViewWidth :CGFloat = viewWidth-(30*2)
         var num = subset.count + 1 //加一个标题
         if(cancel){
@@ -281,20 +284,36 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         contentView.backgroundColor = Colors.lightGray
         bkgView.addSubview(contentView)
         
+        //标题背景
+        let titleBg :UIView = UIView(frame: CGRectMake(0,0,contentViewWidth,itemHight))
+        titleBg.backgroundColor = UIColor.whiteColor()
+        contentView.addSubview(titleBg)
         //标题
-        let titleLable :UILabel = UILabel(frame: CGRectMake(0,0,contentViewWidth,itemHight))
-        titleLable.text = "  "+(title as String)
-        titleLable.backgroundColor = UIColor.whiteColor()
+        let titleLable :UILabel = UILabel()
+        titleLable.frame =  CGRectMake(10,0,contentViewWidth-10,itemHight)
+        if(PhoneUtils.rightThemeStyle()){
+            titleLable.frame =  CGRectMake(0,0,contentViewWidth-10,itemHight)
+        }
+        titleLable.text = ""+(title as String)
+        titleLable.numberOfLines = 0
+        titleLable.lineBreakMode = NSLineBreakMode.ByWordWrapping
         titleLable.textColor = Colors.greenColor
-        titleLable.font = UIFont.systemFontOfSize(Dimens.text_size_larger)
+        titleLable.font = UIFont.systemFontOfSize(16)
         contentView.addSubview(titleLable)
         
         //item
         let itemCount = subset.count
         for index in 0...(itemCount - 1) {
-            let item :UILabel = UILabel(frame: CGRectMake(0,itemHight * CGFloat(index+1),contentViewWidth,itemHight))
+            let item :UILabel = UILabel()
+            item.frame = CGRectMake(10,itemHight * CGFloat(index+1),contentViewWidth-60,itemHight)
+            if(PhoneUtils.rightThemeStyle()){
+                item.frame = CGRectMake(10,itemHight * CGFloat(index+1),contentViewWidth-20,itemHight)
+            }
             let text : NSString = subset.objectAtIndex(index) as! NSString
-            item.text = "  "+(text as String)
+            item.text = ""+(text as String)
+            item.numberOfLines = 0
+            item.font = UIFont.systemFontOfSize(16)
+            item.lineBreakMode = NSLineBreakMode.ByWordWrapping
             item.userInteractionEnabled = true//设置点击事件
             let tagGestureLable : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("popItemClick:"))
             item.tag = index
@@ -305,11 +324,11 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             line.backgroundColor = UIColor.lightGrayColor()
             contentView.addSubview(line)
             
-            var btX = contentViewWidth - 50
+            var btX = contentViewWidth - itemHight
             if(PhoneUtils.rightThemeStyle()){
                 btX = 0
             }
-            let button:UIButton = UIButton(frame: CGRectMake(btX, itemHight * CGFloat(index+1) , 50, 50))
+            let button:UIButton = UIButton(frame: CGRectMake(btX, itemHight * CGFloat(index+1) , itemHight, itemHight))
             button.setImage(UIImage(named: "Selected"), forState: UIControlState.Selected)
             button.setImage(UIImage(named: "noSelected"), forState: UIControlState.Normal)
             button.tag = index
