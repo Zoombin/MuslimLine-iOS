@@ -22,9 +22,7 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     
     var needleAngle : Double?
     
-    @IBOutlet weak var composs: UIImageView!
-    @IBOutlet weak var needle: UIImageView!
-    @IBOutlet weak var compossView : UIView!
+    var compossView : CompossView!
     @IBOutlet weak var noticeLabel : UILabel!
     @IBOutlet weak var housePostion : UILabel!
 
@@ -81,6 +79,15 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
     }
     
     func initView() {
+        if(PhoneUtils.screenWidth > 400){
+            let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("CompossView_plus", owner: nil, options: nil)
+            compossView = nibs.lastObject as! CompossView
+        }else{
+            let nibs : NSArray = NSBundle.mainBundle().loadNibNamed("CompossView", owner: nil, options: nil)
+            compossView = nibs.lastObject as! CompossView
+        }
+        self.view.addSubview(compossView)
+        
         let settingLocationView : UIView = UIView(frame: CGRectMake(0, 64, PhoneUtils.screenWidth, 30))
         settingLocationView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(settingLocationView)
@@ -93,10 +100,18 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         locationButton.titleLabel?.font = UIFont.systemFontOfSize(14)
         locationButton.setTitleColor(Colors.greenColor, forState: UIControlState.Normal)
         locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
+        if(PhoneUtils.rightThemeStyle()){
+            locationButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5)
+        }
         locationButton.addTarget(self, action: Selector.init("locationSet"), forControlEvents: UIControlEvents.TouchUpInside)
         settingLocationView.addSubview(locationButton)
         
-         compossView.frame = CGRectMake((PhoneUtils.screenWidth - compossView.frame.size.width) / 2, (PhoneUtils.screenHeight - compossView.frame.size.height) / 2, compossView.frame.size.width, compossView.frame.size.height)
+        compossView.frame = CGRectMake((PhoneUtils.screenWidth - compossView.frame.size.width) / 2, (PhoneUtils.screenHeight - compossView.frame.size.height) / 2, compossView.frame.size.width, compossView.frame.size.height)
+        
+        if(PhoneUtils.screenWidth > 400){
+            housePostion.font = UIFont.systemFontOfSize(22)
+            noticeLabel.font = UIFont.systemFontOfSize(12)
+        }
     }
     
     func locationSet() {
@@ -147,8 +162,8 @@ class HouseLocationViewController: BaseViewController , CLLocationManagerDelegat
         }
         needleAngle = self.setLatLonForDistanceAndAngle(location)
         
-        self.needle.transform = CGAffineTransformMakeRotation(CGFloat(((Double(compassDirection) * M_PI) / 180.0) + needleAngle!))
-        self.composs.transform = CGAffineTransformMakeRotation(CGFloat((Double(compassDirection) * M_PI) / 180.0))
+        compossView.needle.transform = CGAffineTransformMakeRotation(CGFloat(((Double(compassDirection) * M_PI) / 180.0) + needleAngle!))
+        compossView.compass.transform = CGAffineTransformMakeRotation(CGFloat((Double(compassDirection) * M_PI) / 180.0))
     }
     
     override func viewDidAppear(animated: Bool) {

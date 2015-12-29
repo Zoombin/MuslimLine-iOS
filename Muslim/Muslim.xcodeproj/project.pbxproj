@@ -160,6 +160,9 @@
 		45C8372D1BF9D20300069723 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836ED1BF9D20300069723 /* unzip.c */; };
 		45C8372E1BF9D20300069723 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45C836EF1BF9D20300069723 /* zip.c */; };
 		45C8372F1BF9D20300069723 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C836F21BF9D20300069723 /* SSZipArchive.m */; };
+		45CDE4171C3252E400126049 /* CompossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDE4161C3252E400126049 /* CompossView.swift */; };
+		45CDE4191C32530600126049 /* CompossView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CDE4181C32530600126049 /* CompossView.xib */; };
+		45CDE41B1C32568000126049 /* CompossView_plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CDE41A1C32568000126049 /* CompossView_plus.xib */; };
 		45D02BDF1C01AFD3008E09BC /* AudioPlayerMr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */; };
 		45DEE6E51C2BE6F1004E6816 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DEE6E71C2BE6F1004E6816 /* BookMarkCell.xib */; };
 		45E8B2C31C2141CF00631781 /* saeidyan_ios.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 45E8B2AC1C2141CF00631781 /* saeidyan_ios.m4r */; };
@@ -464,6 +467,9 @@
 		45C836F01BF9D20300069723 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		45C836F11BF9D20300069723 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		45C836F21BF9D20300069723 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		45CDE4161C3252E400126049 /* CompossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompossView.swift; sourceTree = "<group>"; };
+		45CDE4181C32530600126049 /* CompossView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompossView.xib; sourceTree = "<group>"; };
+		45CDE41A1C32568000126049 /* CompossView_plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompossView_plus.xib; sourceTree = "<group>"; };
 		45D02BDE1C01AFD3008E09BC /* AudioPlayerMr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerMr.swift; sourceTree = "<group>"; };
 		45DEE6E61C2BE6F1004E6816 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BookMarkCell.xib; sourceTree = "<group>"; };
 		45DEE6EA1C2BE70B004E6816 /* fa */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fa; path = fa.lproj/BookMarkCell.xib; sourceTree = "<group>"; };
@@ -864,6 +870,9 @@
 				45AC9BC51C29248300D2A5EC /* SettingCell.xib */,
 				45AB3B341BEB24F2005B91BA /* SettingHead.swift */,
 				45AC9BC91C2925A600D2A5EC /* SettingHead.xib */,
+				45CDE4161C3252E400126049 /* CompossView.swift */,
+				45CDE4181C32530600126049 /* CompossView.xib */,
+				45CDE41A1C32568000126049 /* CompossView_plus.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1204,6 +1213,7 @@
 				45E8B2C91C2141CF00631781 /* sobhdel_ios.m4r in Resources */,
 				45E8B2C51C2141CF00631781 /* adhan_fajr_mansour_zahrani_ios.m4r in Resources */,
 				45E8B2CA1C2141CF00631781 /* seyed_abas_mirdamad_ios.m4r in Resources */,
+				45CDE4191C32530600126049 /* CompossView.xib in Resources */,
 				45EF2B6F1BFC3B8A008B01EE /* allahnames.json in Resources */,
 				18190BB01C05914100708D35 /* LocationSettingView.xib in Resources */,
 				45E8B2CB1C2141CF00631781 /* karami_ios.m4r in Resources */,
@@ -1235,6 +1245,7 @@
 				454345ED1C31321800B62921 /* sms-received1.caf in Resources */,
 				45AC9BBF1C2922F000D2A5EC /* QuranTextCell.xib in Resources */,
 				18BED7681BE8931600418054 /* MainViewController.xib in Resources */,
+				45CDE41B1C32568000126049 /* CompossView_plus.xib in Resources */,
 				45DEE6E51C2BE6F1004E6816 /* BookMarkCell.xib in Resources */,
 				45EAF8521C117B0400E7956E /* allah_names.plist in Resources */,
 				45E8B2D71C2141CF00631781 /* adhan_egypt_ios.m4r in Resources */,
@@ -1377,6 +1388,7 @@
 				1843574E1BE9E88D00194744 /* AFHTTPRequestOperationManager.m in Sources */,
 				183ECFC11BF9BE4C003FB90C /* FMDatabaseVariadic.swift in Sources */,
 				18F9EB9E1BF447BC0096D021 /* HRToast+UIView.swift in Sources */,
+				45CDE4171C3252E400126049 /* CompossView.swift in Sources */,
 				45EF2B701BFC3B8A008B01EE /* Config.swift in Sources */,
 				4521DD8B1BE885F00075A1FB /* Dimens.swift in Sources */,
 				451242B81BEE231F00AE3545 /* SettingAdjustViewController.swift in Sources */,
