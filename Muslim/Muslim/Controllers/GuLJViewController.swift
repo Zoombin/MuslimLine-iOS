@@ -55,11 +55,11 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func segmentedControlSelect() {
         if (segmentedControl.selectedSegmentIndex == 0) {
             tabIndex = 1
-            scrollview.setContentOffset( CGPointMake(0, 0 ), animated: true)
+            scrollview.setContentOffset(CGPointMake(0, 0 ), animated: true)
             nomarkLable.hidden = true
         } else {
             tabIndex = 2
-            scrollview.setContentOffset( CGPointMake(PhoneUtils.screenWidth, 0 ), animated: true)
+            scrollview.setContentOffset(CGPointMake(PhoneUtils.screenWidth, 0 ), animated: true)
         }
         setMarkStatu()
     }
@@ -72,7 +72,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             segmentedControl.selectedSegmentIndex = 1
             leftLine.hidden = true
             rightLine.hidden = false
-        }else{
+        } else if (offset.x == 0) {
             tabIndex = 1
             segmentedControl.selectedSegmentIndex = 0
             leftLine.hidden = false
