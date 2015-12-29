@@ -29,12 +29,13 @@ class LocalNoticationUtils: NSObject {
                 dateFormatter.dateFormat = "HH:mm"
             } else {
                 //12
+                prayTime = prayTime.uppercaseString
                 let isAfternoon = prayTime.containsString("PM")
                 prayTime = prayTime.stringByReplacingOccurrencesOfString(" AM", withString: "")
                 prayTime = prayTime.stringByReplacingOccurrencesOfString(" PM", withString: "")
                 var hour = prayTime.componentsSeparatedByString(":").first! as NSString
                 if (isAfternoon && hour.integerValue < 12) {
-                    hour = String(format: "%@", hour.integerValue + 12)
+                    hour = String(format: "%d", hour.integerValue + 12)
                 }
                 let minute = prayTime.componentsSeparatedByString(":").last! as NSString
                 prayTime = String(format: "%@:%@", hour, minute)
