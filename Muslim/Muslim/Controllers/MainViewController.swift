@@ -171,13 +171,14 @@ class MainViewController: BaseViewController {
             button.layer.borderWidth = 0.5 //设置边框的宽度
             button.layer.borderColor = Colors.bottomLineColor.CGColor //设置边框的颜色
             button.setImage(UIImage(named: imageNames[index]), forState: UIControlState.Normal)
+            button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 10, 0)
             button.tag = index + 1
             button.addTarget(self, action: Selector.init(actions[index]), forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(button)
             
             let titleLabel : UILabel = UILabel()
-            titleLabel.frame = CGRectMake(5, buttonHeight - (buttonHeight / 4), buttonWidth - 10 , (buttonHeight / 4));
-            titleLabel.font = UIFont.systemFontOfSize(height <= 480 ? 12 : 14)
+            titleLabel.frame = CGRectMake(5, buttonHeight - (buttonHeight / 3.5), buttonWidth - 10 , (buttonHeight / 3.5));
+            titleLabel.font = UIFont.systemFontOfSize(height <= 480 ? 12 : 16)
             titleLabel.numberOfLines = 0
             titleLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
             titleLabel.textAlignment = NSTextAlignment.Center
