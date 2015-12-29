@@ -13,6 +13,9 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     let cellIdentifier = "myCell"
     @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var leftLine: UIView!
+    @IBOutlet weak var rightLine : UIView!
+    
     @IBOutlet weak var guLJlistView: UITableView!//章节listview
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -37,6 +40,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let rightImage : UIImage =  UIImage(named: "search")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
         
+        segmentedControl.frame = CGRectMake(segmentedControl.frame.origin.x, segmentedControl.frame.origin.y, segmentedControl.frame.size.width, segmentedControl.frame.size.height + 25)
         setupView()
     }
     
@@ -55,7 +59,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             nomarkLable.hidden = true
         } else {
             tabIndex = 2
-             scrollview.setContentOffset( CGPointMake(PhoneUtils.screenWidth, 0 ), animated: true)
+            scrollview.setContentOffset( CGPointMake(PhoneUtils.screenWidth, 0 ), animated: true)
         }
         setMarkStatu()
     }
@@ -66,9 +70,13 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         if(offset.x >= PhoneUtils.screenWidth){
             tabIndex = 2
             segmentedControl.selectedSegmentIndex = 1
+            leftLine.hidden = true
+            rightLine.hidden = false
         }else{
             tabIndex = 1
             segmentedControl.selectedSegmentIndex = 0
+            leftLine.hidden = false
+            rightLine.hidden = true
         }
         setMarkStatu()
     }

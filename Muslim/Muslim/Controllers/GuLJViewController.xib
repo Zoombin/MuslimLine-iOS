@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="bmarkListview" destination="SbR-0F-Wbe" id="pCD-V5-haQ"/>
                 <outlet property="guLJlistView" destination="DVL-UP-CtT" id="fhf-fO-ZBp"/>
+                <outlet property="leftLine" destination="9JP-eb-74Z" id="8Hf-5q-L0R"/>
                 <outlet property="nomarkLable" destination="U6a-rv-nJ6" id="s6K-7G-gaH"/>
+                <outlet property="rightLine" destination="MAB-Ay-vuN" id="wjS-VZ-C8c"/>
                 <outlet property="scrollview" destination="kS8-pz-Li4" id="yt0-Jr-ol9"/>
                 <outlet property="segmentedControl" destination="XSE-K1-sD0" id="eKU-UF-XLq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,19 +23,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="XSE-K1-sD0">
-                    <rect key="frame" x="0.0" y="70" width="320" height="29"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="29"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="章节"/>
                         <segment title="书签"/>
                     </segments>
                 </segmentedControl>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" id="kS8-pz-Li4">
-                    <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kS8-pz-Li4">
+                    <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DVL-UP-CtT">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +45,7 @@
                             </connections>
                         </tableView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SbR-0F-Wbe">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -52,7 +54,7 @@
                             </connections>
                         </tableView>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无书签" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U6a-rv-nJ6">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <rect key="frame" x="0.0" y="8" width="320" height="427"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -62,6 +64,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </scrollView>
+                <view contentMode="scaleToFill" id="9JP-eb-74Z">
+                    <rect key="frame" x="0.0" y="118" width="160" height="2"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.93695193355119832" green="0.92156862745098034" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" id="MAB-Ay-vuN">
+                    <rect key="frame" x="159" y="118" width="160" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.93695193359999995" green="0.92156862750000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="398" y="372"/>
