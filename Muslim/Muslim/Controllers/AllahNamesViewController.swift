@@ -50,7 +50,7 @@ class AllahNamesViewController: BaseViewController , UITableViewDelegate, UITabl
     
     //设置每个item的高度
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 90
+        return 95
     }
     
     //设置行数
