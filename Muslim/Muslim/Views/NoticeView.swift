@@ -22,7 +22,6 @@ class NoticeView: UIView {
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
-        currentPertage = 0.7
         // Drawing code
         Log.printLog("------------")
         Log.printLog(currentPertage)
