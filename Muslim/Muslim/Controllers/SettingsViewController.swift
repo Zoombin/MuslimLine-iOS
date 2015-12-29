@@ -32,6 +32,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     
     override func viewDidAppear(animated: Bool) {
         loadData()
+        listview.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         listview.reloadData()
     }
     

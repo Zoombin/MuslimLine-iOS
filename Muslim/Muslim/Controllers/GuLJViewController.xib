@@ -67,12 +67,12 @@
                 <view contentMode="scaleToFill" id="9JP-eb-74Z">
                     <rect key="frame" x="0.0" y="113" width="160" height="2"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.93695193355119832" green="0.92156862745098034" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.9882352941176471" green="0.66666666666666663" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" id="MAB-Ay-vuN">
                     <rect key="frame" x="159" y="113" width="160" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.93695193359999995" green="0.92156862750000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.9882352941176471" green="0.66666666666666663" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
