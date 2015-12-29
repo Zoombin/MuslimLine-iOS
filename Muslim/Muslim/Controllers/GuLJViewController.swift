@@ -34,7 +34,6 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         self.view.backgroundColor = Colors.greenColor
         let rightImage : UIImage =  UIImage(named: "search")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
-        
         setupView()
     }
     
