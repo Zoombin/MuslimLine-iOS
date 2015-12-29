@@ -91,8 +91,8 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     
     //菜单界面
     func initMenuView(){
-        let itemHight:CGFloat = 50
-        let menuWidth:CGFloat = 180
+        let itemHight:CGFloat = 60
+        let menuWidth:CGFloat = 190
         let menuHight:CGFloat = itemHight * 3
         let menuX :CGFloat = PhoneUtils.screenWidth - menuWidth;
         let menuY :CGFloat = 64;
@@ -110,10 +110,10 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
             button.frame = CGRectMake(0, itemY, menuWidth, itemHight)
             button.backgroundColor = UIColor.whiteColor()
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            button.titleEdgeInsets = UIEdgeInsetsMake(0, 55, 0, 0)
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0)
             button.layer.borderWidth = 0.5 //设置边框的宽度
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-            button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
+            button.layer.borderColor = Colors.bottomLineColor.CGColor //设置边框的颜色
             button.addTarget(self, action: Selector.init("menuClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             button.tag = index
             button.setTitle(titles[index], forState:UIControlState.Normal)

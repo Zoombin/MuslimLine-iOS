@@ -97,7 +97,7 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center//居中
             button.layer.borderWidth = 0.5 //设置边框的宽度
-            button.layer.borderColor = UIColor.lightGrayColor().CGColor //设置边框的颜色
+            button.layer.borderColor = Colors.bottomLineColor.CGColor //设置边框的颜色
             button.addTarget(self, action: Selector.init("popMenuClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             button.tag = index
             button.setTitle(titles[index], forState:UIControlState.Normal)
