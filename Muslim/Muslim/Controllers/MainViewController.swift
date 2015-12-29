@@ -26,7 +26,7 @@ class MainViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshUserLocation", name: "ViewBecomeActive", object: nil)
         //注: 设置title
         let titleLabel = UILabel(frame: CGRectMake(0, 0, (240 / 320) * PhoneUtils.screenWidth, 44))

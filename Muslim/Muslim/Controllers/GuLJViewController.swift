@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource ,UIScrollViewDelegate{
+class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource ,UIScrollViewDelegate, BookMarkCellDelegate, UIAlertViewDelegate{
     var tabIndex = 1
     
     let cellIdentifier = "myCell"
@@ -26,6 +26,8 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     var translated_sura_titles : NSArray = NSArray() //翻译列表
     
     var bookmarkArray : NSMutableArray = NSMutableArray() //书签列表
+    var hasShowAlert : Bool = false
+    var bookMarkIndex : NSInteger = 0
     
     
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         self.view.backgroundColor = Colors.greenColor
         let rightImage : UIImage =  UIImage(named: "search")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
+        
         setupView()
     }
     
@@ -172,6 +175,32 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         return 0
     }
     
+    func showAlertWithPosition(index: NSInteger) {
+        if (hasShowAlert) {
+            return
+        }
+        bookMarkIndex = index
+        hasShowAlert = true
+        let alterview  = UIAlertView()
+        alterview.title = NSLocalizedString("delete_bookmark", comment: "")
+        alterview.addButtonWithTitle(NSLocalizedString("ok", comment:""))
+        alterview.addButtonWithTitle(NSLocalizedString("cancel", comment: ""))
+        alterview.cancelButtonIndex = 1
+        alterview.delegate = self
+        alterview.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        hasShowAlert = false
+        if (alertView.cancelButtonIndex != buttonIndex) {
+            print("删除")
+            let bookmark = bookmarkArray[bookMarkIndex] as! Bookmark
+            FMDBHelper.getInstance().deleteBookmark(bookmark.suraId!, aya:bookmark.ayaId!)
+            loadBookMarkData()
+            segmentedControlSelect()
+        }
+    }
+    
     //getView方法，进行生成界面和赋值
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let tag = tableView.tag
@@ -192,6 +221,9 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             let bookmark = bookmarkArray[indexPath.row] as! Bookmark
             bookmarkCell.bookmark_title.text = bookmark.transliteration as? String
             bookmarkCell.bookmark_subtitle.text = String(format: NSLocalizedString("verse2", comment:""), bookmark.ayaId! )
+            bookmarkCell.delegate = self
+            bookmarkCell.contentView.tag = indexPath.row
+            bookmarkCell.initLongGesture(indexPath.row)
             bookmarkCell.arabic_title.text = bookmark.suraName as? String
             //字体未设置
             
@@ -232,12 +264,12 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        let tag = tableView.tag
-        if(100 == tag){
+//        let tag = tableView.tag
+//        if(100 == tag){
             return false
-        }else{
-            return true
-        }
+//        }else{
+//            return true
+//        }
     }
     
     //上一次阅读位置
