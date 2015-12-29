@@ -22,10 +22,14 @@ class NoticeView: UIView {
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
+        currentPertage = 0.7
         // Drawing code
         Log.printLog("------------")
         Log.printLog(currentPertage)
         drawBackCircle()//背景圆
+        
+        showPoint()
+        
         let currentEnd = ((end - start) * currentPertage) + start
         let color = Colors.progressGreenColor
         color.set()
@@ -36,6 +40,20 @@ class NoticeView: UIView {
         aPath!.lineCapStyle = CGLineCap.Round
         aPath!.lineJoinStyle = CGLineJoin.Round
         aPath!.stroke()
+        
+        showPoint()
+    }
+    
+    func showPoint() {
+        let currentEnd = ((end - start) * currentPertage) + start
+        let color = Colors.progressGreenColor
+        color.set()
+        let bPath = UIBezierPath()
+        bPath.addArcWithCenter(CGPointMake(self.frame.size.width / 2, self.frame.size.width / 2), radius: self.frame.size.width / 2 == 80.0 ? 70 : 90, startAngle: CGFloat((M_PI * currentEnd) / 180), endAngle: CGFloat((M_PI * currentEnd + 0.1) / 180)  , clockwise: true)
+        bPath.lineWidth = 10.0
+        bPath.lineCapStyle = CGLineCap.Round
+        bPath.lineJoinStyle = CGLineJoin.Round
+        bPath.stroke()
     }
     
     func currentProgress(pertage : Double) {
