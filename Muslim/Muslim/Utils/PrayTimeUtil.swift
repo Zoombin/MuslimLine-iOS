@@ -87,7 +87,7 @@ class PrayTimeUtil: NSObject {
         let nextTime = Config.getPrayTime(next) as String
         
         let dateFormat = NSDateFormatter()
-        dateFormat.dateFormat = "YYYY-MM-dd"
+        dateFormat.dateFormat = "yyyy-MM-dd"
         let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
         
         let dateCurrent : NSDate = getSimpleDateFormat2().dateFromString(currentTime)! as NSDate
@@ -117,7 +117,7 @@ class PrayTimeUtil: NSObject {
         let nextTime = Config.getPrayTime(next) as String
         
         let dateFormat = NSDateFormatter()
-        dateFormat.dateFormat = "YYYY-MM-dd"
+        dateFormat.dateFormat = "yyyy-MM-dd"
         let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
         
         let dateFormatter  = getSimpleDateFormat1()
@@ -135,7 +135,7 @@ class PrayTimeUtil: NSObject {
     static func getCurrentPrayTime() ->Int{
         let dataArray:NSMutableArray = getPrayTimes()
         let df : NSDateFormatter  = getSimpleDateFormat()
-        let  now :String = df.stringFromDate(NSDate())
+        let now :String = df.stringFromDate(NSDate())
         if(dataArray.count <= 0){
             return -1
         }
@@ -145,7 +145,7 @@ class PrayTimeUtil: NSObject {
                 let nexttime : String = dataArray[i+1] as! String
                 
                 let dateFormat = NSDateFormatter()
-                dateFormat.dateFormat = "YYYY-MM-dd"
+                dateFormat.dateFormat = "yyyy-MM-dd"
                 let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
                 
                 let dateFormatter  = getSimpleDateFormat1()
@@ -302,7 +302,7 @@ class PrayTimeUtil: NSObject {
         if (Config.TimeFormat == 0) {
             dateFormat.dateFormat = "HH:mm"
         }else{
-            dateFormat.dateFormat = "HH:mm a"
+            dateFormat.dateFormat = "hh:mm aaa"
         }
         let zone = Config.getTimeZone()
         let timeZone = NSTimeZone.init(name: zone)
@@ -315,9 +315,9 @@ class PrayTimeUtil: NSObject {
         let dateFormat = NSDateFormatter()
         
         if (Config.TimeFormat == 0) {
-            dateFormat.dateFormat = "YYYY-MM-dd HH:mm"
+            dateFormat.dateFormat = "yyyy-MM-dd HH:mm"
         }else{
-            dateFormat.dateFormat = "YYYY-MM-dd HH:mm a"
+            dateFormat.dateFormat = "yyyy-MM-dd hh:mm aaa"
         }
         
         let zone = Config.getTimeZone()
@@ -331,9 +331,9 @@ class PrayTimeUtil: NSObject {
         let dateFormat = NSDateFormatter()
         
         if (Config.TimeFormat == 0) {
-            dateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
+            dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         }else{
-            dateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss a"
+            dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss a"
         }
         
         let zone = Config.getTimeZone()
