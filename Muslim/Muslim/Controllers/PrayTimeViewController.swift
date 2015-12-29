@@ -215,7 +215,7 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if(PhoneUtils.screenWidth > 400){
-            return 90
+            return 70
         }else{
             return 55
         }
