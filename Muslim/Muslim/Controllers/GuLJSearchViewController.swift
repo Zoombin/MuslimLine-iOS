@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate ,UIScrollViewDelegate{
+class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate ,UIScrollViewDelegate, UITextFieldDelegate{
 
     var dataArray : NSMutableArray = NSMutableArray()
     let cellIdentifier = "guLJSearchCell"
@@ -30,13 +30,7 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         searBar.placeholder = NSLocalizedString("keywords", comment:"")
         self.view.addSubview(searBar)
         
-        let view : UIView = searBar.subviews.last! as UIView
-        for (var i = 0; i < view.subviews.count; i++) {
-            if (view.subviews[i].isKindOfClass(UITextField)) {
-                let textField : UITextField = view.subviews[i] as! UITextField
-                textField.font = UIFont.systemFontOfSize(10)
-            }
-        }
+        setSearchBarSize(10)
         
         listView = UITableView()
         listView.frame = CGRectMake(0, CGRectGetMaxY(searBar.frame), width, height - CGRectGetMaxY(searBar.frame))
@@ -47,6 +41,16 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         
         //注册ListView的adapter
         listView.registerNib(UINib(nibName: "GuLJSearchCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+    }
+    
+    func setSearchBarSize(size : CGFloat) {
+        let view : UIView = searBar.subviews.last! as UIView
+        for (var i = 0; i < view.subviews.count; i++) {
+            if (view.subviews[i].isKindOfClass(UITextField)) {
+                let textField : UITextField = view.subviews[i] as! UITextField
+                textField.font = UIFont.systemFontOfSize(size)
+            }
+        }
     }
     
     //搜索
@@ -177,6 +181,12 @@ class GuLJSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     //搜索
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         searchQuran(searchText)
+        
+        if (searchText.isEmpty) {
+            setSearchBarSize(10)
+        } else {
+            setSearchBarSize(14)
+        }
     }
     
     override func didReceiveMemoryWarning() {

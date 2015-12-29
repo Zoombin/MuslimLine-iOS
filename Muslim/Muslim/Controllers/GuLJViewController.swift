@@ -40,7 +40,7 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let rightImage : UIImage =  UIImage(named: "search")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image : rightImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("searchButtonClicked"))
         
-        segmentedControl.frame = CGRectMake(segmentedControl.frame.origin.x, segmentedControl.frame.origin.y, segmentedControl.frame.size.width, segmentedControl.frame.size.height + 25)
+        segmentedControl.frame = CGRectMake(segmentedControl.frame.origin.x, segmentedControl.frame.origin.y, segmentedControl.frame.size.width, segmentedControl.frame.size.height + 20)
         setupView()
     }
     
@@ -67,6 +67,9 @@ class GuLJViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     //scrollview 滚动完成
     func scrollViewDidScroll(scrollView: UIScrollView){
         let offset = scrollView.contentOffset
+        if (scrollView.tag == 100 || scrollView.tag == 200) {
+            return
+        }
         if(offset.x >= PhoneUtils.screenWidth){
             tabIndex = 2
             segmentedControl.selectedSegmentIndex = 1

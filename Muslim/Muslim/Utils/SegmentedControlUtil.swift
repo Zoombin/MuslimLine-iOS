@@ -14,12 +14,12 @@ class SegmentedControlUtil: NSObject {
         segmentedControl.tintColor = UIColor.clearColor()
         //注NSMutableDictionary是可变更的字典
         let selectedTextAttributes : NSMutableDictionary = NSMutableDictionary()
-        selectedTextAttributes.setObject(UIFont.systemFontOfSize(18), forKey: NSFontAttributeName)
+        selectedTextAttributes.setObject(UIFont.systemFontOfSize(15), forKey: NSFontAttributeName)
         selectedTextAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
         segmentedControl.setTitleTextAttributes(selectedTextAttributes as [NSObject : AnyObject], forState: UIControlState.Selected)
         
         let unselectedTextAttributes : NSMutableDictionary = NSMutableDictionary()
-        unselectedTextAttributes.setObject(UIFont.systemFontOfSize(18), forKey: NSFontAttributeName)
+        unselectedTextAttributes.setObject(UIFont.systemFontOfSize(15), forKey: NSFontAttributeName)
         unselectedTextAttributes.setObject(UIColor(colorLiteralRed: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.5), forKey: NSForegroundColorAttributeName)
         segmentedControl.setTitleTextAttributes(unselectedTextAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
     }
