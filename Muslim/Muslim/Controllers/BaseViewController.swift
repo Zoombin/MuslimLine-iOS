@@ -140,7 +140,10 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     }
     
     func pushViewController(to : UIViewController) {
-        let leftImage : UIImage =  UIImage(named: "ic_back")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        var leftImage : UIImage =  UIImage(named: "ic_back")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        if(PhoneUtils.rightThemeStyle()){
+            leftImage =  UIImage(named: "ic_back1")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        }
         to.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: leftImage, style: UIBarButtonItemStyle.Plain, target: self, action: Selector.init("backButtonClicked"))
         self.navigationController?.pushViewController(to, animated: true)
     }
