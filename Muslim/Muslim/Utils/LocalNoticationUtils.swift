@@ -47,24 +47,12 @@ class LocalNoticationUtils: NSObject {
             localNotification.timeZone = timeZone
             //TODO: 提醒但是没提示音
             if (PrayTimeUtil.getPrayMediaStatu(i) != 0) {
-                localNotification.soundName = getSoundName(i)
+                localNotification.soundName = PrayTimeUtil.getPrayMedia(i)
             }
             localNotification.repeatInterval = NSCalendarUnit.Day
             localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         }
-    }
-    static func getSoundName(index : Int) -> String {
-        var soundName = PrayTimeUtil.getPrayMedia(index)
-        if (soundName == "0") {
-            soundName = UILocalNotificationDefaultSoundName
-        }
-        else if (soundName == "1") {
-            soundName = UILocalNotificationDefaultSoundName //默认
-        } else if (soundName == "2") {
-            soundName = "aghati_ios.m4r"
-        }
-        return soundName
     }
     
     static func getPrayNoticContent(index : Int) -> String{

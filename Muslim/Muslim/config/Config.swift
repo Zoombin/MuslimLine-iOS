@@ -416,7 +416,7 @@
         ]
          static let alarm_type_files_sunni : NSArray  = [
             "",
-            "",
+            "sms-received1.caf", //系统默认
             "adhan_fajr_madina_ios.m4r",
             "adhan_1_ios.m4r",
             "adhan_abdul_baset_ios.m4r",
@@ -448,7 +448,7 @@
         ]
          static let alarm_type_files_shia : NSArray  = [
             "",
-            "",
+            "sms-received1.caf", //系统默认
             "aghati_ios.m4r",
             "adhan_entezar_ios.m4r",
             "hazin_ios.m4r",
