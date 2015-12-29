@@ -36,6 +36,7 @@ class CalendarUtils: NSObject {
         let timeZone = NSTimeZone.init(name: zone)
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = timeZone
+        dateFormatter.locale = NSLocale.init(localeIdentifier: "en_US")
         if (timeFormat == 0) {
             //24
             dateFormatter.dateFormat = "HH:mm"
