@@ -333,7 +333,7 @@ class PrayTimeUtil: NSObject {
         if (Config.TimeFormat == 0) {
             dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         }else{
-            dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss a"
+            dateFormat.dateFormat = "yyyy-MM-dd hh:mm:ss aaa"
         }
         
         let zone = Config.getTimeZone()
