@@ -73,6 +73,7 @@
 		1887FD0A1BD7387400CB83D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FD091BD7387400CB83D5 /* Assets.xcassets */; };
 		1887FD181BD7387400CB83D5 /* MuslimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD171BD7387400CB83D5 /* MuslimTests.swift */; };
 		1887FD231BD7387500CB83D5 /* MuslimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887FD221BD7387500CB83D5 /* MuslimUITests.swift */; };
+		189C90681C322B9F00D67B37 /* CalendarCellPlus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C90671C322B9F00D67B37 /* CalendarCellPlus.xib */; };
 		18A424F91BF49326002FE6BC /* HouseLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A424F81BF49326002FE6BC /* HouseLocationViewController.xib */; };
 		18ADB8D21BE340ED00FA387E /* GuLJViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */; };
 		18ADB8D31BE340ED00FA387E /* GuLJViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */; };
@@ -330,6 +331,7 @@
 		1887FD1E1BD7387500CB83D5 /* MuslimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FD221BD7387500CB83D5 /* MuslimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimUITests.swift; sourceTree = "<group>"; };
 		1887FD241BD7387500CB83D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189C90671C322B9F00D67B37 /* CalendarCellPlus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarCellPlus.xib; sourceTree = "<group>"; };
 		18A424F81BF49326002FE6BC /* HouseLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseLocationViewController.xib; sourceTree = "<group>"; };
 		18ADB8D01BE340ED00FA387E /* GuLJViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuLJViewController.swift; sourceTree = "<group>"; };
 		18ADB8D11BE340ED00FA387E /* GuLJViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuLJViewController.xib; sourceTree = "<group>"; };
@@ -813,12 +815,13 @@
 				1875BF8F1BFAD95500A4EEA3 /* CalendarButton.swift */,
 				183ECFCD1BF9D350003FB90C /* CalendarCell.swift */,
 				183ECFCE1BF9D350003FB90C /* CalendarCell.xib */,
+				189C90671C322B9F00D67B37 /* CalendarCellPlus.xib */,
 				183271C61C01C3B8005078B6 /* CalendarLocationView.swift */,
 				183271FD1C01ECF6005078B6 /* CalendarLocationView.xib */,
 				18F617151C2D53BE00AC937F /* CalendarLocationViewPlus.xib */,
+				454345E51C30EA2100B62921 /* CalendarView_plus.xib */,
 				1855565B1BF08F6000A29B49 /* CalendarView.swift */,
 				1855565D1BF097C200A29B49 /* CalendarView.xib */,
-				454345E51C30EA2100B62921 /* CalendarView_plus.xib */,
 				45184AF71BE3B2FA007D3088 /* GuLJCell.swift */,
 				45AC9BD51C292F8A00D2A5EC /* GuLJCell.xib */,
 				456408D81BFD7609007A217B /* GuLJSearchCell.swift */,
@@ -834,9 +837,9 @@
 				183271C41C01C3A6005078B6 /* NoticeView.swift */,
 				183271C81C01C47A005078B6 /* NoticeView.xib */,
 				18F617131C2D4B9600AC937F /* NoticeViewPlus.xib */,
+				454345E31C30D6AE00B62921 /* PrayTimeCell_plus.xib */,
 				185556571BF0734E00A29B49 /* PrayTimeCell.swift */,
 				185556581BF0734E00A29B49 /* PrayTimeCell.xib */,
-				454345E31C30D6AE00B62921 /* PrayTimeCell_plus.xib */,
 				45FBBDA61BF72C9300BA35F9 /* QuranTextCell.swift */,
 				45AC9BC11C2922F000D2A5EC /* QuranTextCell.xib */,
 				18F8FE861BF5D5AC00AC1888 /* ReaderItemView.swift */,
@@ -1209,6 +1212,7 @@
 				45BC1D181C2A7B110033383E /* ReadLeftViewV2.xib in Resources */,
 				18ADB8DE1BE374C200FA387E /* Localizable.strings in Resources */,
 				45E8B2D51C2141CF00631781 /* adhan_fajr_madina_ios.m4r in Resources */,
+				189C90681C322B9F00D67B37 /* CalendarCellPlus.xib in Resources */,
 				45E8B2CF1C2141CF00631781 /* adhan_sharif_ios.m4r in Resources */,
 				45AC9BD71C2930F500D2A5EC /* guLJViewHead.xib in Resources */,
 				45AC9BC71C2925A600D2A5EC /* SettingHead.xib in Resources */,

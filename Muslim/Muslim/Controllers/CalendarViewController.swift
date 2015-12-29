@@ -43,7 +43,8 @@ class CalendarViewController: BaseViewController {
         sureButton.setTitle(NSLocalizedString("ok", comment: ""), forState: UIControlState.Normal)
         
         //注册ListView的adapter
-        holidayTableView!.registerNib(UINib(nibName: "CalendarCell", bundle:nil), forCellReuseIdentifier: cellIdentifier)
+        let nibsName = UIScreen.mainScreen().bounds.size.width > 400 ? "CalendarCellPlus" : "CalendarCell"
+        holidayTableView!.registerNib(UINib(nibName: nibsName, bundle:nil), forCellReuseIdentifier: cellIdentifier)
         holidayTableView.tableHeaderView = calendarBkgView
         
         let rightImage : UIImage =  UIImage(named: "calendar")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
@@ -271,7 +272,7 @@ class CalendarViewController: BaseViewController {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return UIScreen.mainScreen().bounds.size.width > 400 ? 85 : 70
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
