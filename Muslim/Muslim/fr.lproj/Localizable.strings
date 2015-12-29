@@ -180,6 +180,7 @@
 
 "calendar_selection" = "Sélection du calendrier";
 "persian_calendar" = "Calendrier persan";
+"islamic_calendar" = "Islamic Calendar";
 
 "backtoast" = "Cliquer une fois de plus pour sortir";
 "nobookmark" = "Aucun favori";
