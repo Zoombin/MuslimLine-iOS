@@ -133,20 +133,22 @@ class PrayTimeUtil: NSObject {
         
     /**获取当前礼拜时间*/
     static func getCurrentPrayTime() ->Int{
+        var index = -1
         let dataArray:NSMutableArray = getPrayTimes()
         let df : NSDateFormatter  = getSimpleDateFormat()
         let now :String = df.stringFromDate(NSDate())
         if(dataArray.count <= 0){
             return -1
         }
+        
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
+        
         for var i=0 ; i < dataArray.count ; i++ {
             if (i < dataArray.count - 1) {
                 let beforetime : String = dataArray[i] as! String
                 let nexttime : String = dataArray[i+1] as! String
-                
-                let dateFormat = NSDateFormatter()
-                dateFormat.dateFormat = "yyyy-MM-dd"
-                let currentYearMonthDay = dateFormat.stringFromDate(NSDate())
                 
                 let dateFormatter  = getSimpleDateFormat1()
                 let dateNow : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + now)! as NSDate
@@ -154,14 +156,26 @@ class PrayTimeUtil: NSObject {
                 let dateNext : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + nexttime)! as NSDate
                 
                 if (dateNow.timeIntervalSince1970 < dateBefore.timeIntervalSince1970 && i == 0) {
-                    return -1
+                    index  = -1
+                    break
                 }
                 
                 if (dateNow.timeIntervalSince1970 >= dateBefore.timeIntervalSince1970 && dateNow.timeIntervalSince1970 < dateNext.timeIntervalSince1970) {
-                    return i
+                    index  = i
+                    break
                 }
             }else{
-                return -1
+                index  = -1
+                break
+            }
+        }
+        if(index == -1){
+            //晚上12点以前是最后一个
+            let dateFormatter  = getSimpleDateFormat2()
+            let dateNow : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + now)! as NSDate
+            let date24 : NSDate = dateFormatter.dateFromString(currentYearMonthDay + " " + get24Time())! as NSDate
+            if (dateNow.timeIntervalSince1970 < date24.timeIntervalSince1970) {
+                index  = 5
             }
         }
         return -1
@@ -341,6 +355,16 @@ class PrayTimeUtil: NSObject {
         dateFormat.timeZone  = timeZone
         dateFormat.locale = NSLocale.init(localeIdentifier: "en_US")
         return dateFormat
+    }
+    
+    static func get24Time()->String{
+        var time = ""
+        if (Config.TimeFormat == 0) {
+            time = "23:59:59"
+        } else {
+            time = "11:59:59 PM"
+        }
+        return time;
     }
 
 }
