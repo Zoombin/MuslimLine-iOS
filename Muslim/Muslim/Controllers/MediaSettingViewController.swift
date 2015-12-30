@@ -39,10 +39,6 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         getData()
     }
     
-    override func viewDidDisappear(animated: Bool) {
-          AlarmMediaMr.getInstance().stop()
-    }
-    
     func getData(){
         select = PrayTimeUtil.getPrayMediaStatu(AlarmType)
         if(Config.FACTION_SHIA == Config.getFaction()){
@@ -188,6 +184,11 @@ class MediaSettingViewController: BaseViewController , UITableViewDelegate, UITa
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        AlarmMediaMr.getInstance().stop()
+        //页面关闭 刷新通知
+        LocalNoticationUtils.showLocalNotification()
+    }
     
     /*
     // MARK: - Navigation

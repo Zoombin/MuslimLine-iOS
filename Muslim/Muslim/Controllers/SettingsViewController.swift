@@ -299,14 +299,13 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         let itemCount = subset.count
         for index in 0...(itemCount - 1) {
             let item :UILabel = UILabel()
-            item.frame = CGRectMake(10,itemHight * CGFloat(index+1),contentViewWidth-60,itemHight)
+            item.frame = CGRectMake(10,itemHight * CGFloat(index+1),contentViewWidth-itemHight,itemHight)
             if(PhoneUtils.rightThemeStyle()){
                 item.frame = CGRectMake(10,itemHight * CGFloat(index+1),contentViewWidth-20,itemHight)
             }
             let text : NSString = subset.objectAtIndex(index) as! NSString
             item.text = ""+(text as String)
             item.numberOfLines = 0
-            item.backgroundColor = UIColor.blueColor()
             item.font = UIFont.systemFontOfSize(16)
             item.lineBreakMode = NSLineBreakMode.ByWordWrapping
             item.userInteractionEnabled = true//设置点击事件
@@ -326,13 +325,11 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let button:UIButton = UIButton(frame: CGRectMake(btX, itemHight * CGFloat(index+1) , itemHight, itemHight))
             button.setImage(UIImage(named: "Selected"), forState: UIControlState.Selected)
             button.setImage(UIImage(named: "noSelected"), forState: UIControlState.Normal)
-            button.backgroundColor = UIColor.redColor()
             button.tag = index
             if(index == select){
                 button.selected = true
             }
             
-            button.userInteractionEnabled = false
             button.addTarget(self, action: Selector.init("popBtClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             contentView.addSubview(button)
         }
@@ -353,6 +350,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 cancelLable.textAlignment = NSTextAlignment.Left
             }
             cancelLable.textColor = UIColor.lightGrayColor()
+            cancelLable.userInteractionEnabled = true
             let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
             cancelLable.addGestureRecognizer(tagGesture)
             contentView.addSubview(cancelLable)
@@ -416,6 +414,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                     //小时制
                     Config.saveTimeFormat(btSelect)
                     listview.reloadData()
+                    PrayTimeUtil.getPrayTime(0) //重新存礼拜时间（因为格式变了）
                     break
                 default:
                     break
@@ -446,6 +445,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                     //小时制
                     Config.saveTimeFormat(btSelect)
                     listview.reloadData()
+                    PrayTimeUtil.getPrayTime(0) //重新存礼拜时间（因为格式变了）
                     break
                 default:
                     break
@@ -544,6 +544,11 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     /**移除弹弹窗**/
     func removeAlertView() {
         bkgView.removeFromSuperview()
+    }
+    
+    //页面关闭 刷新通知
+    override func viewDidDisappear(animated: Bool) {
+        LocalNoticationUtils.showLocalNotification()
     }
     
     
