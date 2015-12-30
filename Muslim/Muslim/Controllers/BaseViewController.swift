@@ -41,6 +41,11 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
         self.view.addSubview(locationSettingView)
     }
     
+    func hidenLocationView() {
+        locationSettingView.hidden = true
+        locationSettingView.hideKeyboard()
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if (locationSettingView.hidden == false) {
@@ -137,6 +142,7 @@ class BaseViewController: UIViewController, LocationSettingDelegate, ShareUtilsD
     func showOrHidePopView() {
         fullPopView.hidden = !fullPopView.hidden
         self.view.bringSubviewToFront(fullPopView)
+        hidenLocationView()
     }
     
     func pushViewController(to : UIViewController) {

@@ -87,6 +87,7 @@ class NearbyViewController: BaseViewController, UITableViewDelegate, UITableView
     
     func menuButtonClicked() {
         menuView.hidden = !menuView.hidden
+        hidenLocationView()
     }
     
     //菜单界面
