@@ -61,6 +61,10 @@ class MainViewController: BaseViewController {
         CalendarUtils.getDate()
         noticeView.currentTimeLabel.text = CalendarUtils.getDate()
         currentPrayTime = PrayTimeUtil.getCurrentPrayTime()
+        if(currentPrayTime == 6){
+            //多保存那个是24点以前的
+            currentPrayTime = 5
+        }
         if(currentPrayTime == -1){
             //第一个
             currentPrayTime = 0

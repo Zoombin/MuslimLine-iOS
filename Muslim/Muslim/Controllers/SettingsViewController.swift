@@ -261,12 +261,6 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
         bkgView.backgroundColor = Colors.trans
         self.view.addSubview(bkgView)
         
-        let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
-        if(cancel){
-            bkgView.addGestureRecognizer(tagGesture)
-        }
-        
-        
         var itemHight :CGFloat = 60
         if(PhoneUtils.screenWidth <= 320){
             itemHight = 41
@@ -312,6 +306,7 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let text : NSString = subset.objectAtIndex(index) as! NSString
             item.text = ""+(text as String)
             item.numberOfLines = 0
+            item.backgroundColor = UIColor.blueColor()
             item.font = UIFont.systemFontOfSize(16)
             item.lineBreakMode = NSLineBreakMode.ByWordWrapping
             item.userInteractionEnabled = true//设置点击事件
@@ -331,13 +326,14 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
             let button:UIButton = UIButton(frame: CGRectMake(btX, itemHight * CGFloat(index+1) , itemHight, itemHight))
             button.setImage(UIImage(named: "Selected"), forState: UIControlState.Selected)
             button.setImage(UIImage(named: "noSelected"), forState: UIControlState.Normal)
+            button.backgroundColor = UIColor.redColor()
             button.tag = index
             if(index == select){
                 button.selected = true
             }
             
             button.userInteractionEnabled = false
-            //button.addTarget(self, action: Selector.init("popItemClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: Selector.init("popBtClick:"), forControlEvents: UIControlEvents.TouchUpInside)
             contentView.addSubview(button)
         }
         
@@ -357,6 +353,8 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
                 cancelLable.textAlignment = NSTextAlignment.Left
             }
             cancelLable.textColor = UIColor.lightGrayColor()
+            let tagGesture : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector.init("removeAlertView"))
+            cancelLable.addGestureRecognizer(tagGesture)
             contentView.addSubview(cancelLable)
         }
     }
@@ -390,11 +388,20 @@ class SettingsViewController: BaseViewController , UITableViewDelegate, UITableV
     
     /**选中按钮点击事件**/
     func popItemClick(sender : UIGestureRecognizer) {
-        //sender.selected = !sender.selected
-        removeAlertView()
-        
         let btSelect : NSInteger = sender.view!.tag
         Log.printLog(btSelect)
+        itemClick(btSelect)
+    }
+    
+    func popBtClick(sender : UIButton) {
+        let btSelect : NSInteger = sender.tag
+        Log.printLog(btSelect)
+        itemClick(btSelect)
+    }
+    
+    
+    func itemClick(btSelect : Int) {
+        removeAlertView()
         //处理切换事件
         switch(listSection){
         case 0:

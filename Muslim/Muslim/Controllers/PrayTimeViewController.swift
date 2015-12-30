@@ -238,6 +238,10 @@ class PrayTimeViewController: BaseViewController, UITableViewDelegate, UITableVi
                 prayTime = "00:00"
             }
             prayCell.prayTimeLabel.text = prayTime.uppercaseString
+            if(currentPrayTime == 6){
+                //多保存那个是24点以前的
+                currentPrayTime = 5
+            }
             if(currentPrayTime == indexPath.row){
                 prayCell.timeSelectedButton.setImage(UIImage(named: "parytime_selected"), forState: UIControlState.Normal)
             }else{
