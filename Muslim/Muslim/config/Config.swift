@@ -321,7 +321,7 @@
         
         /**逊尼派响里闹钟声音*/
         static func getSunniAlarm(alarmType:Int)->Int {
-            return UserDefaultsUtil.getInt(String(format: "SunniAlarm_%d", alarmType))
+            return UserDefaultsUtil.getInt(String(format: "SunniAlarm_%d", alarmType),defalt: -1)
         }
         static func setSunniAlarm(alarmType:Int,select:Int) {
             UserDefaultsUtil.saveInt(String(format: "SunniAlarm_%d", alarmType), value:select)
@@ -329,7 +329,7 @@
         
         /**什叶派响里闹钟声音*/
         static func getShiaAlarm(alarmType:Int)->Int {
-            return UserDefaultsUtil.getInt(String(format: "ShiaAlarm_%d", alarmType))
+            return UserDefaultsUtil.getInt(String(format: "ShiaAlarm_%d", alarmType),defalt: -1)
         }
         static func setShiaAlarm(alarmType:Int,select:Int) {
             UserDefaultsUtil.saveInt(String(format: "ShiaAlarm_%d", alarmType), value:select)

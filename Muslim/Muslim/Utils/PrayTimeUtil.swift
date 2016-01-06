@@ -28,8 +28,8 @@ class PrayTimeUtil: NSObject {
         if(Config.FACTION_SHIA == Config.getFaction()){
             //什叶派
             var config = Config.getShiaAlarm(mediaType)
-            if(0 == config){
-                //默认时处理
+            //默认时处理
+            if(-1 == config){
                 if(mediaType == 0){
                     config = 1 //默认铃声
                 }else if(mediaType == 1){
@@ -44,8 +44,8 @@ class PrayTimeUtil: NSObject {
         }else{
             //逊尼派 sunni
             var config = Config.getSunniAlarm(mediaType)
-            if(0 == config){
-                //默认时处理
+            //默认时处理
+            if(-1 == config){
                 if(mediaType == 1){
                     //sunrise
                     config = 0 //静音
