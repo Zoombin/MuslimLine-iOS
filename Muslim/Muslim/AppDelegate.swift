@@ -152,6 +152,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UIAlertViewDelegate {
         alterview.delegate = self
         alterview.show()
         
+        if(notification.soundName == nil){
+            return
+        }
         let soundName = notification.soundName! as String
         if(!soundName.isEmpty){
             if(AudioPlayerMr.getInstance().isPlaying){
