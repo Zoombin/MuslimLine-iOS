@@ -139,7 +139,7 @@ class MSLHttpClient: NSObject {
         manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/html") as Set<NSObject>
         let params : NSMutableDictionary = NSMutableDictionary()
         params["Action"] = "1005"
-//        params["channel"] = ""
+        params["channel"] = "ios"
         
         manager.POST(urlString, parameters: params, success:
             { (operation, responseObject) -> Void in
